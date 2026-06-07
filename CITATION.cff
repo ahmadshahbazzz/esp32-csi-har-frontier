@@ -9,6 +9,10 @@ abstract: >-
   measured on-device latency and memory on the classic ESP32.
 type: software
 authors:
+  - family-names: Malik
+    given-names: Annas Waseem
+    affiliation: "Faculty of Information Technology, University of Central Punjab, Lahore, Pakistan"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # add Malik's ORCID before release
   - family-names: Ahmad
     given-names: Muhammad
     affiliation: "Faculty of Information Technology, University of Central Punjab, Lahore, Pakistan"

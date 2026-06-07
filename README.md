@@ -2,7 +2,7 @@
 
 Submission and reproducibility package.
 
-**Author:** Muhammad Ahmad, Faculty of Information Technology, University of Central Punjab, Lahore, Pakistan.
+**Authors:** Annas Waseem Malik and Muhammad Ahmad, Faculty of Information Technology, University of Central Punjab, Lahore, Pakistan.
 **Target venue:** IEEE Access (primary), IEEE Sensors Journal (alternative).
 **Paper type:** systems / TinyML deployment-characterization (not a new-model paper).
 

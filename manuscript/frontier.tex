@@ -16,14 +16,14 @@
 
 \title{How Far Can a PSRAM-less ESP32 Go? A TinyML Deployment Study for WiFi CSI Human Activity Recognition}
 
-\author{\uppercase{Muhammad Ahmad}\authorrefmark{1}}
-\address[1]{Faculty of Information Technology, University of Central Punjab, Lahore, Pakistan (e-mail: muhammad.ahmad@ucp.edu.pk)}
+\author{\uppercase{Annas Waseem Malik}\authorrefmark{1} and \uppercase{Muhammad Ahmad}\authorrefmark{1}}
+\address[1]{Faculty of Information Technology, University of Central Punjab, Lahore, Pakistan (e-mail: annas.malik@ucp.edu.pk; muhammad.ahmad@ucp.edu.pk)}
 
 \markboth
-{Ahmad: How Far Can a PSRAM-less ESP32 Go? A TinyML Deployment Study for WiFi CSI HAR}
-{Ahmad: How Far Can a PSRAM-less ESP32 Go? A TinyML Deployment Study for WiFi CSI HAR}
+{Malik and Ahmad: How Far Can a PSRAM-less ESP32 Go? A TinyML Deployment Study for WiFi CSI HAR}
+{Malik and Ahmad: How Far Can a PSRAM-less ESP32 Go? A TinyML Deployment Study for WiFi CSI HAR}
 
-\corresp{Corresponding author: Muhammad Ahmad (e-mail: muhammad.ahmad@ucp.edu.pk).}
+\corresp{Corresponding author: Annas Waseem Malik (e-mail: annas.malik@ucp.edu.pk).}
 
 \begin{abstract}
 WiFi Channel State Information (CSI) is a useful signal for device-free human activity recognition (HAR), and a growing number of studies move the inference onto the cheap microcontroller-class radios themselves so the technology can be deployed at scale. Almost all of that on-device work, however, targets the more capable ESP32-S3 with external PSRAM, or it uses the microcontroller only as a CSI collector and runs the model elsewhere. The cheapest, most common, and weakest member of the family, the classic ESP32 with no PSRAM and only about 108 kilobytes of usable contiguous internal SRAM, has not been characterized as an inference target for CSI HAR. This paper provides that characterization. Rather than proposing a new model, we map the deployability frontier: for two public datasets (UT-HAR and CSI-HAR) we train and quantize a graded set of models, from classical learners (Decision Tree, Random Forest, and a small multilayer perceptron on handcrafted statistics) through a tiny-CNN width sweep and a tiny neural multilayer perceptron, up to five standard deep architectures (convolutional, recurrent, attention, Kolmogorov-Arnold, and state-space), and we report accuracy, model complexity, 8-bit conversion feasibility, model size, and on-device fit on the bare classic ESP32. Two deployment walls bound the frontier from above. A convertibility wall blocks the recurrent and state-space families: they do not convert to the TensorFlow Lite for Microcontrollers builtin operator set. A memory wall blocks the families that do convert: the int8 convolutional, Transformer, and Kolmogorov-Arnold models each require a tensor arena larger than the device budget and therefore fail to allocate, even after the input window is downsampled by a factor of eight. Below those walls the result is positive. The classical learners are orders of magnitude smaller than any network and fit the device easily, and the tiny convolutional networks convert cleanly to int8 models of 9 to 38 kilobytes. On the saturated UT-HAR benchmark the small models are within a point or two of the deep models, with the 32-channel tiny CNN at 96.7\% and a classical multilayer perceptron on statistics at 95.3\%. On CSI-HAR, evaluated subject-independently with leave-one-user-out, accuracy is much lower for every model (best 62.1\%), which reflects how hard cross-subject generalization is on a small three-user corpus rather than a deployment limit. On the physical device, every tiny network allocates with a peak tensor arena of 8 to 13 kilobytes, roughly an order of magnitude below the budget and two below the deep models that fail, and runs in 14 to 117 milliseconds per inference. The contribution is a fair, reproducible deployment map that tells a practitioner exactly which models are realistic on the most constrained commodity WiFi microcontroller, together with the released code, models, and measurement firmware.
@@ -240,7 +240,7 @@ The frontier uses two datasets and a single microcontroller; the UT-HAR accuracy
 We presented a deployability frontier for WiFi CSI human activity recognition on the cheapest and most constrained commodity WiFi microcontroller, the PSRAM-less classic ESP32. Across two datasets and a graded set of models from classical learners through tiny networks to five deep architectures, we showed that the standard deep models are blocked by a convertibility wall or a memory wall, and that classical learners and tiny convolutional networks are the models that actually fit and run. On the saturated UT-HAR benchmark these small models are competitive (a tiny CNN at 96.7\% and a classical multilayer perceptron at 95.3\%), while a subject-independent evaluation on CSI-HAR shows that cross-subject generalization, not deployability, is the harder open problem at this scale. We confirmed on the physical device that the tiny networks allocate with an 8 to 13\,kB arena and run in 14 to 117\,ms per inference, while no deep model allocates at all. The contribution is a practitioner-oriented, reproducible map of what is deployable on the bare device, with all code, models, and measurement firmware released. Future work includes a precise on-device energy study with a current probe and extending the frontier to additional microcontrollers, datasets, and live-capture validation.
 
 \section*{Acknowledgements}
-The author thanks the Faculty of Information Technology, University of Central Punjab, for support and computing resources.
+The authors thank the Faculty of Information Technology, University of Central Punjab, for support and computing resources.
 
 \section*{Reproducibility}
 The training and quantization notebook, the exported int8 models and classical models, the emlearn C export of the trees, and the ESP32 measurement firmware and protocol will be released at publication. All off-device results are reproducible from the released notebook on standard cloud GPUs.
@@ -249,19 +249,19 @@ The training and quantization notebook, the exported int8 models and classical m
 This study uses two public datasets: UT-HAR, available through the SenseFi library \cite{yang2023sensefi}, and the CSI-HAR dataset \cite{csihardataset}. No new human-subject data were collected. The code, trained models, and firmware that support the findings will be released in a public repository at publication.
 
 \section*{Author Contributions}
-M. Ahmad: conceptualization, methodology, software, validation, formal analysis, investigation, data curation, writing (original draft, review, and editing), and visualization.
+A. W. Malik: conceptualization, methodology, supervision, project administration, and writing (review and editing). M. Ahmad: methodology, software, validation, formal analysis, investigation, data curation, writing (original draft), and visualization.
 
 \section*{Ethics Declaration}
-This work involves only secondary analysis of publicly available, de-identified datasets and on-device latency and memory measurements. No experiments on human participants or animals were conducted by the author, so ethics approval was not required.
+This work involves only secondary analysis of publicly available, de-identified datasets and on-device latency and memory measurements. No experiments on human participants or animals were conducted by the authors, so ethics approval was not required.
 
 \section*{Conflict of Interest}
-The author declares no conflict of interest.
+The authors declare no conflict of interest.
 
 \section*{Funding}
 This research received no specific grant from any funding agency in the public, commercial, or not-for-profit sectors.
 
 \section*{Use of AI Tools}
-An AI assistant was used to help draft and edit code and prose. All experimental results, on-device measurements, and scientific claims were produced and verified by the author, who takes full responsibility for the content.
+An AI assistant was used to help draft and edit code and prose. All experimental results, on-device measurements, and scientific claims were produced and verified by the authors, who take full responsibility for the content.
 
 \begin{thebibliography}{99}
 
