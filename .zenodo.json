@@ -1,0 +1,24 @@
+{
+  "title": "How Far Can a PSRAM-less ESP32 Go? A TinyML Deployment Study for WiFi CSI HAR",
+  "description": "Code, executed notebook (with outputs), on-device measurement firmware, results, and trained models (sklearn .joblib, int8 .tflite, emlearn C) for a deployment-characterization study of WiFi CSI human activity recognition on the classic PSRAM-less ESP32. Covers classical learners, tiny neural networks, and five deep architectures on UT-HAR and CSI-HAR, with measured on-device latency and memory.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "version": "1.0.0",
+  "creators": [
+    {
+      "name": "Ahmad, Muhammad",
+      "affiliation": "Faculty of Information Technology, University of Central Punjab, Lahore, Pakistan"
+    }
+  ],
+  "keywords": [
+    "WiFi sensing",
+    "channel state information",
+    "human activity recognition",
+    "TinyML",
+    "ESP32",
+    "microcontroller",
+    "on-device inference",
+    "int8 quantization"
+  ]
+}

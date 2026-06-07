@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, data, or results, please cite it as below."
+title: "How Far Can a PSRAM-less ESP32 Go? A TinyML Deployment Study for WiFi CSI HAR"
+abstract: >-
+  Code, executed notebook, on-device measurement firmware, results, and trained
+  models for a deployment-characterization study of WiFi CSI human activity
+  recognition on the classic PSRAM-less ESP32. Spans classical learners, tiny
+  neural networks, and five deep architectures across UT-HAR and CSI-HAR, with
+  measured on-device latency and memory on the classic ESP32.
+type: software
+authors:
+  - family-names: Ahmad
+    given-names: Muhammad
+    affiliation: "Faculty of Information Technology, University of Central Punjab, Lahore, Pakistan"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # add your ORCID before release
+license: MIT
+repository-code: "https://github.com/m-ahmad3/esp32-csi-har-frontier"
+version: "1.0.0"
+date-released: "2026-06-07"
+keywords:
+  - WiFi sensing
+  - channel state information
+  - human activity recognition
+  - TinyML
+  - ESP32
+  - microcontroller
+  - on-device inference
+  - int8 quantization
+  - decision tree
+  - random forest
