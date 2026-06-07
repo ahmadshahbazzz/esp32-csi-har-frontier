@@ -8,23 +8,27 @@ Submission and reproducibility package.
 
 ## What this paper shows
 On the cheapest and most constrained commodity WiFi microcontroller, the classic
-PSRAM-less ESP32 (about 108 kB of usable contiguous SRAM), we map the deployability
+PSRAM-less ESP32 (about 150 kB of usable contiguous SRAM), we map the deployability
 frontier for WiFi CSI human activity recognition across three model tiers (classical
 learners, tiny neural networks, and five standard deep architectures) on two public
-datasets (UT-HAR and CSI-HAR).
+datasets (UT-HAR and CSI-HAR). The two-part conclusion: on this hardware deployment is
+not the bottleneck, but cross-subject generalization is.
 
 Headline findings, all backed by the evidence in `results/`:
-1. Two deployment walls bound the deep tier. A convertibility wall blocks recurrent and
-   state-space models (they do not convert to TensorFlow Lite for Microcontrollers). A
-   memory wall blocks the convolutional, Transformer, and Kolmogorov-Arnold models (their
-   int8 tensor arenas exceed 108 kB and fail to allocate, on UT-HAR).
-2. Classical learners and tiny CNNs fit and run. Measured on the physical board: tiny
+1. The board runs more than expected. Flashing every convertible model on-device shows a
+   full deep CNN (10 to 12 kB arena) and Transformer (24 to 54 kB) both run on the bare
+   classic ESP32, so there is NO general memory wall. Only a convertibility wall is real:
+   recurrent and state-space models do not convert to TensorFlow Lite for Microcontrollers,
+   and the Chebyshev-KAN converts but fails to allocate.
+2. Classical learners and tiny CNNs fit and run cheaply. Measured on the board: tiny
    networks use 8 to 13 kB of arena and 14 to 117 ms per inference; the emlearn Decision
-   Tree and Random Forest run in about 1 and 45 microseconds with under 1 kB of RAM.
-3. On the saturated UT-HAR benchmark the small models are competitive (tiny CNN 96.7 percent,
-   classical statistics MLP 95.3 percent). On CSI-HAR, evaluated subject-independently with
-   leave-one-user-out, accuracy is much lower for every model (best 62.1 percent), which
-   reflects how hard cross-subject generalization is rather than a deployment limit.
+   Tree and Random Forest run in about 1 and 45 microseconds with under 1 kB of RAM. They
+   are the efficiency choice, not the only option.
+3. The binding constraint is cross-subject generalization. Under leave-one-user-out on
+   CSI-HAR the same six models drop a mean of 29 points (best 96 to 63 percent) versus a
+   random split that leaks users across train and test. On the saturated UT-HAR benchmark
+   the small models stay competitive (tiny CNN 96.7, statistics MLP 95.3 percent).
+
 
 ## Folder layout
 ```
