@@ -204,28 +204,28 @@ Deep tier (all)  & UT-HAR  & \multicolumn{2}{c}{not deployable (no fit / no conv
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=\columnwidth]{fig_memory.png}
 \caption{Measured peak tensor arena of the tiny networks on the classic ESP32, against the roughly 108\,kB SRAM budget (dashed line). Every tiny model uses 8 to 13\,kB, an order of magnitude below the budget, while the deep models exceed it and fail to allocate (shaded region). This is the central deployability result.}
 \label{fig:memory}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=\columnwidth]{fig_frontier.png}
 \caption{Accuracy versus int8 size for the tiny networks on both datasets (size on a logarithmic axis). The 16-channel tiny CNN sits at the top-left on both datasets, giving the best accuracy per kilobyte. The int8 file size is a lower bound on on-device cost; the runtime arena, which is what meets the device budget, is measured separately.}
 \label{fig:frontier}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=\columnwidth]{fig_accuracy.png}
 \caption{Accuracy of the classical and tiny tiers across UT-HAR and CSI-HAR. Accuracy is consistently lower on CSI-HAR, the single-ESP32 dataset with fewer samples per class.}
 \label{fig:accuracy}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=\columnwidth]{fig_complexity.png}
 \caption{Model complexity on a logarithmic axis (tree node count or network parameter count). The classical learners are one to three orders of magnitude smaller than the networks, which is why they fit the device with large margins.}
