@@ -43,7 +43,7 @@ extern "C" void app_main(void) {
     }
     // Broad op set covering the tiny CNN/MLP (Conv1D decomposes to ExpandDims+Conv2D,
     // GlobalAveragePooling1D to Mean) plus the deep models.
-    static tflite::MicroMutableOpResolver<22> resolver;
+    static tflite::MicroMutableOpResolver<40> resolver;
     resolver.AddConv2D();        resolver.AddDepthwiseConv2D();
     resolver.AddFullyConnected();resolver.AddReshape();
     resolver.AddMaxPool2D();     resolver.AddMean();          // global avg pool
@@ -55,6 +55,12 @@ extern "C" void app_main(void) {
     resolver.AddStridedSlice();  resolver.AddPack();
     resolver.AddExpandDims();    resolver.AddShape();
     resolver.AddAveragePool2D(); resolver.AddTranspose();
+    resolver.AddBatchMatMul();   resolver.AddGather();        // Transformer attention
+    resolver.AddCast();          resolver.AddSlice();
+    resolver.AddNeg();           resolver.AddFill();          // Transformer / KAN
+    resolver.AddSquaredDifference(); resolver.AddRsqrt();     // LayerNorm
+    resolver.AddSquare();        resolver.AddExp();
+    resolver.AddSplit();         resolver.AddPad();
 
     static tflite::MicroInterpreter interp(model, resolver, tensor_arena, asize);
     if (interp.AllocateTensors() != kTfLiteOk) {

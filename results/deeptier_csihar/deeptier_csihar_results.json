@@ -1,0 +1,37 @@
+{
+  "CNN": {
+    "acc_mean": 0.6404761904761905,
+    "acc_std": 0.04714045207910314,
+    "params": 73927,
+    "converts": true,
+    "int8_kb": 86.3
+  },
+  "BiGRU": {
+    "acc_mean": 0.6428571428571429,
+    "acc_std": 0.0058321184351980675,
+    "params": 54023,
+    "converts": false,
+    "int8_kb": -1
+  },
+  "Transformer": {
+    "acc_mean": 0.580952380952381,
+    "acc_std": 0.034173095462874566,
+    "params": 50631,
+    "converts": true,
+    "int8_kb": 76.3
+  },
+  "ChebyKAN": {
+    "acc_mean": 0.6571428571428571,
+    "acc_std": 0.03086066999241836,
+    "params": 62080,
+    "converts": true,
+    "int8_kb": 73.7
+  },
+  "SSM": {
+    "acc_mean": 0.47380952380952385,
+    "acc_std": 0.10790732565356818,
+    "params": 29575,
+    "converts": false,
+    "int8_kb": -1
+  }
+}
