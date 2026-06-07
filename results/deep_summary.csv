@@ -1,0 +1,11 @@
+model,dataset,converts,on_device,arena_kB
+CNN,UT-HAR,yes,fits,10.0
+BiGRU,UT-HAR,no,not_convertible,
+Transformer,UT-HAR,yes,fits,24.0
+ChebyKAN,UT-HAR,yes,alloc_fail,
+SSM,UT-HAR,no,not_convertible,
+CNN,CSI-HAR,yes,fits,12.0
+BiGRU,CSI-HAR,no,not_convertible,
+Transformer,CSI-HAR,yes,fits,54.0
+ChebyKAN,CSI-HAR,yes,alloc_fail,
+SSM,CSI-HAR,no,not_convertible,
