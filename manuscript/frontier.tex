@@ -203,9 +203,10 @@ Table~\ref{tab:ondevice} reports the measured latency and memory for the tiny an
 \centering
 \footnotesize
 \setlength{\tabcolsep}{4pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{llccc}
 \toprule
-Model & Dataset & Latency (ms) & RAM (kB) & Energy (mJ, est.) \\
+Model & Dataset & Latency (ms) & RAM (kB) & Energy (mJ) \\
 \midrule
 Decision Tree   & UT-HAR & 0.0011 & $<$1 & $<$0.001 \\
 Random Forest   & UT-HAR & 0.045  & $<$1 & 0.007 \\
@@ -220,7 +221,7 @@ Tiny MLP (net)   & CSI-HAR & 22.5  & 7.7  & 3.7 \\
 \midrule
 Deep CNN/Transf. & both & \multicolumn{3}{c}{fit, 10--54\,kB arena (Table~\ref{tab:deep})} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \begin{figure}[tbp]
