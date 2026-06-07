@@ -1,0 +1,38 @@
+[
+  {
+    "model": "DecisionTree_csihar",
+    "header": "DecisionTree_csihar.h",
+    "c_source_bytes": 8783,
+    "estimator": "DecisionTreeClassifier"
+  },
+  {
+    "model": "DecisionTree_uthar",
+    "header": "DecisionTree_uthar.h",
+    "c_source_bytes": 52601,
+    "estimator": "DecisionTreeClassifier"
+  },
+  {
+    "model": "RandomForest_csihar",
+    "header": "RandomForest_csihar.h",
+    "c_source_bytes": 140117,
+    "estimator": "RandomForestClassifier"
+  },
+  {
+    "model": "RandomForest_uthar",
+    "header": "RandomForest_uthar.h",
+    "c_source_bytes": 878755,
+    "estimator": "RandomForestClassifier"
+  },
+  {
+    "model": "TinyMLP_csihar",
+    "header": "TinyMLP_csihar.h",
+    "c_source_bytes": 100071,
+    "estimator": "MLPClassifier"
+  },
+  {
+    "model": "TinyMLP_uthar",
+    "header": "TinyMLP_uthar.h",
+    "c_source_bytes": 169900,
+    "estimator": "MLPClassifier"
+  }
+]

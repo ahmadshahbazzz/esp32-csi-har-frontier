@@ -1,0 +1,9 @@
+model,dataset,arena_bytes,arena_kB,latency_ms,fits
+TinyCNN8,UT-HAR,13152,12.8,21.370,yes
+TinyCNN16,UT-HAR,13344,13.0,44.405,yes
+TinyCNN32,UT-HAR,13728,13.4,116.512,yes
+TinyMLP_nn,UT-HAR,12784,12.5,38.125,yes
+TinyCNN8,CSI-HAR,8288,8.1,14.287,yes
+TinyCNN16,CSI-HAR,8480,8.3,30.206,yes
+TinyCNN32,CSI-HAR,8864,8.7,69.393,yes
+TinyMLP_nn,CSI-HAR,7920,7.7,22.494,yes

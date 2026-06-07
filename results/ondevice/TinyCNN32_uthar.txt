@@ -1,0 +1,476 @@
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: ize=173a8h ( 95144) map[0m
+DEV: v:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_0,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: ff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,len:7076
+DEV: load:0x40078000,len:15576
+DEV: load:0x40080400,len:4
+DEV: load:0x40080404,len:3876
+DEV: entry 0x4008064c
+DEV: [0;32mI (29) boot: ESP-IDF v5.1 2nd stage bootloader[0m
+DEV: [0;32mI (29) boot: compile time Jun  7 2026 16:42:14[0m
+DEV: [0;32mI (29) boot: Multicore bootloader[0m
+DEV: [0;32mI (33) boot: chip revision: v3.1[0m
+DEV: [0;32mI (37) boot.esp32: SPI Speed      : 40MHz[0m
+DEV: [0;32mI (42) boot.esp32: SPI Mode       : DIO[0m
+DEV: [0;32mI (46) boot.esp32: SPI Flash Size : 4MB[0m
+DEV: [0;32mI (51) boot: Enabling RNG early entropy source...[0m
+DEV: [0;32mI (56) boot: Partition Table:[0m
+DEV: [0;32mI (60) boot: ## Label            Usage          Type ST Offset   Length[0m
+DEV: [0;32mI (67) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+DEV: [0;32mI (75) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+DEV: [0;32mI (82) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+DEV: [0;32mI (90) boot: End of partition table[0m
+DEV: [0;32mI (94) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=173a8h ( 95144) map[0m
+DEV: [0;32mI (137) esp_image: segment 1: paddr=000273d0 vaddr=3ffb0000 size=01fd8h (  8152) load[0m
+DEV: [0;32mI (140) esp_image: segment 2: paddr=000293b0 vaddr=40080000 size=06c68h ( 27752) load[0m
+DEV: [0;32mI (154) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=3ee08h (257544) map[0m
+DEV: [0;32mI (247) esp_image: segment 4: paddr=0006ee30 vaddr=40086c68 size=04910h ( 18704) load[0m
+DEV: [0;32mI (261) boot: Loaded app from partition at offset 0x10000[0m
+DEV: [0;32mI (261) boot: Disabling RNG early entropy source...[0m
+DEV: [0;32mI (273) cpu_start: Multicore app[0m
+DEV: [0;32mI (273) cpu_start: Pro cpu up.[0m
+DEV: [0;32mI (273) cpu_start: Starting app cpu, entry point is 0x4008112c[0m
+DEV: [0;32mI (0) cpu_start: App cpu up.[0m
+DEV: [0;32mI (291) cpu_start: Pro cpu start user code[0m
+DEV: [0;32mI (291) cpu_start: cpu freq: 160000000 Hz[0m
+DEV: [0;32mI (291) cpu_start: Application information:[0m
+DEV: [0;32mI (296) cpu_start: Project name:     csi_bench[0m
+DEV: [0;32mI (301) cpu_start: App version:      1[0m
+DEV: [0;32mI (305) cpu_start: Compile time:     Jun  7 2026 16:42:23[0m
+DEV: [0;32mI (311) cpu_start: ELF file SHA256:  fc9c5f410db6b61e...[0m
+DEV: [0;32mI (317) cpu_start: ESP-IDF:          v5.1[0m
+DEV: [0;32mI (322) cpu_start: Min chip rev:     v0.0[0m
+DEV: [0;32mI (327) cpu_start: Max chip rev:     v3.99 [0m
+DEV: [0;32mI (332) cpu_start: Chip rev:         v3.1[0m
+DEV: [0;32mI (337) heap_init: Initializing. RAM available for dynamic allocation:[0m
+DEV: [0;32mI (344) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+DEV: [0;32mI (350) heap_init: At 3FFB2CA0 len 0002D360 (180 KiB): DRAM[0m
+DEV: [0;32mI (356) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+DEV: [0;32mI (362) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+DEV: [0;32mI (369) heap_init: At 4008B578 len 00014A88 (82 KiB): IRAM[0m
+DEV: [0;32mI (376) spi_flash: detected chip: generic[0m
+DEV: [0;32mI (379) spi_flash: flash io: dio[0m
+DEV: [0;32mI (384) app_start: Starting scheduler on CPU0[0m
+DEV: [0;32mI (388) app_start: Starting scheduler on CPU1[0m
+DEV: [0;32mI (388) main_task: Started on CPU0[0m
+DEV: [0;32mI (398) main_task: Calling app_main()[0m
+DEV: arena_alloc_bytes = 153600  (largest_free_internal = 155648)
+DEV: arena_used_bytes = 13728   (-> Peak RAM kB = 13.4)
+DEV: [0;31mE (5398) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (5398) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (5398) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (5398) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (5398) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (5398) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF09:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (10398) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (10398) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (10398) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (10398) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (10398) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (10398) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCEFB:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (17183) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (17183) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (17183) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (17183) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (17183) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (17183) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF1F:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (23009) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (23009) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (23009) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (23009) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (23009) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (23009) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCEFB:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (28835) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (28835) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (28835) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (28835) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (28835) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (28835) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF1F:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (34661) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (34661) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (34661) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (34661) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (34661) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (34661) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCEFB:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (40487) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (40487) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (40487) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (40487) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (40487) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (40487) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF1F:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (46313) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (46313) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (46313) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (46313) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (46313) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (46313) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCEFB:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (52139) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (52139) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (52139) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (52139) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (52139) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (52139) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF1F:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (57965) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (57965) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (57965) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (57965) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (57965) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (57965) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCEFB:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (63791) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (63791) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (63791) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (63791) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (63791) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (63791) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF1F:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (69617) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (69617) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (69617) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (69617) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (69617) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (69617) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCEFB:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (75443) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (75443) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (75443) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (75443) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (75443) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (75443) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF1F:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (81269) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (81269) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (81269) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (81269) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (81269) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (81269) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCEFB:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (87095) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (87095) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (87095) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (87095) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (87095) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (87095) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF1F:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (92921) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (92921) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (92921) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (92921) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (92921) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (92921) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCEFB:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (98747) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (98747) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (98747) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (98747) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (98747) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (98747) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF1F:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (104573) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (104573) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (104573) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (104573) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (104573) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (104573) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCEFB:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (110399) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (110399) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (110399) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (110399) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (110399) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (110399) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF6D:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (116226) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (116226) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (116226) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (116226) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (116226) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (116226) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCEF5:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: latency_ms = 116.512
+DEV: free_internal = 217336, free_psram = 0
+DEV: DONE
+---CAPTURED---
+ARENA: arena_used_bytes = 13728   (-> Peak RAM kB = 13.4)
+LATENCY: latency_ms = 116.512
