@@ -27,8 +27,7 @@ The preamble defines `\providecommand{\xfigwd}{0pt}`. The IEEE Access class only
 environment work with the class caption macro on any engine.
 
 ## Before submission (author tasks)
-- Replace the placeholder corresponding-author email with A. W. Malik's real UCP address.
-- Add both authors' ORCID iDs.
+- Add M. Ahmad's ORCID iD (A. W. Malik's ORCID 0000-0001-8412-7655 is included).
 - Rewrite Abstract/Introduction/Discussion/Conclusion in your own words; consider trimming
   the abstract toward 200 words.
 - Fill the journal-supplied fields (`\history`, `\doi`).
