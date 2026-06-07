@@ -10,6 +10,9 @@
 \usepackage{multirow}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+% The IEEE Access class sets \xfigwd only inside its custom \Figure command; define a
+% default so standard figure environments work with the class caption macro.
+\providecommand{\xfigwd}{0pt}
 \begin{document}
 \history{Date of submission xxxx 00, 2026.}
 \doi{10.1109/ACCESS.2026.DOI}
