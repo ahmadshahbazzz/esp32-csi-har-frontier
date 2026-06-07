@@ -1,0 +1,398 @@
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: ize=15268h ( 86632) map[0m
+DEV: v:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cs0_drv:0x00,hv:0x00,d_drv:0x00,cx00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIOd_drv:0x00,wp_drv:0x00
+DEV: mode:DIO, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l, clock div:2
+DEV: load:0x3fff0030,l76
+DEV: load:0x40080400,len:4
+DEV: load:0x40080404,len:3876
+DEV: entry 0x4008064c
+DEV: [0;32mI (29) boot: ESP-IDF v5.1 2nd stage bootloader[0m
+DEV: [0;32mI (29) boot: compile time Jun  7 2026 16:42:14[0m
+DEV: [0;32mI (29) boot: Multicore bootloader[0m
+DEV: [0;32mI (33) boot: chip revision: v3.1[0m
+DEV: [0;32mI (37) boot.esp32: SPI Speed      : 40MHz[0m
+DEV: [0;32mI (42) boot.esp32: SPI Mode       : DIO[0m
+DEV: [0;32mI (46) boot.esp32: SPI Flash Size : 4MB[0m
+DEV: [0;32mI (51) boot: Enabling RNG early entropy source...[0m
+DEV: [0;32mI (56) boot: Partition Table:[0m
+DEV: [0;32mI (60) boot: ## Label            Usage          Type ST Offset   Length[0m
+DEV: [0;32mI (67) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+DEV: [0;32mI (75) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+DEV: [0;32mI (82) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+DEV: [0;32mI (90) boot: End of partition table[0m
+DEV: [0;32mI (94) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=15268h ( 86632) map[0m
+DEV: [0;32mI (134) esp_image: segment 1: paddr=00025290 vaddr=3ffb0000 size=01fd8h (  8152) load[0m
+DEV: [0;32mI (137) esp_image: segment 2: paddr=00027270 vaddr=40080000 size=08da8h ( 36264) load[0m
+DEV: [0;32mI (154) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=3ee08h (257544) map[0m
+DEV: [0;32mI (248) esp_image: segment 4: paddr=0006ee30 vaddr=40088da8 size=027d0h ( 10192) load[0m
+DEV: [0;32mI (258) boot: Loaded app from partition at offset 0x10000[0m
+DEV: [0;32mI (258) boot: Disabling RNG early entropy source...[0m
+DEV: [0;32mI (270) cpu_start: Multicore app[0m
+DEV: [0;32mI (270) cpu_start: Pro cpu up.[0m
+DEV: [0;32mI (270) cpu_start: Starting app cpu, entry point is 0x4008112c[0m
+DEV: [0;32mI (0) cpu_start: App cpu up.[0m
+DEV: [0;32mI (288) cpu_start: Pro cpu start user code[0m
+DEV: [0;32mI (288) cpu_start: cpu freq: 160000000 Hz[0m
+DEV: [0;32mI (288) cpu_start: Application information:[0m
+DEV: [0;32mI (293) cpu_start: Project name:     csi_bench[0m
+DEV: [0;32mI (298) cpu_start: App version:      1[0m
+DEV: [0;32mI (303) cpu_start: Compile time:     Jun  7 2026 16:42:23[0m
+DEV: [0;32mI (309) cpu_start: ELF file SHA256:  3d10b123005ce22c...[0m
+DEV: [0;32mI (315) cpu_start: ESP-IDF:          v5.1[0m
+DEV: [0;32mI (319) cpu_start: Min chip rev:     v0.0[0m
+DEV: [0;32mI (324) cpu_start: Max chip rev:     v3.99 [0m
+DEV: [0;32mI (329) cpu_start: Chip rev:         v3.1[0m
+DEV: [0;32mI (334) heap_init: Initializing. RAM available for dynamic allocation:[0m
+DEV: [0;32mI (341) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+DEV: [0;32mI (347) heap_init: At 3FFB2CA0 len 0002D360 (180 KiB): DRAM[0m
+DEV: [0;32mI (353) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+DEV: [0;32mI (360) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+DEV: [0;32mI (366) heap_init: At 4008B578 len 00014A88 (82 KiB): IRAM[0m
+DEV: [0;32mI (374) spi_flash: detected chip: generic[0m
+DEV: [0;32mI (377) spi_flash: flash io: dio[0m
+DEV: [0;32mI (381) app_start: Starting scheduler on CPU0[0m
+DEV: [0;32mI (386) app_start: Starting scheduler on CPU1[0m
+DEV: [0;32mI (386) main_task: Started on CPU0[0m
+DEV: [0;32mI (396) main_task: Calling app_main()[0m
+DEV: arena_alloc_bytes = 153600  (largest_free_internal = 155648)
+DEV: arena_used_bytes = 8864   (-> Peak RAM kB = 8.7)
+DEV: [0;31mE (8935) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (8935) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (8935) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (8935) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (8935) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (8935) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCEBD:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (15878) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (15878) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (15878) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (15878) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (15878) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (15878) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF12:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (22822) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (22822) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (22822) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (22822) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (22822) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (22822) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF2E:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (29766) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (29766) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (29766) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (29766) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (29766) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (29766) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF3E:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (36710) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (36710) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (36710) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (36710) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (36710) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (36710) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF17:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (43654) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (43654) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (43654) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (43654) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (43654) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (43654) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF2E:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (50598) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (50598) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (50598) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (50598) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (50598) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (50598) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF3E:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (57542) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (57542) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (57542) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (57542) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (57542) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (57542) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF17:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: [0;31mE (64486) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+DEV: [0;31mE (64486) task_wdt:  - IDLE (CPU 0)[0m
+DEV: [0;31mE (64486) task_wdt: Tasks currently running:[0m
+DEV: [0;31mE (64486) task_wdt: CPU 0: main[0m
+DEV: [0;31mE (64486) task_wdt: CPU 1: IDLE[0m
+DEV: [0;31mE (64486) task_wdt: Print CPU 0 (current core) backtrace[0m
+DEV: Backtrace: 0x40100B37:0x3FFB0D00 0x40082955:0x3FFB0D30 0x400FCF2E:0x3FFB7B10 0x400EF079:0x3FFB7C00 0x400F6B6E:0x3FFB8110 0x400D7CDE:0x3FFB8140 0x400D68A0:0x3FFB8160 0x4010E7CB:0x3FFB81C0
+DEV: latency_ms = 69.393
+DEV: free_internal = 217336, free_psram = 0
+DEV: DONE
+---CAPTURED---
+ARENA: arena_used_bytes = 8864   (-> Peak RAM kB = 8.7)
+LATENCY: latency_ms = 69.393

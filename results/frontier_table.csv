@@ -1,0 +1,15 @@
+Dataset,Model,Type,Acc(%),Complexity,int8(kB),Converts,Fits ~108KB
+UT-HAR,DecisionTree,classical,81.93 +/- 0.09,481,n/a (C via emlearn),n/a,yes (tiny)
+UT-HAR,RandomForest,classical,91.93 +/- 0.09,8720,n/a (C via emlearn),n/a,yes (tiny)
+UT-HAR,TinyMLP,classical,95.27 +/- 0.52,14663,n/a (C via emlearn),n/a,yes (tiny)
+UT-HAR,TinyMLP_nn,tiny-nn,87.60 +/- 1.77,184.6K params,184.0,yes,measure on ESP32
+UT-HAR,TinyCNN8,tiny-nn,86.13 +/- 1.95,5.8K params,11.1,yes,measure on ESP32
+UT-HAR,TinyCNN16,tiny-nn,94.93 +/- 0.50,12.9K params,18.7,yes,measure on ESP32
+UT-HAR,TinyCNN32,tiny-nn,96.67 +/- 0.50,31.0K params,37.6,yes,measure on ESP32
+CSI-HAR,DecisionTree,classical,41.43 +/- 6.31,75,n/a (C via emlearn),n/a,yes (tiny)
+CSI-HAR,RandomForest,classical,57.38 +/- 3.21,1380,n/a (C via emlearn),n/a,yes (tiny)
+CSI-HAR,TinyMLP,classical,58.10 +/- 0.89,8583,n/a (C via emlearn),n/a,yes (tiny)
+CSI-HAR,TinyMLP_nn,tiny-nn,57.14 +/- 2.92,106.8K params,108.0,yes,measure on ESP32
+CSI-HAR,TinyCNN8,tiny-nn,54.52 +/- 6.56,3.7K params,9.1,yes,measure on ESP32
+CSI-HAR,TinyCNN16,tiny-nn,59.52 +/- 2.36,8.7K params,14.6,yes,measure on ESP32
+CSI-HAR,TinyCNN32,tiny-nn,62.14 +/- 4.21,22.4K params,29.3,yes,measure on ESP32

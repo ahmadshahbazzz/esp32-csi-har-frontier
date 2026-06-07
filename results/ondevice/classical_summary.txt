@@ -1,0 +1,3 @@
+On-device classical models (emlearn C), UT-HAR features (450 int16), classic ESP32:
+DecisionTree_uthar: latency 1.148 us (0.00115 ms); RAM ~0.9 kB (feature buffer), no heap alloc
+RandomForest_uthar: latency 45.012 us (0.04501 ms); RAM ~0.9 kB (feature buffer), no heap alloc

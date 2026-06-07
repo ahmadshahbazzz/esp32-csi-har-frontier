@@ -1,0 +1,122 @@
+{
+  "UT-HAR": {
+    "classical": {
+      "DecisionTree": {
+        "acc_mean": 0.8193333333333332,
+        "acc_std": 0.0009428090415820641,
+        "complexity": 481,
+        "n_features": 450,
+        "n_runs": 3
+      },
+      "RandomForest": {
+        "acc_mean": 0.9193333333333333,
+        "acc_std": 0.0009428090415820641,
+        "complexity": 8720,
+        "n_features": 450,
+        "n_runs": 3
+      },
+      "TinyMLP": {
+        "acc_mean": 0.9526666666666666,
+        "acc_std": 0.005249338582674546,
+        "complexity": 14663,
+        "n_features": 450,
+        "n_runs": 3
+      }
+    },
+    "tiny": {
+      "TinyMLP_nn": {
+        "acc_mean": 0.876,
+        "acc_std": 0.01766352173265571,
+        "params": 184583,
+        "int8_kb": 184.0,
+        "convert_ok": true,
+        "n_runs": 3
+      },
+      "TinyCNN8": {
+        "acc_mean": 0.8613333333333334,
+        "acc_std": 0.019482185594936627,
+        "params": 5823,
+        "int8_kb": 11.1,
+        "convert_ok": true,
+        "n_runs": 3
+      },
+      "TinyCNN16": {
+        "acc_mean": 0.9493333333333333,
+        "acc_std": 0.004988876515698593,
+        "params": 12919,
+        "int8_kb": 18.7,
+        "convert_ok": true,
+        "n_runs": 3
+      },
+      "TinyCNN32": {
+        "acc_mean": 0.9666666666666667,
+        "acc_std": 0.004988876515698593,
+        "params": 30951,
+        "int8_kb": 37.6,
+        "convert_ok": true,
+        "n_runs": 3
+      }
+    },
+    "protocol": "fixed split x 3 seeds"
+  },
+  "CSI-HAR": {
+    "classical": {
+      "DecisionTree": {
+        "acc_mean": 0.4142857142857143,
+        "acc_std": 0.06308400618805607,
+        "complexity": 75,
+        "n_features": 260,
+        "n_runs": 3
+      },
+      "RandomForest": {
+        "acc_mean": 0.5738095238095239,
+        "acc_std": 0.03212080372198104,
+        "complexity": 1380,
+        "n_features": 260,
+        "n_runs": 3
+      },
+      "TinyMLP": {
+        "acc_mean": 0.580952380952381,
+        "acc_std": 0.008908708063747488,
+        "complexity": 8583,
+        "n_features": 260,
+        "n_runs": 3
+      }
+    },
+    "tiny": {
+      "TinyMLP_nn": {
+        "acc_mean": 0.5714285714285713,
+        "acc_std": 0.0291605921759902,
+        "params": 106759,
+        "int8_kb": 108.0,
+        "convert_ok": true,
+        "n_runs": 3
+      },
+      "TinyCNN8": {
+        "acc_mean": 0.5452380952380952,
+        "acc_std": 0.06555190427588671,
+        "params": 3695,
+        "int8_kb": 9.1,
+        "convert_ok": true,
+        "n_runs": 3
+      },
+      "TinyCNN16": {
+        "acc_mean": 0.5952380952380952,
+        "acc_std": 0.023570226039551587,
+        "params": 8663,
+        "int8_kb": 14.6,
+        "convert_ok": true,
+        "n_runs": 3
+      },
+      "TinyCNN32": {
+        "acc_mean": 0.6214285714285714,
+        "acc_std": 0.0420560041253707,
+        "params": 22439,
+        "int8_kb": 29.3,
+        "convert_ok": true,
+        "n_runs": 3
+      }
+    },
+    "protocol": "leave-one-user-out"
+  }
+}

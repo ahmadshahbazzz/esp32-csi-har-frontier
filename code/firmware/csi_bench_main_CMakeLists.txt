@@ -1,0 +1,8 @@
+# Frontier firmware: one tiny int8 model at a time.
+# Regenerate model_tiny.cc per model with:
+#   python esp32_firmware/tflite_to_c.py <model_int8.tflite> esp32_firmware/csi_bench/main/model_tiny.cc
+idf_component_register(
+    SRCS "main.cc" "model_tiny.cc"
+    INCLUDE_DIRS "."
+    REQUIRES esp-tflite-micro esp_timer
+)
