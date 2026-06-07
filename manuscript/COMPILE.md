@@ -1,29 +1,34 @@
 # Compiling the manuscript
 
 The manuscript uses the official IEEE Access class (`ieeeaccess.cls`, which depends on
-`IEEEtran.cls`). Everything needed to compile is in this folder.
+`IEEEtran.cls`). Everything needed to compile is in this folder, and a pre-built,
+verified `frontier.pdf` is included.
 
 ## Overleaf (recommended)
-1. Create a new project and upload all files in this `manuscript/` folder
-   (`frontier.tex`, `ieeeaccess.cls`, `IEEEtran.cls`, `logo.png`, `notaglinelogo.png`,
-   and the four `fig_*.png` files).
-2. Set the main document to `frontier.tex` and the compiler to **pdfLaTeX**.
-3. Compile. The bibliography is embedded with `thebibliography`, so no separate BibTeX
-   pass is needed.
+1. Upload all files in this `manuscript/` folder.
+2. Set the main document to `frontier.tex`, compiler to **pdfLaTeX**.
+3. Compile twice (bibliography is embedded with `thebibliography`; no BibTeX pass needed).
 
 ## Local
-```
-pdflatex frontier.tex
-pdflatex frontier.tex   # second pass resolves cross-references and citations
-```
+Standard TeX Live `pdflatex` (run twice), or Tectonic: `tectonic frontier.tex`.
 
 ## Files
-- `frontier.tex` : the manuscript source (no em dashes; 26 references; 4 figures; 3 tables).
-- `ieeeaccess.cls`, `IEEEtran.cls` : IEEE Access document classes.
-- `logo.png`, `notaglinelogo.png` : required by the class.
+- `frontier.tex` : manuscript source (no em dashes; 26 references; 4 figures; 3 tables).
+- `frontier.pdf` : pre-built PDF (verified compile).
+- `ieeeaccess.cls`, `IEEEtran.cls` : IEEE Access classes.
 - `fig_accuracy.png`, `fig_frontier.png`, `fig_complexity.png`, `fig_memory.png` : figures.
+- Class assets required by ieeeaccess.cls: `logo.png`, `Logo.png`, `notaglinelogo.png`,
+  `notaglineLogo.png`, `bullet.png` (both cases of the logo names are provided because the
+  class references `Logo.png`/`notaglineLogo.png` while the template ships lowercase names).
+
+## Maintainer note
+The preamble defines `\providecommand{\xfigwd}{0pt}`. The IEEE Access class only sets
+`\xfigwd` inside its custom `\Figure` command; this default lets a standard `figure`
+environment work with the class caption macro on any engine.
 
 ## Before submission (author tasks)
-- Rewrite the Abstract, Introduction, Discussion, and Conclusion in your own words for the
-  originality check; consider trimming the abstract toward 200 words.
+- Replace the placeholder corresponding-author email with A. W. Malik's real UCP address.
+- Add both authors' ORCID iDs.
+- Rewrite Abstract/Introduction/Discussion/Conclusion in your own words; consider trimming
+  the abstract toward 200 words.
 - Fill the journal-supplied fields (`\history`, `\doi`).
