@@ -79,9 +79,16 @@ The reference on-device study is Hernandez \emph{et~al.}~\cite{hernandez2025tool
 
 \textit{Gap.}~No prior study characterizes the bare, PSRAM-less classic ESP32 as an inference target for WiFi CSI HAR, nor maps which models across the classical, tiny, and deep spectrum actually fit it. This paper fills that gap.
 
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{fig_pipeline.pdf}
+\caption{System and measurement pipeline. Models are trained and quantized off-device on a cloud GPU, then exported as int8 TensorFlow Lite (neural models) or emlearn C (classical models), deployed on the bare classic ESP32, and measured for on-device latency and peak RAM. The two deployment walls, convertibility and memory, are evaluated at the deploy stage, and the result is the deployability frontier.}
+\label{fig:pipeline}
+\end{figure*}
+
 \section{Models Under Study}
 \label{sec:models}
-The frontier spans three tiers, all consuming the same input representation. A CSI window is a real-valued tensor $\mathbf{X}\in\mathbb{R}^{T\times F}$ with $T$ time steps and $F$ per-step features. We downsample the time axis to $T=64$ by uniform index selection, which costs almost no accuracy on UT-HAR while shrinking activations, and we standardize each window.
+The frontier spans three tiers (Figure~\ref{fig:pipeline}), all consuming the same input representation. A CSI window is a real-valued tensor $\mathbf{X}\in\mathbb{R}^{T\times F}$ with $T$ time steps and $F$ per-step features. We downsample the time axis to $T=64$ by uniform index selection, which costs almost no accuracy on UT-HAR while shrinking activations, and we standardize each window.
 
 \subsection{Classical learners}
 For the classical tier, each window is summarized by five statistics computed over time for every feature dimension: mean, standard deviation, minimum, maximum, and range, giving a compact $F\times 5$ vector that is cheap to compute on a microcontroller. On these features we train a depth-limited Decision Tree, a Random Forest of twenty depth-limited trees, and a small multilayer perceptron with one hidden layer of thirty-two units. Trees and forests are exported to branch-only C with emlearn \cite{emlearn}, which reproduces the trained decision structure; we therefore report the off-device accuracy for these models, and confirming that emlearn's integer feature handling leaves accuracy unchanged on the device is a minor remaining check.
