@@ -81,7 +81,7 @@ The reference on-device study is Hernandez \emph{et~al.}~\cite{hernandez2025tool
 
 \begin{figure*}[!t]
 \centering
-\includegraphics[width=\textwidth]{fig_pipeline.pdf}
+\includegraphics[width=0.9\textwidth]{fig_pipeline.pdf}
 \caption{System and measurement pipeline. Models are trained and quantized off-device on a cloud GPU, then exported as int8 TensorFlow Lite (neural models) or emlearn C (classical models), deployed on the bare classic ESP32, and measured for on-device latency and peak RAM. The two deployment walls, convertibility and memory, are evaluated at the deploy stage, and the result is the deployability frontier.}
 \label{fig:pipeline}
 \end{figure*}
