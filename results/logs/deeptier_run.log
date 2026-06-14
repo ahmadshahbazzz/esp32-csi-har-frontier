@@ -1,0 +1,551 @@
+[{"stream_name":"stderr","time":5.870636264,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":5.870697871,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":6.697886445,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.697923891,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.697927431,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.697929844,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.301147693,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.301178904,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.301184653,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.301188922,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.93607696,"data":"2026-06-07 19:11:51.597257: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n"}
+,{"stream_name":"stderr","time":10.936736418,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":10.936757165,"data":"E0000 00:00:1780859511.813043      22 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n"}
+,{"stream_name":"stderr","time":10.936763877,"data":"E0000 00:00:1780859511.876495      22 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n"}
+,{"stream_name":"stderr","time":10.936769559,"data":"W0000 00:00:1780859512.368178      22 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.936774525,"data":"W0000 00:00:1780859512.368221      22 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.936779136,"data":"W0000 00:00:1780859512.368224      22 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.937047079,"data":"W0000 00:00:1780859512.368226      22 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":11.1388244,"data":"2026-06-07 19:11:51.597257: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n"}
+,{"stream_name":"stderr","time":11.138860041,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":11.138867118,"data":"E0000 00:00:1780859511.813043      22 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n"}
+,{"stream_name":"stderr","time":11.138886074,"data":"E0000 00:00:1780859511.876495      22 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n"}
+,{"stream_name":"stderr","time":11.138890975,"data":"W0000 00:00:1780859512.368178      22 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":11.138895586,"data":"W0000 00:00:1780859512.368221      22 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":11.138900186,"data":"W0000 00:00:1780859512.368224      22 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":11.138904254,"data":"W0000 00:00:1780859512.368226      22 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":11.138908228,"data":"\n"}
+,{"stream_name":"stderr","time":11.138911625,"data":"2026-06-07 19:11:51.597257: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n"}
+,{"stream_name":"stderr","time":11.138916068,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":11.138920651,"data":"E0000 00:00:1780859511.813043      22 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n"}
+,{"stream_name":"stderr","time":11.13892521,"data":"E0000 00:00:1780859511.876495      22 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n"}
+,{"stream_name":"stderr","time":11.138930796,"data":"W0000 00:00:1780859512.368178      22 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":11.138934934,"data":"W0000 00:00:1780859512.368221      22 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":11.138939509,"data":"W0000 00:00:1780859512.368224      22 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":11.13894454,"data":"W0000 00:00:1780859512.368226      22 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stdout","time":25.121948796,"data":"TensorFlow 2.19.0\n"}
+,{"stream_name":"stdout","time":37.94421745,"data":"CSI-HAR (420, 64, 52) F=52 classes=['bend', 'fall', 'lie down', 'run', 'sitdown', 'standup', 'walk'] users=[1, 2, 3]\n"}
+,{"stream_name":"stderr","time":37.966719565,"data":"I0000 00:00:1780859539.428517      22 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 15511 MB memory:  -\u003e device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0\n"}
+,{"stream_name":"stderr","time":38.168516176,"data":"I0000 00:00:1780859539.428517      22 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 15511 MB memory:  -\u003e device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0\n"}
+,{"stream_name":"stderr","time":38.16857033,"data":"\n"}
+,{"stream_name":"stderr","time":38.168576148,"data":"I0000 00:00:1780859539.428517      22 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 15511 MB memory:  -\u003e device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0\n"}
+,{"stream_name":"stderr","time":41.102672769,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":41.102710693,"data":"I0000 00:00:1780859542.592681      64 service.cc:152] XLA service 0x7bb1e000ca00 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:\n"}
+,{"stream_name":"stderr","time":41.10271614,"data":"I0000 00:00:1780859542.592735      64 service.cc:160]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0\n"}
+,{"stream_name":"stderr","time":41.305628596,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":41.305667289,"data":"I0000 00:00:1780859542.592681      64 service.cc:152] XLA service 0x7bb1e000ca00 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:\n"}
+,{"stream_name":"stderr","time":41.30567267,"data":"I0000 00:00:1780859542.592735      64 service.cc:160]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0\n"}
+,{"stream_name":"stderr","time":41.305676816,"data":"\n"}
+,{"stream_name":"stderr","time":41.305680229000004,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":41.305683757,"data":"I0000 00:00:1780859542.592681      64 service.cc:152] XLA service 0x7bb1e000ca00 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:\n"}
+,{"stream_name":"stderr","time":41.305688048,"data":"I0000 00:00:1780859542.592735      64 service.cc:160]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0\n"}
+,{"stream_name":"stderr","time":41.507099839,"data":"I0000 00:00:1780859542.996981      64 cuda_dnn.cc:529] Loaded cuDNN version 91002\n"}
+,{"stream_name":"stderr","time":41.709683644,"data":"I0000 00:00:1780859542.996981      64 cuda_dnn.cc:529] Loaded cuDNN version 91002\n"}
+,{"stream_name":"stderr","time":41.709723313,"data":"\n"}
+,{"stream_name":"stderr","time":41.70974105,"data":"I0000 00:00:1780859542.996981      64 cuda_dnn.cc:529] Loaded cuDNN version 91002\n"}
+,{"stream_name":"stderr","time":43.805043408,"data":"I0000 00:00:1780859545.295057      64 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.\n"}
+,{"stream_name":"stderr","time":44.007364545,"data":"I0000 00:00:1780859545.295057      64 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.\n"}
+,{"stream_name":"stderr","time":44.00742142,"data":"\n"}
+,{"stream_name":"stderr","time":44.00742906,"data":"I0000 00:00:1780859545.295057      64 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.\n"}
+,{"stream_name":"stdout","time":62.712249805,"data":"WARNING:tensorflow:5 out of the last 11 calls to \u003cfunction TensorFlowTrainer.make_predict_function.\u003clocals\u003e.one_step_on_data_distributed at 0x7bb2a014dda0\u003e triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.\n"}
+,{"stream_name":"stdout","time":63.059882199,"data":"WARNING:tensorflow:5 out of the last 11 calls to \u003cfunction TensorFlowTrainer.make_predict_function.\u003clocals\u003e.one_step_on_data_distributed at 0x7bb2a014dda0\u003e triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.\n"}
+,{"stream_name":"stdout","time":63.562378297,"data":"INFO:tensorflow:Assets written to: /tmp/tmpcq5au25m/assets\n"}
+,{"stream_name":"stderr","time":63.56350012,"data":"INFO:tensorflow:Assets written to: /tmp/tmpcq5au25m/assets\n"}
+,{"stream_name":"stderr","time":63.563519549,"data":"\n"}
+,{"stream_name":"stderr","time":63.563523025,"data":"INFO:tensorflow:Assets written to: /tmp/tmpcq5au25m/assets\n"}
+,{"stream_name":"stdout","time":63.56919451,"data":"Saved artifact at '/tmp/tmpcq5au25m'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":63.569215975,"data":"\n"}
+,{"stream_name":"stdout","time":63.56922052,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":63.569224263,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":63.56922831,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":63.569232097,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":63.569238282,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":63.569246948,"data":"  136007193292880: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.569250088,"data":"  136007193289808: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.569252486,"data":"  136007193294224: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.569255103,"data":"  136007193293456: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.569257612,"data":"  136007193293648: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.569260138,"data":"  136007193291152: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.56926261,"data":"  136007187732368: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.56926499,"data":"  136007187736400: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.56926737,"data":"  136007187739088: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.56926991,"data":"  136007187730640: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.569272289,"data":"  136007187739664: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.569274688,"data":"  136007187739472: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.569287578,"data":"  136007187739856: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.569290174,"data":"  136007187729680: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.569292536,"data":"  136007187742160: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":63.569294968,"data":"  136007187726608: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":63.931640845,"data":"W0000 00:00:1780859565.185732      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":63.931683347,"data":"W0000 00:00:1780859565.185767      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":63.932373388,"data":"I0000 00:00:1780859565.197103      22 mlir_graph_optimization_pass.cc:425] MLIR V1 optimization pass is not enabled\n"}
+,{"stream_name":"stderr","time":64.241001994,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":64.252533832,"data":"W0000 00:00:1780859565.185732      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":64.252563675,"data":"W0000 00:00:1780859565.185767      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":64.252569157,"data":"I0000 00:00:1780859565.197103      22 mlir_graph_optimization_pass.cc:425] MLIR V1 optimization pass is not enabled\n"}
+,{"stream_name":"stderr","time":64.252573913,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":64.25257824,"data":"\n"}
+,{"stream_name":"stderr","time":64.252582147,"data":"W0000 00:00:1780859565.185732      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":64.25258691,"data":"W0000 00:00:1780859565.185767      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":64.252590745,"data":"I0000 00:00:1780859565.197103      22 mlir_graph_optimization_pass.cc:425] MLIR V1 optimization pass is not enabled\n"}
+,{"stream_name":"stderr","time":64.252608172,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stdout","time":64.724425629,"data":"  CNN          acc 64.05  params 73.9K  converts True  int8 86.3kB\n"}
+,{"stream_name":"stdout","time":83.239499687,"data":"INFO:tensorflow:Assets written to: /tmp/tmpay6kwn87/assets\n"}
+,{"stream_name":"stderr","time":83.240362031,"data":"INFO:tensorflow:Assets written to: /tmp/tmpay6kwn87/assets\n"}
+,{"stream_name":"stderr","time":83.240381657,"data":"\n"}
+,{"stream_name":"stderr","time":83.240387743,"data":"INFO:tensorflow:Assets written to: /tmp/tmpay6kwn87/assets\n"}
+,{"stream_name":"stdout","time":83.246152638,"data":"Saved artifact at '/tmp/tmpay6kwn87'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":83.246192896,"data":"\n"}
+,{"stream_name":"stdout","time":83.246196985,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":83.246200735,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":83.246204063,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":83.246207083,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":83.246210163,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":83.246238788,"data":"  136007193287120: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.246243629,"data":"  136007183998352: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.246248253,"data":"  136007183999120: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.246252275,"data":"  136007183997008: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.246255658,"data":"  136007183996624: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.246259173,"data":"  136007184005456: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.246262603,"data":"  136007184006032: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.246266058,"data":"  136007183996048: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.246269488,"data":"  136007183991440: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.246272879,"data":"  136007183997584: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":83.526280909,"data":"W0000 00:00:1780859584.843711      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":83.526330139,"data":"W0000 00:00:1780859584.843739      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":83.52670589,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/backward_gru_1/CudnnRNNV3@__inference_function_24740\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_24791\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":83.526726195,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/forward_gru_1/CudnnRNNV3@__inference_function_24740\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_24791\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":83.526731718,"data":"error: failed while converting: 'main': \n"}
+,{"stream_name":"stderr","time":83.526735987,"data":"Some ops in the model are custom ops, See instructions to implement custom ops: https://www.tensorflow.org/lite/guide/ops_custom \n"}
+,{"stream_name":"stderr","time":83.526739652,"data":"Custom ops: CudnnRNNV3\n"}
+,{"stream_name":"stderr","time":83.526742984,"data":"Details:\n"}
+,{"stream_name":"stderr","time":83.526746406,"data":"\ttf.CudnnRNNV3(tensor\u003c?x64x52xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c22656xf32\u003e, tensor\u003c?xi32\u003e) -\u003e (tensor\u003c?x64x64xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c*xf32\u003e, tensor\u003c*xi8\u003e) : {T = f32, device = \"\", direction = \"unidirectional\", dropout = 0.000000e+00 : f32, input_mode = \"linear_input\", is_training = true, num_proj = 0 : i64, rnn_mode = \"gru\", seed = 0 : i64, seed2 = 0 : i64, time_major = false}\n"}
+,{"stream_name":"stderr","time":83.526754469,"data":"\n"}
+,{"stream_name":"stderr","time":83.527899243,"data":"W0000 00:00:1780859584.843711      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":83.527914292,"data":"W0000 00:00:1780859584.843739      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":83.527936292,"data":"\n"}
+,{"stream_name":"stderr","time":83.527940112,"data":"W0000 00:00:1780859584.843711      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":83.527943679,"data":"W0000 00:00:1780859584.843739      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":83.729534758,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/backward_gru_1/CudnnRNNV3@__inference_function_24740\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_24791\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":83.729576516,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/forward_gru_1/CudnnRNNV3@__inference_function_24740\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_24791\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":83.729611435,"data":"error: failed while converting: 'main': \n"}
+,{"stream_name":"stderr","time":83.729615963,"data":"Some ops in the model are custom ops, See instructions to implement custom ops: https://www.tensorflow.org/lite/guide/ops_custom \n"}
+,{"stream_name":"stderr","time":83.729620949,"data":"Custom ops: CudnnRNNV3\n"}
+,{"stream_name":"stderr","time":83.729625073,"data":"Details:\n"}
+,{"stream_name":"stderr","time":83.729629694,"data":"\ttf.CudnnRNNV3(tensor\u003c?x64x52xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c22656xf32\u003e, tensor\u003c?xi32\u003e) -\u003e (tensor\u003c?x64x64xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c*xf32\u003e, tensor\u003c*xi8\u003e) : {T = f32, device = \"\", direction = \"unidirectional\", dropout = 0.000000e+00 : f32, input_mode = \"linear_input\", is_training = true, num_proj = 0 : i64, rnn_mode = \"gru\", seed = 0 : i64, seed2 = 0 : i64, time_major = false}\n"}
+,{"stream_name":"stderr","time":83.72963763999999,"data":"\n"}
+,{"stream_name":"stderr","time":83.729645253,"data":"\n"}
+,{"stream_name":"stderr","time":83.72964907,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/backward_gru_1/CudnnRNNV3@__inference_function_24740\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_24791\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":83.729654187,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/forward_gru_1/CudnnRNNV3@__inference_function_24740\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_24791\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":83.729662559,"data":"error: failed while converting: 'main': \n"}
+,{"stream_name":"stderr","time":83.729669594,"data":"Some ops in the model are custom ops, See instructions to implement custom ops: https://www.tensorflow.org/lite/guide/ops_custom \n"}
+,{"stream_name":"stderr","time":83.729672885,"data":"Custom ops: CudnnRNNV3\n"}
+,{"stream_name":"stderr","time":83.729675393,"data":"Details:\n"}
+,{"stream_name":"stderr","time":83.729677754,"data":"\ttf.CudnnRNNV3(tensor\u003c?x64x52xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c22656xf32\u003e, tensor\u003c?xi32\u003e) -\u003e (tensor\u003c?x64x64xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c*xf32\u003e, tensor\u003c*xi8\u003e) : {T = f32, device = \"\", direction = \"unidirectional\", dropout = 0.000000e+00 : f32, input_mode = \"linear_input\", is_training = true, num_proj = 0 : i64, rnn_mode = \"gru\", seed = 0 : i64, seed2 = 0 : i64, time_major = false}\n"}
+,{"stream_name":"stderr","time":83.729695148,"data":"\n"}
+,{"stream_name":"stdout","time":83.972428436,"data":"INFO:tensorflow:Assets written to: /tmp/tmp9740vx4b/assets\n"}
+,{"stream_name":"stderr","time":83.973469353,"data":"INFO:tensorflow:Assets written to: /tmp/tmp9740vx4b/assets\n"}
+,{"stream_name":"stderr","time":83.973490794,"data":"\n"}
+,{"stream_name":"stderr","time":83.973497388,"data":"INFO:tensorflow:Assets written to: /tmp/tmp9740vx4b/assets\n"}
+,{"stream_name":"stdout","time":83.97842915,"data":"Saved artifact at '/tmp/tmp9740vx4b'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":83.978464743,"data":"\n"}
+,{"stream_name":"stdout","time":83.978468111,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":83.978470776,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":83.978473808,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":83.978476496,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":83.978478991,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":83.978481368,"data":"  136007193287120: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.978484056,"data":"  136007183998352: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.978487203,"data":"  136007183999120: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.978489611,"data":"  136007183997008: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.978492014,"data":"  136007183996624: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.978494474,"data":"  136007184005456: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.97849742,"data":"  136007184006032: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.978515958,"data":"  136007183996048: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.97852061,"data":"  136007183991440: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":83.978524869,"data":"  136007183997584: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":84.252629052,"data":"W0000 00:00:1780859585.572753      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":84.252670448,"data":"W0000 00:00:1780859585.572783      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":84.253218722,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/backward_gru_1/CudnnRNNV3@__inference_function_26217\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_26268\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":84.253237402,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/forward_gru_1/CudnnRNNV3@__inference_function_26217\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_26268\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":84.253261223,"data":"error: failed while converting: 'main': \n"}
+,{"stream_name":"stderr","time":84.253265223,"data":"Some ops in the model are custom ops, See instructions to implement custom ops: https://www.tensorflow.org/lite/guide/ops_custom \n"}
+,{"stream_name":"stderr","time":84.253268796,"data":"Custom ops: CudnnRNNV3\n"}
+,{"stream_name":"stderr","time":84.253272366,"data":"Details:\n"}
+,{"stream_name":"stderr","time":84.253762583,"data":"\ttf.CudnnRNNV3(tensor\u003c?x64x52xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c22656xf32\u003e, tensor\u003c?xi32\u003e) -\u003e (tensor\u003c?x64x64xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c*xf32\u003e, tensor\u003c*xi8\u003e) : {T = f32, device = \"\", direction = \"unidirectional\", dropout = 0.000000e+00 : f32, input_mode = \"linear_input\", is_training = true, num_proj = 0 : i64, rnn_mode = \"gru\", seed = 0 : i64, seed2 = 0 : i64, time_major = false}\n"}
+,{"stream_name":"stderr","time":84.253785879,"data":"\n"}
+,{"stream_name":"stderr","time":84.254649461,"data":"W0000 00:00:1780859585.572753      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":84.254667127,"data":"W0000 00:00:1780859585.572783      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":84.254672133,"data":"\n"}
+,{"stream_name":"stderr","time":84.254676669,"data":"W0000 00:00:1780859585.572753      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":84.254680267,"data":"W0000 00:00:1780859585.572783      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":84.459989089,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/backward_gru_1/CudnnRNNV3@__inference_function_26217\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_26268\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":84.460030874,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/forward_gru_1/CudnnRNNV3@__inference_function_26217\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_26268\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":84.460038074,"data":"error: failed while converting: 'main': \n"}
+,{"stream_name":"stderr","time":84.460041857,"data":"Some ops in the model are custom ops, See instructions to implement custom ops: https://www.tensorflow.org/lite/guide/ops_custom \n"}
+,{"stream_name":"stderr","time":84.460046029,"data":"Custom ops: CudnnRNNV3\n"}
+,{"stream_name":"stderr","time":84.460049734,"data":"Details:\n"}
+,{"stream_name":"stderr","time":84.46005335,"data":"\ttf.CudnnRNNV3(tensor\u003c?x64x52xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c22656xf32\u003e, tensor\u003c?xi32\u003e) -\u003e (tensor\u003c?x64x64xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c*xf32\u003e, tensor\u003c*xi8\u003e) : {T = f32, device = \"\", direction = \"unidirectional\", dropout = 0.000000e+00 : f32, input_mode = \"linear_input\", is_training = true, num_proj = 0 : i64, rnn_mode = \"gru\", seed = 0 : i64, seed2 = 0 : i64, time_major = false}\n"}
+,{"stream_name":"stderr","time":84.460061983,"data":"\n"}
+,{"stream_name":"stderr","time":84.460083907,"data":"\n"}
+,{"stream_name":"stderr","time":84.460086562,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/backward_gru_1/CudnnRNNV3@__inference_function_26217\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_26268\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":84.460089913,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/forward_gru_1/CudnnRNNV3@__inference_function_26217\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_26268\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":84.460094287,"data":"error: failed while converting: 'main': \n"}
+,{"stream_name":"stderr","time":84.460096867,"data":"Some ops in the model are custom ops, See instructions to implement custom ops: https://www.tensorflow.org/lite/guide/ops_custom \n"}
+,{"stream_name":"stderr","time":84.460099484,"data":"Custom ops: CudnnRNNV3\n"}
+,{"stream_name":"stderr","time":84.460105858,"data":"Details:\n"}
+,{"stream_name":"stderr","time":84.460108263,"data":"\ttf.CudnnRNNV3(tensor\u003c?x64x52xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c22656xf32\u003e, tensor\u003c?xi32\u003e) -\u003e (tensor\u003c?x64x64xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c*xf32\u003e, tensor\u003c*xi8\u003e) : {T = f32, device = \"\", direction = \"unidirectional\", dropout = 0.000000e+00 : f32, input_mode = \"linear_input\", is_training = true, num_proj = 0 : i64, rnn_mode = \"gru\", seed = 0 : i64, seed2 = 0 : i64, time_major = false}\n"}
+,{"stream_name":"stderr","time":84.460112131,"data":"\n"}
+,{"stream_name":"stdout","time":84.659040996,"data":"INFO:tensorflow:Assets written to: /kaggle/working/sm/BiGRU/assets\n"}
+,{"stream_name":"stderr","time":84.660136044,"data":"INFO:tensorflow:Assets written to: /kaggle/working/sm/BiGRU/assets\n"}
+,{"stream_name":"stderr","time":84.660193918,"data":"\n"}
+,{"stream_name":"stderr","time":84.660199952,"data":"INFO:tensorflow:Assets written to: /kaggle/working/sm/BiGRU/assets\n"}
+,{"stream_name":"stdout","time":84.665252798,"data":"Saved artifact at '/kaggle/working/sm/BiGRU'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":84.665274076,"data":"\n"}
+,{"stream_name":"stdout","time":84.6652783,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":84.665281932,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":84.665287708,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":84.665294603,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":84.665297039,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":84.665299236,"data":"  136007193287120: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":84.665301572,"data":"  136007183998352: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":84.665303889,"data":"  136007183999120: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":84.665306241,"data":"  136007183997008: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":84.665321056,"data":"  136007183996624: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":84.665337876,"data":"  136007184005456: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":84.665342103,"data":"  136007184006032: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":84.665345585,"data":"  136007183996048: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":84.665349116,"data":"  136007183991440: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":84.665352581,"data":"  136007183997584: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":85.337334274,"data":"W0000 00:00:1780859586.643014      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":85.337378286,"data":"W0000 00:00:1780859586.643072      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":85.337664,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/backward_gru_1/CudnnRNNV3@__inference___call___27694\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___27745\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":85.337690038,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/forward_gru_1/CudnnRNNV3@__inference___call___27694\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___27745\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":85.33769563,"data":"error: failed while converting: 'main': \n"}
+,{"stream_name":"stderr","time":85.337699546,"data":"Some ops in the model are custom ops, See instructions to implement custom ops: https://www.tensorflow.org/lite/guide/ops_custom \n"}
+,{"stream_name":"stderr","time":85.33770326,"data":"Custom ops: CudnnRNNV3\n"}
+,{"stream_name":"stderr","time":85.337706527,"data":"Details:\n"}
+,{"stream_name":"stderr","time":85.339301949,"data":"\ttf.CudnnRNNV3(tensor\u003c?x64x52xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c22656xf32\u003e, tensor\u003c?xi32\u003e) -\u003e (tensor\u003c?x64x64xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c*xf32\u003e, tensor\u003c*xi8\u003e) : {T = f32, device = \"\", direction = \"unidirectional\", dropout = 0.000000e+00 : f32, input_mode = \"linear_input\", is_training = true, num_proj = 0 : i64, rnn_mode = \"gru\", seed = 0 : i64, seed2 = 0 : i64, time_major = false}\n"}
+,{"stream_name":"stderr","time":85.33932369,"data":"\n"}
+,{"stream_name":"stderr","time":85.541879837,"data":"W0000 00:00:1780859586.643014      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":85.541920786,"data":"W0000 00:00:1780859586.643072      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":85.541925495,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/backward_gru_1/CudnnRNNV3@__inference___call___27694\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___27745\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":85.541929245,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/forward_gru_1/CudnnRNNV3@__inference___call___27694\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___27745\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":85.541947252,"data":"error: failed while converting: 'main': \n"}
+,{"stream_name":"stderr","time":85.541949857,"data":"Some ops in the model are custom ops, See instructions to implement custom ops: https://www.tensorflow.org/lite/guide/ops_custom \n"}
+,{"stream_name":"stderr","time":85.541952267,"data":"Custom ops: CudnnRNNV3\n"}
+,{"stream_name":"stderr","time":85.541954478,"data":"Details:\n"}
+,{"stream_name":"stderr","time":85.541956697,"data":"\ttf.CudnnRNNV3(tensor\u003c?x64x52xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c22656xf32\u003e, tensor\u003c?xi32\u003e) -\u003e (tensor\u003c?x64x64xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c*xf32\u003e, tensor\u003c*xi8\u003e) : {T = f32, device = \"\", direction = \"unidirectional\", dropout = 0.000000e+00 : f32, input_mode = \"linear_input\", is_training = true, num_proj = 0 : i64, rnn_mode = \"gru\", seed = 0 : i64, seed2 = 0 : i64, time_major = false}\n"}
+,{"stream_name":"stderr","time":85.541961281,"data":"\n"}
+,{"stream_name":"stderr","time":85.541963457,"data":"\n"}
+,{"stream_name":"stderr","time":85.54196555,"data":"W0000 00:00:1780859586.643014      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":85.541967913,"data":"W0000 00:00:1780859586.643072      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":85.541971082,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/backward_gru_1/CudnnRNNV3@__inference___call___27694\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___27745\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":85.541974173,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/forward_gru_1/CudnnRNNV3@__inference___call___27694\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___27745\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":85.54197716,"data":"error: failed while converting: 'main': \n"}
+,{"stream_name":"stderr","time":85.541979387,"data":"Some ops in the model are custom ops, See instructions to implement custom ops: https://www.tensorflow.org/lite/guide/ops_custom \n"}
+,{"stream_name":"stderr","time":85.541981768,"data":"Custom ops: CudnnRNNV3\n"}
+,{"stream_name":"stderr","time":85.54198405,"data":"Details:\n"}
+,{"stream_name":"stderr","time":85.541986229,"data":"\ttf.CudnnRNNV3(tensor\u003c?x64x52xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c22656xf32\u003e, tensor\u003c?xi32\u003e) -\u003e (tensor\u003c?x64x64xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c*xf32\u003e, tensor\u003c*xi8\u003e) : {T = f32, device = \"\", direction = \"unidirectional\", dropout = 0.000000e+00 : f32, input_mode = \"linear_input\", is_training = true, num_proj = 0 : i64, rnn_mode = \"gru\", seed = 0 : i64, seed2 = 0 : i64, time_major = false}\n"}
+,{"stream_name":"stderr","time":85.541989967,"data":"\n"}
+,{"stream_name":"stdout","time":85.759990842,"data":"INFO:tensorflow:Assets written to: /kaggle/working/sm/BiGRU/assets\n"}
+,{"stream_name":"stderr","time":85.760961379,"data":"INFO:tensorflow:Assets written to: /kaggle/working/sm/BiGRU/assets\n"}
+,{"stream_name":"stderr","time":85.760991009,"data":"\n"}
+,{"stream_name":"stderr","time":85.760995593,"data":"INFO:tensorflow:Assets written to: /kaggle/working/sm/BiGRU/assets\n"}
+,{"stream_name":"stdout","time":85.766845821,"data":"Saved artifact at '/kaggle/working/sm/BiGRU'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":85.766862276,"data":"\n"}
+,{"stream_name":"stdout","time":85.766866292,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":85.766869877,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":85.766873867,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":85.766877608,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":85.766881224,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":85.766884737,"data":"  136007193287120: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":85.766888588,"data":"  136007183998352: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":85.766891832,"data":"  136007183999120: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":85.766895113,"data":"  136007183997008: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":85.766898965,"data":"  136007183996624: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":85.766902414,"data":"  136007184005456: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":85.766906048,"data":"  136007184006032: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":85.766909468,"data":"  136007183996048: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":85.766913067,"data":"  136007183991440: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":85.76691639,"data":"  136007183997584: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":86.441762475,"data":"W0000 00:00:1780859587.748436      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":86.441800867,"data":"W0000 00:00:1780859587.748472      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":86.72123806,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/backward_gru_1/CudnnRNNV3@__inference___call___29708\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___29759\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":86.721281828,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/forward_gru_1/CudnnRNNV3@__inference___call___29708\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___29759\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":86.721286356,"data":"error: failed while converting: 'main': \n"}
+,{"stream_name":"stderr","time":86.721290109,"data":"Some ops in the model are custom ops, See instructions to implement custom ops: https://www.tensorflow.org/lite/guide/ops_custom \n"}
+,{"stream_name":"stderr","time":86.721309492,"data":"Custom ops: CudnnRNNV3\n"}
+,{"stream_name":"stderr","time":86.721313736,"data":"Details:\n"}
+,{"stream_name":"stderr","time":86.721337672,"data":"\ttf.CudnnRNNV3(tensor\u003c?x64x52xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c22656xf32\u003e, tensor\u003c?xi32\u003e) -\u003e (tensor\u003c?x64x64xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c*xf32\u003e, tensor\u003c*xi8\u003e) : {T = f32, device = \"\", direction = \"unidirectional\", dropout = 0.000000e+00 : f32, input_mode = \"linear_input\", is_training = true, num_proj = 0 : i64, rnn_mode = \"gru\", seed = 0 : i64, seed2 = 0 : i64, time_major = false}\n"}
+,{"stream_name":"stderr","time":86.721347694,"data":"\n"}
+,{"stream_name":"stderr","time":86.723740885,"data":"W0000 00:00:1780859587.748436      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":86.723770753,"data":"W0000 00:00:1780859587.748472      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":86.723776037,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/backward_gru_1/CudnnRNNV3@__inference___call___29708\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___29759\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":86.723786831,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/forward_gru_1/CudnnRNNV3@__inference___call___29708\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___29759\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":86.723805943,"data":"error: failed while converting: 'main': \n"}
+,{"stream_name":"stderr","time":86.723810449,"data":"Some ops in the model are custom ops, See instructions to implement custom ops: https://www.tensorflow.org/lite/guide/ops_custom \n"}
+,{"stream_name":"stderr","time":86.723815545,"data":"Custom ops: CudnnRNNV3\n"}
+,{"stream_name":"stderr","time":86.723820011,"data":"Details:\n"}
+,{"stream_name":"stderr","time":86.723824372,"data":"\ttf.CudnnRNNV3(tensor\u003c?x64x52xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c22656xf32\u003e, tensor\u003c?xi32\u003e) -\u003e (tensor\u003c?x64x64xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c*xf32\u003e, tensor\u003c*xi8\u003e) : {T = f32, device = \"\", direction = \"unidirectional\", dropout = 0.000000e+00 : f32, input_mode = \"linear_input\", is_training = true, num_proj = 0 : i64, rnn_mode = \"gru\", seed = 0 : i64, seed2 = 0 : i64, time_major = false}\n"}
+,{"stream_name":"stderr","time":86.723831801,"data":"\n"}
+,{"stream_name":"stderr","time":86.723835178,"data":"\n"}
+,{"stream_name":"stderr","time":86.723838621,"data":"W0000 00:00:1780859587.748436      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":86.723842419,"data":"W0000 00:00:1780859587.748472      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":86.723847335,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/backward_gru_1/CudnnRNNV3@__inference___call___29708\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___29759\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":86.723858207,"data":"loc(callsite(callsite(fused[\"CudnnRNNV3:\", \"BiGRU_1/bidirectional_1/forward_gru_1/CudnnRNNV3@__inference___call___29708\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___29759\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.CudnnRNNV3' op is neither a custom op nor a flex op\n"}
+,{"stream_name":"stderr","time":86.72387976,"data":"error: failed while converting: 'main': \n"}
+,{"stream_name":"stderr","time":86.723882439,"data":"Some ops in the model are custom ops, See instructions to implement custom ops: https://www.tensorflow.org/lite/guide/ops_custom \n"}
+,{"stream_name":"stderr","time":86.723885049,"data":"Custom ops: CudnnRNNV3\n"}
+,{"stream_name":"stderr","time":86.723887339,"data":"Details:\n"}
+,{"stream_name":"stderr","time":86.723890508,"data":"\ttf.CudnnRNNV3(tensor\u003c?x64x52xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c22656xf32\u003e, tensor\u003c?xi32\u003e) -\u003e (tensor\u003c?x64x64xf32\u003e, tensor\u003c?x1x64xf32\u003e, tensor\u003cf32\u003e, tensor\u003c*xf32\u003e, tensor\u003c*xi8\u003e) : {T = f32, device = \"\", direction = \"unidirectional\", dropout = 0.000000e+00 : f32, input_mode = \"linear_input\", is_training = true, num_proj = 0 : i64, rnn_mode = \"gru\", seed = 0 : i64, seed2 = 0 : i64, time_major = false}\n"}
+,{"stream_name":"stderr","time":86.723910771,"data":"\n"}
+,{"stream_name":"stdout","time":86.72473236,"data":"  BiGRU        acc 64.29  params 54.0K  converts False  int8 -1kB\n"}
+,{"stream_name":"stdout","time":121.777563452,"data":"INFO:tensorflow:Assets written to: /tmp/tmpylfqius4/assets\n"}
+,{"stream_name":"stderr","time":121.778653354,"data":"INFO:tensorflow:Assets written to: /tmp/tmpylfqius4/assets\n"}
+,{"stream_name":"stderr","time":121.778674762,"data":"\n"}
+,{"stream_name":"stderr","time":121.778680317,"data":"INFO:tensorflow:Assets written to: /tmp/tmpylfqius4/assets\n"}
+,{"stream_name":"stdout","time":121.780731704,"data":"Saved artifact at '/tmp/tmpylfqius4'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":121.780754467,"data":"\n"}
+,{"stream_name":"stdout","time":121.780761101,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":121.780766787,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":121.780771913,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":121.780776627,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":121.780781468,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":121.780786491,"data":"  136003694133712: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780796503,"data":"  136003694142544: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780800663,"data":"  136003694146960: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780804075,"data":"  136003694147728: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780807577,"data":"  136003694148496: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780810846,"data":"  136003694146576: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780814059,"data":"  136003694148304: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780817242,"data":"  136003694145616: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780820451,"data":"  136003694142352: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780851283,"data":"  136003681329680: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780856533,"data":"  136003681321616: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780860617,"data":"  136003681330064: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780864475,"data":"  136003681331792: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780868567,"data":"  136003681321232: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780871792,"data":"  136003681328144: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780875075,"data":"  136003681331984: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780878339,"data":"  136003681331600: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780881776,"data":"  136003681328528: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.78088533,"data":"  136003681330256: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":121.780888745,"data":"  136003681330640: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":122.254613584,"data":"W0000 00:00:1780859623.414689      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":122.254649423,"data":"W0000 00:00:1780859623.414720      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":123.179848505,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":123.181355612,"data":"W0000 00:00:1780859623.414689      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":123.181377419,"data":"W0000 00:00:1780859623.414720      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":123.181382885,"data":"\n"}
+,{"stream_name":"stderr","time":123.181386435,"data":"W0000 00:00:1780859623.414689      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":123.181390136,"data":"W0000 00:00:1780859623.414720      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":123.561114109,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":123.561152824,"data":"\n"}
+,{"stream_name":"stderr","time":123.561156024,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stdout","time":123.564806172,"data":"  Transformer  acc 58.10  params 50.6K  converts True  int8 76.3kB\n"}
+,{"stream_name":"stdout","time":141.530979894,"data":"INFO:tensorflow:Assets written to: /tmp/tmp20fh6llo/assets\n"}
+,{"stream_name":"stderr","time":141.531820719,"data":"INFO:tensorflow:Assets written to: /tmp/tmp20fh6llo/assets\n"}
+,{"stream_name":"stderr","time":141.531841409,"data":"\n"}
+,{"stream_name":"stderr","time":141.531847556,"data":"INFO:tensorflow:Assets written to: /tmp/tmp20fh6llo/assets\n"}
+,{"stream_name":"stdout","time":141.535247537,"data":"Saved artifact at '/tmp/tmp20fh6llo'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":141.535268302,"data":"\n"}
+,{"stream_name":"stdout","time":141.53527851,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":141.535282031,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":141.535296127,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":141.535299558,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":141.535315938,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":141.535320193,"data":"  136003681333328: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":141.535324107,"data":"  136003635781776: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":141.535328227,"data":"  136003635784464: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":141.535332067,"data":"  136003635781968: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":141.53533586,"data":"  136003635789264: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":141.535339307,"data":"  136003635788688: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":141.93220410200001,"data":"W0000 00:00:1780859643.090428      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":141.932242818,"data":"W0000 00:00:1780859643.090453      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":141.944892931,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":141.946615817,"data":"W0000 00:00:1780859643.090428      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":141.9466351,"data":"W0000 00:00:1780859643.090453      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":141.946640761,"data":"\n"}
+,{"stream_name":"stderr","time":141.946644806,"data":"W0000 00:00:1780859643.090428      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":141.946649007,"data":"W0000 00:00:1780859643.090453      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":142.312823085,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":142.312856021,"data":"\n"}
+,{"stream_name":"stderr","time":142.312860585,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stdout","time":142.517955053,"data":"  ChebyKAN     acc 65.71  params 62.1K  converts True  int8 73.7kB\n"}
+,{"stream_name":"stdout","time":165.957425158,"data":"INFO:tensorflow:Assets written to: /tmp/tmp4dj3sfoe/assets\n"}
+,{"stream_name":"stderr","time":165.95857495,"data":"INFO:tensorflow:Assets written to: /tmp/tmp4dj3sfoe/assets\n"}
+,{"stream_name":"stderr","time":165.958592046,"data":"\n"}
+,{"stream_name":"stderr","time":165.95859842,"data":"INFO:tensorflow:Assets written to: /tmp/tmp4dj3sfoe/assets\n"}
+,{"stream_name":"stdout","time":165.959521146,"data":"Saved artifact at '/tmp/tmp4dj3sfoe'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":165.959535839,"data":"\n"}
+,{"stream_name":"stdout","time":165.959542366,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":165.959547547,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":165.959552465,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":165.959568819,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":165.959572782,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":165.959576564,"data":"  136003154474960: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":165.959580468,"data":"  136003154465360: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":165.959583938,"data":"  136003154464976: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":165.959587483,"data":"  136003154465936: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":165.959590936,"data":"  136003154467280: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":165.959594349,"data":"  136003154466128: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":165.959598098,"data":"  136003157829456: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":165.959601696,"data":"  136003157833104: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":165.959610035,"data":"  136003154465552: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":166.177173503,"data":"W0000 00:00:1780859667.538767      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":166.177214117,"data":"W0000 00:00:1780859667.538819      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":166.177435282,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference_function_69984\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_70031\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.TensorListReserve' op requires element_shape to be static during TF Lite transformation pass\n"}
+,{"stream_name":"stderr","time":166.177465753,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference_function_69984\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_70031\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: failed to legalize operation 'tf.TensorListReserve' that was explicitly marked illegal\n"}
+,{"stream_name":"stderr","time":166.177479045,"data":"error: Lowering tensor list ops is failed. Please consider using Select TF ops and disabling `_experimental_lower_tensor_list_ops` flag in the TFLite converter object. For example, converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]\\n converter._experimental_lower_tensor_list_ops = False\n"}
+,{"stream_name":"stderr","time":166.381670652,"data":"W0000 00:00:1780859667.538767      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":166.381708764,"data":"W0000 00:00:1780859667.538819      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":166.381714468,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference_function_69984\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_70031\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.TensorListReserve' op requires element_shape to be static during TF Lite transformation pass\n"}
+,{"stream_name":"stderr","time":166.381720873,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference_function_69984\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_70031\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: failed to legalize operation 'tf.TensorListReserve' that was explicitly marked illegal\n"}
+,{"stream_name":"stderr","time":166.38174569,"data":"error: Lowering tensor list ops is failed. Please consider using Select TF ops and disabling `_experimental_lower_tensor_list_ops` flag in the TFLite converter object. For example, converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]\\n converter._experimental_lower_tensor_list_ops = False\n"}
+,{"stream_name":"stderr","time":166.381753504,"data":"\n"}
+,{"stream_name":"stderr","time":166.381755944,"data":"W0000 00:00:1780859667.538767      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":166.381758356,"data":"W0000 00:00:1780859667.538819      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":166.381760796,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference_function_69984\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_70031\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.TensorListReserve' op requires element_shape to be static during TF Lite transformation pass\n"}
+,{"stream_name":"stderr","time":166.381764668,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference_function_69984\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_70031\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: failed to legalize operation 'tf.TensorListReserve' that was explicitly marked illegal\n"}
+,{"stream_name":"stderr","time":166.381767658,"data":"error: Lowering tensor list ops is failed. Please consider using Select TF ops and disabling `_experimental_lower_tensor_list_ops` flag in the TFLite converter object. For example, converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]\\n converter._experimental_lower_tensor_list_ops = False\n"}
+,{"stream_name":"stdout","time":166.519126538,"data":"INFO:tensorflow:Assets written to: /tmp/tmpji687sdr/assets\n"}
+,{"stream_name":"stderr","time":166.520071238,"data":"INFO:tensorflow:Assets written to: /tmp/tmpji687sdr/assets\n"}
+,{"stream_name":"stderr","time":166.520088471,"data":"\n"}
+,{"stream_name":"stderr","time":166.520093292,"data":"INFO:tensorflow:Assets written to: /tmp/tmpji687sdr/assets\n"}
+,{"stream_name":"stdout","time":166.523866789,"data":"Saved artifact at '/tmp/tmpji687sdr'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":166.523883877,"data":"\n"}
+,{"stream_name":"stdout","time":166.5238881,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":166.523891643,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":166.523951587,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":166.523995345,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":166.524000532,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":166.52400463,"data":"  136003154474960: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":166.52402528,"data":"  136003154465360: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":166.524029392,"data":"  136003154464976: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":166.52404589,"data":"  136003154465936: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":166.524050716,"data":"  136003154467280: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":166.524054282,"data":"  136003154466128: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":166.524057903,"data":"  136003157829456: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":166.52406155,"data":"  136003157833104: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":166.524065215,"data":"  136003154465552: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":166.731288454,"data":"W0000 00:00:1780859668.102654      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":166.731335664,"data":"W0000 00:00:1780859668.102680      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":166.731340254,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference_function_71147\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_71194\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.TensorListReserve' op requires element_shape to be static during TF Lite transformation pass\n"}
+,{"stream_name":"stderr","time":166.731345762,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference_function_71147\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_71194\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: failed to legalize operation 'tf.TensorListReserve' that was explicitly marked illegal\n"}
+,{"stream_name":"stderr","time":166.731351009,"data":"error: Lowering tensor list ops is failed. Please consider using Select TF ops and disabling `_experimental_lower_tensor_list_ops` flag in the TFLite converter object. For example, converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]\\n converter._experimental_lower_tensor_list_ops = False\n"}
+,{"stream_name":"stderr","time":166.933119536,"data":"W0000 00:00:1780859668.102654      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":166.933155661,"data":"W0000 00:00:1780859668.102680      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":166.933161814,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference_function_71147\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_71194\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.TensorListReserve' op requires element_shape to be static during TF Lite transformation pass\n"}
+,{"stream_name":"stderr","time":166.933167363,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference_function_71147\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_71194\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: failed to legalize operation 'tf.TensorListReserve' that was explicitly marked illegal\n"}
+,{"stream_name":"stderr","time":166.933173544,"data":"error: Lowering tensor list ops is failed. Please consider using Select TF ops and disabling `_experimental_lower_tensor_list_ops` flag in the TFLite converter object. For example, converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]\\n converter._experimental_lower_tensor_list_ops = False\n"}
+,{"stream_name":"stderr","time":166.933195666,"data":"\n"}
+,{"stream_name":"stderr","time":166.933198118,"data":"W0000 00:00:1780859668.102654      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":166.933200523,"data":"W0000 00:00:1780859668.102680      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":166.933203198,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference_function_71147\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_71194\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.TensorListReserve' op requires element_shape to be static during TF Lite transformation pass\n"}
+,{"stream_name":"stderr","time":166.933207069,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference_function_71147\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper_71194\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: failed to legalize operation 'tf.TensorListReserve' that was explicitly marked illegal\n"}
+,{"stream_name":"stderr","time":166.933210208,"data":"error: Lowering tensor list ops is failed. Please consider using Select TF ops and disabling `_experimental_lower_tensor_list_ops` flag in the TFLite converter object. For example, converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]\\n converter._experimental_lower_tensor_list_ops = False\n"}
+,{"stream_name":"stdout","time":167.060356162,"data":"INFO:tensorflow:Assets written to: /kaggle/working/sm/SSM/assets\n"}
+,{"stream_name":"stderr","time":167.061163385,"data":"INFO:tensorflow:Assets written to: /kaggle/working/sm/SSM/assets\n"}
+,{"stream_name":"stderr","time":167.061185001,"data":"\n"}
+,{"stream_name":"stderr","time":167.061189717,"data":"INFO:tensorflow:Assets written to: /kaggle/working/sm/SSM/assets\n"}
+,{"stream_name":"stdout","time":167.065350897,"data":"Saved artifact at '/kaggle/working/sm/SSM'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":167.06536951,"data":"\n"}
+,{"stream_name":"stdout","time":167.065374458,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":167.065378872,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":167.065383418,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":167.065387742,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":167.065392034,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":167.065395898,"data":"  136003154474960: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":167.065399672,"data":"  136003154465360: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":167.065422232,"data":"  136003154464976: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":167.065427391,"data":"  136003154465936: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":167.065431676,"data":"  136003154467280: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":167.065436054,"data":"  136003154466128: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":167.065439762,"data":"  136003157829456: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":167.065443391,"data":"  136003157833104: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":167.065477594,"data":"  136003154465552: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":167.761702433,"data":"W0000 00:00:1780859669.119865      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":167.761741667,"data":"W0000 00:00:1780859669.119893      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":167.763549989,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference___call___72310\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___72357\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.TensorListReserve' op requires element_shape to be static during TF Lite transformation pass\n"}
+,{"stream_name":"stderr","time":167.76357667,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference___call___72310\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___72357\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: failed to legalize operation 'tf.TensorListReserve' that was explicitly marked illegal\n"}
+,{"stream_name":"stderr","time":167.763580741,"data":"error: Lowering tensor list ops is failed. Please consider using Select TF ops and disabling `_experimental_lower_tensor_list_ops` flag in the TFLite converter object. For example, converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]\\n converter._experimental_lower_tensor_list_ops = False\n"}
+,{"stream_name":"stderr","time":167.965885283,"data":"W0000 00:00:1780859669.119865      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":167.965922261,"data":"W0000 00:00:1780859669.119893      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":167.965927608,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference___call___72310\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___72357\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.TensorListReserve' op requires element_shape to be static during TF Lite transformation pass\n"}
+,{"stream_name":"stderr","time":167.965933202,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference___call___72310\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___72357\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: failed to legalize operation 'tf.TensorListReserve' that was explicitly marked illegal\n"}
+,{"stream_name":"stderr","time":167.965938237,"data":"error: Lowering tensor list ops is failed. Please consider using Select TF ops and disabling `_experimental_lower_tensor_list_ops` flag in the TFLite converter object. For example, converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]\\n converter._experimental_lower_tensor_list_ops = False\n"}
+,{"stream_name":"stderr","time":167.965942775,"data":"\n"}
+,{"stream_name":"stderr","time":167.96594622,"data":"W0000 00:00:1780859669.119865      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":167.96594966,"data":"W0000 00:00:1780859669.119893      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":167.965954948,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference___call___72310\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___72357\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.TensorListReserve' op requires element_shape to be static during TF Lite transformation pass\n"}
+,{"stream_name":"stderr","time":167.965987766,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference___call___72310\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___72357\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: failed to legalize operation 'tf.TensorListReserve' that was explicitly marked illegal\n"}
+,{"stream_name":"stderr","time":167.965990922,"data":"error: Lowering tensor list ops is failed. Please consider using Select TF ops and disabling `_experimental_lower_tensor_list_ops` flag in the TFLite converter object. For example, converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]\\n converter._experimental_lower_tensor_list_ops = False\n"}
+,{"stream_name":"stdout","time":168.11208887,"data":"INFO:tensorflow:Assets written to: /kaggle/working/sm/SSM/assets\n"}
+,{"stream_name":"stderr","time":168.112991845,"data":"INFO:tensorflow:Assets written to: /kaggle/working/sm/SSM/assets\n"}
+,{"stream_name":"stderr","time":168.113013702,"data":"\n"}
+,{"stream_name":"stderr","time":168.113018817,"data":"INFO:tensorflow:Assets written to: /kaggle/working/sm/SSM/assets\n"}
+,{"stream_name":"stdout","time":168.118195929,"data":"Saved artifact at '/kaggle/working/sm/SSM'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":168.118214678,"data":"\n"}
+,{"stream_name":"stdout","time":168.118219128,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":168.118223047,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":168.118227489,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":168.118231552,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":168.118234916,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":168.118238259,"data":"  136003154474960: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":168.11824176,"data":"  136003154465360: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":168.118245313,"data":"  136003154464976: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":168.118248865,"data":"  136003154465936: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":168.118253837,"data":"  136003154467280: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":168.118260387,"data":"  136003154466128: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":168.118262632,"data":"  136003157829456: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":168.118264917,"data":"  136003157833104: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":168.118267353,"data":"  136003154465552: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":168.812315557,"data":"W0000 00:00:1780859670.169705      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":168.812350277,"data":"W0000 00:00:1780859670.169738      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":168.812374491,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference___call___73902\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___73949\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.TensorListReserve' op requires element_shape to be static during TF Lite transformation pass\n"}
+,{"stream_name":"stderr","time":168.812378826,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference___call___73902\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___73949\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: failed to legalize operation 'tf.TensorListReserve' that was explicitly marked illegal\n"}
+,{"stream_name":"stderr","time":168.81238215,"data":"error: Lowering tensor list ops is failed. Please consider using Select TF ops and disabling `_experimental_lower_tensor_list_ops` flag in the TFLite converter object. For example, converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]\\n converter._experimental_lower_tensor_list_ops = False\n"}
+,{"stream_name":"stdout","time":168.845717529,"data":"  SSM          acc 47.38  params 29.6K  converts False  int8 -1kB\n"}
+,{"stream_name":"stdout","time":168.845745874,"data":"\n"}
+,{"stream_name":"stdout","time":168.845751072,"data":"Deep tier on CSI-HAR (subject-independent)\n"}
+,{"stream_name":"stdout","time":168.845755372,"data":"------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":168.845759407,"data":"      Model          Acc(%)  Params(K) Converts int8(kB)\n"}
+,{"stream_name":"stdout","time":168.845762919,"data":"        CNN  64.05 +/- 4.71       73.9      yes     86.3\n"}
+,{"stream_name":"stdout","time":168.845766912,"data":"      BiGRU  64.29 +/- 0.58       54.0       no      n/a\n"}
+,{"stream_name":"stdout","time":168.845770849,"data":"Transformer  58.10 +/- 3.42       50.6      yes     76.3\n"}
+,{"stream_name":"stdout","time":168.845774947,"data":"   ChebyKAN  65.71 +/- 3.09       62.1      yes     73.7\n"}
+,{"stream_name":"stdout","time":168.845778474,"data":"        SSM 47.38 +/- 10.79       29.6       no      n/a\n"}
+,{"stream_name":"stdout","time":168.845782331,"data":"\n"}
+,{"stream_name":"stdout","time":168.845785794,"data":"saved deeptier_csihar_table.csv, deeptier_csihar_results.json, tflite/*_csihar_int8.tflite\n"}
+,{"stream_name":"stdout","time":168.845789731,"data":"Convertible models -\u003e flash to the classic ESP32 to test the memory wall on CSI-HAR.\n"}
+,{"stream_name":"stderr","time":168.846621326,"data":"W0000 00:00:1780859670.169705      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":168.846642738,"data":"W0000 00:00:1780859670.169738      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":168.846647578,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference___call___73902\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___73949\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.TensorListReserve' op requires element_shape to be static during TF Lite transformation pass\n"}
+,{"stream_name":"stderr","time":168.846653341,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference___call___73902\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___73949\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: failed to legalize operation 'tf.TensorListReserve' that was explicitly marked illegal\n"}
+,{"stream_name":"stderr","time":168.846671139,"data":"error: Lowering tensor list ops is failed. Please consider using Select TF ops and disabling `_experimental_lower_tensor_list_ops` flag in the TFLite converter object. For example, converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]\\n converter._experimental_lower_tensor_list_ops = False\n"}
+,{"stream_name":"stderr","time":168.846676112,"data":"\n"}
+,{"stream_name":"stderr","time":168.846679611,"data":"W0000 00:00:1780859670.169705      22 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":168.84668387,"data":"W0000 00:00:1780859670.169738      22 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":168.846687572,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference___call___73902\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___73949\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: 'tf.TensorListReserve' op requires element_shape to be static during TF Lite transformation pass\n"}
+,{"stream_name":"stderr","time":168.846693086,"data":"loc(callsite(callsite(fused[\"TensorListReserve:\", \"SSM_1/rnn_1/TensorArrayV2_1@__inference___call___73902\"] at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall@__inference_signature_wrapper___call___73949\"]) at fused[\"StatefulPartitionedCall:\", \"StatefulPartitionedCall_1\"])): error: failed to legalize operation 'tf.TensorListReserve' that was explicitly marked illegal\n"}
+,{"stream_name":"stderr","time":168.846697881,"data":"error: Lowering tensor list ops is failed. Please consider using Select TF ops and disabling `_experimental_lower_tensor_list_ops` flag in the TFLite converter object. For example, converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]\\n converter._experimental_lower_tensor_list_ops = False\n"}
+,{"stream_name":"stderr","time":174.161720527,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":174.161756252,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":174.312657577,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":174.312683607,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":174.930501908,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":175.259359456,"data":"[NbConvertApp] Writing 55164 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":177.664021013,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":178.508799645,"data":"[NbConvertApp] Writing 375589 bytes to __results__.html\n"}
+]

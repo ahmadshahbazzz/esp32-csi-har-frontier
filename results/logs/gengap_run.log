@@ -1,0 +1,91 @@
+[{"stream_name":"stderr","time":5.368434771,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":5.36850358,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":6.139706688,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.139742131,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.139746125,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.139748608,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":6.700896064,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.700931071,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.700934694,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.700937604,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.086414453,"data":"2026-06-07 21:05:50.705072: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n"}
+,{"stream_name":"stderr","time":10.086993694,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":10.08702663,"data":"E0000 00:00:1780866350.884503      23 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n"}
+,{"stream_name":"stderr","time":10.087032805,"data":"E0000 00:00:1780866350.947081      23 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n"}
+,{"stream_name":"stderr","time":10.087037434,"data":"W0000 00:00:1780866351.416461      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.0870426,"data":"W0000 00:00:1780866351.416501      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.087047281,"data":"W0000 00:00:1780866351.416504      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.087051365,"data":"W0000 00:00:1780866351.416506      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.289011409,"data":"2026-06-07 21:05:50.705072: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n"}
+,{"stream_name":"stderr","time":10.289038279,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":10.289042891,"data":"E0000 00:00:1780866350.884503      23 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n"}
+,{"stream_name":"stderr","time":10.289059373,"data":"E0000 00:00:1780866350.947081      23 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n"}
+,{"stream_name":"stderr","time":10.289064185,"data":"W0000 00:00:1780866351.416461      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.289068155,"data":"W0000 00:00:1780866351.416501      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.289071958,"data":"W0000 00:00:1780866351.416504      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.28907609,"data":"W0000 00:00:1780866351.416506      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.289080211,"data":"\n"}
+,{"stream_name":"stderr","time":10.289083781,"data":"2026-06-07 21:05:50.705072: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n"}
+,{"stream_name":"stderr","time":10.289087971,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":10.28909143,"data":"E0000 00:00:1780866350.884503      23 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n"}
+,{"stream_name":"stderr","time":10.289095225,"data":"E0000 00:00:1780866350.947081      23 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n"}
+,{"stream_name":"stderr","time":10.289100063,"data":"W0000 00:00:1780866351.416461      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.28910374,"data":"W0000 00:00:1780866351.416501      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.28910904,"data":"W0000 00:00:1780866351.416504      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":10.289116633999999,"data":"W0000 00:00:1780866351.416506      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stdout","time":23.502661509,"data":"TensorFlow 2.19.0\n"}
+,{"stream_name":"stdout","time":33.980413709,"data":"CSI-HAR (420, 64, 52) F=52 classes=['bend', 'fall', 'lie down', 'run', 'sitdown', 'standup', 'walk'] users=[1, 2, 3]\n"}
+,{"stream_name":"stdout","time":33.980456831,"data":"random folds: 3 test sizes: [84, 84, 84]\n"}
+,{"stream_name":"stdout","time":33.980463876,"data":"louo folds: 3 test sizes: [140, 140, 140]\n"}
+,{"stream_name":"stdout","time":35.386288852,"data":"DecisionTree random  69.4  louo  40.6  gap  28.9\n"}
+,{"stream_name":"stdout","time":36.644002697,"data":"RandomForest random  83.1  louo  58.1  gap  25.0\n"}
+,{"stream_name":"stderr","time":46.308783111,"data":"I0000 00:00:1780866387.691863      23 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 15511 MB memory:  -\u003e device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0\n"}
+,{"stream_name":"stdout","time":46.332033139,"data":"MLP_stats    random  85.2  louo  56.9  gap  28.3\n"}
+,{"stream_name":"stderr","time":46.533659724,"data":"I0000 00:00:1780866387.691863      23 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 15511 MB memory:  -\u003e device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0\n"}
+,{"stream_name":"stderr","time":46.533695962,"data":"\n"}
+,{"stream_name":"stderr","time":46.533701904,"data":"I0000 00:00:1780866387.691863      23 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 15511 MB memory:  -\u003e device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0\n"}
+,{"stream_name":"stderr","time":48.477973697,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":48.478028246,"data":"I0000 00:00:1780866389.865493     318 service.cc:152] XLA service 0x7fa9d0003940 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:\n"}
+,{"stream_name":"stderr","time":48.478035317,"data":"I0000 00:00:1780866389.865541     318 service.cc:160]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0\n"}
+,{"stream_name":"stderr","time":48.680800787,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":48.68084125,"data":"I0000 00:00:1780866389.865493     318 service.cc:152] XLA service 0x7fa9d0003940 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:\n"}
+,{"stream_name":"stderr","time":48.680846065,"data":"I0000 00:00:1780866389.865541     318 service.cc:160]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0\n"}
+,{"stream_name":"stderr","time":48.680849581,"data":"\n"}
+,{"stream_name":"stderr","time":48.680852532,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":48.68085602,"data":"I0000 00:00:1780866389.865493     318 service.cc:152] XLA service 0x7fa9d0003940 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:\n"}
+,{"stream_name":"stderr","time":48.68085983,"data":"I0000 00:00:1780866389.865541     318 service.cc:160]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0\n"}
+,{"stream_name":"stderr","time":48.718341454,"data":"I0000 00:00:1780866390.105691     318 cuda_dnn.cc:529] Loaded cuDNN version 91002\n"}
+,{"stream_name":"stderr","time":48.920678505,"data":"I0000 00:00:1780866390.105691     318 cuda_dnn.cc:529] Loaded cuDNN version 91002\n"}
+,{"stream_name":"stderr","time":48.920720445,"data":"\n"}
+,{"stream_name":"stderr","time":48.920724783,"data":"I0000 00:00:1780866390.105691     318 cuda_dnn.cc:529] Loaded cuDNN version 91002\n"}
+,{"stream_name":"stderr","time":50.319488937,"data":"I0000 00:00:1780866391.707038     318 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.\n"}
+,{"stream_name":"stderr","time":50.522205473,"data":"I0000 00:00:1780866391.707038     318 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.\n"}
+,{"stream_name":"stderr","time":50.522267257,"data":"\n"}
+,{"stream_name":"stderr","time":50.522483633,"data":"I0000 00:00:1780866391.707038     318 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.\n"}
+,{"stream_name":"stdout","time":65.751019038,"data":"WARNING:tensorflow:5 out of the last 7 calls to \u003cfunction TensorFlowTrainer.make_predict_function.\u003clocals\u003e.one_step_on_data_distributed at 0x7faaa4464540\u003e triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.\n"}
+,{"stream_name":"stdout","time":65.967852373,"data":"WARNING:tensorflow:6 out of the last 9 calls to \u003cfunction TensorFlowTrainer.make_predict_function.\u003clocals\u003e.one_step_on_data_distributed at 0x7faaa4464540\u003e triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.\n"}
+,{"stream_name":"stdout","time":83.400168296,"data":"TinyCNN16    random  92.1  louo  62.1  gap  29.9\n"}
+,{"stream_name":"stdout","time":118.956443419,"data":"TinyCNN32    random  96.4  louo  63.1  gap  33.3\n"}
+,{"stream_name":"stdout","time":145.228039299,"data":"TinyMLP_nn   random  87.7  louo  56.9  gap  30.8\n"}
+,{"stream_name":"stdout","time":145.228075516,"data":"\n"}
+,{"stream_name":"stdout","time":145.228082218,"data":"GENERALIZATION GAP (CSI-HAR)\n"}
+,{"stream_name":"stdout","time":145.228087234,"data":"----------------------------------------------------\n"}
+,{"stream_name":"stdout","time":145.228092612,"data":"       Model  random_mean  louo_mean   gap_pts\n"}
+,{"stream_name":"stdout","time":145.228097465,"data":"DecisionTree         69.4       40.6 28.888889\n"}
+,{"stream_name":"stdout","time":145.228101838,"data":"RandomForest         83.1       58.1 24.973545\n"}
+,{"stream_name":"stdout","time":145.228106573,"data":"   MLP_stats         85.2       56.9 28.280423\n"}
+,{"stream_name":"stdout","time":145.228111819,"data":"   TinyCNN16         92.1       62.1 29.920635\n"}
+,{"stream_name":"stdout","time":145.228117219,"data":"   TinyCNN32         96.4       63.1 33.333333\n"}
+,{"stream_name":"stdout","time":145.228121514,"data":"  TinyMLP_nn         87.7       56.9 30.793651\n"}
+,{"stream_name":"stdout","time":145.228125931,"data":"\n"}
+,{"stream_name":"stdout","time":145.228130631,"data":"Mean gap across models: 29.4 points\n"}
+,{"stream_name":"stdout","time":145.228136031,"data":"saved gengap_table.csv, gengap.json\n"}
+,{"stream_name":"stderr","time":150.402687075,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":150.402742915,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":150.55125557,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":150.551290771,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":151.151283495,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":151.442746118,"data":"[NbConvertApp] Writing 21915 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":153.813000341,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":154.619535319,"data":"[NbConvertApp] Writing 329417 bytes to __results__.html\n"}
+]

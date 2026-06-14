@@ -1,0 +1,344 @@
+[{"stream_name":"stderr","time":5.152669772,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":5.152744347,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":5.858876583,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":5.858914245,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":5.858923084,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":5.858926446,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":6.417131781,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.4171829129999995,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.417189538,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.417194715,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.741602585,"data":"2026-06-07 15:05:50.698936: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n"}
+,{"stream_name":"stderr","time":9.741639396,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":9.741644933,"data":"E0000 00:00:1780844750.880321      23 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n"}
+,{"stream_name":"stderr","time":9.741650242,"data":"E0000 00:00:1780844750.936626      23 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n"}
+,{"stream_name":"stderr","time":9.741655165,"data":"W0000 00:00:1780844751.398105      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":9.741660894,"data":"W0000 00:00:1780844751.398149      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":9.741665806,"data":"W0000 00:00:1780844751.398152      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":9.74167069,"data":"W0000 00:00:1780844751.398154      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":9.9445523,"data":"2026-06-07 15:05:50.698936: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n"}
+,{"stream_name":"stderr","time":9.944581819,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":9.944586416,"data":"E0000 00:00:1780844750.880321      23 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n"}
+,{"stream_name":"stderr","time":9.944602839,"data":"E0000 00:00:1780844750.936626      23 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n"}
+,{"stream_name":"stderr","time":9.944605662,"data":"W0000 00:00:1780844751.398105      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":9.944608196,"data":"W0000 00:00:1780844751.398149      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":9.944610635,"data":"W0000 00:00:1780844751.398152      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":9.944613053,"data":"W0000 00:00:1780844751.398154      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":9.944615484,"data":"\n"}
+,{"stream_name":"stderr","time":9.944617717,"data":"2026-06-07 15:05:50.698936: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n"}
+,{"stream_name":"stderr","time":9.944620238,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":9.944622636,"data":"E0000 00:00:1780844750.880321      23 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n"}
+,{"stream_name":"stderr","time":9.944625142,"data":"E0000 00:00:1780844750.936626      23 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n"}
+,{"stream_name":"stderr","time":9.94462878,"data":"W0000 00:00:1780844751.398105      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":9.944631229,"data":"W0000 00:00:1780844751.398149      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":9.944633659,"data":"W0000 00:00:1780844751.398152      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":9.944636107000001,"data":"W0000 00:00:1780844751.398154      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stdout","time":23.203217657,"data":"TensorFlow 2.19.0\n"}
+,{"stream_name":"stdout","time":23.203294722,"data":"output dir: /kaggle/working | seeds: 3 | epochs: 40 | window T: 64\n"}
+,{"stream_name":"stdout","time":28.828693101,"data":"UT-HAR: train (3977, 64, 90) test (500, 64, 90) (T=64)\n"}
+,{"stream_name":"stdout","time":28.828736653,"data":"\n"}
+,{"stream_name":"stdout","time":28.828741043,"data":"######## UT-HAR (classes=7, protocol=fixed split x 3 seeds) ########\n"}
+,{"stream_name":"stdout","time":28.828744457,"data":"=== Classical ML ===\n"}
+,{"stream_name":"stdout","time":37.147270453,"data":"  DecisionTree : acc 81.93 +/- 0.09  complexity=481  (n=3)\n"}
+,{"stream_name":"stdout","time":39.088758051,"data":"  RandomForest : acc 91.93 +/- 0.09  complexity=8720  (n=3)\n"}
+,{"stream_name":"stdout","time":59.015309772,"data":"  TinyMLP      : acc 95.27 +/- 0.52  complexity=14663  (n=3)\n"}
+,{"stream_name":"stdout","time":59.015346117,"data":"=== Tiny NN ===\n"}
+,{"stream_name":"stderr","time":60.016280298,"data":"I0000 00:00:1780844801.691677      23 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 15511 MB memory:  -\u003e device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0\n"}
+,{"stream_name":"stderr","time":60.218672725,"data":"I0000 00:00:1780844801.691677      23 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 15511 MB memory:  -\u003e device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0\n"}
+,{"stream_name":"stderr","time":60.218715281,"data":"\n"}
+,{"stream_name":"stderr","time":60.218721175,"data":"I0000 00:00:1780844801.691677      23 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 15511 MB memory:  -\u003e device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0\n"}
+,{"stream_name":"stderr","time":62.112313523,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":62.112363077,"data":"I0000 00:00:1780844803.819073     108 service.cc:152] XLA service 0x7a786c005630 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:\n"}
+,{"stream_name":"stderr","time":62.114583698,"data":"I0000 00:00:1780844803.819127     108 service.cc:160]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0\n"}
+,{"stream_name":"stderr","time":62.29814931,"data":"I0000 00:00:1780844804.004658     108 cuda_dnn.cc:529] Loaded cuDNN version 91002\n"}
+,{"stream_name":"stderr","time":62.315788764,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":62.315813308,"data":"I0000 00:00:1780844803.819073     108 service.cc:152] XLA service 0x7a786c005630 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:\n"}
+,{"stream_name":"stderr","time":62.315818446,"data":"I0000 00:00:1780844803.819127     108 service.cc:160]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0\n"}
+,{"stream_name":"stderr","time":62.315822783,"data":"I0000 00:00:1780844804.004658     108 cuda_dnn.cc:529] Loaded cuDNN version 91002\n"}
+,{"stream_name":"stderr","time":62.315827028,"data":"\n"}
+,{"stream_name":"stderr","time":62.31583061,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":62.315834309,"data":"I0000 00:00:1780844803.819073     108 service.cc:152] XLA service 0x7a786c005630 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:\n"}
+,{"stream_name":"stderr","time":62.315838182,"data":"I0000 00:00:1780844803.819127     108 service.cc:160]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0\n"}
+,{"stream_name":"stderr","time":62.315841911,"data":"I0000 00:00:1780844804.004658     108 cuda_dnn.cc:529] Loaded cuDNN version 91002\n"}
+,{"stream_name":"stderr","time":62.900573522,"data":"I0000 00:00:1780844804.607014     108 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.\n"}
+,{"stream_name":"stderr","time":63.10274016,"data":"I0000 00:00:1780844804.607014     108 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.\n"}
+,{"stream_name":"stderr","time":63.102801482,"data":"\n"}
+,{"stream_name":"stderr","time":63.102805946,"data":"I0000 00:00:1780844804.607014     108 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.\n"}
+,{"stream_name":"stdout","time":89.355488645,"data":"INFO:tensorflow:Assets written to: /tmp/tmp_a24g52u/assets\n"}
+,{"stream_name":"stderr","time":89.356597755,"data":"INFO:tensorflow:Assets written to: /tmp/tmp_a24g52u/assets\n"}
+,{"stream_name":"stderr","time":89.356615245,"data":"\n"}
+,{"stream_name":"stderr","time":89.356621253,"data":"INFO:tensorflow:Assets written to: /tmp/tmp_a24g52u/assets\n"}
+,{"stream_name":"stdout","time":89.357516877,"data":"Saved artifact at '/tmp/tmp_a24g52u'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":89.357531485,"data":"\n"}
+,{"stream_name":"stdout","time":89.357539723,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":89.357543085,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 90), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":89.357546362,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":89.35754938,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":89.357552595,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":89.357555667,"data":"  134661288954192: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":89.357558668,"data":"  134661288960144: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":89.357561747,"data":"  134661288954576: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":89.357564808,"data":"  134661288959184: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":89.539946615,"data":"W0000 00:00:1780844831.115183      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":89.539995707,"data":"W0000 00:00:1780844831.115231      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":89.540004304,"data":"I0000 00:00:1780844831.118828      23 mlir_graph_optimization_pass.cc:425] MLIR V1 optimization pass is not enabled\n"}
+,{"stream_name":"stderr","time":89.571132497,"data":"W0000 00:00:1780844831.115183      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":89.571166657,"data":"W0000 00:00:1780844831.115231      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":89.571172178,"data":"I0000 00:00:1780844831.118828      23 mlir_graph_optimization_pass.cc:425] MLIR V1 optimization pass is not enabled\n"}
+,{"stream_name":"stderr","time":89.571177392,"data":"\n"}
+,{"stream_name":"stderr","time":89.571182429,"data":"W0000 00:00:1780844831.115183      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":89.571187214,"data":"W0000 00:00:1780844831.115231      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":89.571191996,"data":"I0000 00:00:1780844831.118828      23 mlir_graph_optimization_pass.cc:425] MLIR V1 optimization pass is not enabled\n"}
+,{"stream_name":"stderr","time":89.649237676,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":89.875833314,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":89.875889736,"data":"\n"}
+,{"stream_name":"stderr","time":89.875894461,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stdout","time":90.080986986,"data":"  TinyMLP_nn  : acc 87.60 +/- 1.77  params 184.6K  int8 184.0kB  converts True  (n=3)\n"}
+,{"stream_name":"stdout","time":123.820562969,"data":"INFO:tensorflow:Assets written to: /tmp/tmpb8q6tsur/assets\n"}
+,{"stream_name":"stderr","time":123.821497321,"data":"INFO:tensorflow:Assets written to: /tmp/tmpb8q6tsur/assets\n"}
+,{"stream_name":"stderr","time":123.821517634,"data":"\n"}
+,{"stream_name":"stderr","time":123.821523004,"data":"INFO:tensorflow:Assets written to: /tmp/tmpb8q6tsur/assets\n"}
+,{"stream_name":"stdout","time":123.822440769,"data":"Saved artifact at '/tmp/tmpb8q6tsur'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":123.82245326,"data":"\n"}
+,{"stream_name":"stdout","time":123.822458164,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":123.822480697,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 90), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":123.822486109,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":123.822492947,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":123.822498571,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":123.822503671,"data":"  134661288966096: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":123.822508405,"data":"  134661288965904: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":123.82251291,"data":"  134661288959952: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":123.82251749,"data":"  134661288959568: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":123.822521992,"data":"  134661288960912: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":123.822528127,"data":"  134661177960656: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":123.981365185,"data":"W0000 00:00:1780844865.582800      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":123.981435237,"data":"W0000 00:00:1780844865.582826      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":124.017619459,"data":"W0000 00:00:1780844865.582800      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":124.017656609,"data":"W0000 00:00:1780844865.582826      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":124.017662974,"data":"\n"}
+,{"stream_name":"stderr","time":124.017667939,"data":"W0000 00:00:1780844865.582800      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":124.017673618,"data":"W0000 00:00:1780844865.582826      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":124.083182616,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":124.330243039,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":124.330291627,"data":"\n"}
+,{"stream_name":"stderr","time":124.330297406,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stdout","time":124.538761092,"data":"  TinyCNN8    : acc 86.13 +/- 1.95  params 5.8K  int8 11.1kB  converts True  (n=3)\n"}
+,{"stream_name":"stdout","time":157.880699262,"data":"INFO:tensorflow:Assets written to: /tmp/tmp6bqtqtak/assets\n"}
+,{"stream_name":"stderr","time":157.881598493,"data":"INFO:tensorflow:Assets written to: /tmp/tmp6bqtqtak/assets\n"}
+,{"stream_name":"stderr","time":157.881620014,"data":"\n"}
+,{"stream_name":"stderr","time":157.881625562,"data":"INFO:tensorflow:Assets written to: /tmp/tmp6bqtqtak/assets\n"}
+,{"stream_name":"stdout","time":157.882308341,"data":"Saved artifact at '/tmp/tmp6bqtqtak'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":157.882326331,"data":"\n"}
+,{"stream_name":"stdout","time":157.882332085,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":157.882337241,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 90), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":157.882342181,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":157.882348206,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":157.882373392,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":157.882378376,"data":"  134661177956816: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":157.8823833,"data":"  134661177951248: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":157.882388597,"data":"  134661177962576: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":157.882393687,"data":"  134661177960464: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":157.882398694,"data":"  134661177962960: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":157.882404522,"data":"  134659163011600: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":158.036715546,"data":"W0000 00:00:1780844899.643826      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":158.036750407,"data":"W0000 00:00:1780844899.643851      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":158.080354646,"data":"W0000 00:00:1780844899.643826      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":158.080382628,"data":"W0000 00:00:1780844899.643851      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":158.080388873,"data":"\n"}
+,{"stream_name":"stderr","time":158.08041288,"data":"W0000 00:00:1780844899.643826      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":158.080418624,"data":"W0000 00:00:1780844899.643851      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":158.138569563,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":158.40137679,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":158.401415304,"data":"\n"}
+,{"stream_name":"stderr","time":158.40142151,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stdout","time":158.610976686,"data":"  TinyCNN16   : acc 94.93 +/- 0.50  params 12.9K  int8 18.7kB  converts True  (n=3)\n"}
+,{"stream_name":"stdout","time":192.594981739,"data":"INFO:tensorflow:Assets written to: /tmp/tmp8ub2gdzj/assets\n"}
+,{"stream_name":"stderr","time":192.595906341,"data":"INFO:tensorflow:Assets written to: /tmp/tmp8ub2gdzj/assets\n"}
+,{"stream_name":"stderr","time":192.595928415,"data":"\n"}
+,{"stream_name":"stderr","time":192.595934157,"data":"INFO:tensorflow:Assets written to: /tmp/tmp8ub2gdzj/assets\n"}
+,{"stream_name":"stdout","time":192.596721686,"data":"Saved artifact at '/tmp/tmp8ub2gdzj'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":192.596748131,"data":"\n"}
+,{"stream_name":"stdout","time":192.596752918,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":192.596756236,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 90), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":192.596759579,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":192.596762709,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":192.596766131,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":192.596769255,"data":"  134659163001424: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":192.596772348,"data":"  134659163005648: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":192.596775465,"data":"  134659163006224: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":192.596778534,"data":"  134659163004496: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":192.596781611,"data":"  134659163011792: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":192.596784692,"data":"  134659163002384: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":192.780667399,"data":"W0000 00:00:1780844934.358406      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":192.780704703,"data":"W0000 00:00:1780844934.358451      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":192.917480273,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":192.919974047,"data":"W0000 00:00:1780844934.358406      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":192.919998946,"data":"W0000 00:00:1780844934.358451      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":192.920005287,"data":"\n"}
+,{"stream_name":"stderr","time":192.920010084,"data":"W0000 00:00:1780844934.358406      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":192.92001487,"data":"W0000 00:00:1780844934.358451      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":192.978509426,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":192.978542602,"data":"\n"}
+,{"stream_name":"stderr","time":192.978547674,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stdout","time":193.131263572,"data":"  TinyCNN32   : acc 96.67 +/- 0.50  params 31.0K  int8 37.6kB  converts True  (n=3)\n"}
+,{"stream_name":"stdout","time":201.948798435,"data":"CSI-HAR: (420, 64, 52) (T=64, F=52, classes=['bend', 'fall', 'lie down', 'run', 'sitdown', 'standup', 'walk'], users=[1, 2, 3])\n"}
+,{"stream_name":"stdout","time":201.948841017,"data":"CSI-HAR leave-one-user-out: 3 folds\n"}
+,{"stream_name":"stdout","time":201.948861597,"data":"\n"}
+,{"stream_name":"stdout","time":201.948865563,"data":"######## CSI-HAR (classes=7, protocol=leave-one-user-out) ########\n"}
+,{"stream_name":"stdout","time":201.948869185,"data":"=== Classical ML ===\n"}
+,{"stream_name":"stdout","time":201.948872635,"data":"  DecisionTree : acc 41.43 +/- 6.31  complexity=75  (n=3)\n"}
+,{"stream_name":"stdout","time":202.350840667,"data":"  RandomForest : acc 57.38 +/- 3.21  complexity=1380  (n=3)\n"}
+,{"stream_name":"stdout","time":204.080104264,"data":"  TinyMLP      : acc 58.10 +/- 0.89  complexity=8583  (n=3)\n"}
+,{"stream_name":"stdout","time":204.080144431,"data":"=== Tiny NN ===\n"}
+,{"stream_name":"stdout","time":210.992112137,"data":"WARNING:tensorflow:5 out of the last 22 calls to \u003cfunction TensorFlowTrainer.make_predict_function.\u003clocals\u003e.one_step_on_data_distributed at 0x7a787a42fa60\u003e triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.\n"}
+,{"stream_name":"stderr","time":210.993170321,"data":"WARNING:tensorflow:5 out of the last 22 calls to \u003cfunction TensorFlowTrainer.make_predict_function.\u003clocals\u003e.one_step_on_data_distributed at 0x7a787a42fa60\u003e triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.\n"}
+,{"stream_name":"stderr","time":210.993196387,"data":"\n"}
+,{"stream_name":"stderr","time":210.993202283,"data":"WARNING:tensorflow:5 out of the last 22 calls to \u003cfunction TensorFlowTrainer.make_predict_function.\u003clocals\u003e.one_step_on_data_distributed at 0x7a787a42fa60\u003e triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.\n"}
+,{"stream_name":"stdout","time":211.134433704,"data":"WARNING:tensorflow:5 out of the last 11 calls to \u003cfunction TensorFlowTrainer.make_predict_function.\u003clocals\u003e.one_step_on_data_distributed at 0x7a787a42fa60\u003e triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.\n"}
+,{"stream_name":"stderr","time":211.135500667,"data":"WARNING:tensorflow:5 out of the last 11 calls to \u003cfunction TensorFlowTrainer.make_predict_function.\u003clocals\u003e.one_step_on_data_distributed at 0x7a787a42fa60\u003e triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.\n"}
+,{"stream_name":"stderr","time":211.135523369,"data":"\n"}
+,{"stream_name":"stderr","time":211.135527691,"data":"WARNING:tensorflow:5 out of the last 11 calls to \u003cfunction TensorFlowTrainer.make_predict_function.\u003clocals\u003e.one_step_on_data_distributed at 0x7a787a42fa60\u003e triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.\n"}
+,{"stream_name":"stdout","time":215.177953118,"data":"INFO:tensorflow:Assets written to: /tmp/tmpjo7bodaj/assets\n"}
+,{"stream_name":"stderr","time":215.179118916,"data":"INFO:tensorflow:Assets written to: /tmp/tmpjo7bodaj/assets\n"}
+,{"stream_name":"stderr","time":215.179137272,"data":"\n"}
+,{"stream_name":"stderr","time":215.179141461,"data":"INFO:tensorflow:Assets written to: /tmp/tmpjo7bodaj/assets\n"}
+,{"stream_name":"stdout","time":215.18204712,"data":"Saved artifact at '/tmp/tmpjo7bodaj'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":215.18206541,"data":"\n"}
+,{"stream_name":"stdout","time":215.182069716,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":215.182073522,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":215.18207784,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":215.182081915,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":215.182085862,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":215.182090968,"data":"  134658369643792: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":215.182098532,"data":"  134658369650128: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":215.182101724,"data":"  134658369638224: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":215.18210426,"data":"  134658369647632: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":215.327749208,"data":"W0000 00:00:1780844956.936672      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":215.32778968,"data":"W0000 00:00:1780844956.936696      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":215.363163456,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stdout","time":215.653857801,"data":"  TinyMLP_nn  : acc 57.14 +/- 2.92  params 106.8K  int8 108.0kB  converts True  (n=3)\n"}
+,{"stream_name":"stderr","time":215.654841577,"data":"W0000 00:00:1780844956.936672      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":215.654860919,"data":"W0000 00:00:1780844956.936696      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":215.65486647,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":215.65487082,"data":"\n"}
+,{"stream_name":"stderr","time":215.654874322,"data":"W0000 00:00:1780844956.936672      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":215.654877989,"data":"W0000 00:00:1780844956.936696      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":215.65488162,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stdout","time":230.979009816,"data":"INFO:tensorflow:Assets written to: /tmp/tmpxx08g1mq/assets\n"}
+,{"stream_name":"stderr","time":230.980035968,"data":"INFO:tensorflow:Assets written to: /tmp/tmpxx08g1mq/assets\n"}
+,{"stream_name":"stderr","time":230.980059073,"data":"\n"}
+,{"stream_name":"stderr","time":230.980065535,"data":"INFO:tensorflow:Assets written to: /tmp/tmpxx08g1mq/assets\n"}
+,{"stream_name":"stdout","time":230.980877379,"data":"Saved artifact at '/tmp/tmpxx08g1mq'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":230.980898539,"data":"\n"}
+,{"stream_name":"stdout","time":230.980905245,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":230.980910808,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":230.980916662,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":230.980926042,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":230.980948779,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":230.980954753,"data":"  134657869319632: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":230.980961236,"data":"  134657869323088: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":230.980967233,"data":"  134657869316560: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":230.980973242,"data":"  134657869322320: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":230.980978737,"data":"  134657869327120: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":230.98098429,"data":"  134657869329616: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":231.221371244,"data":"W0000 00:00:1780844972.753302      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":231.221411725,"data":"W0000 00:00:1780844972.753329      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":231.221417763,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":231.23155993,"data":"W0000 00:00:1780844972.753302      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":231.231583141,"data":"W0000 00:00:1780844972.753329      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":231.231604942,"data":"\n"}
+,{"stream_name":"stderr","time":231.231607646,"data":"W0000 00:00:1780844972.753302      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":231.231610247,"data":"W0000 00:00:1780844972.753329      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":231.517342683,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":231.517382142,"data":"\n"}
+,{"stream_name":"stderr","time":231.517385663,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stdout","time":231.718941741,"data":"  TinyCNN8    : acc 54.52 +/- 6.56  params 3.7K  int8 9.1kB  converts True  (n=3)\n"}
+,{"stream_name":"stdout","time":247.149059875,"data":"INFO:tensorflow:Assets written to: /tmp/tmps3_1gg_6/assets\n"}
+,{"stream_name":"stderr","time":247.149880472,"data":"INFO:tensorflow:Assets written to: /tmp/tmps3_1gg_6/assets\n"}
+,{"stream_name":"stderr","time":247.149901859,"data":"\n"}
+,{"stream_name":"stderr","time":247.149907598,"data":"INFO:tensorflow:Assets written to: /tmp/tmps3_1gg_6/assets\n"}
+,{"stream_name":"stdout","time":247.153334004,"data":"Saved artifact at '/tmp/tmps3_1gg_6'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":247.153352847,"data":"\n"}
+,{"stream_name":"stdout","time":247.153362021,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":247.153365419,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":247.153368792,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":247.153371888,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":247.153375091,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":247.153378068,"data":"  134657858515600: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":247.153381075,"data":"  134657858506960: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":247.153384139,"data":"  134657858514832: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":247.153387131,"data":"  134657858516944: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":247.153390101,"data":"  134657858510224: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":247.153393141,"data":"  134657858517712: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":247.402837826,"data":"W0000 00:00:1780844988.921183      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":247.402876907,"data":"W0000 00:00:1780844988.921207      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":247.402883123,"data":"\n"}
+,{"stream_name":"stderr","time":247.402888017,"data":"W0000 00:00:1780844988.921183      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":247.402893055,"data":"W0000 00:00:1780844988.921207      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":247.406567797,"data":"W0000 00:00:1780844988.921183      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":247.406589524,"data":"W0000 00:00:1780844988.921207      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":247.410457792,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":247.72403911,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":247.724077742,"data":"\n"}
+,{"stream_name":"stderr","time":247.724082906,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stdout","time":247.925246515,"data":"  TinyCNN16   : acc 59.52 +/- 2.36  params 8.7K  int8 14.6kB  converts True  (n=3)\n"}
+,{"stream_name":"stdout","time":263.486738052,"data":"INFO:tensorflow:Assets written to: /tmp/tmpb4gvdxnw/assets\n"}
+,{"stream_name":"stderr","time":263.487571707,"data":"INFO:tensorflow:Assets written to: /tmp/tmpb4gvdxnw/assets\n"}
+,{"stream_name":"stderr","time":263.487592189,"data":"\n"}
+,{"stream_name":"stderr","time":263.48759763,"data":"INFO:tensorflow:Assets written to: /tmp/tmpb4gvdxnw/assets\n"}
+,{"stream_name":"stdout","time":263.488319551,"data":"Saved artifact at '/tmp/tmpb4gvdxnw'. The following endpoints are available:\n"}
+,{"stream_name":"stdout","time":263.48833738,"data":"\n"}
+,{"stream_name":"stdout","time":263.488342892,"data":"* Endpoint 'serve'\n"}
+,{"stream_name":"stdout","time":263.488347475,"data":"  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 64, 52), dtype=tf.float32, name='keras_tensor')\n"}
+,{"stream_name":"stdout","time":263.488352274,"data":"Output Type:\n"}
+,{"stream_name":"stdout","time":263.488356667,"data":"  TensorSpec(shape=(None, 7), dtype=tf.float32, name=None)\n"}
+,{"stream_name":"stdout","time":263.488361289,"data":"Captures:\n"}
+,{"stream_name":"stdout","time":263.488365762,"data":"  134661275661520: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":263.488370323,"data":"  134661275650768: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":263.488375108,"data":"  134661275659984: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":263.488379905,"data":"  134661275662096: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":263.48838494,"data":"  134661275655376: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stdout","time":263.488390102,"data":"  134661275662864: TensorSpec(shape=(), dtype=tf.resource, name=None)\n"}
+,{"stream_name":"stderr","time":263.759604015,"data":"W0000 00:00:1780845005.252066      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":263.759650108,"data":"W0000 00:00:1780845005.252115      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":263.760133648,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":263.767571464,"data":"W0000 00:00:1780845005.252066      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":263.767593509,"data":"W0000 00:00:1780845005.252115      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stderr","time":263.767599218,"data":"\n"}
+,{"stream_name":"stderr","time":263.76760389,"data":"W0000 00:00:1780845005.252066      23 tf_tfl_flatbuffer_helpers.cc:365] Ignored output_format.\n"}
+,{"stream_name":"stderr","time":263.767609145,"data":"W0000 00:00:1780845005.252115      23 tf_tfl_flatbuffer_helpers.cc:368] Ignored drop_control_dependency.\n"}
+,{"stream_name":"stdout","time":263.808641908,"data":"  TinyCNN32   : acc 62.14 +/- 4.21  params 22.4K  int8 29.3kB  converts True  (n=3)\n"}
+,{"stream_name":"stdout","time":263.808675314,"data":"\n"}
+,{"stream_name":"stdout","time":263.808679977,"data":"Deployability frontier (classical and tiny NN, all datasets)\n"}
+,{"stream_name":"stdout","time":263.808683654,"data":"------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":263.8086872,"data":"Dataset        Model      Type         Acc(%)    Complexity            int8(kB) Converts      Fits ~108KB\n"}
+,{"stream_name":"stdout","time":263.808690804,"data":" UT-HAR DecisionTree classical 81.93 +/- 0.09           481 n/a (C via emlearn)      n/a       yes (tiny)\n"}
+,{"stream_name":"stdout","time":263.808694387,"data":" UT-HAR RandomForest classical 91.93 +/- 0.09          8720 n/a (C via emlearn)      n/a       yes (tiny)\n"}
+,{"stream_name":"stdout","time":263.808698042,"data":" UT-HAR      TinyMLP classical 95.27 +/- 0.52         14663 n/a (C via emlearn)      n/a       yes (tiny)\n"}
+,{"stream_name":"stdout","time":263.8087056,"data":" UT-HAR   TinyMLP_nn   tiny-nn 87.60 +/- 1.77 184.6K params               184.0      yes measure on ESP32\n"}
+,{"stream_name":"stdout","time":263.808708496,"data":" UT-HAR     TinyCNN8   tiny-nn 86.13 +/- 1.95   5.8K params                11.1      yes measure on ESP32\n"}
+,{"stream_name":"stdout","time":263.808710952,"data":" UT-HAR    TinyCNN16   tiny-nn 94.93 +/- 0.50  12.9K params                18.7      yes measure on ESP32\n"}
+,{"stream_name":"stdout","time":263.808713277,"data":" UT-HAR    TinyCNN32   tiny-nn 96.67 +/- 0.50  31.0K params                37.6      yes measure on ESP32\n"}
+,{"stream_name":"stdout","time":263.808715658,"data":"CSI-HAR DecisionTree classical 41.43 +/- 6.31            75 n/a (C via emlearn)      n/a       yes (tiny)\n"}
+,{"stream_name":"stdout","time":263.808717993,"data":"CSI-HAR RandomForest classical 57.38 +/- 3.21          1380 n/a (C via emlearn)      n/a       yes (tiny)\n"}
+,{"stream_name":"stdout","time":263.808720307,"data":"CSI-HAR      TinyMLP classical 58.10 +/- 0.89          8583 n/a (C via emlearn)      n/a       yes (tiny)\n"}
+,{"stream_name":"stdout","time":263.808722681,"data":"CSI-HAR   TinyMLP_nn   tiny-nn 57.14 +/- 2.92 106.8K params               108.0      yes measure on ESP32\n"}
+,{"stream_name":"stdout","time":263.80872505,"data":"CSI-HAR     TinyCNN8   tiny-nn 54.52 +/- 6.56   3.7K params                 9.1      yes measure on ESP32\n"}
+,{"stream_name":"stdout","time":263.808730887,"data":"CSI-HAR    TinyCNN16   tiny-nn 59.52 +/- 2.36   8.7K params                14.6      yes measure on ESP32\n"}
+,{"stream_name":"stdout","time":263.808734115,"data":"CSI-HAR    TinyCNN32   tiny-nn 62.14 +/- 4.21  22.4K params                29.3      yes measure on ESP32\n"}
+,{"stream_name":"stdout","time":263.808737074,"data":"\n"}
+,{"stream_name":"stdout","time":263.808739264,"data":"saved frontier_table.csv, frontier_results.json, per-dataset .joblib and *_int8.tflite\n"}
+,{"stream_name":"stdout","time":263.808741653,"data":"Deep models (CNN, GRU, Transformer, KAN, SSM) come from the benchmark notebook.\n"}
+,{"stream_name":"stderr","time":263.809481957,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stderr","time":263.809497807,"data":"\n"}
+,{"stream_name":"stderr","time":263.809501468,"data":"fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8\n"}
+,{"stream_name":"stdout","time":265.043362564,"data":"saved fig_accuracy.png, fig_frontier.png, fig_complexity.png, frontier_tidy.csv\n"}
+,{"stream_name":"stderr","time":270.205122231,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":270.205172768,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":270.351295258,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":270.351325606,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":270.976976401,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":271.292232094,"data":"[NbConvertApp] Writing 65275 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":273.706841283,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":274.590957718,"data":"[NbConvertApp] Writing 416155 bytes to __results__.html\n"}
+]
