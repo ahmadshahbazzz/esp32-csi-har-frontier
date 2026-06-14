@@ -18,7 +18,7 @@ detect_port() {
 }
 PORT="${3:-$(detect_port)}"
 [ -n "$PORT" ] || { echo "NO SERIAL PORT FOUND"; exit 1; }
-echo cout098 | sudo -S chmod 666 "$PORT" 2>/dev/null
+sudo chmod 666 "$PORT" 2>/dev/null
 echo "using port $PORT"
 CAP="$ROOT/capture_esp32.py"
 OUTDIR="$ROOT/../frontier_results/ondevice"; mkdir -p "$OUTDIR"
