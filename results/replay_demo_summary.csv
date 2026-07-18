@@ -1,0 +1,8 @@
+window,true,ondevice_pred,desktop_pred,match
+0,bend,bend,bend,yes
+1,fall,fall,fall,yes
+2,lie down,lie down,lie down,yes
+3,run,run,run,yes
+4,sitdown,sitdown,sitdown,yes
+5,standup,standup,standup,yes
+6,walk,walk,walk,yes

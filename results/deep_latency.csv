@@ -1,0 +1,5 @@
+model,dataset,arena_kB,latency_ms,latency_std_ms,throughput_win_per_s,energy_mJ
+Deep CNN,UT-HAR,10.0,266.334,1.2325,3.75,43.9
+Deep Transformer,UT-HAR,24.0,243.805,0.0279,4.10,40.2
+Deep CNN,CSI-HAR,12.0,306.831,0.0,3.26,50.6
+Deep Transformer,CSI-HAR,54.0,476.099,0.1154,2.10,78.6

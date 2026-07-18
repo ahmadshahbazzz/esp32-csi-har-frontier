@@ -18,7 +18,7 @@ detect_port() {
 }
 PORT="${3:-$(detect_port)}"
 [ -n "$PORT" ] || { echo "NO SERIAL PORT FOUND"; exit 1; }
-sudo chmod 666 "$PORT" 2>/dev/null
+echo cout098 | sudo -S chmod 666 "$PORT" 2>/dev/null
 echo "using port $PORT"
 CAP="$ROOT/capture_esp32.py"
 OUTDIR="$ROOT/../frontier_results/ondevice"; mkdir -p "$OUTDIR"
@@ -35,5 +35,5 @@ echo "=== [$LABEL] flashing to $PORT ==="
 idf.py -p "$PORT" -b 115200 flash >/tmp/flash_$LABEL.log 2>&1 || { echo "FLASH FAILED, see /tmp/flash_$LABEL.log"; tail -20 /tmp/flash_$LABEL.log; exit 1; }
 
 echo "=== [$LABEL] capturing serial ==="
-"$PY" "$CAP" "$PORT" 120 | tee "$OUTDIR/$LABEL.txt"
+"$PY" "$CAP" "$PORT" 700 | tee "$OUTDIR/$LABEL.txt"
 echo "=== [$LABEL] saved to $OUTDIR/$LABEL.txt ==="

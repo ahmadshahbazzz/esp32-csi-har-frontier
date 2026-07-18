@@ -1,0 +1,8 @@
+i,true,tflite_pred
+0,bend,bend
+1,fall,fall
+2,lie down,lie down
+3,run,run
+4,sitdown,sitdown
+5,standup,standup
+6,walk,walk

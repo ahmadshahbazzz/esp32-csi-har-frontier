@@ -6,3 +6,10 @@ idf_component_register(
     INCLUDE_DIRS "."
     REQUIRES esp-tflite-micro esp_timer
 )
+
+# Item #11 replay demo: build with REPLAY_DEMO=1 in the environment to compile the
+# stored-window classification path (requires main/replay_windows.h) instead of the
+# latency loop. Normal latency builds leave REPLAY_DEMO unset and are unaffected.
+if(DEFINED ENV{REPLAY_DEMO})
+    target_compile_definitions(${COMPONENT_LIB} PRIVATE REPLAY_DEMO=1)
+endif()
