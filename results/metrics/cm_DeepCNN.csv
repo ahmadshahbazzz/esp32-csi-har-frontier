@@ -1,0 +1,8 @@
+,bend,fall,lie down,run,sitdown,standup,walk
+bend,40,17,0,0,0,0,3
+fall,6,23,1,15,1,14,0
+lie down,5,0,46,2,7,0,0
+run,0,0,0,26,0,0,34
+sitdown,0,0,5,0,48,7,0
+standup,8,0,4,1,3,44,0
+walk,0,0,0,9,0,0,51

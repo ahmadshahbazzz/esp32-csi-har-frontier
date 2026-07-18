@@ -1,0 +1,1 @@
+replay_accuracy_ondevice = 7/7, arena = 8.3 kB, model = TinyCNN16_csihar_int8

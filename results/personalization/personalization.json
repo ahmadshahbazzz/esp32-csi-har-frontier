@@ -1,0 +1,37 @@
+[
+  {
+    "k": 0,
+    "TinyCNN32": 61.9,
+    "TinyCNN32_std": 3.37,
+    "RandomForest": 58.1,
+    "RandomForest_std": 5.77
+  },
+  {
+    "k": 5,
+    "TinyCNN32": 67.0,
+    "TinyCNN32_std": 6.24,
+    "RandomForest": 61.56,
+    "RandomForest_std": 4.5
+  },
+  {
+    "k": 10,
+    "TinyCNN32": 71.03,
+    "TinyCNN32_std": 7.84,
+    "RandomForest": 64.02,
+    "RandomForest_std": 7.28
+  },
+  {
+    "k": 20,
+    "TinyCNN32": 79.07,
+    "TinyCNN32_std": 7.9,
+    "RandomForest": 71.11,
+    "RandomForest_std": 9.98
+  },
+  {
+    "k": 40,
+    "TinyCNN32": 87.0,
+    "TinyCNN32_std": 5.7,
+    "RandomForest": 74.67,
+    "RandomForest_std": 8.51
+  }
+]
