@@ -1,6 +1,13 @@
 \documentclass{ieeeaccess}
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
+% The IEEE Access class selects Times/Helvetica/Courier in T1 encoding (see the
+% class font definitions); load the matching font packages so those shapes are
+% defined instead of being substituted with (wider) Computer Modern.
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[scaled=.92]{helvet}
+\usepackage{courier}
 \usepackage{algorithmic}
 \usepackage{algorithm}
 \usepackage{graphicx}
@@ -303,6 +310,8 @@ Accuracy alone can hide class-dependent behaviour, so for the subject-independen
 \label{tab:prf}
 \centering
 \footnotesize
+\setlength{\tabcolsep}{4pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lcccc}
 \toprule
 Model & Accuracy (\%) & Precision (\%) & Recall (\%) & F1 (\%) \\
@@ -311,7 +320,7 @@ Tiny CNN (32 ch) & 62.14 & 62.03 & 62.14 & 60.94 \\
 Random Forest    & 57.38 & 58.55 & 57.38 & 56.53 \\
 Deep CNN         & 66.19 & 66.21 & 66.19 & 65.51 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \begin{figure*}[!t]
