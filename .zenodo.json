@@ -1,14 +1,15 @@
 {
   "title": "How Far Can a PSRAM-less ESP32 Go? A TinyML Deployment Study for WiFi CSI HAR",
-  "description": "Code, executed notebook (with outputs), on-device measurement firmware, results, and trained models (sklearn .joblib, int8 .tflite, emlearn C) for a deployment-characterization study of WiFi CSI human activity recognition on the classic PSRAM-less ESP32. Covers classical learners, tiny neural networks, and five deep architectures on UT-HAR and CSI-HAR, with measured on-device latency and memory.",
+  "description": "Code, executed notebooks (with outputs), on-device measurement firmware, results, and trained models (sklearn .joblib, int8 .tflite, emlearn C) for a deployment-characterization study of WiFi CSI human activity recognition on the classic PSRAM-less ESP32. Covers classical learners, tiny neural networks, and five deep architectures on UT-HAR and CSI-HAR, with measured on-device latency, throughput, and memory for the tiny and deep tiers, a cross-subject generalization-gap analysis (leave-one-user-out vs random split), a per-user personalization study, per-class metrics with confusion matrices and significance tests, a learning-rate/batch-size sweep, and an on-device replay demo that classifies real CSI windows on the board.",
   "upload_type": "software",
   "access_right": "open",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "creators": [
     {
       "name": "Malik, Annas Waseem",
-      "affiliation": "Faculty of Information Technology, University of Central Punjab, Lahore, Pakistan"
+      "affiliation": "Faculty of Information Technology, University of Central Punjab, Lahore, Pakistan",
+      "orcid": "0000-0001-8412-7655"
     },
     {
       "name": "Ahmad, Muhammad",
@@ -23,6 +24,8 @@
     "ESP32",
     "microcontroller",
     "on-device inference",
-    "int8 quantization"
+    "int8 quantization",
+    "cross-subject generalization",
+    "edge machine learning"
   ]
 }
