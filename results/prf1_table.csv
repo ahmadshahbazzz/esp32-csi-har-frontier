@@ -1,0 +1,4 @@
+Model,Accuracy,Precision,Recall,F1
+TinyCNN32,62.14,62.03,62.14,60.94
+RandomForest,57.38,58.55,57.38,56.53
+DeepCNN,66.19,66.21,66.19,65.51

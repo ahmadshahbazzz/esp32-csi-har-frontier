@@ -1,0 +1,7 @@
+{
+  "note": "CSI-HAR leave-one-user-out, 3 folds (low statistical power, reported honestly)",
+  "friedman": {"chi2": 4.440, "p": 0.218, "models": ["TinyCNN32","DeepCNN","Transformer","RandomForest"]},
+  "wilcoxon_deepcnn_vs_transformer": {"p": 0.250},
+  "paired_t_deepcnn_vs_transformer": {"t": 1.51, "p": 0.270},
+  "interpretation": "No statistically significant difference between models at n=3; CNN and Transformer are not significantly different (p=0.25). Supports that tiny/classical models are competitive."
+}
