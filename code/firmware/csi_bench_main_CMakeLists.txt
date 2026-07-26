@@ -1,10 +1,18 @@
 # Frontier firmware: one tiny int8 model at a time.
 # Regenerate model_tiny.cc per model with:
 #   python esp32_firmware/tflite_to_c.py <model_int8.tflite> esp32_firmware/csi_bench/main/model_tiny.cc
+
+# Item #2: only pull in the WiFi component stack when the WIFI_ON experiment build is
+# requested (otherwise the default build has WiFi disabled and must not require it).
+set(extra_reqs "")
+if(DEFINED ENV{WIFI_ON})
+    list(APPEND extra_reqs esp_wifi nvs_flash esp_netif esp_event)
+endif()
+
 idf_component_register(
     SRCS "main.cc" "model_tiny.cc"
     INCLUDE_DIRS "."
-    REQUIRES esp-tflite-micro esp_timer
+    REQUIRES esp-tflite-micro esp_timer ${extra_reqs}
 )
 
 # Item #11 replay demo: build with REPLAY_DEMO=1 in the environment to compile the
@@ -12,4 +20,12 @@ idf_component_register(
 # latency loop. Normal latency builds leave REPLAY_DEMO unset and are unaffected.
 if(DEFINED ENV{REPLAY_DEMO})
     target_compile_definitions(${COMPONENT_LIB} PRIVATE REPLAY_DEMO=1)
+endif()
+# Item #2 WiFi experiment: WIFI_ON=1 brings up the radio stack before measuring RAM.
+if(DEFINED ENV{WIFI_ON})
+    target_compile_definitions(${COMPONENT_LIB} PRIVATE WIFI_ON=1)
+endif()
+# Item #25 arena ablation: ARENA_BYTES=<n> forces a fixed tensor-arena size.
+if(DEFINED ENV{ARENA_BYTES})
+    target_compile_definitions(${COMPONENT_LIB} PRIVATE ARENA_BYTES=$ENV{ARENA_BYTES})
 endif()

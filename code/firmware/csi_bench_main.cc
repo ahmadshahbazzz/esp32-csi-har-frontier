@@ -25,6 +25,28 @@ extern const unsigned int  model_data_tflite_len;
 #include "replay_windows.h"
 #endif
 
+#ifdef WIFI_ON
+// Item #2: bring up the WiFi stack so we can measure how much internal SRAM it
+// claims (which is then unavailable to the tensor arena). STA mode, no association.
+#include "nvs_flash.h"
+#include "esp_netif.h"
+#include "esp_event.h"
+#include "esp_wifi.h"
+static void start_wifi() {
+    esp_err_t r = nvs_flash_init();
+    if (r == ESP_ERR_NVS_NO_FREE_PAGES || r == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+        nvs_flash_erase(); nvs_flash_init();
+    }
+    esp_netif_init();
+    esp_event_loop_create_default();
+    esp_netif_create_default_wifi_sta();
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    esp_wifi_init(&cfg);
+    esp_wifi_set_mode(WIFI_MODE_STA);
+    esp_wifi_start();
+}
+#endif
+
 // UT-HAR input is 250 packets x 90 features = 22500 int8 values.
 static constexpr int kInputSize = 250 * 90;
 // Classic ESP32 has no PSRAM and ~300 kB usable internal SRAM. Start at 256 kB;
@@ -32,11 +54,22 @@ static constexpr int kInputSize = 250 * 90;
 static constexpr int kArenaSize = 256 * 1024;
 
 extern "C" void app_main(void) {
+#ifdef WIFI_ON
+    // Item #2: start the radio stack first, then report the free block it leaves.
+    start_wifi();
+    vTaskDelay(pdMS_TO_TICKS(500));
+    printf("wifi_started = 1\n");
+#endif
     // No PSRAM on the classic ESP32: take the largest available contiguous internal
     // block (capped at kArenaSize), leaving a small margin for the interpreter itself.
     size_t big = heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL);
+#ifdef ARENA_BYTES
+    // Item #25: force a specific arena size to map the fit/no-fit threshold.
+    size_t asize = (size_t)ARENA_BYTES;
+#else
     size_t want = (size_t)kArenaSize;
     size_t asize = (want < big) ? want : (big > (2*1024) ? big - (2*1024) : big);
+#endif
     uint8_t* tensor_arena = (uint8_t*) heap_caps_malloc(asize, MALLOC_CAP_INTERNAL);
     printf("arena_alloc_bytes = %u  (largest_free_internal = %u)\n",
            (unsigned)asize, (unsigned)big);
