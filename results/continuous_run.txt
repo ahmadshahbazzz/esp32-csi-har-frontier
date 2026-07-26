@@ -1,0 +1,13 @@
+cont n=0 t=0.0s free_internal=216688 largest_block=110592 mean_lat=0.000
+cont n=1000 t=21.0s free_internal=216688 largest_block=110592 mean_lat=20.319
+cont n=2000 t=42.0s free_internal=216688 largest_block=110592 mean_lat=20.319
+cont n=3000 t=63.0s free_internal=216688 largest_block=110592 mean_lat=20.319
+cont n=4000 t=84.0s free_internal=216688 largest_block=110592 mean_lat=20.319
+cont n=5000 t=105.0s free_internal=216688 largest_block=110592 mean_lat=20.319
+cont n=6000 t=126.0s free_internal=216688 largest_block=110592 mean_lat=20.319
+cont n=7000 t=147.0s free_internal=216688 largest_block=110592 mean_lat=20.319
+cont n=8000 t=168.0s free_internal=216688 largest_block=110592 mean_lat=20.319
+cont n=9000 t=189.0s free_internal=216688 largest_block=110592 mean_lat=20.319
+cont n=10000 t=210.0s free_internal=216688 largest_block=110592 mean_lat=20.319
+cont n=11000 t=231.0s free_internal=216688 largest_block=110592 mean_lat=20.319
+continuous_done invokes=12000 mean_lat=20.319
