@@ -1,0 +1,3 @@
+model,dataset,espnn_on_ms,espnn_off_ms,speedup
+TinyCNN16,CSI-HAR,20.198,275.683,13.65x
+Deep CNN,CSI-HAR,243.505,>5000 (watchdog),>20x
