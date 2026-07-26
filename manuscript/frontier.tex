@@ -339,6 +339,8 @@ Deep Transformer & CSI-HAR & 476.1 & 320.7 & 1.48$\times$ \\
 
 The classic ESP32 boots at 160\,MHz under the default ESP-IDF configuration but can run at 240\,MHz, and the choice matters for a latency budget. Table~\ref{tab:cpufreq} compares the two operating points: at 240\,MHz every model is about a third faster, with the compute-bound tiny CNNs scaling close to the 1.5$\times$ clock ratio and the deep CNN scaling less (1.26$\times$) because a larger share of its time is spent moving activations rather than computing. All other on-device results in this paper use 240\,MHz, which is also the operating point behind the datasheet current we use for the energy estimate; running at 160\,MHz would lower average power but raise per-inference latency and energy in proportion.
 
+The compiler optimization level, in contrast, barely matters for this workload. Rebuilding the 16-channel tiny CNN and the deep CNN with size optimization ($-$Os) instead of the default performance optimization ($-$O2) changed latency by less than 3\% (if anything $-$Os was marginally faster, 28.1 against 29.7\,ms for the tiny CNN and 221 against 226\,ms for the deep CNN on UT-HAR), left the tensor arena unchanged, and reduced the firmware image by about 1.5\% (roughly 7\,kB of the 4\,MB flash). The insensitivity is expected: almost all of the time is spent inside the quantized TensorFlow Lite for Microcontrollers kernels, which the compiler optimizes similarly at either level, so the optimization flag mainly trades a small amount of code size and is not a lever for on-device speed here.
+
 \begin{figure}[tbp]
 \centering
 \includegraphics[width=\columnwidth]{fig_memory.png}
