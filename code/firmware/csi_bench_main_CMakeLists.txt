@@ -29,3 +29,8 @@ endif()
 if(DEFINED ENV{ARENA_BYTES})
     target_compile_definitions(${COMPONENT_LIB} PRIVATE ARENA_BYTES=$ENV{ARENA_BYTES})
 endif()
+# Item #16 per-layer arena: RECORD_ALLOC=1 uses the RecordingMicroInterpreter to print
+# the tensor-arena allocation breakdown, then returns (no latency loop).
+if(DEFINED ENV{RECORD_ALLOC})
+    target_compile_definitions(${COMPONENT_LIB} PRIVATE RECORD_ALLOC=1)
+endif()

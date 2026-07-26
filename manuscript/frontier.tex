@@ -365,6 +365,27 @@ Requested arena (B) & Fits & Latency (ms) \\
 \end{tabular}
 \end{table}
 
+To see where the arena goes within the two deep models, we instrumented the interpreter with the recording allocator and read back the arena composition (Table~\ref{tab:arenabreakdown}). The allocator splits the arena into a \emph{head}, the working buffer that holds the intermediate activations as they flow layer to layer, and a \emph{tail} of persistent structures (per-operator node records, quantization metadata, and kernel scratch buffers). The two families differ sharply. The deep CNN has 16 operators, a small 4.2\,kB tail, and a head that scales gently with the input (6.1\,kB on UT-HAR, 8.2\,kB on CSI-HAR). The Transformer has 55 operators, a much larger tail (14 to 18\,kB of node records and attention scratch), and a head that scales with the square of the sequence length, reaching 36.9\,kB on the 64-step CSI-HAR window. This composition is why the Transformer needs the most arena of any model we deploy and confirms, from the memory side, the latency story of Section~\ref{sec:results-ondevice}: attention is expensive on this chip in both time and space, while the convolutional activation buffer stays small.
+
+\begin{table}[t]
+\caption{Tensor-arena composition of the two deployable deep models, from the recording allocator (kB). \emph{Head} is the activation working buffer; \emph{tail} is the persistent structures (per-operator node records, quantization metadata, and kernel scratch). \emph{Ops} is the number of operators. The Transformer's many operators and sequence-quadratic attention activations dominate its footprint.}
+\label{tab:arenabreakdown}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llcccc}
+\toprule
+Model & Dataset & Total (kB) & Head (kB) & Tail (kB) & Ops \\
+\midrule
+Deep CNN    & UT-HAR  & 10.1 & 6.0  & 4.1  & 16 \\
+Deep CNN    & CSI-HAR & 12.1 & 8.0  & 4.1  & 16 \\
+Transformer & UT-HAR  & 24.1 & 10.0 & 14.0 & 55 \\
+Transformer & CSI-HAR & 54.1 & 36.0 & 18.0 & 55 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
 \begin{figure}[tbp]
 \centering
 \includegraphics[width=\columnwidth]{fig_memory.png}

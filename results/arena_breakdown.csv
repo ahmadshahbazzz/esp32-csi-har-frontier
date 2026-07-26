@@ -1,0 +1,5 @@
+model,dataset,total_B,head_B,tail_B,ops
+Deep CNN,UT-HAR,10348,6148,4200,16
+Deep CNN,CSI-HAR,12396,8196,4200,16
+Transformer,UT-HAR,24636,10260,14376,55
+Transformer,CSI-HAR,55356,36884,18472,55
