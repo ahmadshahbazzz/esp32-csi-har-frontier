@@ -341,6 +341,28 @@ The classic ESP32 boots at 160\,MHz under the default ESP-IDF configuration but 
 
 The compiler optimization level, in contrast, barely matters for this workload. Rebuilding the 16-channel tiny CNN and the deep CNN with size optimization ($-$Os) instead of the default performance optimization ($-$O2) changed latency by less than 3\% (if anything $-$Os was marginally faster, 28.1 against 29.7\,ms for the tiny CNN and 221 against 226\,ms for the deep CNN on UT-HAR), left the tensor arena unchanged, and reduced the firmware image by about 1.5\% (roughly 7\,kB of the 4\,MB flash). The insensitivity is expected: almost all of the time is spent inside the quantized TensorFlow Lite for Microcontrollers kernels, which the compiler optimizes similarly at either level, so the optimization flag mainly trades a small amount of code size and is not a lever for on-device speed here.
 
+Finally, we ablated the tensor-arena size directly, since it is the single quantity that decides whether a model deploys. Table~\ref{tab:arena} sweeps the arena given to the 16-channel tiny CNN on CSI-HAR, whose true requirement is 8488 bytes. The behaviour is a sharp threshold: below 8488 bytes the interpreter cannot allocate and the model does not deploy, while at or above it the model fits, reports the same 8488-byte peak, and runs at the same latency (20.24\,ms) regardless of how much extra arena is provided. Over-provisioning the arena therefore only wastes RAM; it buys no speed. The ablation also surfaced a byte-addressability constraint that a bare-device study exposes and a PSRAM-equipped one would not: the arena must be forced into byte-addressable internal RAM with \texttt{MALLOC\_CAP\_8BIT}. A small arena requested only as generic internal memory can be placed by the allocator in instruction RAM, which permits only 32-bit access, and the interpreter's int8 tensor access then faults; large arenas avoid this by default because only the main data RAM block can satisfy them, which is why the earlier measurements were unaffected.
+
+\begin{table}[t]
+\caption{Tensor-arena-size ablation for the 16-channel tiny CNN on CSI-HAR (true requirement 8488 bytes, measured at 240\,MHz). Below the requirement the interpreter cannot allocate the model; at or above it the model fits, uses the same 8488 bytes, and runs at the same latency independent of the requested arena. The arena is allocated as byte-addressable internal RAM (\texttt{MALLOC\_CAP\_8BIT}).}
+\label{tab:arena}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{ccc}
+\toprule
+Requested arena (B) & Fits & Latency (ms) \\
+\midrule
+7168  & no  & n/a \\
+8192  & no  & n/a \\
+8448  & no  & n/a \\
+8704  & yes & 20.24 \\
+16384 & yes & 20.24 \\
+32768 & yes & 20.25 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{figure}[tbp]
 \centering
 \includegraphics[width=\columnwidth]{fig_memory.png}

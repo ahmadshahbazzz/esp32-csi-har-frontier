@@ -1,0 +1,7 @@
+requested_arena_B,fits,arena_used_B,latency_ms
+7168,no,,
+8192,no,,
+8448,no,,
+8704,yes,8488,20.244
+16384,yes,8488,20.237
+32768,yes,8488,20.246
