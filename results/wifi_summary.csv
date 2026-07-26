@@ -1,0 +1,7 @@
+model,dataset,wifi,largest_free_block_kB,arena_kB,latency_ms
+TinyCNN16,CSI-HAR,off,152,8.3,20.2
+TinyCNN16,CSI-HAR,on,108,8.3,20.1
+Deep CNN,CSI-HAR,off,152,12.0,243.5
+Deep CNN,CSI-HAR,on,108,12.0,244.6
+Deep Transformer,CSI-HAR,off,152,54.0,320.7
+Deep Transformer,CSI-HAR,on,108,54.0,322.0
