@@ -1,0 +1,10 @@
+Model,Tier,Accuracy,std,int8_kB,Converts
+Decision Tree,classical,95.56,1.04,emlearn C,n/a
+Random Forest,classical,99.72,0.2,emlearn C,n/a
+MLP (statistics),classical,98.61,0.2,emlearn C,n/a
+Tiny CNN (8 ch),tiny-nn,99.86,0.2,25.0,yes
+Tiny CNN (16 ch),tiny-nn,99.58,0.59,46.3,yes
+Tiny CNN (32 ch),tiny-nn,100.0,0.0,92.7,yes
+Tiny MLP (net),tiny-nn,97.92,0.0,2743.0,yes
+Deep CNN,deep,100.0,0.0,213.4,yes
+Transformer,deep,99.58,0.0,166.8,yes

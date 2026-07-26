@@ -1,0 +1,87 @@
+{
+  "dataset": "NTU-Fi_HAR",
+  "n_classes": 6,
+  "activities": [
+    "box",
+    "circle",
+    "clean",
+    "fall",
+    "run",
+    "walk"
+  ],
+  "n_samples": 1200,
+  "rows": [
+    {
+      "Model": "Decision Tree",
+      "Tier": "classical",
+      "Accuracy": 95.56,
+      "std": 1.04,
+      "int8_kB": "emlearn C",
+      "Converts": "n/a"
+    },
+    {
+      "Model": "Random Forest",
+      "Tier": "classical",
+      "Accuracy": 99.72,
+      "std": 0.2,
+      "int8_kB": "emlearn C",
+      "Converts": "n/a"
+    },
+    {
+      "Model": "MLP (statistics)",
+      "Tier": "classical",
+      "Accuracy": 98.61,
+      "std": 0.2,
+      "int8_kB": "emlearn C",
+      "Converts": "n/a"
+    },
+    {
+      "Model": "Tiny CNN (8 ch)",
+      "Tier": "tiny-nn",
+      "Accuracy": 99.86,
+      "std": 0.2,
+      "int8_kB": 25.0,
+      "Converts": "yes"
+    },
+    {
+      "Model": "Tiny CNN (16 ch)",
+      "Tier": "tiny-nn",
+      "Accuracy": 99.58,
+      "std": 0.59,
+      "int8_kB": 46.3,
+      "Converts": "yes"
+    },
+    {
+      "Model": "Tiny CNN (32 ch)",
+      "Tier": "tiny-nn",
+      "Accuracy": 100.0,
+      "std": 0.0,
+      "int8_kB": 92.7,
+      "Converts": "yes"
+    },
+    {
+      "Model": "Tiny MLP (net)",
+      "Tier": "tiny-nn",
+      "Accuracy": 97.92,
+      "std": 0.0,
+      "int8_kB": 2743.0,
+      "Converts": "yes"
+    },
+    {
+      "Model": "Deep CNN",
+      "Tier": "deep",
+      "Accuracy": 100.0,
+      "std": 0.0,
+      "int8_kB": 213.4,
+      "Converts": "yes"
+    },
+    {
+      "Model": "Transformer",
+      "Tier": "deep",
+      "Accuracy": 99.58,
+      "std": 0.0,
+      "int8_kB": 166.8,
+      "Converts": "yes"
+    }
+  ]
+}
