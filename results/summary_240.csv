@@ -1,0 +1,13 @@
+model,latency_ms,latency_std_ms,arena_kB,energy_mJ
+CNN_csihar,243.505,0.5675,12.0,40.2
+CNN_uthar,225.634,0.0059,10.0,37.2
+TinyCNN16_csihar,20.198,0.0021,8.3,3.3
+TinyCNN16_uthar,29.671,0.0062,13.0,4.9
+TinyCNN32_csihar,46.446,0.0140,8.7,7.7
+TinyCNN32_uthar,67.781,0.0103,13.4,11.2
+TinyCNN8_csihar,9.403,0.0001,8.1,1.6
+TinyCNN8_uthar,14.147,0.0005,12.9,2.3
+TinyMLP_nn_csihar,19.614,0.0055,7.7,3.2
+TinyMLP_nn_uthar,33.263,0.0185,12.5,5.5
+Transformer_csihar,320.724,0.0836,54.0,52.9
+Transformer_uthar,169.763,0.0204,24.0,28.0
