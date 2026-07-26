@@ -34,3 +34,8 @@ endif()
 if(DEFINED ENV{RECORD_ALLOC})
     target_compile_definitions(${COMPONENT_LIB} PRIVATE RECORD_ALLOC=1)
 endif()
+# Items #10/#11 continuous run: CONTINUOUS=1 runs back-to-back inference for a long
+# time, sampling heap and latency to check runtime stability / fragmentation.
+if(DEFINED ENV{CONTINUOUS})
+    target_compile_definitions(${COMPONENT_LIB} PRIVATE CONTINUOUS=1)
+endif()

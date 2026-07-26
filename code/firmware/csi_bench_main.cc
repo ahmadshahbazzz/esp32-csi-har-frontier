@@ -160,6 +160,33 @@ extern "C" void app_main(void) {
 
     interp.Invoke();  // warm-up
 
+#ifdef CONTINUOUS
+    // Items #10/#11: run inference back-to-back for a long time (continuous sensing),
+    // sampling the free internal heap and largest free block to detect leaks or
+    // fragmentation, and the running-mean latency to confirm it stays stable.
+    {
+        const int N = 12000;
+        int64_t base = esp_timer_get_time();
+        double lat_sum = 0.0;
+        for (int n = 0; n < N; n++) {
+            int64_t a = esp_timer_get_time();
+            interp.Invoke();
+            lat_sum += (double)(esp_timer_get_time() - a) / 1000.0;
+            if ((n % 1000) == 0) {
+                size_t fi = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
+                size_t lb = heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL);
+                double el = (double)(esp_timer_get_time() - base) / 1e6;
+                printf("cont n=%d t=%.1fs free_internal=%u largest_block=%u mean_lat=%.3f\n",
+                       n, el, (unsigned)fi, (unsigned)lb, (n > 0) ? lat_sum / (n + 1) : 0.0);
+            }
+            vTaskDelay(1);
+        }
+        printf("continuous_done invokes=%d mean_lat=%.3f\n", N, lat_sum / N);
+        printf("DONE\n");
+        return;
+    }
+#endif
+
     // Time 1000 invocations individually to report both mean and standard
     // deviation of per-inference latency. Only the Invoke call is timed; a short
     // yield after every run feeds the task watchdog and is not counted. Yielding
