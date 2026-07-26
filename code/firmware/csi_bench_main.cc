@@ -70,7 +70,11 @@ extern "C" void app_main(void) {
     size_t want = (size_t)kArenaSize;
     size_t asize = (want < big) ? want : (big > (2*1024) ? big - (2*1024) : big);
 #endif
-    uint8_t* tensor_arena = (uint8_t*) heap_caps_malloc(asize, MALLOC_CAP_INTERNAL);
+    // The tensor arena must be byte-addressable: MALLOC_CAP_8BIT forces DRAM and avoids
+    // instruction RAM (IRAM), which only allows 32-bit access and faults on the int8
+    // tensor byte access. Large arenas land in DRAM anyway, but a small forced arena
+    // (the #25 ablation) can otherwise be placed in IRAM and crash.
+    uint8_t* tensor_arena = (uint8_t*) heap_caps_malloc(asize, MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT);
     printf("arena_alloc_bytes = %u  (largest_free_internal = %u)\n",
            (unsigned)asize, (unsigned)big);
     if (tensor_arena == nullptr) { printf("ARENA ALLOC FAILED\n"); return; }
