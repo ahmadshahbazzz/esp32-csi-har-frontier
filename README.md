@@ -107,3 +107,19 @@ used as an independent check of the frontier only.
 ## Hardware
 Classic ESP32-D0WD-V3 (dual-core Xtensa LX6 at 240 MHz, 520 kB internal SRAM, no PSRAM,
 4 MB flash), CP210x USB bridge. Measurements taken with WiFi and Bluetooth disabled.
+
+## License and third-party code
+Our own code, firmware, notebooks, and results in this repository are released under the
+MIT License (see `LICENSE`).
+
+One file is not ours: `code/firmware/esp-tflite-micro_CMakeLists.txt` is a **modified copy**
+of the build file from Espressif's `esp-tflite-micro` component
+(https://github.com/espressif/tflite-micro-esp-examples), which is licensed under the
+**Apache License 2.0** and remains under that license. Our modification only adds an
+environment-guarded switch (`NO_ESP_NN`) that keeps the portable reference kernels instead
+of the ESP-NN optimized ones, so that the ESP-NN speedup could be measured; the default
+build path is unchanged. The component itself is not redistributed here, only this single
+build file for reproducibility of that experiment.
+
+The datasets are not redistributed; see the dataset section above for their original
+sources and licenses.
