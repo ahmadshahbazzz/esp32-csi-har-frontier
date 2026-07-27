@@ -11,7 +11,7 @@ On the cheapest and most constrained commodity WiFi microcontroller, the classic
 PSRAM-less ESP32 (about 150 kB of usable contiguous SRAM), we map the deployability
 frontier for WiFi CSI human activity recognition across three model tiers (classical
 learners, tiny neural networks, and five standard deep architectures) on two public
-datasets (UT-HAR and CSI-HAR). The two-part conclusion: on this hardware deployment is
+datasets (UT-HAR and CSI-HAR), with NTU-Fi_HAR as a third-dataset check. The two-part conclusion: on this hardware deployment is
 not the bottleneck, but cross-subject generalization is.
 
 Headline findings, all backed by the evidence in `results/`:
@@ -46,14 +46,14 @@ Headline findings, all backed by the evidence in `results/`:
 ```
 submission/
   manuscript/   LaTeX source + classes + figures (compiles as-is on Overleaf)
-  code/         Kaggle notebook + generator, and ESP32 firmware sources + scripts
+  code/         Executed Kaggle notebooks + generators, and ESP32 firmware + scripts
   results/      All measured evidence: tables, JSON, figures, on-device logs
   models/       Trained artifacts: .joblib (sklearn), int8 .tflite, emlearn C headers
 ```
 
 ## How to reproduce
 1. Off-device (accuracy, int8 sizes, convertibility, figures): run
-   `code/kaggle_notebooks/csi_frontier_kaggle.ipynb` on Kaggle with the two datasets
+   `code/kaggle_notebooks/csi-deployability-frontier.ipynb` on Kaggle with the two datasets
    attached (`hylanj/wifi-csi-dataset-ut-har`, `sayakghorai34/csi-har-dataset`), GPU T4,
    Internet on. Outputs match `results/`. See `code/README.md`.
 2. On-device (latency, RAM): flash the firmware in `code/firmware/` to a classic ESP32 and
