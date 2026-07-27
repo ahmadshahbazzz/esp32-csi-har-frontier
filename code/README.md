@@ -1,7 +1,7 @@
 # Code: reproducing the results
 
 ## 1. Off-device (Kaggle): accuracy, int8 sizes, convertibility, figures
-`kaggle_notebooks/csi_frontier_kaggle.ipynb` is the notebook that produces every off-device
+`kaggle_notebooks/csi-deployability-frontier.ipynb` is the notebook that produces every off-device
 number in the paper and the figures in `results/`. It is included **with the executed cell
 outputs** from the actual Kaggle run (stdout training logs, the results table, and the three
 figures embedded), so it can be read end-to-end without re-running. `gen_frontier_notebook.py`
