@@ -20,14 +20,26 @@ Headline findings, all backed by the evidence in `results/`:
    classic ESP32, so there is NO general memory wall. Only a convertibility wall is real:
    recurrent and state-space models do not convert to TensorFlow Lite for Microcontrollers,
    and the Chebyshev-KAN converts but fails to allocate.
-2. Classical learners and tiny CNNs fit and run cheaply. Measured on the board: tiny
-   networks use 8 to 13 kB of arena and 14 to 117 ms per inference; the emlearn Decision
-   Tree and Random Forest run in about 1 and 45 microseconds with under 1 kB of RAM. They
-   are the efficiency choice, not the only option.
+2. Classical learners and tiny CNNs fit and run cheaply. Measured on the board at 240 MHz:
+   tiny networks use 8 to 13 kB of arena and 9 to 68 ms per inference (deep CNN and
+   Transformer 170 to 321 ms); the emlearn Decision Tree and Random Forest run in about 1
+   and 45 microseconds with under 1 kB of RAM. They are the efficiency choice, not the only
+   option.
 3. The binding constraint is cross-subject generalization. Under leave-one-user-out on
    CSI-HAR the same six models drop a mean of 29 points (best 96 to 63 percent) versus a
    random split that leaks users across train and test. On the saturated UT-HAR benchmark
-   the small models stay competitive (tiny CNN 96.7, statistics MLP 95.3 percent).
+   the small models stay competitive (tiny CNN 96.7, statistics MLP 95.3 percent), and the
+   same holds on a third dataset, NTU-Fi_HAR (tiny CNN 100, Random Forest 99.7 percent).
+4. What actually governs on-device speed and fit (measured):
+   - Optimized kernels dominate: ESP-NN gives a 13.6x speedup over the reference kernels
+     (tiny CNN 20.2 vs 275.7 ms); without it the deep CNN cannot finish one inference.
+   - CPU clock: 240 MHz is about 1.5x faster than the 160 MHz ESP-IDF default.
+   - Compiler flag (-O2 vs -Os): under 3 percent. Not a useful lever.
+   - WiFi active costs about 44 kB of internal RAM (152 kB free block drops to 108 kB), but
+     every model still fits and latency is unchanged.
+   - Tensor arena is a sharp threshold at `arena_used_bytes`, and extra arena buys no speed.
+   - Continuous operation is stable: 12,000 back-to-back inferences with constant heap and
+     latency (no leak, no fragmentation).
 
 
 ## Folder layout
@@ -49,9 +61,26 @@ submission/
 3. Manuscript PDF: open `manuscript/` on Overleaf and compile `frontier.tex`. See
    `manuscript/COMPILE.md`.
 
+## Kaggle notebooks (public, runnable)
+Every off-device experiment is a public Kaggle notebook. The `.ipynb` files are also in
+`code/kaggle_notebooks/`; the links below are the executed versions with outputs.
+
+| Experiment | Notebook |
+|---|---|
+| Deployability frontier (classical + tiny) | https://www.kaggle.com/code/muhammadahmad3/csi-deployability-frontier |
+| Five-architecture benchmark | https://www.kaggle.com/code/muhammadahmad3/csi-architecture-benchmark |
+| Deep tier on CSI-HAR | https://www.kaggle.com/code/muhammadahmad3/csi-deeptier-csihar |
+| Cross-subject generalization gap | https://www.kaggle.com/code/muhammadahmad3/csi-gengap |
+| Confusion matrices, precision/recall/F1 | https://www.kaggle.com/code/muhammadahmad3/csi-metrics-cpu |
+| Hyperparameter sweep (LR x batch) | https://www.kaggle.com/code/muhammadahmad3/csi-hpsweep-cpu |
+| Per-user personalization curve | https://www.kaggle.com/code/muhammadahmad3/csi-personalization |
+| On-device replay demo assets | https://www.kaggle.com/code/muhammadahmad3/csi-replay-demo-cpu |
+| Third dataset (NTU-Fi_HAR) | https://www.kaggle.com/code/muhammadahmad3/csi-ntufi-frontier |
+
 ## Datasets (public, not redistributed here)
 - UT-HAR: Kaggle `hylanj/wifi-csi-dataset-ut-har` (via the SenseFi loaders).
 - CSI-HAR: Kaggle `sayakghorai34/csi-har-dataset`.
+- NTU-Fi_HAR: Kaggle `imhoangt/ntu-fi-dataset` (third dataset, frontier check only).
 
 ## Hardware
 Classic ESP32-D0WD-V3 (dual-core Xtensa LX6 at 240 MHz, 520 kB internal SRAM, no PSRAM,
