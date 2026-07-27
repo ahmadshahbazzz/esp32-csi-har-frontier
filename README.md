@@ -78,9 +78,31 @@ Every off-device experiment is a public Kaggle notebook. The `.ipynb` files are 
 | Third dataset (NTU-Fi_HAR) | https://www.kaggle.com/code/muhammadahmad3/csi-ntufi-frontier |
 
 ## Datasets (public, not redistributed here)
-- UT-HAR: Kaggle `hylanj/wifi-csi-dataset-ut-har` (via the SenseFi loaders).
-- CSI-HAR: Kaggle `sayakghorai34/csi-har-dataset`.
-- NTU-Fi_HAR: Kaggle `imhoangt/ntu-fi-dataset` (third dataset, frontier check only).
+All three are public datasets from their original authors. We list the authoritative
+source and paper first, then the Kaggle mirror actually attached to our notebooks.
+
+**UT-HAR** (Intel 5300, 7 activities) - the most widely used public CSI HAR benchmark.
+- Original: https://github.com/ermongroup/Wifi_Activity_Recognition
+- Paper: S. Yousefi et al., "A survey on behavior recognition using WiFi channel state
+  information," *IEEE Communications Magazine*, vol. 55, no. 10, pp. 98-104, 2017.
+  https://doi.org/10.1109/MCOM.2017.1700082
+- Loaders: SenseFi benchmark, https://github.com/xyanchen/WiFi-CSI-Sensing-Benchmark
+- Mirror used here: https://www.kaggle.com/datasets/hylanj/wifi-csi-dataset-ut-har
+
+**CSI-HAR** (ESP32-collected, 7 activities, 3 users) - our subject-independent dataset.
+- Original: https://github.com/parisafm/CSI-HAR-Dataset
+- Paper: P. Fard Moshiri et al., "A CSI-based human activity recognition using deep
+  learning," *Sensors*, vol. 21, no. 21, p. 7225, 2021.
+  https://doi.org/10.3390/s21217225
+- Mirror used here: https://www.kaggle.com/datasets/sayakghorai34/csi-har-dataset
+
+**NTU-Fi_HAR** (6 whole-body activities, 3 antennas x 114 subcarriers) - third dataset,
+used as an independent check of the frontier only.
+- Original: https://github.com/xyanchen/WiFi-CSI-Sensing-Benchmark
+- Paper: J. Yang et al., "SenseFi: a library and benchmark on deep-learning-empowered
+  WiFi human sensing," *Patterns*, Cell Press, 2023.
+  https://doi.org/10.1016/j.patter.2023.100703
+- Mirror used here: https://www.kaggle.com/datasets/imhoangt/ntu-fi-dataset
 
 ## Hardware
 Classic ESP32-D0WD-V3 (dual-core Xtensa LX6 at 240 MHz, 520 kB internal SRAM, no PSRAM,
