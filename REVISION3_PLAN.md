@@ -215,3 +215,9 @@ Manuscript = esp32-csi-har-frontier/manuscript/frontier.tex. Repo public + MIT.
      (Hernandez&Bulut '20 WoWMoM, '23 COMST survey; Sahoo '23 APSCON; Lenka&Chakraborty '24
      Wisdom = closest prior work, ESP32-C3); rewrote related work + novelty statement.
      (commit dc31914)
+2026-08-04 01:29  batch 5: C2 DONE (spec #10) - regenerated Figs 4-9 with large fonts + consistent
+     styling from result CSVs (make_figs.py). (commit 260c12b)
+2026-08-04 01:29  batch 6: E1/E4 IN PROGRESS - pushed csi-accval notebook (float vs int8 accuracy +
+     quant loss, all deployable models, CSI-HAR LOUO + UT-HAR 3-seed). Running on Kaggle.
+     Still TODO: E2 emlearn parity, D_repro4 multi-seed LOUO, D_repro5 resampling ablation,
+     D_repro6 inner-validation HP, A10 paired agreement, A2 unrolled-GRU, D_repro1-3 text.
