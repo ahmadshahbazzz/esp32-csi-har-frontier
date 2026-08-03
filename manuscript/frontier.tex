@@ -21,7 +21,7 @@
 % default so standard figure environments work with the class caption macro.
 \providecommand{\xfigwd}{0pt}
 \begin{document}
-\history{Date of submission xxxx 00, 2026.}
+\history{Date of current version August 2026.}
 \doi{10.1109/ACCESS.2026.DOI}
 
 \title{How Far Can a PSRAM-less ESP32 Go? A TinyML Deployment Study for WiFi CSI Human Activity Recognition}
@@ -151,10 +151,10 @@ Lightweight-SSM  & 41.7\,K \\
 \label{sec:setup}
 
 \subsection{Datasets}
-We use two public datasets for the core study and a third to confirm the frontier. UT-HAR \cite{yousefi2017uthar}, obtained through the SenseFi loaders \cite{yang2023sensefi}, is the most widely used public CSI HAR benchmark (Intel 5300, seven activities, native $T=250$, $F=90$). CSI-HAR \cite{csihardataset} is an ESP32-collected dataset of seven activities (bend, fall, lie down, run, sit down, stand up, walk) recorded by three users with twenty samples each. Every recording is a variable-length sequence over 52 subcarriers. UT-HAR uses its standard split, and each model is trained over three seeds. CSI-HAR is evaluated subject-independently with leave-one-user-out: each of the three folds trains on two users and tests on the held-out third, and we report the mean and standard deviation across folds. This avoids the subject overlap of a random within-user split, in which windows from the same person appear in both train and test, and is the standard rigour for HAR generalization. As an independent check of the frontier we also use NTU-Fi\_HAR \cite{yang2023sensefi}, a clean whole-body HAR benchmark of six activities over three antennas and 114 subcarriers; it is reported for accuracy only (Section~\ref{sec:results-frontier}) and is not used for the on-device or cross-subject analysis. All datasets are z-score normalized per window and resampled along time to a common window length.
+We use two public datasets for the core study and a third to confirm the frontier. UT-HAR \cite{yousefi2017uthar}, obtained through the SenseFi loaders \cite{yang2023sensefi}, is the most widely used public CSI HAR benchmark (Intel 5300, seven activities, native $T=250$, $F=90$). CSI-HAR \cite{csihardataset} is an ESP32-collected dataset of seven activities (bend, fall, lie down, run, sit down, stand up, walk) recorded by three users with twenty samples each. Every recording is a variable-length sequence over 52 subcarriers. UT-HAR uses its standard split, and each model is trained over three seeds. CSI-HAR is evaluated subject-independently with leave-one-user-out: each of the three folds trains on two users and tests on the held-out third, and we report the mean and standard deviation across folds. This avoids the subject overlap of a random within-user split, in which windows from the same person appear in both train and test, and is the standard rigour for HAR generalization. As an independent check of the frontier we also use NTU-Fi\_HAR \cite{yang2023sensefi}, a clean whole-body HAR benchmark of six activities over three antennas and 114 subcarriers; it is reported for accuracy only (Section~\ref{sec:results-frontier}) and is not used for the on-device or cross-subject analysis. Two preprocessing details are specified precisely for reproducibility. First, ``z-score normalized per window'' means each window is standardized by a single scalar mean and standard deviation computed jointly over both the time and the subcarrier axes of that window, not per subcarrier; the per-subcarrier statistics used as classical features are therefore not degenerate constants, and because each window is normalized only by its own statistics there is no fitting across windows and hence no train-test statistical leakage in either evaluation protocol. Second, variable-length recordings are resampled along time to a common $T=64$ by linear index subsampling (Section~\ref{sec:results-frontier} reports an ablation of this choice). Under leave-one-user-out, every fitted quantity that could leak the held-out user, namely the int8 calibration windows and any tuned hyperparameter, is taken from the training users of that fold only; hyperparameters are in fact fixed a priori and not tuned per fold (below), so no held-out-user information enters model selection.
 
 \subsection{Training and quantization}
-All neural models are trained with one shared pipeline: Adam at learning rate $10^{-3}$, batch size 64, for 40 epochs, with sparse categorical cross-entropy on logits. These two settings were fixed by a grid sweep on CSI-HAR over learning rates $\{10^{-2},10^{-3},10^{-4}\}$ and batch sizes $\{32,64,128\}$ for the CNN, Transformer, and bidirectional GRU; learning rate $10^{-3}$ with batch size 64 was the optimum for both the CNN (96.4\%) and the Transformer (94.0\%) and within one point of the best for the GRU, so we adopt it throughout and release the full grid with the notebook. Classical learners are trained over three seeds and we report mean and standard deviation. Each trained network is converted to 8-bit integer precision with TensorFlow Lite using post-training static quantization calibrated on 300 representative training windows; we attempt full int8 input and output first and fall back if an operator forbids it. We record, for each model, whether conversion succeeds and the resulting model size. Off-device training and quantization run on a cloud GPU; the released notebook reproduces every off-device number.
+All neural models are trained with one shared pipeline: Adam at learning rate $10^{-3}$, batch size 64, for 40 epochs, with sparse categorical cross-entropy on logits. These two settings were fixed by a grid sweep on CSI-HAR over learning rates $\{10^{-2},10^{-3},10^{-4}\}$ and batch sizes $\{32,64,128\}$ for the CNN, Transformer, and bidirectional GRU; learning rate $10^{-3}$ with batch size 64 was the optimum for both the CNN (96.4\%) and the Transformer (94.0\%) and within one point of the best for the GRU, so we adopt it throughout and release the full grid with the notebook. Classical learners are trained over three seeds and we report mean and standard deviation. Each trained network is converted to 8-bit integer precision with TensorFlow Lite using post-training static quantization calibrated on 300 representative windows drawn from that fold's training users only (never the held-out user); we attempt full int8 input and output first and fall back if an operator forbids it. We record, for each model, whether conversion succeeds and the resulting model size. Off-device training and quantization run on a cloud GPU; the released notebook reproduces every off-device number.
 
 \subsection{On-device platform and measurement}
 \begin{figure}[tbp]
@@ -228,6 +228,33 @@ Tiny CNN (16 ch) & tiny-nn   & 99.58 $\pm$ 0.59 & 46.3 \\
 Tiny CNN (32 ch) & tiny-nn   & \textbf{100.00 $\pm$ 0.00} & 92.7 \\
 Deep CNN         & deep      & 100.00 & 213.4 \\
 Transformer      & deep      & 99.58 & 166.8 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{Quantization: float versus int8 accuracy}
+\label{sec:results-quant}
+The accuracy columns elsewhere in this paper are float-model accuracies (the models are trained and scored in floating point off-device). Because a successful int8 conversion does not by itself prove that the quantized model keeps that accuracy, we evaluate the desktop int8 TensorFlow Lite model on the full test set for every deployable network, on both datasets, and report the loss (Table~\ref{tab:accval}). Quantization is nearly lossless here: the int8 accuracy is within about one point of the float accuracy for every model, at most 0.95 points (deep CNN on CSI-HAR) and 0.53 points on UT-HAR, and for several models the int8 model is marginally better, which is within run-to-run noise. This validates that the frontier accuracies survive quantization; the desktop int8 numbers are the accuracies the on-device int8 model reproduces (subject to the label-parity check performed on the board). Throughout the paper, table accuracies are float unless stated as int8.
+
+\begin{table}[t]
+\caption{Float versus desktop-int8 accuracy for the deployable neural models (Section~\ref{sec:results-quant}). CSI-HAR is subject-independent leave-one-user-out (predictions pooled across folds); UT-HAR is its fixed split over three seeds. ``Loss'' is float minus int8 accuracy in points; negative means the int8 model scored marginally higher (run-to-run noise). Quantization costs at most about one point.}
+\label{tab:accval}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lccccc}
+\toprule
+& \multicolumn{2}{c}{UT-HAR} & \multicolumn{3}{c}{CSI-HAR (LOUO)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-6}
+Model & float & int8 & float & int8 & loss \\
+\midrule
+Tiny CNN (8 ch)  & 86.07 & 85.53 & 54.52 & 54.29 & 0.24 \\
+Tiny CNN (16 ch) & 95.20 & 94.87 & 59.52 & 59.05 & 0.48 \\
+Tiny CNN (32 ch) & 95.13 & 95.13 & 62.14 & 61.90 & 0.24 \\
+Tiny MLP (net)   & 92.13 & 92.33 & 54.29 & 54.52 & $-$0.24 \\
+Deep CNN         & 96.00 & 95.47 & 63.81 & 62.86 & 0.95 \\
+Transformer      & 97.53 & 97.53 & 58.10 & 58.81 & $-$0.71 \\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -551,7 +578,7 @@ M. S. Khan \emph{et al.}, ``Human activity recognition through augmented WiFi CS
 T. D. Quy, C.-Y. Lin, and T. K. Shih, ``Enhanced human activity recognition using Wi-Fi sensing: leveraging phase and amplitude with attention mechanisms,'' \emph{Sensors}, vol. 25, no. 4, p. 1038, Feb. 2025, doi: 10.3390/s25041038.
 
 \bibitem{kanorig2024}
-Z. Liu \emph{et al.}, ``KAN: Kolmogorov-Arnold networks,'' \emph{arXiv:2404.19756}, 2024.
+Z. Liu \emph{et al.}, ``KAN: Kolmogorov-Arnold networks,'' \emph{arXiv preprint arXiv:2404.19756}, 2024. [Online]. Available: \url{https://arxiv.org/abs/2404.19756}
 
 \bibitem{neurosym2025}
 X. Xu, J. Yang \emph{et al.}, ``Neurosymbolic AI empowered consumer electronics healthcare for WiFi-based human activity recognition,'' \emph{IEEE Trans. Consum. Electron.}, vol. 71, no. 4, pp. 12056--12067, Nov. 2025.
@@ -575,7 +602,7 @@ H. Xu \emph{et al.}, ``MambaLite-Micro: memory-optimized Mamba inference on MCUs
 S. M. Hernandez \emph{et al.}, ``Tools and methods for achieving Wi-Fi sensing in embedded devices,'' \emph{Sensors}, vol. 25, no. 19, p. 6220, Oct. 2025, doi: 10.3390/s25196220.
 
 \bibitem{star2025}
-K. Liu, ``STAR: a privacy-preserving, energy-efficient edge AI framework for human activity recognition via Wi-Fi CSI in mobile and pervasive computing environments,'' \emph{arXiv:2510.26148}, 2025.
+K. Liu, ``STAR: a privacy-preserving, energy-efficient edge AI framework for human activity recognition via Wi-Fi CSI in mobile and pervasive computing environments,'' \emph{arXiv preprint arXiv:2510.26148}, 2025. [Online]. Available: \url{https://arxiv.org/abs/2510.26148}
 
 \bibitem{espfihar2026}
 Z. Wen, Y. Ruan, X. Wang, and J. Zhou, ``ESP-Fi HAR: a low-power WiFi CSI dataset for ad-hoc IoT human activity recognition,'' \emph{Pervasive Mob. Comput.}, 2026, doi: 10.1016/j.pmcj.2026.102058.
@@ -605,10 +632,10 @@ T. King, Y. Zhou, T. R\"oddiger, and M. Beigl, ``MicroNAS for memory and latency
 P. Fard Moshiri, R. Shahbazian, M. Nabati, and S. A. Ghorashi, ``A CSI-based human activity recognition using deep learning,'' \emph{Sensors}, vol. 21, no. 21, p. 7225, Oct. 2021, doi: 10.3390/s21217225. Dataset: \url{https://github.com/parisafm/CSI-HAR-Dataset} (Kaggle mirror: \url{https://www.kaggle.com/datasets/sayakghorai34/csi-har-dataset}).
 
 \bibitem{tfissue36688}
-TensorFlow project, ``Conversion of RNN/LSTM to TensorFlow Lite requires Select-TF-ops,'' GitHub issue 36688, 2020.
+TensorFlow project, ``Conversion of RNN/LSTM to TensorFlow Lite requires Select-TF-ops,'' GitHub issue 36688, 2020. [Online]. Available: \url{https://github.com/tensorflow/tensorflow/issues/36688} (accessed Aug. 2026).
 
 \bibitem{tflmissue907}
-TensorFlow Lite Micro project, ``Unsupported dynamic-tensor and TensorList operators in the microcontroller runtime,'' GitHub issues 907 and 1570, 2021.
+TensorFlow Lite Micro project, ``Unsupported dynamic-tensor and TensorList operators in the microcontroller runtime,'' GitHub issues 907 and 1570, 2021. [Online]. Available: \url{https://github.com/tensorflow/tflite-micro/issues/907} (accessed Aug. 2026).
 
 \bibitem{hernandez2020lightweight}
 S. M. Hernandez and E. Bulut, ``Lightweight and standalone IoT based WiFi sensing for active repositioning and mobility,'' in \emph{Proc. IEEE 21st Int. Symp. World of Wireless, Mobile and Multimedia Networks (WoWMoM)}, 2020, pp. 277--286, doi: 10.1109/WoWMoM49955.2020.00056.
