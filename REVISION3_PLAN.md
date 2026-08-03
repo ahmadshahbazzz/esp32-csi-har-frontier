@@ -192,3 +192,17 @@ Manuscript = esp32-csi-har-frontier/manuscript/frontier.tex. Repo public + MIT.
    parity; regenerate figures).
 6. Category H (live pipeline) - only if D1 = build; largest single effort.
 7. Category J (references, artifact URL, finalize).
+
+=====================================================================================
+## PROGRESS LOG
+=====================================================================================
+2026-08-04 01:07  batch 1: A1 A2-text B1 I1-framing I2 (commit 591107c)
+2026-08-04 01:07  batch 2: A3 (leakage->subject-overlapping), A4 (all 7 "binding constraint" softened
+     to exploratory/3-user), A5-text (tests down-weighted, effect-size leads; per-user
+     multi-seed = D_repro4 Kaggle TODO), A6 (full on-device pipeline -> stored-window
+     replay + live-pipeline pointer), A7 (continuous-sensing wording), A8 ("few seconds"
+     removed), A9 (physical-not-statistical -> cautious hypothesis), A10 ("window for
+     window" softened; paired analysis = Kaggle TODO), A11 (cheapest/weakest softened to
+     "among least capable/lowest-cost", concrete no-PSRAM/no-SIMD), A12 ("full deep" x5
+     -> "deep"). A14 = N/A (D1=build live pipeline, keep deployment framing).
+     Validation clean (0 orphans/broken/dangling, 0 em, ASCII). 
