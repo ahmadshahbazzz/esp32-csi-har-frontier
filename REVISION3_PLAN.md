@@ -206,3 +206,12 @@ Manuscript = esp32-csi-har-frontier/manuscript/frontier.tex. Repo public + MIT.
      "among least capable/lowest-cost", concrete no-PSRAM/no-SIMD), A12 ("full deep" x5
      -> "deep"). A14 = N/A (D1=build live pipeline, keep deployment framing).
      Validation clean (0 orphans/broken/dangling, 0 em, ASCII). 
+2026-08-04 01:24  batch 3: C1 DONE - Fig 2 replaced with self-authored internal-component block
+     diagram (fig_esp32_internal.pdf via make_fig_internal.py); board photo removed from
+     repo+zip. (commit 4b40ad9)
+2026-08-04 01:24  batch 4: G DONE (Major #4) - rebuilt Table 1 as 12-col table* (acq device | inference
+     device | on-chip inf | live | preproc | model | quant | PSRAM | RAM | latency |
+     energy); corrected ESP-Fi (host PyTorch) + STAR (RV1126 NPU, not ESP32); added 4 refs
+     (Hernandez&Bulut '20 WoWMoM, '23 COMST survey; Sahoo '23 APSCON; Lenka&Chakraborty '24
+     Wisdom = closest prior work, ESP32-C3); rewrote related work + novelty statement.
+     (commit dc31914)
