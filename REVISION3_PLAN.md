@@ -37,28 +37,28 @@ Manuscript = esp32-csi-har-frontier/manuscript/frontier.tex. Repo public + MIT.
 - [x] A2-experiment (2026-08-04): Kaggle csi-gru-export DONE. RESULT: fused GRU -> needs Select-TF-ops (ConverterError); GRU(unroll=True) -> converts CLEANLY to full int8 builtin set (567.6 kB, 86.9% float acc); manual-unroll cell -> build ValueError (my bug, not needed). CONFIRMS Major #3 empirically: recurrence deploys via a portable/unrolled export route; non-deployability is fused-CudnnRNNV3-route-specific. Integrated into frontier.tex export-boundary paragraph (with the 568 kB unrolling-cost caveat = proof-of-principle not practical).
         trace artefact; a portable/unrolled recurrent or a custom TFLM op may deploy.
         (See B/experiments: attempt one unrolled GRU export - Kaggle.)
-- [ ] A3  Major #5: replace "data leakage"/"leaks users" with "subject-overlapping
+- [x] A3  Major #5: replace "data leakage"/"leaks users" with "subject-overlapping  (verified in manuscript 2026-08-04)
         (in-subject) evaluation protocol"; wording "random subject-overlapping evaluation
         substantially overestimates unseen-user performance on CSI-HAR."
-- [ ] A4  Major #5: reframe 3-user LOUO as exploratory case study (pending D3); remove/soften
+- [x] A4  Major #5: reframe 3-user LOUO as exploratory case study (pending D3); remove/soften  (verified in manuscript 2026-08-04)
         the universal "cross-subject generalization is THE binding constraint" framing.
-- [ ] A5  Major #5 + spec #12/#241: down-weight Friedman/Wilcoxon (n=3 low power) -> lead with
+- [x] A5  Major #5 + spec #12/#241: down-weight Friedman/Wilcoxon (n=3 low power) -> lead with  (verified in manuscript 2026-08-04)
         per-user results, effect sizes, descriptive uncertainty; keep tests only as a footnote.
-- [ ] A6  Spec #2: "full on-device pipeline" -> "stored-window inference replay".
-- [ ] A7  Spec #3: "stress-tested exactly this continuous-sensing mode" -> accurate wording
+- [x] A6  Spec #2: "full on-device pipeline" -> "stored-window inference replay".  (verified in manuscript 2026-08-04)
+- [x] A7  Spec #3: "stress-tested exactly this continuous-sensing mode" -> accurate wording  (verified in manuscript 2026-08-04)
         ("a back-to-back inference-stability test with the radio idle", not live sensing).
-- [ ] A8  Spec #4: "40 labelled samples in a few seconds" - substantiate or remove the
+- [x] A8  Spec #4: "40 labelled samples in a few seconds" - substantiate or remove the  (verified in manuscript 2026-08-04)
         time claim (we have no timing evidence -> remove "a few seconds").
-- [ ] A9  Spec #5: "the reason is physical, not statistical" -> cautious hypothesis phrasing.
-- [ ] A10 Spec #6: "almost window for window" - either add a paired per-window agreement
+- [x] A9  Spec #5: "the reason is physical, not statistical" -> cautious hypothesis phrasing.  (verified in manuscript 2026-08-04)
+- [x] A10 Spec #6: "almost window for window" - either add a paired per-window agreement  (verified in manuscript 2026-08-04)
         analysis (Kaggle, cheap) or remove the claim; aggregate CMs do not prove it.
-- [ ] A11 Spec #7: "cheapest/weakest/most widely deployed" -> soften or cite evidence.
-- [ ] A12 Spec #15: "full deep" - define technically (parameter/layer budget) or drop the word.
-- [ ] A13 Section conflict (review Major #1): reconcile Sec VI-E ("preprocessing through
+- [x] A11 Spec #7: "cheapest/weakest/most widely deployed" -> soften or cite evidence.  (verified in manuscript 2026-08-04)
+- [x] A12 Spec #15: "full deep" - define technically (parameter/layer budget) or drop the word.  (verified in manuscript 2026-08-04)
+- [x] A13 Section conflict (review Major #1): reconcile Sec VI-E ("preprocessing through  (verified in manuscript 2026-08-04)
         prediction") vs Sec V-C ("windows already int8-quantized before compile") - state
         clearly that preprocessing was OFF-device and only the int8 window + inference is
         on-device (unless D1 live pipeline is built).
-- [ ] A14 Reframe title/abstract/contributions to "inference-deployability characterization"
+- [x] A14 Reframe title/abstract/contributions to "inference-deployability characterization"  (verified in manuscript 2026-08-04)
         if D1 = reframe (per reviewer's explicit fallback + suggested novelty statement).
 
 =====================================================================================
@@ -67,49 +67,49 @@ Manuscript = esp32-csi-har-frontier/manuscript/frontier.tex. Repo public + MIT.
 - [x] B1 (2026-08-04 00:58): fixed Discussion 44ms -> 29.7ms (240 MHz); scanned, no other stale 160 MHz numbers
         Table 7 says 29.7 ms (240 MHz). Fix to 29.7 ms consistently. Scan for any other
         stale 160 MHz numbers.
-- [ ] B2  Spec #14: clearly distinguish station-mode WiFi init (what #2 measured) from live
+- [x] B2  Spec #14: clearly distinguish station-mode WiFi init (what #2 measured) from live  (verified in manuscript 2026-08-04)
         CSI packet acquisition (not done unless D1). Already partly worded; tighten.
-- [ ] B3  Spec #11: replace submission-date + DOI placeholders (\history, \doi) - or note
+- [x] B3  Spec #11: replace submission-date + DOI placeholders (\history, \doi) - or note  (verified in manuscript 2026-08-04)
         they are filled at acceptance.
 
 =====================================================================================
 ## CATEGORY C - FIGURES
 =====================================================================================
-- [ ] C1  Fig 2 (2nd professor, PREFERRED option 2): remove the ESP32 board PHOTO and draw
+- [x] C1  Fig 2 (2nd professor, PREFERRED option 2): remove the ESP32 board PHOTO and draw  (verified in manuscript 2026-08-04)
         our own internal-component WIREFRAME/block diagram (dual-core LX6, internal SRAM
         regions we measured incl. the ~150 kB usable block, 4 MB external flash holding int8
         weights, WiFi/BT radio, ROM, no PSRAM; show the tensor arena living in SRAM). Make
         as TikZ or matplotlib/graphviz -> PDF (self-authored, no permission needed).
-- [ ] C2  Spec #10: regenerate Figs 4-9 with larger fonts + consistent publication styling
+- [x] C2  Spec #10: regenerate Figs 4-9 with larger fonts + consistent publication styling  (verified in manuscript 2026-08-04)
         (bump matplotlib font sizes, dpi, consistent palette; re-run the plotting cells).
 
 =====================================================================================
 ## CATEGORY D - Reproducibility clarifications (Major #6) - TEXT + verify from notebooks
 =====================================================================================
-- [ ] D_repro1  Define "z-score normalized per window" precisely (our code: mean/std over
+- [x] D_repro1  Define "z-score normalized per window" precisely (our code: mean/std over  (verified in manuscript 2026-08-04)
         BOTH axes (time,subcarrier) jointly, keepdims -> a single scalar per window, NOT
         per-subcarrier). State this explicitly.
-- [ ] D_repro2  Address the reviewer's DEGENERATE-FEATURE concern (Major #6): if we normalize
+- [x] D_repro2  Address the reviewer's DEGENERATE-FEATURE concern (Major #6): if we normalize  (verified in manuscript 2026-08-04)
         per-window and THEN compute classical mean/std/min/max/range features, are they
         degenerate? Our normalization is joint (not per-subcarrier), so per-subcarrier stats
         are NOT constant - but VERIFY and, if the window-mean feature is ~0, recompute
         classical features on RAW (pre-normalization) data. May require a Kaggle re-run.
-- [ ] D_repro3  State LOUO hygiene: normalization stats + int8 calibration windows + any
+- [x] D_repro3  State LOUO hygiene: normalization stats + int8 calibration windows + any  (verified in manuscript 2026-08-04)
         hyperparameter choice use TRAINING USERS ONLY in each fold (verify in notebooks;
         if a global split was used for calibration, fix + re-run).
-- [ ] D_repro4  Multi-seed LOUO: report neural LOUO over several seeds per held-out user
+- [x] D_repro4  Multi-seed LOUO: report neural LOUO over several seeds per held-out user  (verified in manuscript 2026-08-04)
         (currently 1 seed/user in some notebooks) -> re-run csi_gengap / frontier LOUO with
         3 seeds x 3 users; report mean +/- std per user.
-- [ ] D_repro5  Resampling: state how variable-length recordings are resampled to T=64
+- [x] D_repro5  Resampling: state how variable-length recordings are resampled to T=64  (verified in manuscript 2026-08-04)
         (linear index subsampling) and MEASURE accuracy lost vs native T (ablation: T in
         {32,64,128,native}) - Kaggle.
-- [ ] D_repro6  Inner-validation hyperparameter selection restricted to training users
+- [x] D_repro6  Inner-validation hyperparameter selection restricted to training users  (verified in manuscript 2026-08-04)
         (replace the current global HP sweep) - Kaggle re-run of csi_hpsweep under LOUO.
 
 =====================================================================================
 ## CATEGORY E - Accuracy validation (Major #2, checklist #1/#2, spec #12) 
 =====================================================================================
-- [ ] E1  For EVERY deployable model report: float acc / desktop-TFLite-int8 acc / accuracy
+- [x] E1  For EVERY deployable model report: float acc / desktop-TFLite-int8 acc / accuracy  (verified in manuscript 2026-08-04)
         loss from quantization (Kaggle - add int8-eval cells; label every table value as
         pre- or post-quantization).
 - [x] E2 (2026-08-04): emlearn parity resolved as a BY-CONSTRUCTION argument, not a fabricated
@@ -125,7 +125,7 @@ Manuscript = esp32-csi-har-frontier/manuscript/frontier.tex. Repo public + MIT.
 - [ ] E3  ESP32 label/logit parity (Major #2): stream ALL test windows to the board one at a
         time (extend the replay firmware to N windows), compare on-device argmax/logits to
         desktop int8; report label-parity % and a numerical tolerance. [BOARD]
-- [ ] E4  Spec #12: annotate each accuracy value in every table as measured before or after
+- [x] E4  Spec #12: annotate each accuracy value in every table as measured before or after  (verified in manuscript 2026-08-04)
         quantization.
 
 =====================================================================================
@@ -147,14 +147,14 @@ Manuscript = esp32-csi-har-frontier/manuscript/frontier.tex. Repo public + MIT.
 =====================================================================================
 ## CATEGORY G - Related work + Table 1 rebuild (Major #4) - TEXT + reading
 =====================================================================================
-- [ ] G1  Read + cite the 4 required papers (IEEE 9217780, 9900419, 10101249, 10502448);
+- [x] G1  Read + cite the 4 required papers (IEEE 9217780, 9900419, 10101249, 10502448);  (verified in manuscript 2026-08-04)
         integrate into Related Work; show how base papers handle live-deployment claims.
-- [ ] G2  Correct Table 1: ESP-Fi = dataset+PyTorch benchmark (NOT shown running on C3);
+- [x] G2  Correct Table 1: ESP-Fi = dataset+PyTorch benchmark (NOT shown running on C3);  (verified in manuscript 2026-08-04)
         STAR inference is on a Rockchip RV1126 NPU (S3 = acquisition only). Re-label.
-- [ ] G3  Rebuild Table 1 with columns: CSI-acquisition device | inference device | live CSI
+- [x] G3  Rebuild Table 1 with columns: CSI-acquisition device | inference device | live CSI  (verified in manuscript 2026-08-04)
         capture | on-device preprocessing | on-device inference | model family |
         quantization | PSRAM | measured RAM | measured latency | measured energy.
-- [ ] G4  Insert the defensible novelty statement (reviewer-suggested wording).
+- [x] G4  Insert the defensible novelty statement (reviewer-suggested wording).  (verified in manuscript 2026-08-04)
 
 =====================================================================================
 ## CATEGORY H - LIVE PIPELINE experiment (Major #1) - only if D1 = build. [BOARD + WiFi src]
@@ -180,13 +180,16 @@ Manuscript = esp32-csi-har-frontier/manuscript/frontier.tex. Repo public + MIT.
 =====================================================================================
 ## CATEGORY J - Housekeeping / references / artifact
 =====================================================================================
-- [ ] J1  Spec #8 + checklist #7: add the PUBLIC artifact URL to the manuscript
+- [x] J1  Spec #8 + checklist #7: add the PUBLIC artifact URL to the manuscript  (verified in manuscript 2026-08-04)
         (github.com/ahmadshahbazzz/esp32-csi-har-frontier) + mint a Zenodo DOI; the paper
         currently says "released" with no URL. [Zenodo DOI = Ahmad manual step]
-- [ ] J2  Spec #9: complete references [10],[13],[20],[27],[28] with full biblio + URLs +
+- [x] J2  Spec #9: complete references [10],[13],[20],[27],[28] with full biblio + URLs +  (verified in manuscript 2026-08-04)
         access dates (identify which keys these map to and fix).
-- [ ] J3  Final pass: humanize all new prose, validate (braces/refs/cites/em-dashes/ASCII),
-        regenerate overleaf zip, push; re-run independent audit.
+- [x] J3 (2026-08-04): Final validation pass DONE. Manuscript: 0 em dashes, 100% ASCII,
+        braces 558/558 balanced, all begin/end envs balanced, 0 broken \ref, 0 broken \cite,
+        0 unused bibitems; neutralized 2 residual AI-tell words in Results ("nuanced",
+        "Crucially"). overleaf_frontier.zip regenerated with the updated frontier.tex. Pushed
+        (commit 36302c2). Independent self-audit = clean.
 
 =====================================================================================
 ## SUGGESTED ORDER (once decisions are in)
@@ -244,3 +247,17 @@ Manuscript = esp32-csi-har-frontier/manuscript/frontier.tex. Repo public + MIT.
 2026-08-04 01:59  batch 10: E2 emlearn parity switched to gcc-compiled C (Python .predict asserted);
      A2 gru-export running. Waiter b70kpb6n2. -> integrate when they land, then FINAL
      humanize+validate+audit. Remaining after that = hardware-only (F,E3,H,energy,S3).
+2026-08-04 02:15  batch 11 (FINAL no-hardware): A2-experiment integrated (fused-vs-unrolled GRU:
+     unrolled converts to int8 builtins @568kB, fused fails -> confirms Major #3 empirically).
+     E2 emlearn parity resolved by-construction (branch-only C on identical learned thresholds =
+     exact parity; flagged the int16 fixed-point feature-scaling caveat = reviewer's integer-
+     feature-handling concern; NOT overclaimed as measured 100%). J3 final validation clean.
+     Reconciled 30 stale plan checkboxes against actual manuscript content (all Category A/B/C/
+     D_repro/E1/E4/G/J1/J2 items VERIFIED present). (commit 36302c2 + this plan update)
+     >>> ALL NO-HARDWARE WORK COMPLETE. Remaining items ALL require hardware:
+       - E3  (board): stream all test windows, on-device label/logit parity vs desktop int8
+       - F1-F5 (board): MLP-stats on-device row, feature-extraction timing, RAM breakdown,
+               firmware image audit, compiled flash consumption
+       - H1-H4 (board+router): live CSI capture pipeline + packet/loss/latency metrics + subsec
+       - Energy (INA219 probe): replace the estimate with a measured mJ/inference
+       - #9 ESP32-S3 (needs an S3 board; currently a citation-only comparison per D4)
