@@ -230,3 +230,9 @@ Manuscript = esp32-csi-har-frontier/manuscript/frontier.tex. Repo public + MIT.
      underflow fix), csi-repro (D_repro4 multiseed LOUO + D_repro5 resampling ablation +
      A10 paired agreement), csi-gru-export (A2 unrolled-GRU attempt). Waiter b1952s4ax.
      -> integrate results when they land.
+2026-08-04 01:59  batch 9: integrated repro results - resampling ablation inline (T=64 optimal),
+     per-user multi-seed table (tab:peruser), paired agreement 71%/51% (A10 measured).
+     B2 tightened (station-mode vs live). (commit 2cc04bf)
+2026-08-04 01:59  batch 10: E2 emlearn parity switched to gcc-compiled C (Python .predict asserted);
+     A2 gru-export running. Waiter b70kpb6n2. -> integrate when they land, then FINAL
+     humanize+validate+audit. Remaining after that = hardware-only (F,E3,H,energy,S3).
