@@ -1,0 +1,4 @@
+variant,float_acc,int8_export,int8_kB
+GRU_fused,86.9,needs Select-TF-ops: ConverterError,
+GRU_unroll,86.9,builtins-int8 OK,567.6
+GRU_manual_unrolled,,build/train failed: ValueError,

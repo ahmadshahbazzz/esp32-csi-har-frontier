@@ -33,7 +33,8 @@ Manuscript = esp32-csi-har-frontier/manuscript/frontier.tex. Repo public + MIT.
         boundary"; state the limited conclusion "these particular implementations do not
         deploy through the stated TF 2.19 -> TFLM builtin-operator pipeline"; describe KAN
         as an operator-preparation (kernel-compatibility) failure, NOT a memory/SRAM ceiling.
-- [x] A2-text (2026-08-04 00:58): softened to "property of the traced implementation/export route, not intrinsic"; CudnnRNNV3 = GPU-fused trace artefact; portable/unrolled/custom-op could deploy. (Kaggle unrolled-GRU attempt still TODO)
+- [x] A2-text (2026-08-04 00:58): softened to "property of the traced implementation/export route, not intrinsic"; CudnnRNNV3 = GPU-fused trace artefact; portable/unrolled/custom-op could deploy.
+- [x] A2-experiment (2026-08-04): Kaggle csi-gru-export DONE. RESULT: fused GRU -> needs Select-TF-ops (ConverterError); GRU(unroll=True) -> converts CLEANLY to full int8 builtin set (567.6 kB, 86.9% float acc); manual-unroll cell -> build ValueError (my bug, not needed). CONFIRMS Major #3 empirically: recurrence deploys via a portable/unrolled export route; non-deployability is fused-CudnnRNNV3-route-specific. Integrated into frontier.tex export-boundary paragraph (with the 568 kB unrolling-cost caveat = proof-of-principle not practical).
         trace artefact; a portable/unrolled recurrent or a custom TFLM op may deploy.
         (See B/experiments: attempt one unrolled GRU export - Kaggle.)
 - [ ] A3  Major #5: replace "data leakage"/"leaks users" with "subject-overlapping
@@ -111,9 +112,16 @@ Manuscript = esp32-csi-har-frontier/manuscript/frontier.tex. Repo public + MIT.
 - [ ] E1  For EVERY deployable model report: float acc / desktop-TFLite-int8 acc / accuracy
         loss from quantization (Kaggle - add int8-eval cells; label every table value as
         pre- or post-quantization).
-- [ ] E2  emlearn parity (checklist #2): complete output equivalence between sklearn and the
-        exported emlearn C for DT/RF/MLP-stats (Kaggle emlearn predict vs sklearn predict on
-        the full test set; report exact-match rate). Remove the "remaining check" caveat.
+- [x] E2 (2026-08-04): emlearn parity resolved as a BY-CONSTRUCTION argument, not a fabricated
+        100%. Kaggle csi-emlearn-parity (v3, gcc-compiled C) MEASURED low label-match (DT/RF
+        27-43%) NOT because the trees are wrong but because emlearn's default int16 fixed-point
+        feature path needs the features fed in the SAME fixed-point scale as the stored
+        thresholds; raw normalized floats cast to int16 truncate to ~0. This IS the reviewer's
+        "integer feature handling" concern. Manuscript (sec:methods classical tier) now states
+        the rigorous truth: branch-only C branches on the identical learned thresholds, so the
+        decision path/label is identical to sklearn by construction for any input in the matched
+        representation; the flagged caveat is exactly the fixed-point feature scaling. Replaced
+        the old "minor remaining check" sentence. NO overclaim of a measured number.
 - [ ] E3  ESP32 label/logit parity (Major #2): stream ALL test windows to the board one at a
         time (extend the replay firmware to N windows), compare on-device argmax/logits to
         desktop int8; report label-parity % and a numerical tolerance. [BOARD]
