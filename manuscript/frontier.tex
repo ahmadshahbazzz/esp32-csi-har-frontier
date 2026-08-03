@@ -83,26 +83,29 @@ Kolmogorov-Arnold Networks \cite{kanorig2024} replace the fixed activations of a
 Outside the deep-learning literature, classical learners remain the workhorses of microcontroller deployment because their footprint and inference cost are small and predictable. Decision trees and tree ensembles compile to compact branch-only C code through tools such as emlearn \cite{emlearn}, and prior CSI work has shown that classical models on statistical features reach useful accuracy off-device \cite{mdpiclassical}. TinyML neural-architecture-search studies such as TinyTNAS \cite{tinytnas2024} and MicroNAS \cite{micronas2025} target microcontroller HAR, but for inertial sensors rather than CSI, and Suwannaphong \emph{et~al.}~\cite{suwannaphong2025tinyml} optimize TinyML models for 32 to 64 kilobytes of RAM for indoor localization. The present study places classical learners, tiny networks, and deep networks on the same frontier for CSI HAR on the most constrained ESP32.
 
 \subsection{On-Device WiFi Sensing and Quantization}
-The reference on-device study is Hernandez \emph{et~al.}~\cite{hernandez2025tools}, who deploy a quantized LSTM-DenseNet on the ESP32-S3 at 92.43\% accuracy, 232\,ms latency, and 127\,kB memory using TensorFlow Lite for Microcontrollers and 8-bit quantization, on a board with external PSRAM. STAR \cite{star2025} runs a lightweight CSI HAR model on an edge NPU with hardware-aware co-optimization, using an ESP32-S3 only as the CSI front end, and the ESP-Fi HAR dataset \cite{espfihar2026} provides an ESP32-C3 corpus with benchmark deep models. A recent survey catalogues energy-efficient WiFi sensing \cite{greensensing2026}. Across this line, 8-bit integer quantization is effectively mandatory for the ESP32 memory budget, and the question of which models survive it on the PSRAM-less device is open. The non-convertibility of recurrent and dynamic operators to the microcontroller runtime is documented in the TensorFlow and TensorFlow Lite Micro issue trackers \cite{tfissue36688,tflmissue907}, which we corroborate here for CSI models. Table~\ref{tab:priorcompare} places this work against the closest on-device ESP32 studies: it is the only one on the bare, PSRAM-less classic ESP32, and the only one to span classical, tiny, and deep models on the same device.
+Standalone ESP32 WiFi sensing was popularized by Hernandez and Bulut, who showed lightweight on-device CSI collection on a single ESP32 \cite{hernandez2020lightweight} and later surveyed the signal-processing techniques and real-world challenges of edge WiFi sensing \cite{hernandez2023edge}; that survey stresses that a complete edge system must handle live capture, windowing, and preprocessing, not inference alone, a point we take seriously in framing our own scope. Several systems then targeted real-time operation. Sahoo \emph{et~al.}~\cite{sahoo2023realtime} build a real-time smart-home activity detector around ESP32 CSI, but move processing to an edge/host layer rather than running inference on the microcontroller. The most directly comparable prior work is Lenka and Chakraborty \cite{lenka2024wisdom}, whose Wisdom framework runs and benchmarks compressed int8 DNN inference \emph{on} a PSRAM-less ESP32-C3 (single-core RISC-V, 400\,kB RAM), reporting on-device memory, latency, and energy. Our study is complementary and on a different board: rather than one compression framework, we map a graded classical/tiny/deep frontier on the dual-core classic ESP32-WROOM-32 and characterize which model families survive the int8 export pipeline. On the more capable side, Hernandez \emph{et~al.}~\cite{hernandez2025tools} deploy a quantized LSTM-DenseNet on the PSRAM-equipped ESP32-S3 (92.43\%, 232\,ms, 127\,kB). Two commonly grouped systems are, on inspection, not ESP32 on-chip inference: STAR \cite{star2025} runs its model on a Rockchip RV1126 NPU and uses the ESP32-S3 only as the CSI front end, and the ESP-Fi HAR work \cite{espfihar2026} provides an ESP32-C3-collected dataset with a PyTorch benchmark that is not shown executing on the C3. Table~\ref{tab:priorcompare} makes these distinctions explicit by separating the acquisition device from the inference device. Across this line, 8-bit integer quantization is effectively mandatory for the ESP32 memory budget \cite{greensensing2026}, and the non-convertibility of recurrent and dynamic operators through the standard export route is documented in the TensorFlow and TensorFlow Lite Micro issue trackers \cite{tfissue36688,tflmissue907}, which we corroborate here for CSI models. Against this background, the defensible contribution of this paper is a \emph{systematic, measured int8 inference-deployability frontier on a PSRAM-less ESP32-WROOM-32 across classical, tiny, and compact deep CSI-HAR models}, together with a live acquisition-to-prediction demonstration of the pipeline on the same board.
 
-\begin{table}[t]
-\caption{On-device WiFi CSI HAR across the ESP32 family. Accuracies are each study's own reported number on its own dataset and are not directly comparable; the point is the device, the presence of PSRAM, and the breadth of models actually run on-chip.}
+\begin{table*}[t]
+\caption{On-device WiFi CSI sensing across the ESP32 family, separating the CSI acquisition device from the inference device to avoid conflating the two. ``On-chip inf.'' is whether the WiFi-sensing inference runs on the ESP32 itself (as opposed to a host or a separate accelerator); ``Live'' is on-device live CSI capture; ``Preproc.'' is on-device preprocessing. Y = yes, N = no, P = partial, n/r = not reported, n/a = not applicable. Values are each study's own reports on its own setup and are not directly comparable; the point of the table is what each system actually runs on-chip.}
 \label{tab:priorcompare}
 \centering
 \footnotesize
-\setlength{\tabcolsep}{4pt}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lllc}
+\setlength{\tabcolsep}{3.5pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllcccllccll}
 \toprule
-Work & Device & PSRAM & Models on-chip \\
+Work & Acq. device & Inference device & On-chip inf. & Live & Preproc. & Model family & Quant. & PSRAM & Meas. RAM & Meas. latency & Meas. energy \\
 \midrule
-Hernandez \emph{et~al.}~\cite{hernandez2025tools} & ESP32-S3 & yes & LSTM-DenseNet (92.4\%) \\
-STAR \cite{star2025} & ESP32-S3 + NPU & yes & one lightweight CNN \\
-ESP-Fi HAR \cite{espfihar2026} & ESP32-C3 & no & CNN benchmark \\
-\textbf{This work} & \textbf{classic ESP32} & \textbf{no} & classical + tiny + deep \\
+Hernandez \& Bulut '20 \cite{hernandez2020lightweight} & classic ESP32 & host (off-device) & N & Y & N & (CSI collection) & n/a & N & n/r & n/r & n/r \\
+Sahoo \emph{et~al.} '23 \cite{sahoo2023realtime} & ESP32 & edge/host & N & Y & P & activity detector & n/r & N & n/r & low (real-time) & n/r \\
+ESP-Fi HAR \cite{espfihar2026} & ESP32-C3 & host (PyTorch) & N & N & N & CNN benchmark & n/r & N & n/a & n/a & n/a \\
+STAR \cite{star2025} & ESP32-S3 & Rockchip RV1126 NPU & N & Y & n/r & lightweight CNN & int8 & Y & n/r & sub-second & n/r \\
+Lenka \& Chakraborty '24 \cite{lenka2024wisdom} & ESP32-C3 & ESP32-C3 & Y & Y & Y & compressed DNN & int8 & N & $\sim$400\,kB device & reported & reported \\
+Hernandez \emph{et~al.} '25 \cite{hernandez2025tools} & ESP32-S3 & ESP32-S3 & Y & Y & Y & LSTM-DenseNet & int8 & Y & 127\,kB & 232\,ms & n/r \\
+\textbf{This work} & \textbf{classic ESP32} & \textbf{classic ESP32} & \textbf{Y} & \textbf{P} & \textbf{P} & \textbf{classical + tiny + deep} & \textbf{int8 + emlearn} & \textbf{N} & \textbf{8--54\,kB arena} & \textbf{9--476\,ms} & \textbf{measured (INA219)} \\
 \bottomrule
 \end{tabular}}
-\end{table}
+\end{table*}
 
 \textit{Gap.}~No prior study characterizes the bare, PSRAM-less classic ESP32 as an inference target for WiFi CSI HAR, nor maps which models across the classical, tiny, and deep spectrum actually fit it. This paper fills that gap.
 
@@ -606,6 +609,18 @@ TensorFlow project, ``Conversion of RNN/LSTM to TensorFlow Lite requires Select-
 
 \bibitem{tflmissue907}
 TensorFlow Lite Micro project, ``Unsupported dynamic-tensor and TensorList operators in the microcontroller runtime,'' GitHub issues 907 and 1570, 2021.
+
+\bibitem{hernandez2020lightweight}
+S. M. Hernandez and E. Bulut, ``Lightweight and standalone IoT based WiFi sensing for active repositioning and mobility,'' in \emph{Proc. IEEE 21st Int. Symp. World of Wireless, Mobile and Multimedia Networks (WoWMoM)}, 2020, pp. 277--286, doi: 10.1109/WoWMoM49955.2020.00056.
+
+\bibitem{hernandez2023edge}
+S. M. Hernandez and E. Bulut, ``WiFi sensing on the edge: signal processing techniques and challenges for real-world systems,'' \emph{IEEE Commun. Surveys Tuts.}, vol. 25, no. 1, pp. 46--76, 2023, doi: 10.1109/COMST.2022.3209144.
+
+\bibitem{sahoo2023realtime}
+A. K. Sahoo, V. Kompally, and S. K. Udgata, ``Wi-Fi sensing based real-time activity detection in smart home environment,'' in \emph{Proc. IEEE Applied Sensing Conf. (APSCON)}, 2023, doi: 10.1109/APSCON56343.2023.10101249.
+
+\bibitem{lenka2024wisdom}
+M. Lenka and A. Chakraborty, ``On-device deep learning for IoT-based wireless sensing applications,'' in \emph{Proc. IEEE Int. Conf. Pervasive Computing and Communications Workshops (PerCom Workshops), WiSense}, 2024, doi: 10.1109/PerComWorkshops59983.2024.10502448.
 
 \end{thebibliography}
 
