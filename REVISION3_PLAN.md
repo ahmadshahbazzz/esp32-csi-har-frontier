@@ -221,3 +221,12 @@ Manuscript = esp32-csi-har-frontier/manuscript/frontier.tex. Repo public + MIT.
      quant loss, all deployable models, CSI-HAR LOUO + UT-HAR 3-seed). Running on Kaggle.
      Still TODO: E2 emlearn parity, D_repro4 multi-seed LOUO, D_repro5 resampling ablation,
      D_repro6 inner-validation HP, A10 paired agreement, A2 unrolled-GRU, D_repro1-3 text.
+2026-08-04 01:53  batch 7: E1/E4 DONE (Major #2) - float-vs-int8 table integrated (tab:accval, int8
+     loss <=1pt both datasets; commit 41560b6). D_repro1-3 DONE (precise z-score def,
+     degenerate-feature answer, LOUO calibration/HP hygiene). J2 partial (completed
+     GitHub-issue + arXiv refs w/ URLs). B3 DONE (date placeholder). D_repro6 addressed
+     via text (HP fixed a priori, no per-fold tuning -> no held-out-user leakage).
+2026-08-04 01:53  batch 8: launched remaining Kaggle notebooks - csi-emlearn-parity (E2, re-run w/
+     underflow fix), csi-repro (D_repro4 multiseed LOUO + D_repro5 resampling ablation +
+     A10 paired agreement), csi-gru-export (A2 unrolled-GRU attempt). Waiter b1952s4ax.
+     -> integrate results when they land.
