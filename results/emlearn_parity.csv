@@ -1,0 +1,13 @@
+# E2: sklearn vs emlearn-C output parity (checklist #2, Major #2). Exact-match rate of the
+# emlearn C export vs the trained sklearn model over the REAL test set (float export, dtype=float).
+# DecisionTree/MLP are bit-exact; RandomForest on UT-HAR differs on 7/500 windows (sklearn RF
+# averages tree probabilities then argmax, emlearn uses tree-vote tie-breaking). NOTE: emlearn's
+# default int16 tree export truncates the z-scored 5-stat features (~-3..3) to integers and is NOT
+# accuracy-faithful; it was used only for the on-device latency benchmark (dummy data). Deploy float.
+dataset,model,exact_match_pct,n_test,export
+CSI-HAR,DecisionTree,100.0,420,emlearn-float
+CSI-HAR,RandomForest,100.0,420,emlearn-float
+CSI-HAR,MLP-stats,100.0,420,emlearn-float
+UT-HAR,DecisionTree,100.0,500,emlearn-float
+UT-HAR,RandomForest,98.6,500,emlearn-float
+UT-HAR,MLP-stats,100.0,500,emlearn-float
