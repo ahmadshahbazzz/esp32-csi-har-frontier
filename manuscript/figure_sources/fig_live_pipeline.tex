@@ -1,0 +1,55 @@
+\documentclass[border=8pt]{standalone}
+\usepackage{tikz}
+\usepackage{tgheros}\renewcommand{\familydefault}{\sfdefault}
+\usepackage[T1]{fontenc}
+\usepackage{sansmath}
+\usetikzlibrary{positioning,fit,backgrounds,calc,arrows.meta}
+% ---- reference palette: pale fills + matching mid-tone borders, black text ----
+\definecolor{txt}{HTML}{000000}
+\definecolor{gyF}{HTML}{F2F2F2}\definecolor{gyB}{HTML}{808080}   % grey  (AP)
+\definecolor{blF}{HTML}{DAE3F3}\definecolor{blB}{HTML}{4472C4}   % blue  (acquisition, core 0)
+\definecolor{gnF}{HTML}{E2EFDA}\definecolor{gnB}{HTML}{548235}   % green (compute, core 1)
+\definecolor{rdF}{HTML}{FBE3E3}\definecolor{rdB}{HTML}{C00000}   % red   (output)
+\definecolor{socB}{HTML}{404040}
+\begin{document}\sansmath
+\begin{tikzpicture}[font=\small,text=txt,>={Triangle[length=2.4mm,width=2mm]},node distance=6mm,
+  stg/.style={rounded corners=2pt,line width=0.7pt,align=center,inner sep=4pt,minimum height=15mm,minimum width=27mm},
+  ap/.style={stg,fill=gyF,draw=gyB},
+  acq/.style={stg,fill=blF,draw=blB},
+  cmp/.style={stg,fill=gnF,draw=gnB},
+  res/.style={stg,fill=rdF,draw=rdB},
+  fl/.style={font=\scriptsize\itshape,text=txt},
+  core/.style={font=\scriptsize\bfseries,text=socB}]
+
+\node[ap] (ap) {\textbf{2.4 GHz AP}\\\scriptsize(router / phone)};
+\node[acq,right=32mm of ap] (rx) {\textbf{Wi-Fi RX +}\\\textbf{CSI callback}};
+\node[acq,right=8mm of rx] (buf) {\textbf{ring buffer}\\\scriptsize 52 subcarrier\\\scriptsize amplitudes};
+\node[cmp,right=8mm of buf] (win) {\textbf{window $T{=}64$}\\\scriptsize z-score +\\\scriptsize int8 quantize};
+\node[cmp,right=8mm of win] (net) {\textbf{TinyCNN-16}\\\scriptsize TFLite Micro};
+\node[res,right=8mm of net] (lab) {\textbf{activity}\\\textbf{label}};
+
+\draw[->,line width=0.8pt] (ap) -- (rx);
+\node[fl,anchor=south] at ($(ap.east)+(13mm,1mm)$) {ping, $\sim$100 pkt/s};
+\draw[->,line width=0.8pt] (rx) -- (buf);
+\draw[->,line width=0.8pt] (buf) -- (win);
+\draw[->,line width=0.8pt] (win) -- (net);
+\draw[->,line width=0.8pt] (net) -- (lab);
+
+% core annotations
+\node[core,above=1mm of rx] {core 0 : acquisition};
+\node[core,above=1mm of net] {core 1 : inference};
+
+% on-device bracket
+\begin{scope}[on background layer]
+\node[draw=socB,line width=0.8pt,rounded corners=4pt,dashed,fit=(rx)(buf)(win)(net),inner sep=5mm] (chip) {};
+\end{scope}
+\node[anchor=south west,font=\scriptsize\bfseries,text=socB] at ([xshift=1mm,yshift=0.6mm]chip.north west) {on the classic ESP32 (real time)};
+
+% measured-metrics band
+\node[draw=gyB,fill=gyF,rounded corners=2pt,line width=0.5pt,align=center,
+      text width=\dimexpr\linewidth-2mm\relax,below=10mm of buf.south,anchor=north,font=\scriptsize] (band)
+  {\textbf{Measured, 30 min continuous:}~ 180{,}815 CSI packets ($\sim$100 pkt/s) ~$\cdot$~ 2{,}825 windows ~$\cdot$~ 0.00\% loss ~$\cdot$~ 37.6 ms end-to-end / window ~$\cdot$~ 1.57 windows/s ~$\cdot$~ heap stable ($\pm$2.5 kB) ~$\cdot$~ 0 crashes};
+\draw[gyB,line width=0.5pt,dashed] (chip.south) -- (chip.south|-band.north);
+
+\end{tikzpicture}
+\end{document}
