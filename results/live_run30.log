@@ -134,7 +134,7 @@ load:0x3fff0030,l, clock div:2
 load:0x3fff0030,l, clock div:2
 arena_alloc_bytes = 49152  (largest_free_internal = 110592)
 arena_used_bytes = 8488   (-> Peak RAM kB = 8.3)
-LIVE: connecting to AP "Chaos" ...
+LIVE: connecting to AP "<REDACTED_SSID>" ...
 I (676) wifi:wifi driver task: 3ffdf570, prio:23, stack:6656, core=0
 I (693) wifi:wifi firmware version: b2f1f86
 I (693) wifi:wifi certification version: v7.0
@@ -154,15 +154,15 @@ I (883) wifi:new:<9,2>, old:<1,0>, ap:<255,255>, sta:<9,2>, prof:6
 I (885) wifi:state: init -> auth (b0)
 I (888) wifi:state: auth -> assoc (0)
 I (893) wifi:state: assoc -> run (10)
-I (905) wifi:connected with Chaos, aid = 4, channel 9, 40D, bssid = 78:32:1b:c1:25:ec
+I (905) wifi:connected with <REDACTED_SSID>, aid = <n>, channel 9, 40D, bssid = <REDACTED_BSSID>
 I (905) wifi:security: WPA2-PSK, phy: bgn, rssi: -38
 I (910) wifi:pm start, type: 0
 I (911) wifi:AP's beacon interval = 102400 us, DTIM period = 1
-I (1666) wifi:<ba-add>idx:0 (ifx:0, 78:32:1b:c1:25:ec), tid:0, ssn:4, winSize:64
+I (1666) wifi:<ba-add>idx:0 (ifx:0, <REDACTED_BSSID>), tid:0, ssn:4, winSize:64
 LIVE: got IP, gateway=192.168.1.1
 LIVE: csi_config=0 csi_rx_cb=0 csi_enable=0 (0=OK; if !=0, CONFIG_ESP_WIFI_CSI_ENABLED is off)
 LIVE: CSI on, T=64 F=52, running 30 min. cols: t_s pkts used loss_pct win lat_ms thr_wps heap_free largest_blk pred
-I (4250) wifi:<ba-add>idx:1 (ifx:0, 78:32:1b:c1:25:ec), tid:6, ssn:0, winSize:64
+I (4250) wifi:<ba-add>idx:1 (ifx:0, <REDACTED_BSSID>), tid:6, ssn:0, winSize:64
 LIVE 2.5 259 259 0.00 4 36.5 1.58 140388 94208 3
 LIVE 5.1 515 515 0.00 8 36.0 1.58 140388 94208 6
 LIVE 7.6 771 771 0.00 12 35.9 1.58 140388 94208 3

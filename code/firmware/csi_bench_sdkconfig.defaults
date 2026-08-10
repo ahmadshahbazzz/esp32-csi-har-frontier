@@ -10,3 +10,5 @@ CONFIG_ESP_COEX_ENABLED=n
 # TFLite-Micro AllocateTensors needs far more stack than the ~3.5 kB default;
 # without this the interpreter overflows the main-task stack (InstrFetchProhibited).
 CONFIG_ESP_MAIN_TASK_STACK_SIZE=16384
+# Run at full speed (240 MHz); matches the paper text and the datasheet energy point.
+CONFIG_ESP32_DEFAULT_CPU_FREQ_240=y
