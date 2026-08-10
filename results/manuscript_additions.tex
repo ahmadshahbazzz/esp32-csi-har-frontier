@@ -348,3 +348,48 @@ Window & True class & Argmax match & Max logit diff (LSB) \\
 \hline
 \end{tabular}
 \end{table}
+
+% ---------------------------------------------------------------------------
+% LIVE DEPLOYMENT (Major #1): full on-device pipeline + 30-minute stability.
+% The classic ESP32 associates to a 2.4 GHz AP as a station, pings the gateway to
+% generate steady receive traffic, and the esp-wifi CSI RX callback delivers per-packet
+% subcarrier data. The device forms T=64 x 52-subcarrier amplitude windows, applies the
+% same per-window normalization as training, int8-quantizes, and runs the deployed
+% TinyCNN16 with TensorFlow Lite Micro. Reported metrics are systems metrics only;
+% classification accuracy is deliberately not claimed here because the deployed model
+% was trained on a different-domain public CSI set, not on this radio (see Future Work).
+% ---------------------------------------------------------------------------
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figs/fig_live_pipeline.png}
+\caption{Live on-device WiFi-CSI pipeline on the classic ESP32: over-the-air CSI capture,
+windowing and per-window normalization, int8 quantization, and TensorFlow Lite Micro
+inference, all running on the device in real time.}
+\label{fig:live}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Live deployment on the classic ESP32: full capture-to-inference pipeline run
+continuously for 30 minutes (2.4 GHz station, CSI from received packets, TinyCNN16). The
+pipeline sustains the packet rate with no dropped windows and stable memory, confirming
+that the complete real-time sensing loop runs on the bare PSRAM-less device. Accuracy is
+not reported (the model was trained on a different-domain public dataset).}
+\label{tab:live}
+\begin{tabular}{lr}
+\hline
+Metric & Value \\
+\hline
+Run duration                 & 30 min \\
+CSI packets received         & 180{,}815 \\
+Packet arrival rate          & 100.5 /s \\
+Packet / window loss         & 0.00\% (0 dropped) \\
+Windows classified           & 2{,}825 \\
+End-to-end latency per window & 37.6 ms (35.9--37.7) \\
+Throughput                   & 1.57 windows/s \\
+Free internal SRAM           & 134.6--137.1 kB (2.5 kB jitter) \\
+Largest free block           & 88.0--92.0 kB \\
+Crashes / watchdog resets    & 0 \\
+\hline
+\end{tabular}
+\end{table}
