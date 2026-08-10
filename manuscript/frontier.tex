@@ -646,10 +646,10 @@ Mean             & 85.7 & 56.3 & \textbf{29.4} \\
 \end{figure}
 
 % NEW (Major #5 external validation). Flag for Turnitin + add MM-Fi and CSI-Bench to .bib.
-To check that this gap is not an artefact of the three-user CSI-HAR set, we reproduced the same random-versus-subject-independent contrast on two much larger public WiFi-CSI datasets, using a light Random Forest on per-subcarrier amplitude statistics (Table~\ref{tab:gengap-ext}, Figure~\ref{fig:gengap-ext}). On MM-Fi~\cite{mmfi2023}, a 27-class daily-activity corpus, moving to a subject-independent split drops accuracy from 47.0\% to 6.7\% on 10 subjects and from 35.8\% to 4.8\% on the full 40 subjects across four environments (near the 3.7\% chance level in both cases); on CSI-Bench~\cite{csibench2024}, a four-class task with 43 users, accuracy falls from 84.1\% to 51.7\%. The cross-subject gap is thus 30 to 40 points across datasets spanning 3 to 43 subjects, so it is a property of cross-subject WiFi sensing rather than of the small three-user set, and it does not shrink as the subject pool grows.
+To check that this gap is not an artefact of the three-user CSI-HAR set, we reproduced the same random-versus-subject-independent contrast on two much larger public WiFi-CSI datasets, using a light Random Forest on per-subcarrier amplitude statistics (Table~\ref{tab:gengap-ext}, Figure~\ref{fig:gengap-ext}). On MM-Fi~\cite{mmfi2023}, a 27-class daily-activity corpus, moving to a subject-independent split drops accuracy from 47.0\% to 6.7\% on 10 subjects and from 35.8\% to 4.8\% on the full 40 subjects across four environments (near the 3.7\% chance level in both cases); on CSI-Bench~\cite{csibench2025}, a four-class task on 35 users, accuracy falls from 84.1\% to 51.7\%. The cross-subject gap is thus 30 to 40 points across datasets spanning 3 to 40 subjects, so it is a property of cross-subject WiFi sensing rather than of the small three-user set, and it does not shrink as the subject pool grows.
 
 \begin{table}[t]
-\caption{Cross-subject generalization gap on three WiFi-CSI datasets spanning 3 to 43 subjects. Moving from a random (subject-overlapping) split to a subject-independent split reduces accuracy by a similar large margin regardless of subject count, confirming that the effect is not an artefact of the small three-user dataset. MM-Fi is reported at 10 subjects (one environment) and at the full 40 (all four environments); on MM-Fi the subject-independent accuracy is near the 27-class chance level of 3.7\%.}
+\caption{Cross-subject generalization gap on three WiFi-CSI datasets spanning 3 to 40 subjects. Moving from a random (subject-overlapping) split to a subject-independent split reduces accuracy by a similar large margin regardless of subject count, confirming that the effect is not an artefact of the small three-user dataset. MM-Fi is reported at 10 subjects (one environment) and at the full 40 (all four environments); on MM-Fi the subject-independent accuracy is near the 27-class chance level of 3.7\%.}
 \label{tab:gengap-ext}
 \centering
 \footnotesize
@@ -660,7 +660,7 @@ Dataset (subjects) & Random (\%) & Subject-indep. (\%) & Gap (pts) \\
 CSI-HAR (3)    & 92.1 & 62.1 & 30.0 \\
 MM-Fi (10)     & 47.0 & 6.7  & 40.3 \\
 MM-Fi (40)     & 35.8 & 4.8  & 31.0 \\
-CSI-Bench (43) & 84.1 & 51.7 & 32.4 \\
+CSI-Bench (35) & 84.1 & 51.7 & 32.4 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -668,7 +668,7 @@ CSI-Bench (43) & 84.1 & 51.7 & 32.4 \\
 \begin{figure}[tbp]
 \centering
 \includegraphics[width=\columnwidth]{fig_gengap_external.png}
-\caption{The cross-subject generalization gap reproduces across three datasets spanning 3 to 43 subjects: accuracy drops sharply from a random (subject-overlapping) split to a subject-independent split in every case.}
+\caption{The cross-subject generalization gap reproduces across three datasets spanning 3 to 40 subjects: accuracy drops sharply from a random (subject-overlapping) split to a subject-independent split in every case.}
 \label{fig:gengap-ext}
 \end{figure}
 
@@ -702,7 +702,7 @@ A fielded sensor runs a real-time pipeline of four stages: CSI acquisition from 
 \subsection{Limitations}
 We group the limitations into three kinds so that the scope of the claims is unambiguous.
 
-\emph{Dataset size and diversity.} The generalization results rest on CSI-HAR, which has only three users, so the leave-one-user-out evaluation runs over three folds and the cross-subject numbers, while consistent, are a demonstration of the effect rather than a large-scale study; the three-user size is also why we treat the significance tests as exploratory (Section~\ref{sec:results-perclass}). UT-HAR is larger but saturated and not subject-partitioned, so it cannot show the gap. We add NTU-Fi\_HAR as a third dataset for the frontier (Section~\ref{sec:results-frontier}), which confirms the accuracy-versus-cost ordering but is itself saturated and single-session. To test the cross-subject gap beyond three users we reproduced it on two larger public corpora, MM-Fi (up to 40 subjects across four environments) and CSI-Bench (43 users), where it persists at 30 to 40 points (Section~\ref{sec:results-gap}, Table~\ref{tab:gengap-ext}); those checks use a light off-device classifier rather than the on-device tiny models, so a fully powered on-hardware cross-subject study on a many-subject, multi-room corpus remains the most important extension.
+\emph{Dataset size and diversity.} The generalization results rest on CSI-HAR, which has only three users, so the leave-one-user-out evaluation runs over three folds and the cross-subject numbers, while consistent, are a demonstration of the effect rather than a large-scale study; the three-user size is also why we treat the significance tests as exploratory (Section~\ref{sec:results-perclass}). UT-HAR is larger but saturated and not subject-partitioned, so it cannot show the gap. We add NTU-Fi\_HAR as a third dataset for the frontier (Section~\ref{sec:results-frontier}), which confirms the accuracy-versus-cost ordering but is itself saturated and single-session. To test the cross-subject gap beyond three users we reproduced it on two larger public corpora, MM-Fi (up to 40 subjects across four environments) and CSI-Bench (35 users), where it persists at 30 to 40 points (Section~\ref{sec:results-gap}, Table~\ref{tab:gengap-ext}); those checks use a light off-device classifier rather than the on-device tiny models, so a fully powered on-hardware cross-subject study on a many-subject, multi-room corpus remains the most important extension.
 
 \emph{Hardware constraints.} All device measurements come from a single classic ESP32 board. Energy is measured on that board with an INA219 current sensor (Section~\ref{sec:results-ondevice}); any datasheet-derived figure we quote for context is presented as an estimate over the full 30 to 68\,mA range and not as a single value or bound. We also run the same int8 models on an ESP32-S3 (which adds PSRAM and the esp-nn vector kernels): it is on average 4.8$\times$ faster and uses about 70\% less energy per inference than the classic ESP32, with the convolutional models benefiting most from the SIMD kernels (Section~\ref{sec:results-s3}, Table~\ref{tab:s3}). The classic ESP32 therefore characterizes the weakest and most constrained commodity target, and the S3 figures bound the speedup available on the more capable board rather than being left to speculation. For context, Hernandez \emph{et~al.}~\cite{hernandez2025tools} report 232\,ms per inference and a 127\,kB footprint (using external PSRAM) for a quantized recurrent CSI model on the ESP32-S3, whereas our feed-forward deep models run in 170 to 321\,ms on the PSRAM-less classic ESP32 through the export pipeline described here.
 
@@ -810,9 +810,8 @@ A. K. Sahoo, V. Kompally, and S. K. Udgata, ``Wi-Fi sensing based real-time acti
 \bibitem{mmfi2023}
 J. Yang, H. Huang, Y. Zhou, X. Chen, Y. Xu, S. Yuan, H. Zou, C.~X. Lu, and L. Xie, ``MM-Fi: Multi-modal non-intrusive 4D human dataset for versatile wireless sensing,'' in \emph{Advances in Neural Information Processing Systems (NeurIPS), Datasets and Benchmarks Track}, 2023.
 
-% TODO(author): verify CSI-Bench exact author list, arXiv ID, and year before submission.
-\bibitem{csibench2024}
-G. Zhu \emph{et al.}, ``CSI-Bench: A large-scale in-the-wild dataset for multi-task WiFi sensing,'' \emph{arXiv preprint}, 2025. [Online]. Available: \url{https://github.com/guozhenjennzhu/CSI-Bench}
+\bibitem{csibench2025}
+G. Zhu, Y. Hu, W. Gao, W.-H. Wang, B. Wang, and K.~J.~R. Liu, ``CSI-Bench: A large-scale in-the-wild dataset for multi-task WiFi sensing,'' in \emph{Advances in Neural Information Processing Systems (NeurIPS), Datasets and Benchmarks Track}, 2025. [Online]. Available: \url{https://arxiv.org/abs/2505.21866}
 
 \bibitem{lenka2024wisdom}
 M. Lenka and A. Chakraborty, ``On-device deep learning for IoT-based wireless sensing applications,'' in \emph{Proc. IEEE Int. Conf. Pervasive Computing and Communications Workshops (PerCom Workshops), WiSense}, 2024, doi: 10.1109/PerComWorkshops59983.2024.10502448.
