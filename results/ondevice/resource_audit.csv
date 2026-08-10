@@ -1,0 +1,13 @@
+model,dataset,model_file_KB,compiled_app_flash_KB,tensor_arena_KB
+TinyCNN8,UT-HAR,11.1,434.4,12.9
+TinyMLP,UT-HAR,184.0,606.1,12.5
+TinyCNN16,UT-HAR,18.7,440.9,13.0
+TinyCNN32,UT-HAR,37.6,459.7,13.4
+deepCNN,UT-HAR,102.9,525.0,10.0
+deepTransformer,UT-HAR,88.3,510.4,24.0
+TinyCNN8,CSI-HAR,9.1,434.4,8.1
+TinyMLP,CSI-HAR,108.0,530.1,7.7
+TinyCNN16,CSI-HAR,14.6,,8.3
+TinyCNN32,CSI-HAR,29.3,451.4,8.7
+deepCNN,CSI-HAR,86.3,508.4,12.0
+deepTransformer,CSI-HAR,76.3,498.5,54.0

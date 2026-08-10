@@ -1,0 +1,6 @@
+# Classical tier on-device (classic ESP32, emlearn C). Feature extraction = time to compute
+# the 5 statistics (mean/std/min/max/range) over a T=64 window; model = predict latency.
+# Kim Major #7: the classical pipeline cost is feature_extraction + model, NOT tree traversal alone.
+dataset,feature_extraction_ms,DecisionTree_us,RandomForest_us,MLP_stats_ms
+UT-HAR,1.637,1.244,33.640,NA(450-input MLP crashed)
+CSI-HAR,0.885,1.167,7.500,4.666

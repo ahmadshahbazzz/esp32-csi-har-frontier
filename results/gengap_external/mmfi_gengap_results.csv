@@ -1,0 +1,3 @@
+eval,acc,macroF1,n_subjects,n_classes,n_samples
+random_overlap,47.04,45.19,10,27,5400
+subject_independent,6.73,6.61,10,27,5400

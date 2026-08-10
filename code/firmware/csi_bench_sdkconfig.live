@@ -1,0 +1,5 @@
+# LIVE-mode overrides (Major #1): enable WiFi + CSI (both off in the default benchmark
+# config to save SRAM). Layer this AFTER sdkconfig.defaults so it wins.
+CONFIG_ESP_WIFI_ENABLED=y
+CONFIG_ESP_WIFI_CSI_ENABLED=y
+CONFIG_ESP32_WIFI_CSI_ENABLED=y

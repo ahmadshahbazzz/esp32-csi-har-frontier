@@ -8,6 +8,15 @@ set(extra_reqs "")
 if(DEFINED ENV{WIFI_ON})
     list(APPEND extra_reqs esp_wifi nvs_flash esp_netif esp_event)
 endif()
+# Item #8 energy: the ENERGY build drives a marker GPIO, which needs the driver component.
+if(DEFINED ENV{ENERGY})
+    list(APPEND extra_reqs driver)
+endif()
+# Major #1 live pipeline: LIVE=1 brings up the WiFi station + CSI RX + ping, so it needs
+# the radio stack and lwip (esp_ping lives in lwip).
+if(DEFINED ENV{LIVE})
+    list(APPEND extra_reqs esp_wifi nvs_flash esp_netif esp_event lwip)
+endif()
 
 idf_component_register(
     SRCS "main.cc" "model_tiny.cc"
@@ -38,4 +47,20 @@ endif()
 # time, sampling heap and latency to check runtime stability / fragmentation.
 if(DEFINED ENV{CONTINUOUS})
     target_compile_definitions(${COMPONENT_LIB} PRIVATE CONTINUOUS=1)
+endif()
+# Item #8 energy: ENERGY=1 drives a marker GPIO HIGH during each Invoke() so an
+# external INA219+ESP8266 reader can separate active from idle power. MARKER_PIN
+# optionally overrides the default GPIO25.
+if(DEFINED ENV{ENERGY})
+    target_compile_definitions(${COMPONENT_LIB} PRIVATE ENERGY=1)
+    if(DEFINED ENV{MARKER_PIN})
+        target_compile_definitions(${COMPONENT_LIB} PRIVATE MARKER_PIN=$ENV{MARKER_PIN})
+    endif()
+endif()
+# Major #1 live pipeline: LIVE=1 compiles the WiFi-STA + CSI-RX + windowed-inference path.
+if(DEFINED ENV{LIVE})
+    target_compile_definitions(${COMPONENT_LIB} PRIVATE LIVE=1)
+    if(DEFINED ENV{LIVE_MINUTES})
+        target_compile_definitions(${COMPONENT_LIB} PRIVATE LIVE_MINUTES=$ENV{LIVE_MINUTES})
+    endif()
 endif()

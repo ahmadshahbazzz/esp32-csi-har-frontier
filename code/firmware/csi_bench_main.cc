@@ -11,6 +11,15 @@
 #include "freertos/task.h"
 #include "esp_timer.h"
 #include "esp_heap_caps.h"
+#ifdef ENERGY
+#include "driver/gpio.h"
+// Marker pin: driven HIGH exactly during each Invoke() so the external ESP8266 +
+// INA219 reader can separate active-inference power from idle power. Wire this pin
+// to the ESP8266 D5 (GPIO14). GPIO25 is a safe output on the classic ESP32.
+#ifndef MARKER_PIN
+#define MARKER_PIN 25
+#endif
+#endif
 #include "tensorflow/lite/micro/micro_interpreter.h"
 #include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
 #include "tensorflow/lite/schema/schema_generated.h"
@@ -50,6 +59,94 @@ static void start_wifi() {
 }
 #endif
 
+#ifdef LIVE
+// Major #1 live pipeline: associate to a 2.4 GHz AP as a station, enable the CSI RX
+// callback, and generate steady RX traffic by pinging the gateway. The callback stores
+// per-packet subcarrier amplitude rows into a ring buffer; the main loop forms T-row
+// windows, normalizes + int8-quantizes them, runs the deployed model, and reports the
+// live systems metrics (arrival rate, loss, end-to-end latency, throughput, heap).
+#include "nvs_flash.h"
+#include "esp_netif.h"
+#include "esp_event.h"
+#include "esp_wifi.h"
+#include "esp_log.h"
+#include "freertos/semphr.h"
+#include "ping/ping_sock.h"
+#include "lwip/inet.h"
+#include "wifi_creds.h"     // defines WIFI_SSID and WIFI_PASS (untracked)
+#ifndef LIVE_T
+#define LIVE_T 64
+#endif
+#ifndef LIVE_F
+#define LIVE_F 52
+#endif
+#ifndef LIVE_MINUTES
+#define LIVE_MINUTES 30
+#endif
+#ifndef LIVE_SC_OFFSET
+#define LIVE_SC_OFFSET 12   // byte offset into CSI buf: skip DC/edge guard subcarriers
+#endif
+#define LIVE_RING 256       // rows of history (>= a few windows)
+
+static float g_rows[LIVE_RING][LIVE_F];
+static unsigned long g_write = 0;   // rows written by the CSI callback (single writer)
+static unsigned long g_pkt = 0;     // total CSI callbacks
+static unsigned long g_bad = 0;     // callbacks with unusable CSI buffers
+static volatile bool g_got_ip = false;
+static esp_ip4_addr_t g_gw = {0};
+
+static void live_wifi_evt(void* a, esp_event_base_t base, int32_t id, void* d){
+    if (base==WIFI_EVENT && id==WIFI_EVENT_STA_START) esp_wifi_connect();
+    else if (base==WIFI_EVENT && id==WIFI_EVENT_STA_DISCONNECTED) { g_got_ip=false; esp_wifi_connect(); }
+    else if (base==IP_EVENT && id==IP_EVENT_STA_GOT_IP) {
+        ip_event_got_ip_t* e=(ip_event_got_ip_t*)d; g_gw=e->ip_info.gw; g_got_ip=true;
+    }
+}
+
+static void live_csi_cb(void* ctx, wifi_csi_info_t* info){
+    g_pkt++;
+    if (!info || !info->buf || info->len < 2*(LIVE_SC_OFFSET/2 + LIVE_F)) { g_bad++; return; }
+    const int8_t* b = info->buf;
+    unsigned r = g_write % LIVE_RING;
+    for (int k=0;k<LIVE_F;k++){
+        int i = LIVE_SC_OFFSET + 2*k;
+        float I=(float)b[i], Q=(float)b[i+1];
+        g_rows[r][k]=sqrtf(I*I+Q*Q);
+    }
+    g_write++;   // publish the row (single writer: the WiFi task)
+}
+
+static void live_start_wifi(){
+    esp_err_t r = nvs_flash_init();
+    if (r==ESP_ERR_NVS_NO_FREE_PAGES || r==ESP_ERR_NVS_NEW_VERSION_FOUND){ nvs_flash_erase(); nvs_flash_init(); }
+    esp_netif_init();
+    esp_event_loop_create_default();
+    esp_netif_create_default_wifi_sta();
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    esp_wifi_init(&cfg);
+    esp_event_handler_instance_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &live_wifi_evt, NULL, NULL);
+    esp_event_handler_instance_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &live_wifi_evt, NULL, NULL);
+    wifi_config_t wc = {};
+    strncpy((char*)wc.sta.ssid, WIFI_SSID, sizeof(wc.sta.ssid));
+    strncpy((char*)wc.sta.password, WIFI_PASS, sizeof(wc.sta.password));
+    esp_wifi_set_mode(WIFI_MODE_STA);
+    esp_wifi_set_config(WIFI_IF_STA, &wc);
+    esp_wifi_set_ps(WIFI_PS_NONE);          // no power save: keep receiving
+    esp_wifi_start();
+}
+
+static void live_start_ping(){
+    // Ping the gateway continuously so the station keeps receiving packets (each RX
+    // triggers the CSI callback). ~10 ms interval -> ~100 CSI samples/s.
+    ip_addr_t target = {}; target.type = IPADDR_TYPE_V4; target.u_addr.ip4.addr = g_gw.addr;
+    esp_ping_config_t pc = ESP_PING_DEFAULT_CONFIG();
+    pc.target_addr = target; pc.count = ESP_PING_COUNT_INFINITE; pc.interval_ms = 10; pc.timeout_ms = 200;
+    esp_ping_callbacks_t cbs = {}; esp_ping_handle_t h=NULL;
+    esp_ping_new_session(&pc, &cbs, &h);
+    if (h) esp_ping_start(h);
+}
+#endif
+
 // UT-HAR input is 250 packets x 90 features = 22500 int8 values.
 static constexpr int kInputSize = 250 * 90;
 // Classic ESP32 has no PSRAM and ~300 kB usable internal SRAM. Start at 256 kB;
@@ -69,6 +166,11 @@ extern "C" void app_main(void) {
 #ifdef ARENA_BYTES
     // Item #25: force a specific arena size to map the fit/no-fit threshold.
     size_t asize = (size_t)ARENA_BYTES;
+#elif defined(LIVE)
+    // Major #1: the WiFi stack needs tens of kB of internal SRAM, so DO NOT grab the
+    // whole free block for the arena. A tiny CNN needs <16 kB; cap at 48 kB.
+    size_t want = 48*1024;
+    size_t asize = (want < big) ? want : big;
 #else
     size_t want = (size_t)kArenaSize;
     size_t asize = (want < big) ? want : (big > (2*1024) ? big - (2*1024) : big);
@@ -129,6 +231,83 @@ extern "C" void app_main(void) {
 
     TfLiteTensor* in = interp.input(0);
 
+#ifdef LIVE
+    // Major #1: full live deployment pipeline (capture -> window -> preprocess ->
+    // inference), plus 30-60 min stability. Reports systems metrics only (latency,
+    // throughput, loss, heap); it does not claim accuracy because the deployed model
+    // was trained on a different-domain public CSI set, not on this ESP32.
+    TfLiteTensor* out = interp.output(0);
+    const float in_scale = in->params.scale;
+    const int   in_zp    = in->params.zero_point;
+    const int ncls = (int)out->bytes;
+    printf("LIVE: connecting to AP \"%s\" ...\n", WIFI_SSID);
+    live_start_wifi();
+    for (int i=0;i<200 && !g_got_ip;i++) vTaskDelay(pdMS_TO_TICKS(100));
+    if (!g_got_ip){ printf("LIVE: no IP (check SSID/PASS/2.4GHz). halting.\n"); return; }
+    printf("LIVE: got IP, gateway=" IPSTR "\n", IP2STR(&g_gw));
+    // Enable CSI reception.
+    wifi_csi_config_t csi = {};
+    csi.lltf_en=true; csi.htltf_en=true; csi.stbc_htltf2_en=true; csi.ltf_merge_en=true;
+    csi.channel_filter_en=true; csi.manu_scale=false;
+    esp_err_t rc_cfg = esp_wifi_set_csi_config(&csi);
+    esp_err_t rc_cb  = esp_wifi_set_csi_rx_cb(&live_csi_cb, NULL);
+    esp_err_t rc_on  = esp_wifi_set_csi(true);
+    printf("LIVE: csi_config=%d csi_rx_cb=%d csi_enable=%d (0=OK; if !=0, CONFIG_ESP_WIFI_CSI_ENABLED is off)\n",
+           (int)rc_cfg, (int)rc_cb, (int)rc_on);
+    live_start_ping();
+    printf("LIVE: CSI on, T=%d F=%d, running %d min. cols: t_s pkts used loss_pct win lat_ms thr_wps heap_free largest_blk pred\n",
+           LIVE_T, LIVE_F, LIVE_MINUTES);
+
+    static float win[LIVE_T][LIVE_F];
+    unsigned long processed=0, wins=0, overflow_drops=0;
+    double lat_sum=0.0;
+    int64_t t_start=esp_timer_get_time(), t_last=t_start;
+    const int64_t run_us=(int64_t)LIVE_MINUTES*60*1000000;
+    while (esp_timer_get_time()-t_start < run_us){
+        unsigned long w=g_write;
+        // fell behind by more than the ring -> count lost rows, skip ahead.
+        if (w - processed > LIVE_RING){ overflow_drops += (w-processed-LIVE_RING); processed = w-LIVE_RING; }
+        if (w - processed >= (unsigned long)LIVE_T){
+            int64_t a=esp_timer_get_time();
+            // copy T rows in chronological order
+            for (int t=0;t<LIVE_T;t++){ unsigned idx=(processed+t)%LIVE_RING; for(int k=0;k<LIVE_F;k++) win[t][k]=g_rows[idx][k]; }
+            processed += LIVE_T;                       // non-overlapping windows
+            // per-window z-score (matches training normalization)
+            double s=0,s2=0; int n=LIVE_T*LIVE_F;
+            for(int t=0;t<LIVE_T;t++)for(int k=0;k<LIVE_F;k++){ float v=win[t][k]; s+=v; s2+=v*v; }
+            float mean=s/n; float var=s2/n-mean*mean; float sd=var>0?sqrtf(var):1e-6f;
+            // quantize into the int8 input tensor
+            int p=0;
+            for(int t=0;t<LIVE_T;t++)for(int k=0;k<LIVE_F;k++){
+                float z=(win[t][k]-mean)/sd;
+                int q=(int)lroundf(z/in_scale)+in_zp;
+                if(q<-128){ q=-128; }
+                if(q>127){ q=127; }
+                in->data.int8[p++]=(int8_t)q;
+            }
+            if (interp.Invoke()==kTfLiteOk){
+                int best=0; int8_t bv=out->data.int8[0];
+                for(int c=1;c<ncls;c++) if(out->data.int8[c]>bv){bv=out->data.int8[c];best=c;}
+                double lat=(esp_timer_get_time()-a)/1000.0; lat_sum+=lat; wins++;
+                int64_t now=esp_timer_get_time(); double el=(now-t_start)/1e6;
+                if (now-t_last > 2000000){    // report every ~2 s
+                    double loss = g_pkt? 100.0*(double)g_bad/(double)g_pkt : 0.0;
+                    double thr = wins/el;
+                    printf("LIVE %.1f %lu %lu %.2f %lu %.1f %.2f %d %d %d\n",
+                        el, g_pkt, g_write, loss, wins, lat_sum/wins, thr,
+                        (int)heap_caps_get_free_size(MALLOC_CAP_INTERNAL),
+                        (int)heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL), best);
+                    t_last=now;
+                }
+            }
+        }
+        vTaskDelay(1);   // yield so WiFi/ping tasks run
+    }
+    printf("LIVE DONE: windows=%lu mean_lat_ms=%.3f pkts=%lu used_rows=%lu bad=%lu overflow_dropped_rows=%lu\n",
+           wins, wins?lat_sum/wins:0.0, g_pkt, g_write, g_bad, overflow_drops);
+    return;
+#endif
+
 #ifdef REPLAY_DEMO
     // Item #11: replay stored real CSI windows through the on-device interpreter
     // and print the prediction per window. Demonstrates end-to-end classification
@@ -147,6 +326,11 @@ extern "C" void app_main(void) {
         if (ok) correct++;
         printf("replay window %d: true=%s pred=%s %s\n", w,
                kReplayClassNames[truth], kReplayClassNames[best], ok ? "OK" : "MISS");
+        // Item E3: print the full int8 output vector so the on-device logits can be
+        // compared element-wise against the desktop int8 reference (numerical parity).
+        printf("logits %d:", w);
+        for (int c = 0; c < ncls; c++) printf(" %d", (int)out->data.int8[c]);
+        printf("\n");
         vTaskDelay(1);
     }
     printf("replay_accuracy = %d/%d\n", correct, REPLAY_N);
@@ -159,6 +343,41 @@ extern "C" void app_main(void) {
     for (size_t i = 0; i < in->bytes; i++) in->data.int8[i] = 0;
 
     interp.Invoke();  // warm-up
+
+#ifdef ENERGY
+    // Item #8 (Major): direct energy measurement. The classic ESP32 is powered
+    // through an INA219 (5V adapter -> VIN+ ; VIN- -> ESP32 VIN) whose bus/current
+    // is logged by an external ESP8266. We drive MARKER_PIN HIGH only for the
+    // duration of each Invoke(), so the reader can compute:
+    //   active_power = mean(power | marker==1),  idle_power = mean(power | marker==0)
+    //   energy_per_inference = active_power * latency_per_inference
+    // A long idle baseline first lets the reader capture idle power cleanly.
+    {
+        gpio_reset_pin((gpio_num_t)MARKER_PIN);
+        gpio_set_direction((gpio_num_t)MARKER_PIN, GPIO_MODE_OUTPUT);
+        gpio_set_level((gpio_num_t)MARKER_PIN, 0);
+
+        // 5 s idle baseline (marker LOW) -> reader captures idle power.
+        int64_t t0 = esp_timer_get_time();
+        while (esp_timer_get_time() - t0 < 5000000) vTaskDelay(10);
+
+        // Active phase: infer FOREVER (marker HIGH only during Invoke) so the external
+        // reader can capture active power regardless of when it is plugged in. The board
+        // keeps inferring until power-cycled. Heartbeat every 1000 invokes.
+        long n = 0; double sum = 0.0;
+        while (true) {
+            gpio_set_level((gpio_num_t)MARKER_PIN, 1);
+            int64_t a = esp_timer_get_time();
+            interp.Invoke();
+            double ms = (double)(esp_timer_get_time() - a) / 1000.0;
+            gpio_set_level((gpio_num_t)MARKER_PIN, 0);
+            sum += ms; n++;
+            if (n == 50 || (n % 200) == 0)
+                printf("energy_active invokes=%ld mean_lat_ms=%.3f\n", n, sum / n);
+            vTaskDelay(1);  // watchdog feed (marker already LOW = counted as idle)
+        }
+    }
+#endif
 
 #ifdef CONTINUOUS
     // Items #10/#11: run inference back-to-back for a long time (continuous sensing),

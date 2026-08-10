@@ -23,3 +23,18 @@ Thumbs.db
 
 # Local archives
 *.zip
+
+# Wi-Fi credentials for the LIVE pipeline (never commit)
+wifi_creds.h
+csi_bench_wifi_creds.h
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.synctex.gz
+
+# stale compiled paper PDFs (regenerate on Overleaf)
+manuscript/frontier.pdf

@@ -1,0 +1,5 @@
+#pragma once
+// Fill in your 2.4 GHz AP for the LIVE CSI pipeline, then save as wifi_creds.h
+// (wifi_creds.h is gitignored; do not commit real credentials).
+#define WIFI_SSID "YOUR_2G4_SSID"
+#define WIFI_PASS "YOUR_PASSWORD"
