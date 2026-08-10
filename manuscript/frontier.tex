@@ -605,15 +605,17 @@ Because the dataset has only three users, the most informative summary is per-us
 \label{tab:peruser}
 \centering
 \footnotesize
+\setlength{\tabcolsep}{4pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lccc}
 \toprule
-Held-out user & Tiny CNN (16 ch) & Tiny CNN (32 ch) & Random Forest \\
+Held-out user & TinyCNN-16 & TinyCNN-32 & Rand. Forest \\
 \midrule
 User 1 & 59.05 $\pm$ 1.35 & 59.05 $\pm$ 1.47 & 59.29 \\
 User 2 & 57.86 $\pm$ 3.09 & 59.05 $\pm$ 3.32 & 60.00 \\
 User 3 & 55.48 $\pm$ 8.19 & 66.67 $\pm$ 1.21 & 52.86 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 We also asked whether the accuracy differences between models are statistically meaningful. With only three held-out users the statistical power is very low, so we treat these tests as exploratory and descriptive rather than confirmatory, and we draw no inferential conclusion from them. As a sanity check, a Friedman test across the tiny CNN, deep CNN, Transformer, and Random Forest over the three folds is not significant ($\chi^2 = 4.44$, $p = 0.22$), and a Wilcoxon signed-rank test between the deep CNN and the Transformer is likewise not significant ($p = 0.25$); with $n=3$ these p-values cannot establish either a difference or an equivalence and are reported only for completeness. What we do rely on is the effect size and its consistency: across every fold the tiny model stays within a few points of the deep models, so the case for the small models rests on that consistent closeness rather than on a significance test the sample size cannot support. A properly powered comparison would need a many-subject corpus, which we flag as future work.
