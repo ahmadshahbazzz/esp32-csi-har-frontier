@@ -1,0 +1,395 @@
+% ============================================================================
+% DRAFT manuscript additions - new measured results (2026-08-09).
+% Factual/table content only; prose kept minimal for the author to humanize
+% (Turnitin). 100% ASCII, no em dashes. Drop into frontier.tex where noted.
+% ============================================================================
+
+% ---------------------------------------------------------------------------
+% TABLE: measured on-device energy per inference (replaces the 50 mA estimate)
+% Reviewer Major #8. Classic ESP32-D0WD-V3, 240 MHz, WiFi off, measured with an
+% INA219 in series with the 5 V board input; an external ESP8266 logs bus voltage
+% and current, and a GPIO marker driven HIGH during each Invoke() separates
+% active-inference power from the idle baseline (254 mW / 50.6 mA at 5 V).
+% ---------------------------------------------------------------------------
+\begin{table}[t]
+\centering
+\caption{Measured on-device energy per inference on the classic ESP32
+(240 MHz, WiFi off). Active power is the mean bus power while the marker is high;
+the idle baseline is 254 mW (50.6 mA at 5 V). Energy per inference is
+active power times measured latency. Values are directly measured with an INA219,
+replacing the previous datasheet-based estimate.}
+\label{tab:energy}
+\begin{tabular}{llrrr}
+\hline
+Model & Dataset & Active (mW) & Latency (ms) & Energy (mJ) \\
+\hline
+TinyCNN8        & UT-HAR  & 354 & 14.1  & 5.0 \\
+TinyMLP         & UT-HAR  & 301 & 33.3  & 10.0 \\
+TinyCNN16       & UT-HAR  & 361 & 29.7  & 10.7 \\
+TinyCNN32       & UT-HAR  & 363 & 67.8  & 24.6 \\
+deepCNN         & UT-HAR  & 314 & 225.6 & 71.0 \\
+deepTransformer & UT-HAR  & 347 & 169.8 & 58.9 \\
+\hline
+TinyCNN8        & CSI-HAR & 369 & 9.4   & 3.5 \\
+TinyMLP         & CSI-HAR & 305 & 19.6  & 6.0 \\
+TinyCNN16       & CSI-HAR & 381 & 20.2  & 7.7 \\
+TinyCNN32       & CSI-HAR & 377 & 46.4  & 17.5 \\
+deepCNN         & CSI-HAR & 331 & 243.5 & 80.7 \\
+deepTransformer & CSI-HAR & 367 & 320.7 & 117.8 \\
+\hline
+\end{tabular}
+\end{table}
+
+% Factual note (author to reword): the measured active current (73-77 mA for the
+% CNN and Transformer models) exceeds the 68 mA datasheet figure, which confirms
+% that the earlier 50 mA assumption was not a conservative upper bound. The
+% statistics MLP draws the least active power (about 300-305 mW).
+
+% ---------------------------------------------------------------------------
+% TABLE: cross-subject generalization gap across three datasets (Major #5).
+% Random (subject-overlapping) vs subject-independent evaluation. The gap
+% reproduces on datasets with far more subjects than the original three-user set.
+% ---------------------------------------------------------------------------
+\begin{table}[t]
+\centering
+\caption{Cross-subject generalization gap on three WiFi-CSI datasets. Moving from
+a random (subject-overlapping) split to a subject-independent split reduces
+accuracy by a similar large margin regardless of subject count, confirming that
+the effect is not an artefact of the small three-user dataset.}
+\label{tab:gengap-ext}
+\begin{tabular}{lrrr}
+\hline
+Dataset (subjects) & Random (\%) & Subject-indep. (\%) & Gap (pt) \\
+\hline
+CSI-HAR (3)    & 92.1 & 62.1 & 30.0 \\
+MM-Fi (10)     & 47.0 & 6.7  & 40.3 \\
+MM-Fi (40)     & 35.8 & 4.8  & 31.0 \\
+CSI-Bench (43) & 84.1 & 51.7 & 32.4 \\
+\hline
+\end{tabular}
+\end{table}
+
+% Factual note (author to reword): MM-Fi is a 27-class daily-activity HAR dataset;
+% CSI-Bench is a 4-class motion-source task with 43 users. MM-Fi is reported both at
+% 10 subjects (one environment) and at the full 40 subjects across all four
+% environments (all 320,760 wifi-csi frames; a 456-dim per-subcarrier amplitude-stat
+% RandomForest, 21,600 windows). In both cases the subject-independent accuracy falls
+% to near the 27-class chance level (6.7\% at 10 subjects, 4.8\% at 40 subjects vs a
+% 3.7\% chance), showing that apparently accurate models can fail almost completely on
+% unseen users, and that the gap does not shrink as the subject pool grows to 40.
+% Cite MM-Fi (Yang et al., CC BY-NC) and CSI-Bench.
+
+% ---------------------------------------------------------------------------
+% FIGURES
+% ---------------------------------------------------------------------------
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figs/fig_energy.png}
+\caption{Measured energy per inference on the classic ESP32 (INA219, 240 MHz,
+WiFi off) for all deployable models on both datasets.}
+\label{fig:energy}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figs/fig_gengap_external.png}
+\caption{The cross-subject generalization gap reproduces across three datasets
+spanning 3 to 43 subjects.}
+\label{fig:gengap-ext}
+\end{figure}
+
+% ---------------------------------------------------------------------------
+% TABLE: classic ESP32 vs ESP32-S3 (review #9). Same 12 int8 models, measured
+% on both boards. S3 flashed via USB-C; energy = measured active power x measured
+% latency. Place in a new results subsection "ESP32-S3 comparison".
+% ---------------------------------------------------------------------------
+\begin{table}[t]
+\centering
+\caption{Measured classic ESP32 vs ESP32-S3 on the same int8 models. Latency and
+active power are measured on each board; energy is their product. The S3 (LX7 cores
+with the esp-nn SIMD kernels and PSRAM) is on average 4.8x faster and uses 70\% less
+energy per inference; the convolutional models benefit most from the vector kernels.}
+\label{tab:s3}
+\begin{tabular}{llrrrrr}
+\hline
+Model & Data & Classic (ms) & S3 (ms) & Speedup & Classic (mJ) & S3 (mJ) \\
+\hline
+TinyCNN8        & UT  & 14.1  & 2.4   & 5.9x & 5.0   & 0.66 \\
+TinyMLP         & UT  & 33.3  & 25.3  & 1.3x & 10.0  & 6.81 \\
+TinyCNN16       & UT  & 29.7  & 4.1   & 7.2x & 10.7  & 1.24 \\
+TinyCNN32       & UT  & 67.8  & 8.7   & 7.7x & 24.6  & 2.88 \\
+deepCNN         & UT  & 225.6 & 29.1  & 7.8x & 70.9  & 8.91 \\
+deepTransformer & UT  & 169.8 & 115.5 & 1.5x & 58.9  & 28.85 \\
+TinyCNN8        & CSI & 9.4   & 2.0   & 4.6x & 3.5   & 0.51 \\
+TinyMLP         & CSI & 19.6  & 14.7  & 1.3x & 6.0   & 4.16 \\
+TinyCNN16       & CSI & 20.2  & 3.5   & 5.8x & 7.7   & 0.98 \\
+TinyCNN32       & CSI & 46.4  & 6.7   & 6.9x & 17.5  & 2.18 \\
+deepCNN         & CSI & 243.5 & 40.2  & 6.1x & 80.7  & 11.86 \\
+deepTransformer & CSI & 320.7 & 266.0 & 1.2x & 117.8 & 77.04 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figs/fig_classic_vs_s3.png}
+\caption{Measured energy per inference, classic ESP32 vs ESP32-S3, with the latency
+speedup labeled per model.}
+\label{fig:s3}
+\end{figure}
+
+% ---------------------------------------------------------------------------
+% TABLE: frequency and WiFi ablations (Kim "very important"). Active power measured
+% at 160 vs 240 MHz, and with the WiFi stack enabled vs disabled (TinyCNN16).
+% ---------------------------------------------------------------------------
+\begin{table}[t]
+\centering
+\caption{Frequency and WiFi ablations on the classic ESP32 (CSI-HAR, measured active
+power). Lowering the clock to 160\,MHz reduces active power by about 30\%, but raises
+latency, so energy per inference is nearly unchanged (for TinyCNN16, 7.9\,mJ at
+160\,MHz vs 7.7\,mJ at 240\,MHz); energy therefore does not scale purely with latency.
+Bringing up the WiFi stack (station mode, idle) does not materially change the
+per-inference active power.}
+\label{tab:ablation}
+\begin{tabular}{lrr}
+\hline
+Model & Active @160\,MHz (mW) & Active @240\,MHz (mW) \\
+\hline
+TinyCNN16       & 265 & 381 \\
+TinyCNN32       & 266 & 377 \\
+deepCNN         & 238 & 331 \\
+deepTransformer & 264 & 367 \\
+\hline
+\multicolumn{3}{l}{WiFi ablation (TinyCNN16, 240\,MHz): off 381\,mW vs on 379\,mW} \\
+\hline
+\end{tabular}
+\end{table}
+
+% ---------------------------------------------------------------------------
+% TABLE: deployment resource audit (Major #7 / spec #13). Compiled application
+% flash vs model-file size vs tensor arena. Bootloader ~26 kB + partition ~3 kB fixed.
+% ---------------------------------------------------------------------------
+\begin{table}[t]
+\centering
+\caption{Deployment resource audit on the classic ESP32. Compiled application flash
+(the full firmware image including the TensorFlow Lite Micro runtime and the model),
+model-file size (int8 weights), and tensor arena (SRAM). Reporting compiled flash, not
+just the model file, addresses the true on-device footprint; all fit well within the
+4\,MB flash and the ~150\,kB SRAM arena budget.}
+\label{tab:resource}
+\begin{tabular}{llrrr}
+\hline
+Model & Data & Model file (kB) & App flash (kB) & Arena (kB) \\
+\hline
+TinyCNN8        & UT  & 11.1  & 434 & 12.9 \\
+TinyMLP         & UT  & 184.0 & 606 & 12.5 \\
+TinyCNN16       & UT  & 18.7  & 441 & 13.0 \\
+TinyCNN32       & UT  & 37.6  & 460 & 13.4 \\
+deepCNN         & UT  & 102.9 & 525 & 10.0 \\
+deepTransformer & UT  & 88.3  & 510 & 24.0 \\
+TinyCNN8        & CSI & 9.1   & 434 & 8.1 \\
+TinyMLP         & CSI & 108.0 & 530 & 7.7 \\
+TinyCNN16       & CSI & 14.6  & 437 & 8.3 \\
+TinyCNN32       & CSI & 29.3  & 451 & 8.7 \\
+deepCNN         & CSI & 86.3  & 508 & 12.0 \\
+deepTransformer & CSI & 76.3  & 499 & 54.0 \\
+\hline
+\end{tabular}
+\end{table}
+
+% ---------------------------------------------------------------------------
+% TABLE: firmware image audit (spec item F4 / #13). Segment sizes from idf.py size and the
+% dominant per-archive contributors from idf.py size-components (classic ESP32, WiFi off).
+% ---------------------------------------------------------------------------
+\begin{table}[t]
+\centering
+\caption{Firmware image audit on the classic ESP32 (from the build tool). The TensorFlow Lite
+Micro runtime is the single largest contributor to the image (about 232 kB of flash), far larger
+than any int8 model file; static SRAM use is small (12 kB of .data plus .bss), leaving about 168 kB
+of internal SRAM for the heap and tensor arena. This is why the deep models still fit despite the
+absence of PSRAM.}
+\label{tab:firmware-audit}
+\begin{tabular}{lrr}
+\hline
+Segment / component & Flash (kB) & SRAM (kB) \\
+\hline
+Code .text (flash)        & 302.6 & --- \\
+Const .rodata (incl. model) & 74.2 & --- \\
+Static .data + .bss         & --- & 11.8 \\
+IRAM .text                  & --- & 44.4 \\
+\hline
+esp-tflite-micro (runtime)  & 226.7 & --- \\
+C library                   & 45.4  & --- \\
+Application (this firmware)  & 21.6  & --- \\
+FreeRTOS                    & 21.1  & --- \\
+\hline
+Total image                 & 430.3 & --- \\
+SRAM free for heap + arena  & --- & 164.7 \\
+\hline
+\end{tabular}
+\end{table}
+
+% ---------------------------------------------------------------------------
+% TABLE: tensor-arena RAM breakdown (spec item F3 / Major #7). Measured on-device
+% with the RecordingMicroInterpreter (RECORD_ALLOC=1), which reports how the tensor
+% arena splits across categories. Deterministic: depends only on the model graph and
+% the TFLM version, and re-captured to identical bytes. Boot budget on the classic
+% ESP32 (WiFi/BT off): 153.6 kB arena from a 155.6 kB largest free internal block.
+% ---------------------------------------------------------------------------
+\begin{table}[t]
+\centering
+\caption{On-device tensor-arena RAM breakdown for the deep models (classic ESP32,
+measured with the recording interpreter). The arena splits into a non-persistent
+head (peak activation/working memory, reused across layers) and a persistent tail
+(operator scratch buffers, persistent tensors, quantization parameters, and the
+per-operator bookkeeping structs). For the Transformer the activation head and the
+operator scratch dominate, which is why its arena grows with the input window
+(CSI-HAR 54 kB vs UT-HAR 24 kB); the CNN arena stays near 10-12 kB. All fit well
+within the 153.6 kB arena budget.}
+\label{tab:ram-breakdown}
+\begin{tabular}{llrrrrr}
+\hline
+Model & Data & Arena (kB) & Head/act. (kB) & Tail/persist. (kB) & Op scratch (kB) & Ops \\
+\hline
+Deep CNN    & UT  & 10.1 & 6.0  & 4.1  & 2.6  & 16 \\
+Deep CNN    & CSI & 12.1 & 8.0  & 4.1  & 2.6  & 16 \\
+Transformer & UT  & 24.1 & 10.0 & 14.0 & 10.4 & 55 \\
+Transformer & CSI & 54.1 & 36.0 & 18.0 & 14.4 & 55 \\
+\hline
+\end{tabular}
+\end{table}
+
+% Factual note (author to reword): the persistent tail also holds the small persistent
+% tensors (80 B), quantization parameters (40 B), and NodeAndRegistration structs
+% (512 B for the 16-op CNN, 1760 B for the 55-op Transformer); the remainder of the
+% arena is the non-persistent activation head. Peak RAM is the arena_used figure, all
+% far below the ~150 kB usable internal SRAM.
+
+% ---------------------------------------------------------------------------
+% TABLE: classical pipeline on-device timing (Major #7). The 5-statistic feature
+% extraction dominates; tree traversal alone understates the true cost.
+% ---------------------------------------------------------------------------
+\begin{table}[t]
+\centering
+\caption{Classical tier on-device timing on the classic ESP32 (emlearn C). The
+feature-extraction step (computing the five statistics over a $T{=}64$ window)
+dominates the classical pipeline; Decision Tree and Random Forest traversal are
+microseconds, so reporting traversal alone understates the true cost. The
+statistics MLP predict is the slowest classical model.}
+\label{tab:classical-timing}
+\begin{tabular}{lrrrr}
+\hline
+Dataset & Feature extr. (ms) & DecisionTree ($\mu$s) & RandomForest ($\mu$s) & MLP-stats (ms) \\
+\hline
+UT-HAR  & 1.637 & 1.24 & 33.6 & --- \\
+CSI-HAR & 0.885 & 1.17 & 7.5  & 4.67 \\
+\hline
+\end{tabular}
+\end{table}
+
+% ---------------------------------------------------------------------------
+% TABLE: classical sklearn vs emlearn-C parity (spec item E2 / checklist #2). Exact-match
+% rate of the emlearn C export against the trained scikit-learn model over the real test set,
+% using the emlearn float export. Confirms the classical deployment reproduces the reference.
+% ---------------------------------------------------------------------------
+\begin{table}[t]
+\centering
+\caption{Output parity between the scikit-learn classical models and their emlearn C export,
+measured as the exact-match rate over the full real test set (float export). The Decision Tree
+and statistics MLP are bit-exact on both datasets; the Random Forest differs on 1.4\% of UT-HAR
+windows only, because scikit-learn averages the per-tree probabilities before the argmax while the
+C export resolves ties by tree vote. The compact int8 tree export is reserved for the latency
+benchmark; the float export is used for accuracy-faithful deployment.}
+\label{tab:emlearn-parity}
+\begin{tabular}{llrr}
+\hline
+Dataset & Model & Exact match vs sklearn (\%) & Test windows \\
+\hline
+CSI-HAR & Decision Tree   & 100.0 & 420 \\
+CSI-HAR & Random Forest   & 100.0 & 420 \\
+CSI-HAR & MLP (statistics)& 100.0 & 420 \\
+UT-HAR  & Decision Tree   & 100.0 & 500 \\
+UT-HAR  & Random Forest   & 98.6  & 500 \\
+UT-HAR  & MLP (statistics)& 100.0 & 500 \\
+\hline
+\end{tabular}
+\end{table}
+
+% ---------------------------------------------------------------------------
+% TABLE: on-device vs desktop int8 numerical parity (spec item E3). The deployed
+% TinyCNN16 (CSI-HAR) is run on the classic ESP32 (esp-tflite-micro int8 kernels)
+% and on the desktop reference interpreter over the same seven stored real CSI
+% windows; the full int8 output vector is compared element-wise. This verifies that
+% the deployment does not silently diverge from the reference model.
+% ---------------------------------------------------------------------------
+\begin{table}[t]
+\centering
+\caption{On-device versus desktop int8 numerical parity for the deployed TinyCNN16
+(CSI-HAR), over seven stored real CSI windows (one per class). The on-device
+predictions match the desktop reference on all seven windows, and the full int8
+logit vectors agree to within a single quantization step (1 LSB) on every element,
+with three of seven windows bit-exact. The small residual comes from the optimized
+on-device int8 kernels rounding differently from the reference kernels; it never
+changes a prediction.}
+\label{tab:parity}
+\begin{tabular}{llcc}
+\hline
+Window & True class & Argmax match & Max logit diff (LSB) \\
+\hline
+0 & bend     & yes & 1 \\
+1 & fall     & yes & 1 \\
+2 & lie down & yes & 0 \\
+3 & run      & yes & 0 \\
+4 & sitdown  & yes & 0 \\
+5 & standup  & yes & 1 \\
+6 & walk     & yes & 1 \\
+\hline
+\multicolumn{4}{l}{Argmax agreement 7/7; bit-exact logits 3/7; worst-case logit diff 1 LSB.} \\
+\hline
+\end{tabular}
+\end{table}
+
+% ---------------------------------------------------------------------------
+% LIVE DEPLOYMENT (Major #1): full on-device pipeline + 30-minute stability.
+% The classic ESP32 associates to a 2.4 GHz AP as a station, pings the gateway to
+% generate steady receive traffic, and the esp-wifi CSI RX callback delivers per-packet
+% subcarrier data. The device forms T=64 x 52-subcarrier amplitude windows, applies the
+% same per-window normalization as training, int8-quantizes, and runs the deployed
+% TinyCNN16 with TensorFlow Lite Micro. Reported metrics are systems metrics only;
+% classification accuracy is deliberately not claimed here because the deployed model
+% was trained on a different-domain public CSI set, not on this radio (see Future Work).
+% ---------------------------------------------------------------------------
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figs/fig_live_pipeline.png}
+\caption{Live on-device WiFi-CSI pipeline on the classic ESP32: over-the-air CSI capture,
+windowing and per-window normalization, int8 quantization, and TensorFlow Lite Micro
+inference, all running on the device in real time.}
+\label{fig:live}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Live deployment on the classic ESP32: full capture-to-inference pipeline run
+continuously for 30 minutes (2.4 GHz station, CSI from received packets, TinyCNN16). The
+pipeline sustains the packet rate with no dropped windows and stable memory, confirming
+that the complete real-time sensing loop runs on the bare PSRAM-less device. Accuracy is
+not reported (the model was trained on a different-domain public dataset).}
+\label{tab:live}
+\begin{tabular}{lr}
+\hline
+Metric & Value \\
+\hline
+Run duration                 & 30 min \\
+CSI packets received         & 180{,}815 \\
+Packet arrival rate          & 100.5 /s \\
+Packet / window loss         & 0.00\% (0 dropped) \\
+Windows classified           & 2{,}825 \\
+End-to-end latency per window & 37.6 ms (35.9--37.7) \\
+Throughput                   & 1.57 windows/s \\
+Free internal SRAM           & 134.6--137.1 kB (2.5 kB jitter) \\
+Largest free block           & 88.0--92.0 kB \\
+Crashes / watchdog resets    & 0 \\
+\hline
+\end{tabular}
+\end{table}

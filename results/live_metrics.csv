@@ -1,0 +1,22 @@
+# H1-H4 live CSI pipeline (Major #1), classic ESP32-D0WD-V3 as 2.4GHz station -> ping the
+# gateway -> esp-wifi CSI RX callback -> T=64 x 52-subcarrier amplitude window -> per-window
+# z-score + int8 quantize -> TinyCNN16 (TFLite-Micro) inference. 30 min continuous run.
+# Systems metrics only (accuracy not claimed: model trained on a different-domain public set).
+metric,value
+run_duration_min,30
+csi_packets_received,180815
+packet_arrival_rate_hz,100.5
+packet_window_loss_pct,0.00
+bad_csi_callbacks,0
+overflow_dropped_rows,0
+windows_classified,2825
+end_to_end_latency_ms_mean,37.6
+end_to_end_latency_ms_min,35.9
+end_to_end_latency_ms_max,37.7
+throughput_windows_per_s,1.57
+free_internal_sram_min_kB,134.6
+free_internal_sram_max_kB,137.1
+free_sram_drift_kB,2.5
+largest_free_block_min_kB,88.0
+largest_free_block_max_kB,92.0
+crashes_or_watchdog_resets,0
