@@ -1,0 +1,19 @@
+# F4: firmware image audit (classic ESP32, csi_bench built with esp-tflite-micro, WiFi off).
+# Overall segment sizes from `idf.py size`; per-archive from `idf.py size-components`.
+# Model shown = the deployed replay TinyCNN16 (~15 kB weights, in .rodata). SRAM: classic
+# ESP32 has 520 kB total; static DRAM use leaves ~168 kB for heap+tensor arena.
+segment,bytes,note
+static_DRAM_.data,8152,initialized data (SRAM)
+static_DRAM_.bss,3920,zero-init data (SRAM)
+static_DRAM_total,12072,168664 B SRAM remain for heap+arena
+static_IRAM_.text,45427,instruction RAM
+flash_.text,309819,code in flash
+flash_.rodata,75992,const data incl model weights
+flash_total_image,440673,full app image
+# per-archive flash_total (top contributors)
+archive_libesp-tflite-micro,232111,TFLM runtime DOMINATES the image (.text 208023 + .rodata 24088)
+archive_libc,46492,C library
+archive_libmain,22158,application code (this firmware)
+archive_libfreertos,21648,RTOS
+archive_libesp_system,17142,system init
+archive_libhal,8291,hardware abstraction

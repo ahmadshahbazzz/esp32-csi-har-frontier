@@ -1,0 +1,12 @@
+# F3: full tensor-arena RAM breakdown per category (classic ESP32, RECORD_ALLOC via
+# RecordingMicroInterpreter, 240 MHz). All values in bytes. Arena budget at boot:
+# arena_alloc_bytes=153600, largest_free_internal=155648 (WiFi/BT off). Deterministic
+# (depends only on the model graph + TFLM version), re-captured 2026-08-09.
+# Categories: eval_tensor=activation TfLiteEvalTensor data; persist_tensor=Persistent
+# TfLiteTensor; quant=quantization params; scratch=Persistent buffer (op scratch);
+# node_reg=NodeAndRegistration structs. head+tail=total arena_used.
+model,dataset,arena_total_B,head_B,tail_B,eval_tensor_B,persist_tensor_B,quant_B,scratch_buffer_B,node_reg_B,ops
+Deep CNN,UT-HAR,10348,6148,4200,408,80,40,2648,512,16
+Deep CNN,CSI-HAR,12396,8196,4200,408,80,40,2648,512,16
+Transformer,UT-HAR,24636,10260,14376,1044,80,40,10628,1760,55
+Transformer,CSI-HAR,55356,36884,18472,1044,80,40,14724,1760,55

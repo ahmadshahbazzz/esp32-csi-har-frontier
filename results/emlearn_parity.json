@@ -1,0 +1,44 @@
+[
+ {
+  "dataset": "CSI-HAR",
+  "model": "DecisionTree",
+  "exact_match_pct": "100.0",
+  "n_test": "420",
+  "export": "emlearn-float"
+ },
+ {
+  "dataset": "CSI-HAR",
+  "model": "RandomForest",
+  "exact_match_pct": "100.0",
+  "n_test": "420",
+  "export": "emlearn-float"
+ },
+ {
+  "dataset": "CSI-HAR",
+  "model": "MLP-stats",
+  "exact_match_pct": "100.0",
+  "n_test": "420",
+  "export": "emlearn-float"
+ },
+ {
+  "dataset": "UT-HAR",
+  "model": "DecisionTree",
+  "exact_match_pct": "100.0",
+  "n_test": "500",
+  "export": "emlearn-float"
+ },
+ {
+  "dataset": "UT-HAR",
+  "model": "RandomForest",
+  "exact_match_pct": "98.6",
+  "n_test": "500",
+  "export": "emlearn-float"
+ },
+ {
+  "dataset": "UT-HAR",
+  "model": "MLP-stats",
+  "exact_match_pct": "100.0",
+  "n_test": "500",
+  "export": "emlearn-float"
+ }
+]
