@@ -38,3 +38,4 @@ csi_bench_wifi_creds.h
 
 # stale compiled paper PDFs (regenerate on Overleaf)
 manuscript/frontier.pdf
+presentation/
