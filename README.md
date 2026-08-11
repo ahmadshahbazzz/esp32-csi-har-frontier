@@ -29,10 +29,13 @@ Headline findings, all backed by the evidence in `results/`:
    shared five-statistic feature extraction (1.6 ms UT-HAR, 0.9 ms CSI-HAR), not the
    microsecond tree traversal, so it runs in about 1 to 2 ms, roughly an order of magnitude
    faster than the tiny CNNs.
-3. **The binding constraint is cross-subject generalization.** Under leave-one-user-out on
-   CSI-HAR the same six models drop a mean of 29 points (best 96 to 63 percent) versus a
-   random subject-overlapping split. This reproduces on larger corpora: the gap is 30 to 40
-   points across datasets spanning 3 to 40 subjects (CSI-HAR 3, MM-Fi 10 and 40, CSI-Bench 35).
+3. **On this dataset, cross-subject generalization is the harder problem (exploratory).** Under
+   leave-one-user-out on CSI-HAR the same six models drop a mean of 29 points (best 96 to 63
+   percent) versus a random subject-overlapping split. The gap reproduces on CSI-Bench (35 users):
+   84.1 to 51.7 percent, a 32-point drop that stays above chance. (MM-Fi was explored but is
+   excluded from the manuscript: with the deliberately light amplitude-statistics classifier its
+   27-class accuracy collapses to chance under a subject-independent split, a floor effect rather
+   than a measurable graded gap; the raw results remain in `results/gengap_external/`.)
    On the saturated UT-HAR and NTU-Fi_HAR benchmarks the small models stay competitive
    (tiny CNN 96.7 / 100 percent, statistics MLP 95.3 percent).
 4. **Measured energy (INA219, not estimated).** Per-inference energy on the classic ESP32
