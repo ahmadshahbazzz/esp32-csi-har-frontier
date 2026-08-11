@@ -39,3 +39,6 @@ csi_bench_wifi_creds.h
 # stale compiled paper PDFs (regenerate on Overleaf)
 manuscript/frontier.pdf
 presentation/
+# build output / internal docs (do not commit)
+manuscript/How_Far_Can_a_PSRAM_less_ESP32_Go*.pdf
+**/CLAUDE_REVIEW.md
