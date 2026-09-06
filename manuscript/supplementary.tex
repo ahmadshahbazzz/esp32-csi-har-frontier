@@ -76,6 +76,7 @@ Table~\ref{tab:unsupported} lists the specific operators responsible for the dee
 \centering
 \footnotesize
 \setlength{\tabcolsep}{4pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lll}
 \toprule
 Model & Failing stage & Blocking operator(s) \\
@@ -86,7 +87,7 @@ Chebyshev-KAN   & \texttt{AllocateTensors} & \texttt{FILL} (prepare fails) \\
 \midrule
 CNN, Transformer & none (deploy)   & builtin operators only \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \section{CPU-Frequency Scaling}
@@ -98,6 +99,7 @@ The classic ESP32 boots at 160\,MHz under the default ESP-IDF configuration but 
 \centering
 \footnotesize
 \setlength{\tabcolsep}{4pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{llccc}
 \toprule
 Model & Dataset & 160\,MHz (ms) & 240\,MHz (ms) & Speedup \\
@@ -107,7 +109,7 @@ Tiny CNN (16 ch) & CSI-HAR & 30.2  & 20.2  & 1.50$\times$ \\
 Deep CNN         & CSI-HAR & 306.8 & 243.5 & 1.26$\times$ \\
 Deep Transformer & CSI-HAR & 476.1 & 320.7 & 1.48$\times$ \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \section{Compiler Optimization and the Optimized Kernel Library}
@@ -144,6 +146,7 @@ To see where the arena goes within the two deep models, we instrumented the inte
 \centering
 \footnotesize
 \setlength{\tabcolsep}{5pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{llcccc}
 \toprule
 Model & Dataset & Total (kB) & Head (kB) & Tail (kB) & Ops \\
@@ -153,7 +156,7 @@ Deep CNN    & CSI-HAR & 12.1 & 8.0  & 4.1  & 16 \\
 Transformer & UT-HAR  & 24.1 & 10.0 & 14.0 & 55 \\
 Transformer & CSI-HAR & 54.1 & 36.0 & 18.0 & 55 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \section{Memory with the Radio Active}
@@ -165,6 +168,7 @@ Table~\ref{tab:wifimem} reports on-device memory and latency with the radio off 
 \centering
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lccccc}
 \toprule
 Model & Arena (kB) & Lat.\ off (ms) & Lat.\ WiFi (ms) & Heap @108\,kB & Heap @$\sim$90\,kB \\
@@ -173,7 +177,7 @@ Tiny CNN (16 ch) & 8.3 & 20.2  & 20.1  & $\sim$100\,kB & $\sim$82\,kB \\
 Deep CNN         & 12  & 243.5 & 244.6 & $\sim$96\,kB  & $\sim$78\,kB \\
 Deep Transformer & 54  & 320.7 & 322.0 & $\sim$54\,kB  & $\sim$36\,kB \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \section{Supplementary Figures}
