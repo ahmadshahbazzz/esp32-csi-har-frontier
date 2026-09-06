@@ -171,7 +171,7 @@ For the classical tier, each window is summarized by five statistics computed ov
 The tiny tier comprises a tiny multilayer perceptron (one hidden layer of thirty-two units on the flattened window) and a tiny-CNN width sweep with 8, 16, and 32 channels in the first convolutional block. Each tiny CNN has two 1D convolutional blocks, global average pooling, and a dense classifier. These models are trained in floating point and then quantized to int8.
 
 \subsection{Deep architectures}
-The deep tier comprises five standard families: a 1D convolutional network, a bidirectional gated recurrent unit, a convolution-augmented Transformer following the spirit of THAT \cite{li2021that}, a Chebyshev Kolmogorov-Arnold network \cite{kanorig2024}, and a lightweight diagonal state-space model \cite{gu2023mamba}. They are sized to comparable parameter budgets and contribute the upper, large-model part of the frontier. To keep the comparison fair and the results verifiable, the deep tier uses the same training, 8-bit quantization, and on-device measurement protocol as the classical and tiny tiers (Section~\ref{sec:setup}); the deep-tier training notebook and the resulting int8 models are part of the released artifact set, so every value in Table~\ref{tab:deep} is reproducible from the release rather than taken on trust. Table~\ref{tab:params} lists the parameter count of each deep model; the five families sit within the same order of magnitude (42 to 91\,K), so the on-device comparison is not confounded by grossly different capacity.
+The deep tier comprises five standard families: a 1D convolutional network, a bidirectional gated recurrent unit, a convolution-augmented Transformer following the spirit of THAT \cite{li2021that}, a Chebyshev Kolmogorov-Arnold network \cite{kanorig2024}, and a lightweight diagonal state-space model \cite{gu2023mamba}. They are sized to comparable parameter budgets and contribute the upper, large-model part of the frontier. To keep the comparison fair and the results verifiable, the deep tier uses the same training, 8-bit quantization, and on-device measurement protocol as the classical and tiny tiers (Section~\ref{sec:setup}); the deep-tier training notebook and the resulting int8 models are part of the released artifact set, so every deep-tier value is reproducible from the release rather than taken on trust. Table~\ref{tab:params} lists the parameter count of each deep model; the five families sit within the same order of magnitude (42 to 91\,K), so the on-device comparison is not confounded by grossly different capacity.
 
 \begin{table}[t]
 \caption{Parameter counts of the five deep architectures (float model, UT-HAR configuration). The families are deliberately sized to comparable budgets so that deployability, not capacity, is what the comparison isolates.}
@@ -514,12 +514,13 @@ Crashes / watchdog resets     & 0 \\
 \end{tabular}
 \end{table}
 
-\begin{figure}[tbp]
+% R2-11c: enlarged to a two-column figure (reviewer: Figure 7 is very small).
+\begin{figure*}[tbp]
 \centering
-\includegraphics[width=\columnwidth]{fig_live_pipeline.pdf}
+\includegraphics[width=0.86\textwidth]{fig_live_pipeline.pdf}
 \caption{Live on-device WiFi-CSI pipeline on the classic ESP32: over-the-air CSI capture, windowing and per-window normalization, int8 quantization, and TensorFlow Lite Micro inference, all running on the device in real time.}
 \label{fig:live}
-\end{figure}
+\end{figure*}
 
 \subsection{Per-class behaviour and statistical analysis}
 \label{sec:results-perclass}
@@ -685,8 +686,11 @@ Y. Ma, G. Zhou, and S. Wang, ``WiFi sensing with channel state information: a su
 \bibitem{yang2023sensefi}
 J. Yang, X. Chen, H. Zou, D. Wang, Q. Xu, and L. Xie, ``SenseFi: a library and benchmark on deep-learning-empowered WiFi human sensing,'' \emph{Patterns}, vol. 4, no. 3, p. 100703, Mar. 2023, doi: 10.1016/j.patter.2023.100703.
 
-\bibitem{yousefi2017uthar}
-S. Yousefi, H. Narui, S. Dayal, S. Ermon, and S. Valaee, ``A survey on behavior recognition using WiFi channel state information,'' \emph{IEEE Commun. Mag.}, vol. 55, no. 10, pp. 98--104, Oct. 2017, doi: 10.1109/MCOM.2017.1700082.
+\bibitem{hernandez2025tools}
+J. A. Armenta-Garcia, F. F. Gonzalez-Navarro, J. Caro-Gutierrez, and C. I. Garcia-Reyes, ``Tools and methods for achieving Wi-Fi sensing in embedded devices,'' \emph{Sensors}, vol. 25, no. 19, p. 6220, Oct. 2025, doi: 10.3390/s25196220.
+
+\bibitem{espfihar2026}
+Z. Wen, Y. Ruan, X. Wang, and J. Zhou, ``ESP-Fi HAR: a low-power WiFi CSI dataset for ad-hoc IoT human activity recognition,'' \emph{Ad Hoc Netw.}, vol. 186, art. 104192, 2026, doi: 10.1016/j.adhoc.2026.104192.
 
 \bibitem{chen2019ablstm}
 Z. Chen, L. Zhang, C. Jiang, Z. Cao, and W. Cui, ``WiFi CSI based passive human activity recognition using attention based BLSTM,'' \emph{IEEE Trans. Mobile Comput.}, vol. 18, no. 11, pp. 2714--2724, Nov. 2019, doi: 10.1109/TMC.2018.2878233.
@@ -715,27 +719,6 @@ J. Liu, Y. Huang, X. Shi, X. Ren, T. Mi, and R. C. Qiu, ``TF-Mamba: A lightweigh
 \bibitem{bimamba2025}
 H. Tan, Y. Dao, H. Zhang, T. Guo, and W. Wang, ``WiFi signal-based human activity recognition using bidirectional Mamba models,'' in \emph{Proc. IEEE 11th World Forum Internet Things (WF-IoT)}, 2025, doi: 10.1109/WF-IoT64238.2025.11270783.
 
-\bibitem{mambalite2025}
-H. Xu, J. Xia, W. Yang, Y. Sui, and S. Xia, ``MambaLite-Micro: Memory-optimized Mamba inference on MCUs,'' 2025, \emph{arXiv:2509.05488}. [Online]. Available: \url{https://arxiv.org/abs/2509.05488}
-
-\bibitem{hernandez2025tools}
-J. A. Armenta-Garcia, F. F. Gonzalez-Navarro, J. Caro-Gutierrez, and C. I. Garcia-Reyes, ``Tools and methods for achieving Wi-Fi sensing in embedded devices,'' \emph{Sensors}, vol. 25, no. 19, p. 6220, Oct. 2025, doi: 10.3390/s25196220.
-
-\bibitem{star2025}
-K. Liu, Q. Zhao, R. Wang, Y. Lin, J. Yu, and S. J. Fong, ``STAR: A privacy-preserving, energy-efficient edge AI framework for human activity recognition via Wi-Fi CSI in mobile and pervasive computing environments,'' \emph{Sensors}, vol. 26, no. 12, Art. no. 3692, Jun. 2026, doi: 10.3390/s26123692.
-
-\bibitem{espfihar2026}
-Z. Wen, Y. Ruan, X. Wang, and J. Zhou, ``ESP-Fi HAR: a low-power WiFi CSI dataset for ad-hoc IoT human activity recognition,'' \emph{Ad Hoc Netw.}, vol. 186, art. 104192, 2026, doi: 10.1016/j.adhoc.2026.104192.
-
-\bibitem{greensensing2026}
-R. Koo, X. Liang, D. Mishra, and A. Seneviratne, ``A survey on green wireless sensing: energy-efficient sensing via WiFi CSI and lightweight learning,'' \emph{Energies}, vol. 19, no. 2, p. 573, 2026, doi: 10.3390/en19020573.
-
-\bibitem{suwannaphong2025tinyml}
-T. Suwannaphong, F. Jovan, I. Craddock, and R. McConville, ``Optimising TinyML with quantization and distillation of transformer and Mamba models for indoor localisation on edge devices,'' \emph{Sci. Rep.}, vol. 15, Art. no. 10081, Mar. 2025, doi: 10.1038/s41598-025-94205-9.
-
-\bibitem{esp32datasheet}
-Espressif Systems, ``ESP32 series datasheet,'' v5.2, 2025. [Online]. Available: \url{https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf}
-
 \bibitem{emlearn}
 J. Nordby \emph{et al.}, ``emlearn: machine learning inference engine for microcontrollers and embedded devices,'' software, 2019, doi: 10.5281/zenodo.2589394.
 
@@ -748,14 +731,8 @@ B. Saha, R. Samanta, R. B. Roy, and S. K. Ghosh, ``TinyTNAS: Time-bound, GPU-ind
 \bibitem{micronas2025}
 T. King, Y. Zhou, T. R\"oddiger, and M. Beigl, ``MicroNAS for memory and latency constrained hardware aware neural architecture search in time series classification on microcontrollers,'' \emph{Sci. Rep.}, vol. 15, 2025, doi: 10.1038/s41598-025-90764-z.
 
-\bibitem{csihardataset}
-P. Fard Moshiri, R. Shahbazian, M. Nabati, and S. A. Ghorashi, ``A CSI-based human activity recognition using deep learning,'' \emph{Sensors}, vol. 21, no. 21, p. 7225, Oct. 2021, doi: 10.3390/s21217225. Dataset: \url{https://github.com/parisafm/CSI-HAR-Dataset} (Kaggle mirror: \url{https://www.kaggle.com/datasets/sayakghorai34/csi-har-dataset}).
-
-\bibitem{tfissue36688}
-TensorFlow project, ``Conversion of RNN/LSTM to TensorFlow Lite requires Select-TF-ops,'' GitHub issue 36688, 2020. [Online]. Available: \url{https://github.com/tensorflow/tensorflow/issues/36688} (accessed Aug. 2026).
-
-\bibitem{tflmissue907}
-TensorFlow Lite Micro project, ``Unsupported dynamic-tensor and TensorList operators in the microcontroller runtime,'' GitHub issues 907 and 1570, 2021. [Online]. Available: \url{https://github.com/tensorflow/tflite-micro/issues/907} (accessed Aug. 2026).
+\bibitem{suwannaphong2025tinyml}
+T. Suwannaphong, F. Jovan, I. Craddock, and R. McConville, ``Optimising TinyML with quantization and distillation of transformer and Mamba models for indoor localisation on edge devices,'' \emph{Sci. Rep.}, vol. 15, Art. no. 10081, Mar. 2025, doi: 10.1038/s41598-025-94205-9.
 
 \bibitem{hernandez2020lightweight}
 S. M. Hernandez and E. Bulut, ``Lightweight and standalone IoT based WiFi sensing for active repositioning and mobility,'' in \emph{Proc. IEEE 21st Int. Symp. World of Wireless, Mobile and Multimedia Networks (WoWMoM)}, 2020, pp. 277--286, doi: 10.1109/WoWMoM49955.2020.00056.
@@ -763,15 +740,38 @@ S. M. Hernandez and E. Bulut, ``Lightweight and standalone IoT based WiFi sensin
 \bibitem{hernandez2023edge}
 S. M. Hernandez and E. Bulut, ``WiFi sensing on the edge: signal processing techniques and challenges for real-world systems,'' \emph{IEEE Commun. Surveys Tuts.}, vol. 25, no. 1, pp. 46--76, 2023, doi: 10.1109/COMST.2022.3209144.
 
+\bibitem{lenka2024wisdom}
+M. Lenka and A. Chakraborty, ``On-device deep learning for IoT-based wireless sensing applications,'' in \emph{Proc. IEEE Int. Conf. Pervasive Computing and Communications Workshops (PerCom Workshops), WiSense}, 2024, doi: 10.1109/PerComWorkshops59983.2024.10502448.
+
 \bibitem{sahoo2023realtime}
 A. K. Sahoo, V. Kompally, and S. K. Udgata, ``Wi-Fi sensing based real-time activity detection in smart home environment,'' in \emph{Proc. IEEE Appl. Sens. Conf. (APSCON)}, Bengaluru, India, Jan. 2023, pp. 1--3, doi: 10.1109/APSCON56343.2023.10101249.
 
+\bibitem{mambalite2025}
+H. Xu, J. Xia, W. Yang, Y. Sui, and S. Xia, ``MambaLite-Micro: Memory-optimized Mamba inference on MCUs,'' 2025, \emph{arXiv:2509.05488}. [Online]. Available: \url{https://arxiv.org/abs/2509.05488}
+
+\bibitem{star2025}
+K. Liu, Q. Zhao, R. Wang, Y. Lin, J. Yu, and S. J. Fong, ``STAR: A privacy-preserving, energy-efficient edge AI framework for human activity recognition via Wi-Fi CSI in mobile and pervasive computing environments,'' \emph{Sensors}, vol. 26, no. 12, Art. no. 3692, Jun. 2026, doi: 10.3390/s26123692.
+
+\bibitem{greensensing2026}
+R. Koo, X. Liang, D. Mishra, and A. Seneviratne, ``A survey on green wireless sensing: energy-efficient sensing via WiFi CSI and lightweight learning,'' \emph{Energies}, vol. 19, no. 2, p. 573, 2026, doi: 10.3390/en19020573.
+
+\bibitem{tfissue36688}
+TensorFlow project, ``Conversion of RNN/LSTM to TensorFlow Lite requires Select-TF-ops,'' GitHub issue 36688, 2020. [Online]. Available: \url{https://github.com/tensorflow/tensorflow/issues/36688} (accessed Aug. 2026).
+
+\bibitem{tflmissue907}
+TensorFlow Lite Micro project, ``Unsupported dynamic-tensor and TensorList operators in the microcontroller runtime,'' GitHub issues 907 and 1570, 2021. [Online]. Available: \url{https://github.com/tensorflow/tflite-micro/issues/907} (accessed Aug. 2026).
+
+\bibitem{yousefi2017uthar}
+S. Yousefi, H. Narui, S. Dayal, S. Ermon, and S. Valaee, ``A survey on behavior recognition using WiFi channel state information,'' \emph{IEEE Commun. Mag.}, vol. 55, no. 10, pp. 98--104, Oct. 2017, doi: 10.1109/MCOM.2017.1700082.
+
+\bibitem{csihardataset}
+P. Fard Moshiri, R. Shahbazian, M. Nabati, and S. A. Ghorashi, ``A CSI-based human activity recognition using deep learning,'' \emph{Sensors}, vol. 21, no. 21, p. 7225, Oct. 2021, doi: 10.3390/s21217225. Dataset: \url{https://github.com/parisafm/CSI-HAR-Dataset} (Kaggle mirror: \url{https://www.kaggle.com/datasets/sayakghorai34/csi-har-dataset}).
 
 \bibitem{csibench2025}
 G. Zhu, Y. Hu, W. Gao, W.-H. Wang, B. Wang, and K.~J.~R. Liu, ``CSI-Bench: A large-scale in-the-wild dataset for multi-task WiFi sensing,'' in \emph{Adv. Neural Inf. Process. Syst. (NeurIPS), Datasets and Benchmarks Track}, vol. 38, San Diego, CA, USA, Dec. 2025, pp. 187882--187907, doi: 10.52202/085713-5648.
 
-\bibitem{lenka2024wisdom}
-M. Lenka and A. Chakraborty, ``On-device deep learning for IoT-based wireless sensing applications,'' in \emph{Proc. IEEE Int. Conf. Pervasive Computing and Communications Workshops (PerCom Workshops), WiSense}, 2024, doi: 10.1109/PerComWorkshops59983.2024.10502448.
+\bibitem{esp32datasheet}
+Espressif Systems, ``ESP32 series datasheet,'' v5.2, 2025. [Online]. Available: \url{https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf}
 
 \end{thebibliography}
 
