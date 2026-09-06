@@ -6,12 +6,14 @@
 \usepackage{sansmath}
 \usetikzlibrary{positioning,calc,arrows.meta,shapes.geometric}
 % ---- shared palette: pale fills + matching mid-tone borders, black text ----
+% R2-11a: figure recoloured to greyscale (reviewer: colours in Figure 1 are unnecessary).
+% Node types are now distinguished by fill shade and border only, all monochrome.
 \definecolor{txt}{HTML}{000000}
-\definecolor{gyF}{HTML}{F2F2F2}\definecolor{gyB}{HTML}{808080}   % grey  (input / decision / negative)
-\definecolor{blF}{HTML}{DAE3F3}\definecolor{blB}{HTML}{4472C4}   % blue  (off-device compute)
-\definecolor{gnF}{HTML}{E2EFDA}\definecolor{gnB}{HTML}{548235}   % green (on-device measurement)
-\definecolor{rdF}{HTML}{FBE3E3}\definecolor{rdB}{HTML}{C00000}   % red   (headline result)
-\definecolor{socB}{HTML}{404040}
+\definecolor{gyF}{HTML}{F2F2F2}\definecolor{gyB}{HTML}{000000}   % light grey fill (input / decision / negative)
+\definecolor{blF}{HTML}{FFFFFF}\definecolor{blB}{HTML}{000000}   % white fill (off-device compute)
+\definecolor{gnF}{HTML}{E8E8E8}\definecolor{gnB}{HTML}{000000}   % grey fill (on-device measurement)
+\definecolor{rdF}{HTML}{C8C8C8}\definecolor{rdB}{HTML}{000000}   % darker grey fill (headline result)
+\definecolor{socB}{HTML}{000000}
 \begin{document}\sansmath
 \begin{tikzpicture}[
   font=\footnotesize,text=txt,node distance=12mm,
@@ -22,7 +24,7 @@
   data/.style={cylinder,shape border rotate=90,aspect=0.28,line width=0.7pt,fill=gyF,draw=gyB,align=center,inner sep=3pt,minimum width=24mm,minimum height=16mm},
   dec/.style={diamond,aspect=2.1,line width=0.7pt,fill=gyF,draw=gyB,align=center,inner sep=1pt,minimum width=30mm},
   term/.style={rounded corners=6mm,line width=0.7pt,align=center,inner sep=3pt,minimum width=28mm,minimum height=12mm},
-  good/.style={term,fill=rdF,draw=rdB},
+  good/.style={term,fill=rdF,draw=rdB,line width=1.3pt},
   bad/.style={term,fill=gyF,draw=gyB},
   ]
 

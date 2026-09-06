@@ -25,15 +25,21 @@
 \doi{10.1109/ACCESS.2026.DOI}
 
 %\title{How Far Can a PSRAM-less ESP32 Go? A TinyML Deployment Study for WiFi CSI Human Activity Recognition}
-
-\title{Feasibility and Deployment Analysis of TinyML-based WiFi Human Activity Recognition on Resource-Constrained ESP32}
+%\title{Feasibility and Deployment Analysis of TinyML-based WiFi Human Activity Recognition on Resource-Constrained ESP32}
+% R2-1: reviewer asked to replace the acronyms TinyML and ESP32 in the title with words.
+\title{Feasibility and Deployment Analysis of Tiny Machine Learning for WiFi-Based Human Activity Recognition on a Resource-Constrained Microcontroller}
+% E5/E6: author list and corresponding author restored to match the original submission
+% (Malik, Ahmad, Kim; Kim corresponding). The list is identical to the submitted version, so
+% no Request-for-Byline-Change form is required.
 \author{
 \uppercase{Annas W. Malik}\authorrefmark{1},
-\uppercase{Muhammad Ahmad}\authorrefmark{1}
+\uppercase{Muhammad Ahmad}\authorrefmark{1},
+\uppercase{Ki-Il Kim}\authorrefmark{2}
 }
 
 \address{
 \authorrefmark{1}Faculty of Information Technology \& Computer Science, University of Central Punjab, Lahore, 54000, Pakistan.\\
+\authorrefmark{2}Department of Computer Science and Engineering, Chungnam National University, Daejeon, 34134, Korea.
 }
 
 \tfootnote{This work was supported by Korea Institute of Planning and Evaluation for Technology in Food, Agriculture, and Forestry(IPET) through the Agriculture and Food Convergence Technologies Program for Research Manpower development, funded by the Ministry of Agriculture, Food and Rural Affairs(MAFRA)(project no. RS-2024-00397026).}
@@ -42,23 +48,52 @@
 {Annas W. Malik \headeretal}
 {Annas W. Malik \headeretal}
 
-\corresp{Corresponding author:  (e-mail: )}
+\corresp{Corresponding author: Ki-Il Kim (e-mail: kikim@cnu.ac.kr).}
 
 %\begin{abstract}
 %WiFi Channel State Information (CSI) is a useful signal for device-free human activity recognition (HAR), and a growing number of studies move the inference onto the cheap microcontroller-class radios themselves so the technology can be deployed at scale. Almost all of that on-device work, however, targets the more capable ESP32-S3 with external PSRAM, or it uses the microcontroller only as a CSI collector and runs the model elsewhere. The cheapest, most common, and weakest member of the family, the classic ESP32 with no PSRAM and only about 150 kilobytes of usable contiguous internal SRAM, has not been characterized as an inference target for CSI HAR. This paper provides that characterization and reaches a two-part conclusion: on this device, getting a model to run is not the bottleneck, but recognizing an unseen person is. For two public datasets (UT-HAR and CSI-HAR) we train and quantize a graded set of models, from classical learners (Decision Tree, Random Forest, and a small multilayer perceptron on handcrafted statistics) through a tiny-CNN width sweep up to five standard deep architectures (convolutional, recurrent, attention, Kolmogorov-Arnold, and state-space), reporting accuracy, model complexity, 8-bit conversion feasibility, and on-device fit. On the deployment side the board is more capable than assumed. A convertibility wall blocks only the recurrent and state-space families, which do not convert to the TensorFlow Lite for Microcontrollers builtin operator set on either dataset. By flashing every convertible model to the board we find that a full deep convolutional network and a convolution-augmented Transformer both run on the bare classic ESP32 within 10 to 54 kilobytes of tensor arena, alongside the classical learners and the tiny CNNs (int8 models of 9 to 38 kilobytes, 9 to 68 milliseconds per inference at 240\,MHz). There is no general memory wall, which corrects a common assumption. The binding constraint is accuracy on a new person. Under a subject-independent leave-one-user-out protocol on CSI-HAR, the same models that score 69 to 96\% on a random split, which leaks each user across the train and test sets, fall to 41 to 63\%, a mean drop of 29 percentage points. The contribution is a fair, reproducible deployment map of the most constrained commodity WiFi microcontroller, and the evidence that its open problem is cross-subject generalization rather than fitting the model on the chip, with all code, models, and measurement firmware released.
 %\end{abstract}
 
+% R2-2: abstract reorganized (background, gap, method, results, conclusion) and expanded to
+% include the measured energy, the live pipeline, and the many-user CSI-Bench check; acronyms
+% expanded at first use (R1-5, R2-3). Previous abstract kept above (commented) for provenance.
 \begin{abstract}
-WiFi Channel State Information (CSI) is increasingly used for device-free human activity recognition (HAR), yet most on-device inference relies on microcontrollers with external PSRAM (e.g., ESP32-S3) or offloads computation entirely. This paper characterizes the classic ESP32, the most constrained variant without PSRAM ($\sim$150 KB usable SRAM), as an on-device inference target. We evaluate a spectrum of models on the UT-HAR and CSI-HAR datasets, spanning classical ML, tiny CNNs, and deep architectures across quantization feasibility, memory footprint, latency, and accuracy. Our results show that memory is not the bottleneck: deep CNNs and Transformers fit easily within a 10--54 KB tensor arena with 9--68 ms latency, whereas recurrent and state-space models fail due to TFLM operator conversion limits. Instead, the primary constraint is cross-subject generalization, where accuracy drops by an average of 29 percentage points (from 69-96\% down to 41-63\%) under Leave-One-User-Out evaluation. This work demonstrates that on-device CSI HAR on commodity microcontrollers is bottlenecked by subject generalization rather than chip memory.
+WiFi channel state information (CSI) enables device-free human activity recognition (HAR) without cameras or wearable sensors, and moving the inference onto low-cost microcontrollers would make such sensing deployable at scale. Existing on-device studies, however, target the ESP32-S3, which adds external pseudo-static random-access memory (PSRAM), or use the microcontroller only to collect CSI. The cheapest and most constrained member of the family, the classic ESP32 without PSRAM (about 150 kilobytes of usable static random-access memory), has not been characterized as an inference target. This paper provides that characterization. On two public datasets (UT-HAR and CSI-HAR) we train and quantize a graded set of models, from classical learners and tiny convolutional neural networks (CNNs) to five deep architectures, and measure each on the physical device for conversion feasibility, memory footprint, latency, and energy. By flashing every convertible model to the board we find that memory is not the bottleneck: a deep CNN and a convolution-augmented Transformer both run within a 10 to 54 kilobyte tensor arena, whereas only recurrent and state-space models fail to convert to the microcontroller runtime. Per-inference energy is measured directly with an INA219 current sensor, and a 30-minute live capture-to-label pipeline runs on the device with no lost windows. The binding constraint is cross-subject generalization: under subject-independent leave-one-user-out (LOUO) evaluation, accuracy falls by an average of 29 percentage points, a gap we reproduce on the 35-user CSI-Bench dataset. On-device CSI HAR on commodity microcontrollers is therefore limited by subject generalization rather than by chip memory.
 \end{abstract}
 
+% R2-4: keywords no longer repeat terms present in the title (human activity recognition, WiFi,
+% tiny machine learning, microcontroller); replaced with terms that broaden the article's reach.
 \begin{keywords}
-Channel state information, human activity recognition, on-device inference, ESP32, cross-subject generalization.
+Channel state information, cross-subject generalization, edge computing, ESP32, model quantization, on-device machine learning, TensorFlow Lite for Microcontrollers.
 \end{keywords}
 
 \titlepgskip=-15pt
 
 \maketitle
+
+% R1-2, R1-5, R2-3: abbreviations defined once, in order, so no acronym is used undefined.
+\section*{Nomenclature}
+\begin{tabular}{@{}p{1.7cm}p{6.0cm}@{}}
+CNN & Convolutional Neural Network.\\
+CSI & Channel State Information.\\
+DT & Decision Tree.\\
+GRU & Gated Recurrent Unit (BiGRU: bidirectional GRU).\\
+HAR & Human Activity Recognition.\\
+KAN & Kolmogorov-Arnold Network.\\
+LOUO & Leave-One-User-Out (subject-independent evaluation in which the test user is absent from training).\\
+MCU & Microcontroller Unit.\\
+ML & Machine Learning.\\
+MLP & Multilayer Perceptron.\\
+NPU & Neural Processing Unit.\\
+PSRAM & Pseudo-Static Random-Access Memory (external RAM absent on the classic ESP32).\\
+RF & Random Forest.\\
+SIMD & Single Instruction, Multiple Data (vector kernels).\\
+SoC & System on Chip.\\
+SRAM & Static Random-Access Memory (on-chip).\\
+SSM & State-Space Model.\\
+TFLM & TensorFlow Lite for Microcontrollers.\\
+\end{tabular}
+\vspace{4pt}
 
 \section{Introduction}
 \label{sec:introduction}
@@ -72,31 +107,27 @@ These two trends meet at a question that the literature has not answered. The pu
 \label{sec:contributions}
 This paper answers that question with a deployment-characterization study rather than a new model. It reaches a two-part result: the bare classic ESP32 runs far more than expected, so for the model families and public datasets we tested, memory feasibility was not the limiting deployment factor, and cross-subject generalization emerged as the dominant accuracy limitation. We present the latter as an exploratory case-study finding on a small dataset, not a universal claim. The contributions are:
 \begin{enumerate}
-    \item A \textbf{deployability frontier} for WiFi CSI HAR on the PSRAM-less classic ESP32, spanning classical learners, tiny neural networks, and five standard deep architectures, each reported with accuracy, complexity, 8-bit conversion feasibility, model size, and on-device fit.
+    \item A \textbf{deployability frontier} for WiFi CSI HAR on the PSRAM-less classic ESP32, spanning classical learners, tiny neural networks, and five standard deep architectures, each reported with accuracy, complexity, 8-bit conversion feasibility (whether the trained model can be translated into the integer operator set the microcontroller runtime supports), model size, and on-device fit.
     \item An \textbf{on-device characterization of which deep architectures actually deploy}, measured by flashing each to the board: the convolutional and Transformer models convert and run on the bare device, the recurrent and state-space models do not convert (an export-pipeline compatibility boundary), and the Kolmogorov-Arnold model converts but fails at operator preparation. This corrects the common assumption that deep models cannot fit such a device.
     \item A \textbf{positive deployability result}: classical learners and tiny convolutional networks both fit the device, the former trivially and the latter as int8 models of 9 to 38 kilobytes, and we quantify the accuracy each retains on two datasets.
-    \item An exploratory characterization of the \textbf{cross-subject generalization gap} on a three-user dataset, which on that data exceeds the deployment constraint (presented as a case study, not a universal claim). On this three-user CSI-HAR dataset, under a subject-independent leave-one-user-out protocol, six models drop by a mean of 29 percentage points (the best from 96\% to 63\%) relative to a random subject-overlapping split in which the same users appear in train and test. The deployment barriers on the PSRAM-less ESP32 are less restrictive than commonly assumed; our experiments suggest that generalizing to an unseen person may be the more significant challenge.
-    \item A \textbf{reproducible artifact set}: the training and quantization notebook, the exported int8 models and classical models, the emlearn C export of the trees, and the ESP32 measurement firmware and protocol.
+    \item An exploratory characterization of the \textbf{cross-subject generalization gap} on a three-user dataset, which on that data exceeds the deployment constraint (presented as a case study, not a universal claim). On this three-user CSI-HAR dataset, under a subject-independent leave-one-user-out (LOUO) protocol, in which the model is tested on a user who is entirely absent from training, six models drop by a mean of 29 percentage points (the best from 96\% to 63\%) relative to a random subject-overlapping split in which the same users appear in train and test. The deployment barriers on the PSRAM-less ESP32 are less restrictive than commonly assumed; our experiments suggest that generalizing to an unseen person may be the more significant challenge.
+    \item A \textbf{reproducible artifact set}: the training and quantization notebook, the exported int8 models and classical models, the emlearn C export of the trees (emlearn compiles a trained tree or forest into plain branch-only C code), and the ESP32 measurement firmware and protocol.
 \end{enumerate}
 
 \subsection{Scope and honest positioning}
 \label{sec:scope}
-This paper is a deployment-characterization study, not a new-model paper. We do not propose a novel architecture or claim a new accuracy record; the models we use are standard, and UT-HAR accuracy is already saturated. The contribution is instead an empirical map of what actually converts, allocates, and runs on the bare classic ESP32, measured on the physical device, together with the finding that locates the open problem in cross-subject generalization rather than in fitting the model on the chip. The closest prior work is the on-device CNN and DenseNet study of Armenta-Garcia \emph{et~al.}~\cite{hernandez2025tools} on the PSRAM-equipped ESP32-S3, the STAR framework \cite{star2025}, which runs a lightweight CSI model on an edge NPU and uses an ESP32-S3 only to collect CSI, and the ESP-Fi HAR dataset and benchmark \cite{espfihar2026} on the ESP32-C3. None of these characterizes inference on the bare, PSRAM-less classic ESP32, and they cover convolutional and recurrent models only. The closest TinyML work in spirit, Suwannaphong \emph{et~al.}~\cite{suwannaphong2025tinyml}, optimizes models for 32 to 64 kilobytes of RAM but for indoor localization, not CSI HAR. Our contribution is to characterize the bare classic ESP32, the most constrained commodity target, across a graded model set and to report the deployment walls and the positive frontier that a GPU-only or PSRAM-equipped study does not reveal. We regard a fair, reproducible deployment map, including the negative findings, as a useful contribution for practitioners.
+This paper is a deployment-characterization study, not a new-model paper. We do not propose a novel architecture or claim a new accuracy record; the models we use are standard, and UT-HAR accuracy is already saturated. The contribution is instead an empirical map of what actually converts, allocates, and runs on the bare classic ESP32, measured on the physical device, together with the finding that locates the open problem in cross-subject generalization rather than in fitting the model on the chip. As detailed in Section~\ref{sec:related}, no prior study characterizes inference on the bare, PSRAM-less classic ESP32 across a graded classical-to-deep model set, which is the gap we fill; we regard a fair, reproducible deployment map, including the negative findings, as a useful contribution for practitioners.
 
 \section{Related Work}
 \label{sec:related}
 
-\subsection{Deep Learning for WiFi CSI HAR}
-The move from hand-crafted features to end-to-end learning produced a sequence of architectures evaluated on a stable set of benchmarks. ABLSTM \cite{chen2019ablstm} introduced attention-augmented bidirectional recurrence; THAT \cite{li2021that} replaced recurrence with a two-stream convolution-augmented Transformer; the SenseFi library \cite{yang2023sensefi} standardized training and evaluation across UT-HAR, NTU-Fi, and Widar and reports strong baselines (ResNet-18 at 98.11\% on UT-HAR). Recent work emphasizes lightweight and complementary-feature models, including a pruned attention-GRU \cite{khan2025lightweight} and the amplitude-and-phase PA-CSI model \cite{pacsi2025}. Almost all of this work optimizes accuracy on server-class hardware, on which the on-chip memory constraint studied here does not apply.
+\subsection{Model Families for WiFi CSI HAR}
+The move from hand-crafted features to end-to-end learning produced a sequence of architectures evaluated on a stable set of benchmarks. ABLSTM \cite{chen2019ablstm} introduced attention-augmented bidirectional recurrence; THAT \cite{li2021that} replaced recurrence with a two-stream convolution-augmented Transformer; the SenseFi library \cite{yang2023sensefi} standardized training and evaluation across UT-HAR, NTU-Fi, and Widar and reports strong baselines (ResNet-18 at 98.11\% on UT-HAR). Recent work emphasizes lightweight and complementary-feature models, including a pruned attention-GRU \cite{khan2025lightweight} and the amplitude-and-phase PA-CSI model \cite{pacsi2025}. Two newer families are also relevant to our deep tier. Kolmogorov-Arnold Networks \cite{kanorig2024} replace the fixed activations of a multilayer perceptron with learnable univariate functions on the network edges; they have reached WiFi HAR at the gateway, for example in neurosymbolic CNN-Transformer healthcare models \cite{neurosym2025}, but have not been measured on a microcontroller. State-space models such as Mamba \cite{gu2023mamba} model long sequences with a linear-time recurrence and have been applied to CSI HAR on the GPU by TF-Mamba \cite{tfmamba2025} and bidirectional-Mamba HAR \cite{bimamba2025}. Almost all of this work optimizes accuracy on server-class hardware, on which the on-chip memory constraint studied here does not apply, and whether the recurrent, state-space, or Kolmogorov-Arnold families convert to and fit the bare classic ESP32 for CSI HAR has not been measured.
 
-\subsection{Kolmogorov-Arnold Networks and State-Space Models}
-Kolmogorov-Arnold Networks \cite{kanorig2024} replace the fixed activations of a multilayer perceptron with learnable univariate functions on the network edges, typically parameterized by splines or orthogonal polynomials. They have been applied to sensor-based HAR, for example on accelerometer data \cite{kanhar2025}, but their use for WiFi CSI, which we include in our deep tier, is still nascent and has not been measured on a microcontroller. On the gateway side, recent consumer-healthcare WiFi HAR favours advanced architectures such as neurosymbolic CNN-Transformer models \cite{neurosym2025} rather than microcontroller-deployable ones. State-space models such as Mamba \cite{gu2023mamba} model long sequences with a linear-time recurrence and have been applied to CSI HAR on the GPU by TF-Mamba \cite{tfmamba2025} and bidirectional-Mamba HAR \cite{bimamba2025}. Mamba has been ported to the ESP32-S3 for keyword spotting and inertial HAR by MambaLite-Micro \cite{mambalite2025}, but not for WiFi CSI, and its selective scan is known to be awkward for the microcontroller runtime. Whether either family converts to and fits the bare classic ESP32 for CSI HAR has not been measured.
+\subsection{On-Device and TinyML WiFi Sensing}
+Outside the deep-learning literature, classical learners remain the workhorses of microcontroller deployment because their footprint and inference cost are small and predictable: decision trees and ensembles compile to compact branch-only C through tools such as emlearn \cite{emlearn}, and prior CSI work shows that classical models on statistical features reach useful accuracy off-device \cite{mdpiclassical}. TinyML neural-architecture-search studies such as TinyTNAS \cite{tinytnas2024} and MicroNAS \cite{micronas2025} target microcontroller HAR but for inertial sensors rather than CSI, and Suwannaphong \emph{et~al.}~\cite{suwannaphong2025tinyml} optimize TinyML transformer and Mamba models for 32 to 64 kilobytes of RAM but for indoor localization. For on-device WiFi sensing specifically, standalone ESP32 CSI collection was popularized by Hernandez and Bulut \cite{hernandez2020lightweight,hernandez2023edge}, whose survey stresses that a complete edge system must handle live capture, windowing, and preprocessing, not inference alone. The most directly comparable prior work that runs inference \emph{on} the chip is Lenka and Chakraborty \cite{lenka2024wisdom}, whose Wisdom framework benchmarks compressed int8 DNN inference on a PSRAM-less ESP32-C3 (single-core RISC-V), and Armenta-Garcia \emph{et~al.}~\cite{hernandez2025tools}, who deploy a quantized DenseNet on the PSRAM-equipped ESP32-S3 (92.43\%, 232\,ms, 127\,kB).
 
-\subsection{Classical and TinyML Models on Microcontrollers}
-Outside the deep-learning literature, classical learners remain the workhorses of microcontroller deployment because their footprint and inference cost are small and predictable. Decision trees and tree ensembles compile to compact branch-only C code through tools such as emlearn \cite{emlearn}, and prior CSI work has shown that classical models on statistical features reach useful accuracy off-device \cite{mdpiclassical}. TinyML neural-architecture-search studies such as TinyTNAS \cite{tinytnas2024} and MicroNAS \cite{micronas2025} target microcontroller HAR, but for inertial sensors rather than CSI, and Suwannaphong \emph{et~al.}~\cite{suwannaphong2025tinyml} optimize TinyML models for 32 to 64 kilobytes of RAM for indoor localization. The present study places classical learners, tiny networks, and deep networks on the same frontier for CSI HAR on the most constrained ESP32.
-
-\subsection{On-Device WiFi Sensing and Quantization}
-Standalone ESP32 WiFi sensing was popularized by Hernandez and Bulut, who showed lightweight on-device CSI collection on a single ESP32 \cite{hernandez2020lightweight} and later surveyed the signal-processing techniques and real-world challenges of edge WiFi sensing \cite{hernandez2023edge}; that survey stresses that a complete edge system must handle live capture, windowing, and preprocessing, not inference alone, a point we take seriously in framing our own scope. Several systems then targeted real-time operation. Sahoo \emph{et~al.}~\cite{sahoo2023realtime} build a real-time smart-home activity detector around ESP32 CSI, but move processing to an edge/host layer rather than running inference on the microcontroller. The most directly comparable prior work is Lenka and Chakraborty \cite{lenka2024wisdom}, whose Wisdom framework runs and benchmarks compressed int8 DNN inference \emph{on} a PSRAM-less ESP32-C3 (single-core RISC-V, 400\,kB RAM), reporting on-device memory, latency, and energy. Our study is complementary and on a different board: rather than one compression framework, we map a graded classical/tiny/deep frontier on the dual-core classic ESP32-WROOM-32 and characterize which model families survive the int8 export pipeline. On the more capable side, Armenta-Garcia \emph{et~al.}~\cite{hernandez2025tools} deploy a quantized DenseNet on the PSRAM-equipped ESP32-S3 (92.43\%, 232\,ms, 127\,kB). Two commonly grouped systems are, on inspection, not ESP32 on-chip inference: STAR \cite{star2025} runs its model on a Rockchip RV1126 NPU and uses the ESP32-S3 only as the CSI front end, and the ESP-Fi HAR work \cite{espfihar2026} provides an ESP32-C3-collected dataset with a PyTorch benchmark that is not shown executing on the C3. Table~\ref{tab:priorcompare} makes these distinctions explicit by separating the acquisition device from the inference device. Across this line, 8-bit integer quantization is effectively mandatory for the ESP32 memory budget \cite{greensensing2026}, and the non-convertibility of recurrent and dynamic operators through the standard export route is documented in the TensorFlow and TensorFlow Lite Micro issue trackers \cite{tfissue36688,tflmissue907}, which we corroborate here for CSI models. Against this background, the defensible contribution of this paper is a \emph{systematic, measured int8 inference-deployability frontier on a PSRAM-less ESP32-WROOM-32 across classical, tiny, and compact deep CSI-HAR models}, together with a live acquisition-to-prediction demonstration of the pipeline on the same board.
+\emph{Distinction from the closest prior ESP32 work.} Because several studies are loosely described as ``CSI HAR on the ESP32,'' we separate the acquisition device from the inference device throughout (Table~\ref{tab:priorcompare}) and state the distinction explicitly for the two works most likely to be read as prior art. Sahoo \emph{et~al.}~\cite{sahoo2023realtime} build a real-time smart-home detector around ESP32 CSI but run the classifier on an edge/host layer, so the ESP32 is the sensor, not the inference target. MambaLite-Micro \cite{mambalite2025} is a state-space inference engine evaluated on the ESP32-S3 and STM32H7 for keyword spotting and inertial (accelerometer) HAR in floating point with a hand-written engine; it does not address WiFi CSI, the PSRAM-less classic ESP32, or the TensorFlow Lite Micro toolchain. Likewise STAR \cite{star2025} runs its model on a Rockchip RV1126 neural processing unit and uses the ESP32-S3 only as the CSI front end, and the ESP-Fi HAR work \cite{espfihar2026} provides an ESP32-C3-collected dataset with a host-side benchmark. Across this line, 8-bit integer quantization is effectively mandatory for the ESP32 memory budget \cite{greensensing2026}, and the non-convertibility of recurrent and dynamic operators through the standard export route is documented in the TensorFlow and TensorFlow Lite Micro issue trackers \cite{tfissue36688,tflmissue907}, which we corroborate here for CSI models. Against this background, the contribution of this paper is a systematic, measured int8 inference-deployability frontier on a PSRAM-less ESP32-WROOM-32 across classical, tiny, and compact deep CSI-HAR models, together with a live acquisition-to-prediction demonstration on the same board, none of which the prior work provides.
 
 \begin{table*}[t]
 \caption{On-device WiFi CSI sensing across the ESP32 family, separating the CSI acquisition device from the inference device to avoid conflating the two. ``On-chip'' is whether the WiFi-sensing inference runs on the ESP32 itself (as opposed to a host or a separate accelerator); ``Live'' is on-device live CSI capture; ``Prep.'' is on-device preprocessing. Y = yes, N = no, P = partial, n/r = not reported, n/a = not applicable. Values are each study's own reports on its own setup and are not directly comparable; the point of the table is what each system actually runs on-chip. For this work, Live and Preproc.\ are Y on the strength of the 30-minute on-device live capture, windowing, normalization, and quantization run (Section~\ref{sec:results-live}); live classification accuracy is not measured because the deployed model is out-of-domain. The latency range is at 240\,MHz, the operating point used for all on-device results.}
@@ -140,7 +171,7 @@ For the classical tier, each window is summarized by five statistics computed ov
 The tiny tier comprises a tiny multilayer perceptron (one hidden layer of thirty-two units on the flattened window) and a tiny-CNN width sweep with 8, 16, and 32 channels in the first convolutional block. Each tiny CNN has two 1D convolutional blocks, global average pooling, and a dense classifier. These models are trained in floating point and then quantized to int8.
 
 \subsection{Deep architectures}
-The deep tier comprises five standard families: a 1D convolutional network, a bidirectional gated recurrent unit, a convolution-augmented Transformer following the spirit of THAT \cite{li2021that}, a Chebyshev Kolmogorov-Arnold network \cite{kanorig2024}, and a lightweight diagonal state-space model \cite{gu2023mamba}. They are sized to comparable parameter budgets and contribute the upper, large-model part of the frontier. To keep the comparison fair and the results verifiable, the deep tier uses the same training, 8-bit quantization, and on-device measurement protocol as the classical and tiny tiers (Section~\ref{sec:setup}); the deep-tier training notebook and the resulting int8 models are part of the released artifact set, so every value in Table~\ref{tab:deep} is reproducible from the release rather than taken on trust. Table~\ref{tab:params} lists the parameter count of each deep model; the five families sit within the same order of magnitude (42 to 91\,K), so the on-device comparison is not confounded by grossly different capacity.
+The deep tier comprises five standard families: a 1D convolutional network, a bidirectional gated recurrent unit, a convolution-augmented Transformer following the spirit of THAT \cite{li2021that}, a Chebyshev Kolmogorov-Arnold network \cite{kanorig2024}, and a lightweight diagonal state-space model \cite{gu2023mamba}. They are sized to comparable parameter budgets and contribute the upper, large-model part of the frontier. To keep the comparison fair and the results verifiable, the deep tier uses the same training, 8-bit quantization, and on-device measurement protocol as the classical and tiny tiers (Section~\ref{sec:setup}); the deep-tier training notebook and the resulting int8 models are part of the released artifact set, so every deep-tier value is reproducible from the release rather than taken on trust. Table~\ref{tab:params} lists the parameter count of each deep model; the five families sit within the same order of magnitude (42 to 91\,K), so the on-device comparison is not confounded by grossly different capacity.
 
 \begin{table}[t]
 \caption{Parameter counts of the five deep architectures (float model, UT-HAR configuration). The families are deliberately sized to comparable budgets so that deployability, not capacity, is what the comparison isolates.}
@@ -164,7 +195,26 @@ Lightweight-SSM  & 41.7\,K \\
 \label{sec:setup}
 
 \subsection{Datasets}
-We use two public datasets for the core study and a third to confirm the frontier. UT-HAR \cite{yousefi2017uthar}, obtained through the SenseFi loaders \cite{yang2023sensefi}, is the most widely used public CSI HAR benchmark (Intel 5300, seven activities, native $T=250$, $F=90$). CSI-HAR \cite{csihardataset} is an ESP32-collected dataset of seven activities (bend, fall, lie down, run, sit down, stand up, walk) recorded by three users with twenty samples each. Every recording is a variable-length sequence over 52 subcarriers. UT-HAR uses its standard split, and each model is trained over three seeds. CSI-HAR is evaluated subject-independently with leave-one-user-out: each of the three folds trains on two users and tests on the held-out third, and we report the mean and standard deviation across folds. This avoids the subject overlap of a random within-user split, in which windows from the same person appear in both train and test, and is the standard rigour for HAR generalization. As an independent check of the frontier we also use NTU-Fi\_HAR \cite{yang2023sensefi}, a clean whole-body HAR benchmark of six activities over three antennas and 114 subcarriers; it is reported for accuracy only (Section~\ref{sec:results-frontier}) and is not used for the on-device or cross-subject analysis. The fixed and stratified splits for UT-HAR and NTU-Fi\_HAR are at the window level and are not subject- or session-partitioned, so their high accuracy reflects in-distribution performance and may include within-session correlation between train and test windows; we therefore treat them as saturated in-distribution benchmarks and draw every cross-subject conclusion only from the subject-independent CSI-HAR protocol. Two preprocessing details are specified precisely for reproducibility. First, ``z-score normalized per window'' means each window is standardized by a single scalar mean and standard deviation computed jointly over both the time and the subcarrier axes of that window, not per subcarrier; the per-subcarrier statistics used as classical features are therefore not degenerate constants, and because each window is normalized only by its own statistics there is no fitting across windows and hence no train-test statistical leakage in either evaluation protocol. Second, variable-length recordings are resampled along time to a common $T=64$ by linear index subsampling. An ablation over $T\in\{32,64,128,192\}$ under leave-one-user-out gives 57.6, 59.5, 55.2, and 54.5\% for the 16-channel tiny CNN on CSI-HAR, so $T=64$ is at or near the optimum and reducing the temporal dimension to 64 costs no accuracy; the longer windows slightly overfit this small dataset. Under leave-one-user-out, every fitted quantity that could leak the held-out user, namely the int8 calibration windows and any tuned hyperparameter, is taken from the training users of that fold only; hyperparameters are in fact fixed a priori and not tuned per fold (below), so no held-out-user information enters model selection.
+We use two public datasets for the core study, a third to confirm the frontier, and a fourth, many-user corpus to check the generalization gap; Table~\ref{tab:datasets} summarizes their receivers, subcarrier counts, subjects, and role. Together they span three CSI receiver families (Intel 5300, the Broadcom chip read by Nexmon, and Atheros) plus the in-the-wild CSI-Bench, and subject counts from three to thirty-five, which is the diversity of devices and environments available from public data; we did not record a new environment ourselves, a limitation we return to in Section~\ref{sec:discussion}. UT-HAR \cite{yousefi2017uthar}, obtained through the SenseFi loaders \cite{yang2023sensefi}, is the most widely used public CSI HAR benchmark (Intel 5300, seven activities, native $T=250$, $F=90$). CSI-HAR \cite{csihardataset} is a commodity single-antenna dataset of seven activities recorded by three users with twenty samples each, collected with a Raspberry Pi 4 and the Nexmon CSI tool on an 802.11ac link (variable-length sequences over 52 subcarriers). UT-HAR uses its standard split with three seeds; CSI-HAR is evaluated subject-independently with leave-one-user-out (each of three folds trains on two users and tests on the held-out third), which avoids the subject overlap of a random within-user split and is the standard rigour for HAR generalization. As an independent frontier check we also use NTU-Fi\_HAR \cite{yang2023sensefi} (six whole-body activities, three antennas, 114 subcarriers), reported for accuracy only. The fixed splits for UT-HAR and NTU-Fi\_HAR are at the window level and are not subject-partitioned, so their high accuracy reflects in-distribution performance; we therefore treat them as saturated in-distribution benchmarks and draw every cross-subject conclusion only from CSI-HAR. Two preprocessing details matter for reproducibility. Each window is z-score normalized by a single scalar mean and standard deviation computed jointly over its time and subcarrier axes (not per subcarrier), so it is normalized only by its own statistics and there is no fitting across windows and hence no train-test leakage in either protocol. Variable-length recordings are resampled along time to a common $T=64$ by linear index subsampling; an ablation over $T\in\{32,64,128,192\}$ under leave-one-user-out gives 57.6, 59.5, 55.2, and 54.5\% for the 16-channel tiny CNN on CSI-HAR, so $T=64$ is at or near the optimum. Under leave-one-user-out, every fitted quantity that could leak the held-out user (the int8 calibration windows and any tuned hyperparameter) is taken from that fold's training users only, and hyperparameters are in fact fixed a priori and not tuned per fold, so no held-out-user information enters model selection.
+
+\begin{table}[t]
+\caption{Datasets used, spanning three CSI receiver families and subject counts from three to thirty-five. ``Subjects'' is n/r where the public split is at the window level and not subject-labelled. CSI-Bench is used only for the many-user cross-subject check (Section~\ref{sec:results-gap}); NTU-Fi\_HAR only for the frontier check (Supplementary Material).}
+\label{tab:datasets}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lllcl}
+\toprule
+Dataset & Receiver & Subcarr. & Subj. & Role here \\
+\midrule
+UT-HAR \cite{yousefi2017uthar}      & Intel 5300         & 3$\times$30  & n/r & frontier, quant. \\
+CSI-HAR \cite{csihardataset}        & Raspberry Pi (Nexmon) & 52        & 3   & on-device, cross-subj. \\
+NTU-Fi \cite{yang2023sensefi}       & Atheros            & 3$\times$114 & n/r & frontier check \\
+CSI-Bench \cite{csibench2025}       & in-the-wild WiFi   & varies      & 35  & cross-subj.\ check \\
+\bottomrule
+\end{tabular}}
+\end{table}
 
 \subsection{Training and quantization}
 All neural models are trained with one shared pipeline: Adam at learning rate $10^{-3}$, batch size 64, for 40 epochs, with sparse categorical cross-entropy on logits. These two settings were fixed by a grid sweep on CSI-HAR over learning rates $\{10^{-2},10^{-3},10^{-4}\}$ and batch sizes $\{32,64,128\}$ for the CNN, Transformer, and bidirectional GRU; learning rate $10^{-3}$ with batch size 64 was the optimum for both the CNN (96.4\%) and the Transformer (94.0\%) and within one point of the best for the GRU, so we adopt it throughout and release the full grid with the notebook. Classical learners are trained over three seeds and we report mean and standard deviation. Each trained network is converted to 8-bit integer precision with TensorFlow Lite using post-training static quantization calibrated on 300 representative windows drawn from that fold's training users only (never the held-out user); we attempt full int8 input and output first and fall back if an operator forbids it. We record, for each model, whether conversion succeeds and the resulting model size. Off-device training and quantization run on a cloud GPU; the released notebook reproduces every off-device number.
@@ -176,12 +226,24 @@ All neural models are trained with one shared pipeline: Adam at learning rate $1
 \caption{Internal components of the classic ESP32 (ESP32-D0WD-V3) relevant to on-device inference. Two scalar Xtensa LX6 cores at 240\,MHz (no vector unit) execute the model; the 520\,kB internal SRAM holds all int8 activations, and its largest free contiguous block (about 150\,kB with the radio stacks disabled) is the tensor arena that a model must fit. The quantized model weights live in the external 4\,MB flash, not in SRAM. There is no PSRAM. The on-chip WiFi/BT radio is disabled during our inference measurements. Regions and sizes are those measured on the board (Section~\ref{sec:setup}).}
 \label{fig:board}
 \end{figure}
-The deployment target is a commodity classic ESP32 on an ESP32-WROOM-32 module (Figure~\ref{fig:board}; ESP32-D0WD-V3 SoC, silicon revision v3.1 as reported by \texttt{esptool}, dual-core Xtensa LX6 at 240\,MHz, 520\,kB internal SRAM, \emph{no PSRAM}, 4\,MB flash) running TensorFlow Lite for Microcontrollers. For reproducibility we fix the toolchain: the firmware is built with ESP-IDF v5.1 and its bundled Xtensa ESP32 GCC 12.2.0 compiler, TensorFlow Lite for Microcontrollers is provided by the \texttt{esp-tflite-micro} component, and models are trained and quantized off-device with TensorFlow 2.19. Unless stated otherwise the firmware is compiled at the default performance optimization level and the CPU runs at 240\,MHz. With the WiFi and Bluetooth stacks disabled and the interpreter arena allocated from the largest free internal block, a single contiguous block of roughly 150 kilobytes is available to a model at runtime (the firmware reports a largest free internal block of about 152\,kB); this is the binding budget. For each model that converts we attempt allocation on the device. When allocation succeeds, we measure inference latency averaged over 1000 invocations using the hardware timer, peak RAM from the interpreter's reported arena usage, and flash from the model byte array. We separate the device memory into four quantities to avoid ambiguity. The \emph{tensor arena} is the single contiguous SRAM block that TensorFlow Lite for Microcontrollers uses for all intermediate activations; we report its peak as \texttt{interpreter.\allowbreak arena\_used\_bytes()} after \texttt{AllocateTensors}, which is the figure that must fit the budget. \emph{Flash} holds the quantized model weights as a constant byte array (up to 4\,MB available), and is not part of the SRAM budget. The interpreter's own working state and the main-task \emph{stack} are fixed and small (the task stack is configured statically), and the arena is carved from the largest free internal \emph{heap} block, which the firmware queries with \texttt{heap\_caps\_\allowbreak get\_largest\_\allowbreak free\_block} on the internal-memory capability (\texttt{MALLOC\_CAP\_\allowbreak INTERNAL}) before allocation. Peak RAM in our tables is therefore the measured tensor arena, not an estimate. We do not assume a single active-current value for energy. The ESP32 datasheet \cite{esp32datasheet} lists 30 to 68\,mA in modem-sleep at 240\,MHz with the radio off, which is the condition during our inference (WiFi and Bluetooth disabled); at 3.3\,V this spans 0.099 to 0.224\,W. Any energy figure we quote from the datasheet is therefore presented explicitly as an estimate over this full current range, not as a single value and not as an upper bound. We do not use ESP32-S3 measurements to bound the classic ESP32. A direct measurement with an INA219 current sensor in series with the 5\,V board input (so it captures the board-level draw including the regulator and USB bridge), separating active-inference power from the idle baseline with a GPIO marker driven high during each inference, is added to the on-device results. The INA219 is read at its default configuration (roughly 1\,kHz effective sampling with its onboard averaging), which resolves the mean active power over a multi-millisecond inference but not sub-millisecond transients; the microsecond-scale classical inference is therefore below its temporal resolution and its energy is reported as such rather than as a precise value. Decision trees and forests are deployed as emlearn C and timed the same way. The firmware, flash offsets, and capture protocol are released with the paper.
+The deployment target is a commodity classic ESP32 on an ESP32-WROOM-32 module (Figure~\ref{fig:board}; ESP32-D0WD-V3, silicon revision v3.1 per \texttt{esptool}, dual-core Xtensa LX6 at 240\,MHz, 520\,kB internal SRAM, \emph{no PSRAM}, 4\,MB flash) running TensorFlow Lite for Microcontrollers. For reproducibility the firmware is built with ESP-IDF v5.1 (its bundled Xtensa GCC 12.2.0), TFLM is provided by the \texttt{esp-tflite-micro} component, and models are quantized off-device with TensorFlow 2.19; unless stated otherwise the firmware uses the default optimization level at 240\,MHz. With the radio stacks disabled, a single contiguous block of roughly 150\,kB is available to a model at runtime (the firmware reports about 152\,kB), and this is the binding budget. For each convertible model we attempt allocation and, on success, measure latency as the mean over 1000 hardware-timer invocations, peak RAM as the interpreter's tensor arena (\texttt{arena\_used\_bytes()} after \texttt{AllocateTensors}, the figure that must fit the budget), and flash as the model byte array. The quantized weights live in flash and are not part of the SRAM budget, so peak RAM in our tables is the measured arena, not an estimate. Energy is measured directly with an INA219 current sensor in series with the 5\,V board input, isolating active inference from the idle baseline with a GPIO marker driven high during each inference; because the sensor resolves mean power over a multi-millisecond inference but not sub-millisecond transients, the microsecond-scale classical inference is reported as below its resolution rather than as a precise value. We do not use ESP32-S3 measurements to bound the classic ESP32, and any datasheet current we cite for context (30 to 68\,mA in modem-sleep at 240\,MHz with the radio off \cite{esp32datasheet}) is given as a range, not a single value. Decision trees and forests are deployed as emlearn C and timed the same way; the firmware, flash offsets, and capture protocol are released with the paper.
 
 \subsection{Metrics}
-Accuracy measures recognition quality. For classical learners we report the mean and standard deviation over three seeds. Model complexity is reported as tree node count, total forest node count, or parameter count, the quantity that maps to footprint. The int8 model size and the conversion outcome measure deployability off-device, and latency, RAM, flash, and on-device fit measure it on the device. The accuracy-versus-cost frontier is the main result.
+% R1-3: the evaluation metric is now defined explicitly with equations, and the way the reported
+% mean and standard deviation are obtained is stated for each protocol.
+Our primary metric is classification accuracy, the fraction of test windows whose predicted label matches the ground truth,
+\begin{equation}
+\mathrm{Acc} = \frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\!\left[\hat{y}_i = y_i\right],
+\end{equation}
+where $N$ is the number of test windows, $y_i$ is the true label of window $i$, $\hat{y}_i$ is the predicted label, and $\mathbf{1}[\cdot]$ is the indicator function that returns 1 when its argument is true and 0 otherwise. On UT-HAR and NTU-Fi\_HAR, accuracy is computed on the fixed test split and we report the mean and standard deviation over three training seeds. On CSI-HAR it is computed under leave-one-user-out: for each of the three folds the model is tested on the single held-out user, and we report the mean and standard deviation across the three folds. For the per-class analysis (Section~\ref{sec:results-perclass}) we additionally report macro-averaged precision, recall, and F1 score, defined per class $c$ as
+\begin{equation}
+\mathrm{P}_c = \frac{\mathit{TP}_c}{\mathit{TP}_c+\mathit{FP}_c},\;\;
+\mathrm{R}_c = \frac{\mathit{TP}_c}{\mathit{TP}_c+\mathit{FN}_c},\;\;
+\mathrm{F1}_c = \frac{2\,\mathrm{P}_c\,\mathrm{R}_c}{\mathrm{P}_c+\mathrm{R}_c},
+\end{equation}
+where $\mathit{TP}_c$, $\mathit{FP}_c$, and $\mathit{FN}_c$ are the true positives, false positives, and false negatives for class $c$; the reported macro value is the unweighted mean over the seven activity classes. Deployability is measured by four device quantities defined in Section~\ref{sec:setup}: the int8 conversion outcome, the peak tensor arena in RAM, the per-inference latency (mean over 1000 hardware-timer invocations), and the per-inference energy (the INA219 active-power integral). Model complexity is the tree or forest node count for the classical learners and the parameter count for the networks. The accuracy-versus-cost frontier that these quantities trace is the main result.
 
-\emph{Run provenance.} The accuracy numbers in this paper come from several independent training runs, each with its own random seeds: the frontier sweep (Table~\ref{tab:frontier}), the quantization-validation run evaluated on the single exported checkpoint that was actually deployed (Table~\ref{tab:accval}), the per-user and per-class metrics run (Table~\ref{tab:peruser}, Table~\ref{tab:prf}, Figure~\ref{fig:cm}), the deep-tier CSI-HAR run (Table~\ref{tab:deep}), and a companion single-pipeline five-architecture benchmark that supplies the deep UT-HAR accuracies (same training and quantization protocol as Section~\ref{sec:setup}). Because these are distinct seeded runs, the same model can differ by one to two points across tables; this is seed and fold variance, not an inconsistency, and each table names its source notebook in the released artifact.
+\emph{Run provenance.} The accuracy values are drawn from several independent seeded runs (the frontier sweep, the quantization-validation run, the per-user and per-class metrics run, the deep-tier run, and a companion five-architecture benchmark that supplies the deep UT-HAR accuracies), all using the training and quantization protocol of Section~\ref{sec:setup}. The same model can therefore differ by one to two points across tables; this is seed and fold variance, not an inconsistency, and each table names its source in the released artifact.
 
 \section{Results}
 \label{sec:results}
@@ -220,32 +282,9 @@ Dataset & Model & Tier & Accuracy (\%) & Complexity & int8 size (kB) & Converts 
 \end{tabular}
 \end{table*}
 
-Figure~\ref{fig:accuracy} compares accuracy across the classical and tiny tiers and the two datasets, and Figure~\ref{fig:complexity} shows model complexity on a logarithmic axis, with the classical learners one to three orders of magnitude below the networks. Accuracies are lower on CSI-HAR than on UT-HAR throughout, which is expected: CSI-HAR is collected from a single classic ESP32, the weakest CSI source, has only three users and few samples per class, and is evaluated subject-independently rather than on a random split. It is therefore the more honest stress test of what a deployed device will face on an unseen person, and a random subject-overlapping split (which we deliberately avoid) would overstate unseen-user accuracy because the same users appear in train and test, an effect we quantify in Section~\ref{sec:results-gap}.
+Accuracy across the classical and tiny tiers and model complexity on a logarithmic axis are shown graphically in the Supplementary Material (Figures~S1 and~S2), where the classical learners sit one to three orders of magnitude below the networks. Accuracies are lower on CSI-HAR than on UT-HAR throughout, which is expected: CSI-HAR is collected from a single commodity single-antenna receiver, has only three users and few samples per class, and is evaluated subject-independently rather than on a random split. It is therefore the more honest stress test of what a deployed device will face on an unseen person, and a random subject-overlapping split (which we deliberately avoid) would overstate unseen-user accuracy because the same users appear in train and test, an effect we quantify in Section~\ref{sec:results-gap}.
 
-To check that the frontier is not an artefact of these two corpora, we ran the same pipeline on a third public dataset, NTU-Fi\_HAR \cite{yang2023sensefi}, a clean whole-body HAR benchmark of six activities (box, circle, clean, fall, run, and walk) with three transmit-receive antennas over 114 subcarriers. Table~\ref{tab:ntufi} reports the result. NTU-Fi\_HAR is saturated in the same way UT-HAR is: the tiny CNNs reach essentially perfect accuracy (100\% for the 32-channel model), the deep CNN and Transformer match them, and even the classical Random Forest reaches 99.7\%. The accuracy-versus-cost ordering therefore holds on an independent HAR corpus, and the small models remain competitive with the deep ones, which is the central claim of the frontier. As on UT-HAR, a saturated benchmark cannot expose the cross-subject gap; that is the role of the subject-independent CSI-HAR evaluation.
-
-\begin{table}[t]
-\caption{Deployability frontier on a third public dataset, NTU-Fi\_HAR (six whole-body activities, stratified 80/20 split over three seeds). Like UT-HAR it is saturated: the tiny and classical models match the deep ones, so the accuracy-versus-cost ordering of the main frontier holds on an independent HAR corpus. The int8 sizes are larger than on the other datasets because NTU-Fi\_HAR has more input channels (342 versus 90 or 52). The classical and tiny tiers are the mean $\pm$ standard deviation over three seeds; the two deep rows are a single seed (the deep models were not multi-seeded on this third dataset), which is why they carry no interval.}
-\label{tab:ntufi}
-\centering
-\footnotesize
-\setlength{\tabcolsep}{4pt}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{llcc}
-\toprule
-Model & Tier & Accuracy (\%) & int8 size (kB) \\
-\midrule
-Decision Tree    & classical & 95.56 $\pm$ 1.04 & emlearn C \\
-Random Forest    & classical & 99.72 $\pm$ 0.20 & emlearn C \\
-MLP (statistics) & classical & 98.61 $\pm$ 0.20 & emlearn C \\
-Tiny CNN (8 ch)  & tiny-nn   & 99.86 $\pm$ 0.20 & 25.0 \\
-Tiny CNN (16 ch) & tiny-nn   & 99.58 $\pm$ 0.59 & 46.3 \\
-Tiny CNN (32 ch) & tiny-nn   & \textbf{100.00 $\pm$ 0.00} & 92.7 \\
-Deep CNN         & deep      & 100.00 & 213.4 \\
-Transformer      & deep      & 99.58 & 166.8 \\
-\bottomrule
-\end{tabular}}
-\end{table}
+To check that the frontier is not an artefact of these two corpora, we ran the same pipeline on a third public dataset, NTU-Fi\_HAR \cite{yang2023sensefi} (six whole-body activities, three antennas, 114 subcarriers). It is saturated in the same way UT-HAR is: the tiny CNNs, the deep CNN and Transformer, and even the classical Random Forest all exceed 99\%, so the accuracy-versus-cost ordering of the frontier holds on an independent HAR corpus (Supplementary Material, Table~S1). As on UT-HAR, a saturated benchmark cannot expose the cross-subject gap; that is the role of the subject-independent CSI-HAR evaluation.
 
 \subsection{Quantization: float versus int8 accuracy}
 \label{sec:results-quant}
@@ -274,37 +313,47 @@ Transformer      & 97.53 & 97.53 & 58.10 & 58.81 & $-$0.71 \\
 \end{tabular}}
 \end{table}
 
-% NEW (E2 / checklist #2 classical parity). Flag for Turnitin: prose is factual.
-The same faithfulness check applies to the classical tier, which is deployed as emlearn C rather than TensorFlow Lite. We compared the emlearn C export against the trained scikit-learn model over the full real test set of each dataset (Table~\ref{tab:emlearnparity}): using the floating-point export the Decision Tree and statistics MLP are bit-exact on both datasets, and the Random Forest matches on 100\% of CSI-HAR and 98.6\% of UT-HAR test windows, the small residual coming from scikit-learn averaging per-tree probabilities where the C export resolves ties by tree vote. The classical models therefore reproduce their reference predictions on-device.
+The classical tier deployed as emlearn C is faithful to its scikit-learn reference in the same way: over the full real test set the Decision Tree and statistics MLP are bit-exact on both datasets and the Random Forest matches on 100\% of CSI-HAR and 98.6\% of UT-HAR windows (Supplementary Material, Table~S2).
+
+\subsection{Comparison with published results}
+\label{sec:results-compare}
+% R2-10: explicit quantitative comparison with prior published accuracies.
+Table~\ref{tab:litcompare} places our models against published WiFi CSI HAR results on the same public data. Two points follow. First, our models are competitive in-distribution: on UT-HAR the deep Transformer (98.3\%) and tiny CNN (96.7\%) sit alongside the strong SenseFi baselines (ResNet-18 98.11\%, CNN-5 97.61\%) and the recurrent and attention models of prior work, and on CSI-HAR a random-split tiny CNN (96.4\%) matches the roughly 95\% that the dataset authors report. So the paper's deployment conclusions are drawn from models that reach the accuracy level of the literature, not from weak ones. Second, and central to this paper, the published numbers are all in-distribution (random or subject-overlapping splits): our subject-independent leave-one-user-out figure on the same CSI-HAR data is 62.1\%, roughly 34 points below the random-split number, which is the honest accuracy a deployed device faces on an unseen person and the gap that in-distribution comparisons hide. The prior deep models were not evaluated cross-subject, so a like-for-like subject-independent comparison is not yet possible and is exactly the evaluation we argue should become standard.
 
 \begin{table}[t]
-\caption{Output parity between the scikit-learn classical models and their emlearn C export, as the exact-match rate over the full real test set (floating-point export). Decision Tree and statistics MLP are bit-exact; the Random Forest differs only on 1.4\% of UT-HAR windows.}
-\label{tab:emlearnparity}
+\caption{Accuracy comparison with published WiFi CSI HAR models on the same public data. UT-HAR and StanWiFi are the same raw Yousefi corpus under different segmentation and splits (SenseFi uses windowed UT-HAR with a random 80/20 split; ABLSTM and THAT use the 140-recording Office Room set), so the prior numbers are in-distribution and not on an identical split to ours; the comparison shows our models reach the literature accuracy level. The final rows contrast the same CSI-HAR data under a random split (comparable to prior work) and under our subject-independent leave-one-user-out protocol, whose much lower accuracy is the paper's central point.}
+\label{tab:litcompare}
 \centering
 \footnotesize
-\begin{tabular}{llcc}
+\setlength{\tabcolsep}{3pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lll c}
 \toprule
-Dataset & Model & Exact match (\%) & Test windows \\
+Work & Data (protocol) & Model & Acc.\ (\%) \\
 \midrule
-CSI-HAR & Decision Tree    & 100.0 & 420 \\
-CSI-HAR & Random Forest    & 100.0 & 420 \\
-CSI-HAR & MLP (statistics) & 100.0 & 420 \\
-UT-HAR  & Decision Tree    & 100.0 & 500 \\
-UT-HAR  & Random Forest    & 98.6  & 500 \\
-UT-HAR  & MLP (statistics) & 100.0 & 500 \\
+Chen \emph{et~al.}~\cite{chen2019ablstm}   & StanWiFi (Office Rm)      & ABLSTM        & 97.1 \\
+Li \emph{et~al.}~\cite{li2021that}         & StanWiFi (Office Rm)      & THAT          & 98.2 \\
+Yang \emph{et~al.}~\cite{yang2023sensefi}  & UT-HAR (random)           & ResNet-18     & 98.11 \\
+Yang \emph{et~al.}~\cite{yang2023sensefi}  & UT-HAR (random)           & CNN-5         & 97.61 \\
+Kang \emph{et~al.}~\cite{khan2025lightweight} & StanWiFi (5-fold)      & attn-GRU      & 99.33 \\
+Quy \emph{et~al.}~\cite{pacsi2025}         & StanWiFi (random)         & PA-CSI        & 99.93 \\
+\textbf{This work} & UT-HAR (fixed) & Tiny CNN (32 ch) & 96.7 \\
+\textbf{This work} & UT-HAR (fixed) & Transformer   & 98.3 \\
+\midrule
+Fard Moshiri \emph{et~al.}~\cite{csihardataset} & CSI-HAR (random) & 2D-CNN / ABLSTM & $\sim$95 \\
+\textbf{This work} & CSI-HAR (random)          & Tiny CNN (32 ch) & 96.4 \\
+\textbf{This work} & CSI-HAR (\textbf{subject-indep.}) & Tiny CNN (32 ch) & \textbf{62.1} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \subsection{The deep tier: which families deploy}
 \label{sec:results-walls}
 Table~\ref{tab:deep} reports the five deep architectures on both datasets together with the result of flashing every convertible model to the physical device. The outcome is less clear-cut than a blanket ``deep models do not fit,'' and we report it as we measured it.
 
-One barrier is an \emph{export-pipeline compatibility boundary}. Through the specific export route we use (Keras, TensorFlow~2.19, post-training int8 conversion to the TensorFlow Lite for Microcontrollers builtin operator set), the bidirectional GRU and the lightweight state-space model, despite competitive floating-point accuracy, do not convert to a microcontroller-deployable model on either dataset. The recurrent model compiles to the fused \texttt{CudnnRNNV3} operator and the state-space model to dynamic \texttt{TensorList} operators, neither of which is in the builtin set; both require the Select-TF-ops path that the ESP32 runtime does not provide \cite{tfissue36688,tflmissue907}. We stress that this is a property of the traced implementation and export route, not an intrinsic architectural impossibility: the fused \texttt{CudnnRNNV3} operator appears because the model is traced through a GPU-oriented fused kernel, and a recurrent network expressed with portable primitive operations, manually unrolled, or supported by a custom TensorFlow Lite for Microcontrollers operator could in principle deploy. We verified this directly on CSI-HAR: the standard fused GRU fails to convert to the builtin set (it requires Select-TF-ops), but the identical GRU exported with time-step unrolling converts cleanly to the full int8 builtin set, confirming that recurrence is deployable in principle through a portable export route. The unrolled export does so at a large cost, however: unrolling the 64-step recurrence inflates the model to about 568\,kB, an order of magnitude larger than the convolutional models, so it is a proof of principle rather than a practical option here. The accurate conclusion is therefore the limited one: \emph{these particular implementations do not deploy through the stated TensorFlow~2.19 to TensorFlow Lite for Microcontrollers builtin-operator pipeline}. Because the operators involved are fixed by the architecture, the boundary holds on both datasets under this export route.
+One barrier is an \emph{export-pipeline compatibility boundary}. Through the export route we use (Keras, TensorFlow~2.19, post-training int8 conversion to the TFLM builtin operator set), the bidirectional GRU and the lightweight state-space model, despite competitive floating-point accuracy, do not convert on either dataset: the recurrent model compiles to the fused \texttt{CudnnRNNV3} operator and the state-space model to dynamic \texttt{TensorList} operators, neither in the builtin set, and both require the Select-TF-ops path the ESP32 runtime does not provide \cite{tfissue36688,tflmissue907}. This is a property of the traced implementation and export route, not an intrinsic impossibility: we verified on CSI-HAR that the identical GRU exported with time-step unrolling converts cleanly to the int8 builtin set, though at a large cost (unrolling the 64-step recurrence inflates the model to about 568\,kB), so recurrence is deployable in principle but not practically through this pipeline. Because the operators involved are fixed by the architecture, the boundary holds on both datasets.
 
-The feed-forward families, in contrast, mostly do deploy, which corrects an assumption we held earlier. The convolutional network allocates and runs within a 10\,kB tensor arena on UT-HAR and 12\,kB on CSI-HAR, and the convolution-augmented Transformer within 24\,kB and 54\,kB, all far below the roughly 150\,kB contiguous internal block that the runtime makes available with the radio stacks disabled. A deep CNN and a Transformer therefore run on the bare classic ESP32: the weights (76 to 103\,kB int8) live in the 4\,MB flash, and only the activations occupy SRAM. The Chebyshev-KAN is the exception among the feed-forward models: it converts to int8, but \texttt{AllocateTensors} fails on the device even when the arena is grown to the full free block, so it does not deploy through the standard conversion pipeline. The failure is specific and reproducible rather than a vague converter problem: the interpreter aborts at preparation with ``Node \texttt{FILL} (number 15) failed to prepare,'' where the \texttt{FILL} operator is the one the converter emits to materialize the Chebyshev polynomial basis for each edge. The TensorFlow Lite for Microcontrollers \texttt{FILL} kernel cannot prepare that quantized dynamic-shape tensor, so allocation stops before any inference runs. This is therefore an operator-mapping limitation of how the polynomial expansion is lowered, not a fundamental property of Kolmogorov-Arnold networks and not a raw memory ceiling, since the much larger CNN and Transformer allocate comfortably on the same device (the exact operators behind each failure are summarized in Table~\ref{tab:unsupported}).
-
-The correction is therefore important: for the feed-forward architectures we tested (a deep CNN and a convolution-augmented Transformer), tensor-arena capacity is \emph{not} the deployment barrier on the classic ESP32; there is no memory wall for these models. The real barriers are the export-pipeline compatibility of the recurrent and state-space families and, for the KAN, an operator-preparation (kernel-compatibility) failure rather than an SRAM ceiling: \texttt{AllocateTensors} invokes each operator's prepare step, and it is the \texttt{FILL} kernel's preparation that aborts, not memory allocation. What makes the tiny and classical tiers the practical choice is not that the deep models cannot fit, but that they are several-fold smaller and faster at comparable accuracy on the saturated benchmark: the 32-channel tiny CNN is about 2.7 times smaller in int8 size and 3.3 times faster than the deep CNN, and the narrower tiny CNNs and the classical learners more so (Section~\ref{sec:results-ondevice}).
+The feed-forward families, in contrast, mostly deploy, which corrects an assumption we held earlier. The convolutional network allocates within a 10\,kB tensor arena on UT-HAR and 12\,kB on CSI-HAR, and the convolution-augmented Transformer within 24\,kB and 54\,kB, all far below the roughly 150\,kB block available with the radio disabled; the weights (76 to 103\,kB int8) live in flash and only the activations occupy SRAM, so a deep CNN and a Transformer run on the bare classic ESP32. The Chebyshev-KAN is the exception: it converts to int8 but \texttt{AllocateTensors} fails even at the full free block, aborting with ``Node \texttt{FILL} (number 15) failed to prepare,'' where \texttt{FILL} is the operator that materializes the Chebyshev polynomial basis. This is an operator-mapping limitation of how the polynomial expansion is lowered, not a memory ceiling, since the much larger CNN and Transformer allocate comfortably on the same device (Supplementary Material, Table~S3). The correction is therefore that, for the feed-forward architectures we tested, tensor-arena capacity is \emph{not} the deployment barrier on the classic ESP32: there is no memory wall for these models, and the real barriers are export-pipeline compatibility (recurrent and state-space) and operator preparation (the KAN). What makes the tiny and classical tiers the practical choice is not that the deep models cannot fit, but that they are several-fold smaller and faster at comparable accuracy on the saturated benchmark (the 32-channel tiny CNN is about 2.7 times smaller and 3.3 times faster than the deep CNN, the narrower tiny CNNs and classical learners more so).
 
 \begin{table*}[t]
 \caption{Deep tier on both datasets with the measured on-device outcome. ``Converts'' is conversion to int8 TensorFlow Lite for Microcontrollers; ``On-device'' is the result of flashing each convertible model to the classic ESP32 (peak tensor arena from a successful \texttt{AllocateTensors}, or the failure mode). UT-HAR accuracy is from the companion single-pipeline five-architecture benchmark (same training and quantization protocol, released in the artifact); CSI-HAR accuracy is subject-independent (leave-one-user-out) from the deep-tier run. Both are separate seeded runs, so entries may differ by one to two points from the same model elsewhere (Table~\ref{tab:accval}).}
@@ -329,29 +378,13 @@ Lightweight-SSM & CSI-HAR & 47.38 & n/a   & \textbf{no}  & not convertible \\
 \end{tabular}
 \end{table*}
 
-\begin{table}[t]
-\caption{Operators responsible for the deployment failures, by model and failing stage. The recurrent and state-space models fail at int8 conversion because their fused or dynamic-tensor operators are outside the TensorFlow Lite for Microcontrollers builtin set and would require the Select-TF-ops (flex) path, which the ESP32 runtime does not provide. The Chebyshev-KAN converts but its \texttt{FILL} node fails to prepare at \texttt{AllocateTensors}. The three convolutional and attention feed-forward models use only builtin operators and deploy.}
-\label{tab:unsupported}
-\centering
-\footnotesize
-\setlength{\tabcolsep}{4pt}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lll}
-\toprule
-Model & Failing stage & Blocking operator(s) \\
-\midrule
-BiGRU           & int8 conversion   & \texttt{CudnnRNNV3} (fused GRU) \\
-Lightweight-SSM & int8 conversion   & \texttt{TensorListReserve}, \texttt{While} \\
-Chebyshev-KAN   & \texttt{AllocateTensors} & \texttt{FILL} (prepare fails) \\
-\midrule
-CNN, Transformer & none (deploy)   & builtin operators only \\
-\bottomrule
-\end{tabular}}
-\end{table}
+
 
 \subsection{On-device measurements}
 \label{sec:results-ondevice}
-Table~\ref{tab:ondevice} reports the measured latency and memory for the tiny and classical tiers, the models we recommend for deployment, and for the two deep families that deploy. Every tiny network allocates with a peak tensor arena of only 7.7 to 13.4\,kB, well under both the roughly 150\,kB block the runtime exposes and even the deep CNN's own 10 to 12\,kB, and Figure~\ref{fig:memory} places all the deployable models against the budget. The tiny models are not chosen because the deep models fail to fit, but because they reach comparable accuracy on the saturated benchmark at a small fraction of the size and latency. Inference latency ranges from 9\,ms for the 8-channel tiny CNN on CSI-HAR to 68\,ms for the 32-channel tiny CNN on UT-HAR, all well within a real-time budget for activity recognition (at our live packet rate a non-overlapping 64-packet window arrives roughly every 0.6\,s, so tens of milliseconds per window leaves a wide margin). A clear cost ordering appears: latency grows with channel width, and the 16-channel tiny CNN, the best accuracy-per-size point, costs 30\,ms on UT-HAR and 20\,ms on CSI-HAR. The tiny multilayer perceptron has the smallest arena of all because, despite its large weight file in flash, its activations are a single flat vector; this confirms that the runtime arena and not the model file size is what meets the memory budget. The two deep models that deploy are also profiled on the device: the deep CNN runs in 226\,ms on UT-HAR and 244\,ms on CSI-HAR, and the deep Transformer in 170\,ms and 321\,ms, roughly five to fifteen times slower than the tiny CNNs at the same task. On CSI-HAR the Transformer is slower than the deep CNN even though both fit comfortably in memory. We measure aggregate latency and arena rather than per-operator time, so we do not isolate the cause, but the difference is consistent with a compute rather than a storage explanation: self-attention forms pairwise scores across the window as dense integer matrix multiplications whose cost grows with the square of the sequence length, and it adds layer normalization (a reciprocal-square-root) and softmax that lower to many small elementwise kernels, whereas the convolution reuses a small kernel across the window with far fewer total multiply-accumulate operations and better data locality on the scalar Xtensa core, which has no vector unit to amortize the attention matmuls. The arena tells the same story from the memory side: the Transformer's attention scores are a larger transient than any convolutional activation (24 to 54\,kB against 10 to 12\,kB), so it costs both more time and more peak RAM for no accuracy gain here. Each figure is a mean over 1000 invocations with a standard deviation below 0.6\,ms (Table~\ref{tab:ondevice}), so on-device inference time is essentially deterministic within a run; this standard deviation is within-run timing variability on a single board and firmware build, not a cross-reboot or cross-board reproducibility interval, which we do not claim from one device. In throughput terms the tiny models sustain an isolated-inference rate of about 15 to 105 windows per second and the deep models 3 to 6 (one over the inference latency; the live pipeline's rate is acquisition-bound, Section~\ref{sec:results-live}), so both are comfortable for activity recognition, but the tiny tier leaves far more of the duty cycle free for the application sharing the chip. The classical learners, deployed as branch-only emlearn C, have the cheapest model step of all: the Decision Tree traverses in about 1\,microsecond and the Random Forest in 45\,microseconds, with under 1\,kB of working memory and no dynamic allocation. Their end-to-end cost is set instead by the shared five-statistic feature extraction over the window, which we measured on-device at 1.6\,ms on UT-HAR and 0.9\,ms on CSI-HAR, so the full classical pipeline runs in roughly 1 to 2\,ms, still about an order of magnitude faster than the tiny CNNs rather than the three orders that the traversal time alone would suggest. The energy column is measured directly with an INA219 on the 5\,V board input (Table~\ref{tab:energy}, Section~\ref{sec:setup}), not estimated. Table~\ref{tab:energy} reports it two ways to avoid mixing conventions: gross energy drawn during inference, which includes the idle baseline, and marginal energy above idle. On the gross basis the tiny networks are a few to about twenty-five millijoules per inference; on the marginal basis about 1 to 7\,mJ. The classical learners' microsecond traversals draw negligible marginal energy over the shared feature extraction, so they remain the cheapest option on either accounting; where we call them effectively free we mean their marginal cost, and the tiny-versus-classical comparison should be read on the marginal basis to be consistent.
+Table~\ref{tab:ondevice} reports the measured latency and memory for the tiny and classical tiers and for the two deep families that deploy. Every tiny network allocates with a peak tensor arena of only 7.7 to 13.4\,kB, well under both the roughly 150\,kB block the runtime exposes and even the deep CNN's own 10 to 12\,kB. Inference latency ranges from 9\,ms (8-channel tiny CNN on CSI-HAR) to 68\,ms (32-channel on UT-HAR), all well within a real-time budget: latency grows with channel width, and the 16-channel tiny CNN, the best accuracy-per-size point, costs 30\,ms on UT-HAR and 20\,ms on CSI-HAR. The flattened MLP has the smallest arena of all despite its large weight file, because its activations are a single flat vector, confirming that the runtime arena and not the model file size is what meets the memory budget. Each latency is a mean over 1000 invocations with a standard deviation below 0.6\,ms, so timing is essentially deterministic within a run (this is within-run variability on one board, not a cross-board interval, which we do not claim from a single device).
+
+The two deep models that deploy run in 226\,ms (CNN, UT-HAR) to 321\,ms (Transformer, CSI-HAR), roughly five to fifteen times slower than the tiny CNNs; on CSI-HAR the Transformer is slower than the deep CNN even though both fit comfortably. The difference is consistent with a compute rather than a storage explanation: self-attention forms pairwise scores as dense integer matrix multiplications whose cost grows with the square of the sequence length, on a scalar Xtensa core with no vector unit, whereas the convolution reuses a small kernel with far fewer operations, and the arena tells the same story (the Transformer's attention scores are a 24 to 54\,kB transient against the convolution's 10 to 12\,kB). The classical learners are the cheapest model step of all, traversing in about 1\,microsecond (Decision Tree) to 45\,microseconds (Random Forest) with under 1\,kB of working memory; their end-to-end cost is set by the shared five-statistic feature extraction (1.6\,ms on UT-HAR, 0.9\,ms on CSI-HAR), so the full classical pipeline runs in roughly 1 to 2\,ms, still about an order of magnitude faster than the tiny CNNs. Energy is measured directly with the INA219 (Table~\ref{tab:energy}) and reported two ways: gross energy during inference (including the idle baseline) is a few to about twenty-five millijoules per inference for the tiny networks, and marginal energy above idle is about 1 to 7\,mJ; the classical learners draw negligible marginal energy over the shared feature extraction and remain the cheapest option on either accounting.
 
 In addition to the latency and memory measured on a fixed input, we verified that a deployed model classifies real CSI on the device from end to end. We compiled seven real CSI-HAR test windows, one per activity and int8-quantized to the deployed 16-channel tiny CNN's own input scale, into the firmware and ran them through the on-device interpreter. The board reproduced the desktop interpreter's prediction on all seven windows (bend, fall, lie down, run, sit down, stand up, and walk), a replay accuracy of seven out of seven, within an 8.3\,kB arena. This is a stored-window inference replay, not a live pipeline: the windows were quantized to int8 off-device and compiled into the firmware, so the experiment validates only the interpreter and prediction path on real CSI content (from a stored int8 window through the quantized network to a class label), confirming that the latency and memory figures above are measured on a path that produces the correct prediction rather than on a dummy input. Live acquisition, windowing, and preprocessing are evaluated separately in the live-pipeline experiment.
 
@@ -412,80 +445,7 @@ Deep Transformer & CSI-HAR & 367 & 320.7 & 117.8 & 36.2 \\
 \end{tabular}
 \end{table}
 
-\begin{table}[t]
-\caption{CPU-frequency scaling on the classic ESP32: per-inference latency at 160\,MHz (the ESP-IDF default) and at 240\,MHz (full speed, used for all other results) for representative models. Raising the clock to 240\,MHz reduces latency by about a third. The speedup approaches the 1.5$\times$ clock ratio for the compute-bound tiny CNNs and is smaller for the deep CNN, which spends relatively more time on memory access.}
-\label{tab:cpufreq}
-\centering
-\footnotesize
-\setlength{\tabcolsep}{4pt}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{llccc}
-\toprule
-Model & Dataset & 160\,MHz (ms) & 240\,MHz (ms) & Speedup \\
-\midrule
-Tiny CNN (8 ch)  & UT-HAR  & 21.4  & 14.1  & 1.52$\times$ \\
-Tiny CNN (16 ch) & CSI-HAR & 30.2  & 20.2  & 1.50$\times$ \\
-Deep CNN         & CSI-HAR & 306.8 & 243.5 & 1.26$\times$ \\
-Deep Transformer & CSI-HAR & 476.1 & 320.7 & 1.48$\times$ \\
-\bottomrule
-\end{tabular}}
-\end{table}
-
-The classic ESP32 boots at 160\,MHz under the default ESP-IDF configuration but can run at 240\,MHz, and the choice matters for a latency budget. Table~\ref{tab:cpufreq} compares the two operating points: at 240\,MHz every model is about a third faster, with the compute-bound tiny CNNs scaling close to the 1.5$\times$ clock ratio and the deep CNN scaling less (1.26$\times$) because a larger share of its time is spent moving activations rather than computing. All other on-device results in this paper use 240\,MHz. We do not claim a simple energy relationship between the two clocks: the active current itself changes with frequency, so the net per-inference energy of the 160\,MHz operating point (lower power but longer latency) is an empirical question we do not settle here and would resolve with the direct current measurement.
-
-The compiler optimization level, in contrast, barely matters for this workload. Rebuilding the 16-channel tiny CNN and the deep CNN with size optimization ($-$Os) instead of the default performance optimization ($-$O2) changed latency by less than 3\% (if anything $-$Os was marginally faster, 28.1 against 29.7\,ms for the tiny CNN and 221 against 226\,ms for the deep CNN on UT-HAR), left the tensor arena unchanged, and reduced the firmware image by about 1.5\% (roughly 7\,kB of the 4\,MB flash). The insensitivity is expected: almost all of the time is spent inside the quantized TensorFlow Lite for Microcontrollers kernels, which the compiler optimizes similarly at either level, so the optimization flag mainly trades a small amount of code size and is not a lever for on-device speed here.
-
-The one factor that dominates on-device speed is the optimized kernel library. The \texttt{esp-tflite-micro} runtime enables ESP-NN, Espressif's Xtensa-optimized int8 kernels for convolution, depthwise convolution, fully connected layers, and pooling, by default, and all of our measurements use it. To quantify its contribution we rebuilt with ESP-NN disabled, falling back to the portable reference kernels: the 16-channel tiny CNN on CSI-HAR slowed from 20.2\,ms to 275.7\,ms, a 13.6$\times$ penalty, and the deep CNN became so slow (over 5\,s per inference, more than 20$\times$) that a single inference trips the task watchdog and cannot complete. The optimized kernels are therefore essential rather than optional for real-time CSI inference on this chip, and their effect dwarfs both the clock (1.5$\times$) and the compiler flag (a few percent). We note that CMSIS-NN, the comparable library, targets ARM Cortex-M cores and does not apply to the Xtensa LX6 in the classic ESP32; ESP-NN is its Xtensa counterpart, so the relevant comparison on this hardware is ESP-NN against the reference kernels, which is what we report.
-
-Finally, we ablated the tensor-arena size directly, since it is the single quantity that decides whether a model deploys. Table~\ref{tab:arena} sweeps the arena given to the 16-channel tiny CNN on CSI-HAR, whose true requirement is 8488 bytes. The behaviour is a sharp threshold: below 8488 bytes the interpreter cannot allocate and the model does not deploy, while at or above it the model fits, reports the same 8488-byte peak, and runs at the same latency (20.24\,ms) regardless of how much extra arena is provided. Over-provisioning the arena therefore only wastes RAM; it buys no speed. The ablation also surfaced a byte-addressability constraint that a bare-device study exposes and a PSRAM-equipped one would not: the arena must be forced into byte-addressable internal RAM with \texttt{MALLOC\_CAP\_8BIT}. A small arena requested only as generic internal memory can be placed by the allocator in instruction RAM, which permits only 32-bit access, and the interpreter's int8 tensor access then faults; large arenas avoid this by default because only the main data RAM block can satisfy them, which is why the earlier measurements were unaffected.
-
-\begin{table}[t]
-\caption{Tensor-arena-size ablation for the 16-channel tiny CNN on CSI-HAR (true requirement 8488 bytes, measured at 240\,MHz). Below the requirement the interpreter cannot allocate the model; at or above it the model fits, uses the same 8488 bytes, and runs at the same latency independent of the requested arena. The arena is allocated as byte-addressable internal RAM (\texttt{MALLOC\_CAP\_8BIT}).}
-\label{tab:arena}
-\centering
-\footnotesize
-\setlength{\tabcolsep}{6pt}
-\begin{tabular}{ccc}
-\toprule
-Requested arena (B) & Fits & Latency (ms) \\
-\midrule
-7168  & no  & n/a \\
-8192  & no  & n/a \\
-8448  & no  & n/a \\
-8704  & yes & 20.24 \\
-16384 & yes & 20.24 \\
-32768 & yes & 20.25 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-To see where the arena goes within the two deep models, we instrumented the interpreter with the recording allocator and read back the arena composition (Table~\ref{tab:arenabreakdown}). The allocator splits the arena into a \emph{head}, the working buffer that holds the intermediate activations as they flow layer to layer, and a \emph{tail} of persistent structures (per-operator node records, quantization metadata, and kernel scratch buffers). The two families differ sharply. The deep CNN has 16 operators, a small 4.2\,kB tail, and a head that scales gently with the input (6.1\,kB on UT-HAR, 8.2\,kB on CSI-HAR). The Transformer has 55 operators, a much larger tail (14 to 18\,kB of node records and attention scratch), and a head that scales with the square of the sequence length, reaching 36.9\,kB on the 64-step CSI-HAR window. This composition is why the Transformer needs the most arena of any model we deploy and confirms, from the memory side, the latency story of Section~\ref{sec:results-ondevice}: attention is expensive on this chip in both time and space, while the convolutional activation buffer stays small.
-
-\begin{table}[t]
-\caption{Tensor-arena composition of the two deployable deep models, from the recording allocator (kB). \emph{Head} is the activation working buffer; \emph{tail} is the persistent structures (per-operator node records, quantization metadata, and kernel scratch). \emph{Ops} is the number of operators. The Transformer's many operators and sequence-quadratic attention activations dominate its footprint.}
-\label{tab:arenabreakdown}
-\centering
-\footnotesize
-\setlength{\tabcolsep}{5pt}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{llcccc}
-\toprule
-Model & Dataset & Total (kB) & Head (kB) & Tail (kB) & Ops \\
-\midrule
-Deep CNN    & UT-HAR  & 10.1 & 6.0  & 4.1  & 16 \\
-Deep CNN    & CSI-HAR & 12.1 & 8.0  & 4.1  & 16 \\
-Transformer & UT-HAR  & 24.1 & 10.0 & 14.0 & 55 \\
-Transformer & CSI-HAR & 54.1 & 36.0 & 18.0 & 55 \\
-\bottomrule
-\end{tabular}}
-\end{table}
-
-\begin{figure}[tbp]
-\centering
-\includegraphics[width=\columnwidth]{fig_memory.png}
-\caption{Measured peak tensor arena of the deployable models on the classic ESP32, against the roughly 150\,kB contiguous block the runtime exposes (dashed line). Every convertible feed-forward model fits with a large margin, including the deep CNN (10 to 12\,kB) and Transformer (24 to 54\,kB). The Chebyshev-KAN converts but fails to allocate, and the recurrent and state-space models do not convert; neither is shown. The tiny models are attractive for being far smaller and faster, not because the deep models fail to fit.}
-\label{fig:memory}
-\end{figure}
+Three build-time and runtime factors were characterized and are reported in full in the Supplementary Material. First, clock: the classic ESP32 boots at 160\,MHz but can run at 240\,MHz, which reduces latency by about a third (close to the 1.5$\times$ clock ratio for the compute-bound tiny CNNs, less for the deep CNN); all results in this paper use 240\,MHz (Supplementary Material, Table~S4). Second, kernels: the single factor that dominates on-device speed is the optimized kernel library. With Espressif's ESP-NN int8 kernels (enabled by default and used throughout) the 16-channel tiny CNN runs in 20.2\,ms; rebuilt against the portable reference kernels it takes 275.7\,ms, a 13.6$\times$ penalty, and the deep CNN becomes so slow (over 5\,s) that a single inference trips the task watchdog. The optimized kernels are therefore essential rather than optional, and their effect dwarfs both the clock and the compiler flag, which changed latency by under 3\%. Third, arena: an arena-size sweep shows a sharp threshold at each model's true requirement (8488 bytes for the 16-channel tiny CNN), with over-provisioning wasting RAM and buying no speed; a bare-device subtlety is that the arena must be placed in byte-addressable internal RAM (\texttt{MALLOC\_CAP\_8BIT}), or int8 tensor access faults (Supplementary Material, Table~S5). The arena composition confirms the latency story from the memory side: the deep CNN has 16 operators and a small footprint, whereas the Transformer has 55 operators and a head that scales with the square of the sequence length, reaching 36.9\,kB on CSI-HAR (Supplementary Material, Table~S6).
 
 \begin{figure}[tbp]
 \centering
@@ -493,38 +453,6 @@ Transformer & CSI-HAR & 54.1 & 36.0 & 18.0 & 55 \\
 \caption{Accuracy versus int8 size for the tiny networks on both datasets (size on a logarithmic axis). The 16-channel tiny CNN sits at the top-left on both datasets, giving the best accuracy per kilobyte. The int8 file size is a lower bound on on-device cost; the runtime arena, which is what meets the device budget, is measured separately.}
 \label{fig:frontier}
 \end{figure}
-
-\begin{figure}[tbp]
-\centering
-\includegraphics[width=\columnwidth]{fig_accuracy.png}
-\caption{Accuracy of the classical and tiny tiers across UT-HAR and CSI-HAR. Accuracy is consistently lower on CSI-HAR, the single-ESP32 dataset with fewer samples per class.}
-\label{fig:accuracy}
-\end{figure}
-
-\begin{figure}[tbp]
-\centering
-\includegraphics[width=\columnwidth]{fig_complexity.png}
-\caption{Model complexity on a logarithmic axis (tree node count or network parameter count). The classical learners are one to three orders of magnitude smaller than the networks, which is why they fit the device with large margins.}
-\label{fig:complexity}
-\end{figure}
-
-\begin{table}[t]
-\caption{On-device memory and latency with the radio off versus WiFi active (station mode), classic ESP32 at 240\,MHz. The tensor arena is unchanged by the radio; WiFi initialization drops the largest free internal block from 152\,kB to 108\,kB, and during the live run it is about 88 to 92\,kB. The heap left after the arena (right two columns) is the practical headroom for application code and network buffers, which is tight for the deep Transformer. Latency stays within a millisecond of the radio-off value because inference is CPU-bound and the idle driver does not contend for compute.}
-\label{tab:wifimem}
-\centering
-\footnotesize
-\setlength{\tabcolsep}{3.5pt}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lccccc}
-\toprule
-Model & Arena (kB) & Lat.\ off (ms) & Lat.\ WiFi (ms) & Heap @108\,kB & Heap @$\sim$90\,kB \\
-\midrule
-Tiny CNN (16 ch) & 8.3 & 20.2  & 20.1  & $\sim$100\,kB & $\sim$82\,kB \\
-Deep CNN         & 12  & 243.5 & 244.6 & $\sim$96\,kB  & $\sim$78\,kB \\
-Deep Transformer & 54  & 320.7 & 322.0 & $\sim$54\,kB  & $\sim$36\,kB \\
-\bottomrule
-\end{tabular}}
-\end{table}
 
 \subsection{ESP32-S3 comparison}
 \label{sec:results-s3}
@@ -586,12 +514,13 @@ Crashes / watchdog resets     & 0 \\
 \end{tabular}
 \end{table}
 
-\begin{figure}[tbp]
+% R2-11c: enlarged to a two-column figure (reviewer: Figure 7 is very small).
+\begin{figure*}[tbp]
 \centering
-\includegraphics[width=\columnwidth]{fig_live_pipeline.pdf}
+\includegraphics[width=0.86\textwidth]{fig_live_pipeline.pdf}
 \caption{Live on-device WiFi-CSI pipeline on the classic ESP32: over-the-air CSI capture, windowing and per-window normalization, int8 quantization, and TensorFlow Lite Micro inference, all running on the device in real time.}
 \label{fig:live}
-\end{figure}
+\end{figure*}
 
 \subsection{Per-class behaviour and statistical analysis}
 \label{sec:results-perclass}
@@ -644,7 +573,7 @@ User 3 & 55.48 $\pm$ 8.19 & 66.67 $\pm$ 1.21 & 52.86 \\
 \end{tabular}}
 \end{table}
 
-We also asked whether the accuracy differences between models are statistically meaningful. With only three held-out users the statistical power is very low, so we treat these tests as exploratory and descriptive rather than confirmatory, and we draw no inferential conclusion from them. As a sanity check, a Friedman test across the tiny CNN, deep CNN, Transformer, and Random Forest over the three folds is not significant ($\chi^2 = 4.44$, $p = 0.22$), and a Wilcoxon signed-rank test between the deep CNN and the Transformer is likewise not significant ($p = 0.25$); with $n=3$ these p-values cannot establish either a difference or an equivalence and are reported only for completeness. What we do rely on is the effect size and its consistency: across every fold the tiny model stays within a few points of the deep models, so the case for the small models rests on that consistent closeness rather than on a significance test the sample size cannot support. A properly powered comparison would need a many-subject corpus, which we flag as future work.
+We also asked whether the model differences are statistically meaningful. With only three held-out users the power is very low, so we treat these tests as exploratory: a Friedman test across the tiny CNN, deep CNN, Transformer, and Random Forest over the three folds is not significant ($\chi^2 = 4.44$, $p = 0.22$), and a Wilcoxon signed-rank test between the deep CNN and the Transformer likewise ($p = 0.25$). With $n=3$ these cannot establish a difference or an equivalence and are reported only for completeness; what we rely on instead is the consistent effect size (across every fold the tiny model stays within a few points of the deep models). A properly powered comparison would need a many-subject corpus, which we flag as future work.
 
 \subsection{The generalization gap: an exploratory case study}
 \label{sec:results-gap}
@@ -680,27 +609,30 @@ Mean             & 85.7 & 56.3 & \textbf{29.4} \\
 \label{fig:gengap}
 \end{figure}
 
-To check that this gap is not an artefact of the three-user CSI-HAR set, we reproduced the same random-versus-subject-independent contrast on a much larger public WiFi-CSI corpus, using a light Random Forest on per-subcarrier amplitude statistics (Table~\ref{tab:gengap-ext}, Figure~\ref{fig:gengap-ext}). On CSI-Bench~\cite{csibench2025}, a four-class task on 35 users, accuracy falls from 84.1\% to 51.7\% under a subject-independent split, a graded 32-point drop that remains well above the 25\% chance level, matching the CSI-HAR pattern at more than ten times the subject count. The degradation therefore appears on a many-user dataset and is not specific to the small three-user set. This check uses a light off-device classifier rather than the on-device tiny models and a different task, so it establishes the broader cross-subject phenomenon rather than the on-device deployability result, which rests on CSI-HAR; a fully powered on-hardware cross-subject study on a many-subject, multi-room corpus remains the most important extension.
+To check that this gap is not an artefact of the three-user CSI-HAR set, we reproduced the same random-versus-subject-independent contrast on a much larger public WiFi-CSI corpus, CSI-Bench~\cite{csibench2025}, a four-class task on 35 users (Table~\ref{tab:gengap-ext}, Figure~\ref{fig:gengap-ext}). We ran two classifiers there: the deployed tiny CNN and, as a light off-device reference, a Random Forest on per-subcarrier amplitude statistics. The deployed tiny CNN falls from 93.3\% on a random split to 62.6\% under a subject-independent split, a 30.8-point drop, and the Random Forest from 84.1\% to 51.7\% (32.4 points); both remain well above the 25\% chance level. The gap therefore holds on a many-user dataset for the actual deployed architecture, not only for a proxy, and is not specific to the small three-user set. It is measured off-device on a different four-class task, so it establishes the breadth of the cross-subject phenomenon rather than the on-device deployability result, which rests on CSI-HAR; a fully powered on-hardware cross-subject study on a many-subject, multi-room corpus remains the most important extension.
 
 \begin{table}[t]
-\caption{Cross-subject generalization gap on two WiFi-CSI datasets: CSI-HAR (3 users, the on-device dataset) and CSI-Bench (35 users). Moving from a random (subject-overlapping) split to a subject-independent split lowers accuracy by about 30 points in both cases, and in both the subject-independent accuracy stays well above chance, so the effect is a genuine graded gap rather than a floor effect and is not specific to the small three-user set. The CSI-Bench check uses a light off-device Random Forest on amplitude statistics, not the deployed tiny models.}
+\caption{Cross-subject generalization gap across datasets and classifiers. Moving from a random (subject-overlapping) split to a subject-independent split lowers accuracy by about 30 points in every case, and the subject-independent accuracy stays well above chance throughout, so the effect is a genuine graded gap rather than a floor effect and is not specific to the small three-user set. On the 35-user CSI-Bench corpus the gap holds for the deployed tiny CNN (30.8 points), not only for the light off-device Random Forest reference (32.4 points).}
 \label{tab:gengap-ext}
 \centering
 \footnotesize
-\begin{tabular}{lcccc}
+\setlength{\tabcolsep}{3.5pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llcccc}
 \toprule
-Dataset (subjects) & Random (\%) & Subject-indep. (\%) & Chance (\%) & Cross-subject drop \\
+Dataset (subjects) & Model & Random (\%) & Subject-indep. (\%) & Chance (\%) & Drop \\
 \midrule
-CSI-HAR (3)    & 92.1 & 62.1 & 14.3 & 30.0 pts \\
-CSI-Bench (35) & 84.1 & 51.7 & 25.0 & 32.4 pts \\
+CSI-HAR (3)    & Tiny CNN & 92.1 & 62.1 & 14.3 & 30.0 pts \\
+CSI-Bench (35) & Tiny CNN & 93.3 & 62.6 & 25.0 & 30.8 pts \\
+CSI-Bench (35) & Rand.\ Forest & 84.1 & 51.7 & 25.0 & 32.4 pts \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \begin{figure}[tbp]
 \centering
 \includegraphics[width=\columnwidth]{fig_gengap_external.png}
-\caption{The cross-subject generalization gap reproduces on a many-user dataset: on both CSI-HAR (3 users) and CSI-Bench (35 users) accuracy drops by about 30 points from a random (subject-overlapping) split to a subject-independent split, staying above chance in both.}
+\caption{The cross-subject generalization gap reproduces on a many-user dataset and for the deployed architecture: on CSI-HAR (3 users) and on CSI-Bench (35 users) the tiny CNN drops by about 30 points from a random split to a subject-independent split, and the light Random Forest reference on CSI-Bench drops similarly, all staying above chance (dashed lines).}
 \label{fig:gengap-ext}
 \end{figure}
 
@@ -716,25 +648,19 @@ Because the gap is a cross-subject effect rather than a capacity limit, the natu
 \section{Discussion}
 \label{sec:discussion}
 
-\subsection{What actually runs on a bare ESP32}
-The frontier gives a direct answer to the title question, and it is more permissive than we first expected. On the PSRAM-less classic ESP32 the deployable options for WiFi CSI HAR are wider than the chip's reputation suggests: they include the classical learners, the tiny convolutional networks, and a deep CNN and convolution-augmented Transformer, which both allocate and run within tens of kilobytes. What the small models offer is efficiency, not exclusivity. On the saturated UT-HAR benchmark a classical multilayer perceptron on statistics reaches 95.3\% and the 32-channel tiny CNN reaches 96.7\% as an int8 model of 37.6\,kB, within a point or two of the deep models but at a fraction of the size and latency. A practitioner should therefore start with the tiny and classical tiers for efficiency, knowing that a deep CNN or Transformer is also available if accuracy demands it; only the recurrent and state-space families and the Kolmogorov-Arnold model are off the table on this runtime. The 16-channel tiny CNN is a good default when latency matters (94.9\% on UT-HAR at 29.7\,ms and 13\,kB of RAM at 240\,MHz), with the 32-channel model trading roughly double the latency for a small accuracy gain.
+\subsection{What runs and what blocks on a bare ESP32}
+The frontier answers the title question more permissively than the chip's reputation suggests. On the PSRAM-less classic ESP32 the deployable options for WiFi CSI HAR include the classical learners, the tiny CNNs, and a deep CNN and convolution-augmented Transformer, all of which allocate and run within tens of kilobytes. What the small models offer is efficiency, not exclusivity: on the saturated UT-HAR benchmark a statistics MLP reaches 95.3\% and the 32-channel tiny CNN 96.7\% (a 37.6\,kB int8 model), within a point or two of the deep models at a fraction of the size and latency, so a practitioner should start with the tiny and classical tiers and reach for a deep CNN or Transformer only if accuracy demands it. The barriers that remain are narrower than a blanket memory limit. Convertibility is the hard gate: recurrent and state-space models do not reach the runtime at all without custom operators, because their fused recurrent and dynamic-tensor operators are outside the builtin set; the Chebyshev-KAN converts but fails to allocate as exported by the default converter, an operator-mapping limitation rather than a memory ceiling, since the much larger CNN and Transformer allocate comfortably on the same device. We initially assumed a memory wall blocked all deep models, and flashing them to the board showed that assumption was wrong, which is the value of bare-device characterization over a GPU-only or PSRAM-equipped comparison, and it also explains why prior on-device CSI work, navigating the same conversion limits, tends to favour convolutional models.
 
-\subsection{What blocks the rest}
-The barriers are narrower than a blanket memory limit. Convertibility is the hard gate: recurrent and state-space models, attractive on the GPU, do not reach the microcontroller runtime at all without custom operators, because their fused recurrent and dynamic-tensor operators are outside the builtin set. The Chebyshev-KAN clears conversion but fails to allocate at runtime as exported by the default converter, an operator-mapping limitation of its quantized polynomial and matmul layers rather than a memory ceiling, since the much larger CNN and Transformer allocate comfortably on the same device. We initially assumed a memory wall blocked all deep models; flashing them to the board showed that assumption was wrong, which is the value of bare-device characterization over a GPU-only or PSRAM-equipped comparison. It also explains why prior on-device CSI work, navigating the same conversion limits, tends to favour convolutional models.
+\subsection{Generalization is the binding constraint}
+The two halves of the study point in the same direction: once the deep CNN and Transformer are shown to run on the bare board, compute and memory are no longer what limits CSI HAR on this hardware, while the leave-one-user-out results show a mean 29-point drop when the test person is unseen (Section~\ref{sec:results-gap}). A plausible explanation, consistent with this limited evidence, is physical rather than statistical: CSI amplitude encodes the multipath channel, which is shaped by the person's body geometry and gait and by their position relative to the link, so an unseen person is an out-of-distribution input whose channel signature the model has not learned. This is why increasing capacity did not help (the larger Transformer was no more robust across people than the tiny CNN) while a few calibration samples did: adding only forty labelled samples from the target user lifts the tiny CNN from 62\% to 87\% on that user (Figure~\ref{fig:personalization}). The practical consequence is that effort is better spent on generalization than on shrinking the model, and that subject-independent accuracy should be reported as standard practice, because a random split on a small multi-user corpus reports a number the deployed device will not reach (a practitioner who reads 96\% will see about 63\% on a new user). Cross-subject methods such as domain adaptation, which would reduce even the calibration cost, are the substantive open problem. This also reinforces why the smallest models are attractive for the most constrained hardware: the classical learners are one to three orders of magnitude smaller than the networks, run in microseconds atop a shared 1 to 2\,ms feature-extraction step, and stay competitive on the saturated benchmark, so for a sensing task that must share a microcontroller with an application their predictability and small footprint are decisive.
 
-\subsection{On this dataset, generalization exceeds deployment as the limiting factor}
-The two halves of the study point in the same direction. Once the deep CNN and Transformer are shown to run on the bare board, compute and memory are no longer what limits CSI HAR on this hardware. The leave-one-user-out results on this three-user dataset show a mean 29-point drop when the test person is unseen (Section~\ref{sec:results-gap}). A plausible explanation, consistent with this limited evidence, is more physical than statistical: CSI amplitude encodes the multipath wireless channel, which is shaped by the specific person's body geometry, height, and gait and by their exact position and orientation relative to the transmit-receive link, superimposed on the static multipath of the room. When a model is trained on two people and tested on a third, the activity is the same but the channel signature that carries it is different, so the unseen person is an out-of-distribution input. A model trained on a handful of subjects therefore learns features that are partly person-specific and environment-specific rather than motion-invariant, and a larger model only fits those idiosyncrasies more tightly, which is exactly why increasing capacity did not help while a few calibration samples did. This is a domain-shift problem in the wireless channel, and on this three-user dataset it exceeds deployment as the limiting factor precisely because deployment is not the bottleneck: the chip runs the model, but the model has not seen the channel it will meet. It is also under-reported, because a random within-subject split lets a model memorize each person's channel and hides the gap entirely, which is why we argue for subject-independent evaluation as the honest default. A practitioner who reads a 96\% random-split number and provisions a tiny CNN will see about 63\% on a new user, and within this microcontroller's memory budget, scaling the model up did not close that gap in our experiments: the larger Transformer was no more robust across people than the tiny CNN. We do not claim the gap is unclosable in general; larger corpora and explicit cross-subject training are exactly the directions likely to help, but they lie outside what plain supervised training on this hardware achieves. The practical consequence is that effort is better spent on generalization than on shrinking the model. A short per-user calibration or personalization pass, cheap given microsecond-scale classical inference and tens-of-milliseconds neural inference on the device, is the natural remedy, and our calibration experiment confirms it directly: adding only forty labelled samples from the target user lifts the tiny CNN from 62\% to 87\% on that user (Section~\ref{sec:results-gap}, Figure~\ref{fig:personalization}). Cross-subject methods such as domain adaptation, which would reduce even that calibration cost, are the substantive open problem. The result also argues for reporting subject-independent accuracy as standard practice, because a random split on a small multi-user corpus reports a number the deployed device will not reach.
-
-\subsection{Why classical models deserve a second look}
-For the most constrained hardware, the smallest models are the natural design point rather than a compromise. The classical learners here are one to three orders of magnitude smaller than the networks, are exported to branch-only C with no runtime interpreter, run in microseconds on the device (about 1\,microsecond for the Decision Tree and 45\,microseconds for the Random Forest, atop a shared 1 to 2\,ms feature-extraction step that dominates the classical pipeline), and reach competitive accuracy on the saturated UT-HAR benchmark (95.3\% for the statistics multilayer perceptron). For a sensing task that must share a microcontroller with an application, this predictability and small footprint are decisive.
-
-\subsection{Practical deployment: the real-time pipeline and concurrent sensing}
-A fielded sensor runs a real-time pipeline of four stages: CSI acquisition from the WiFi driver, per-window preprocessing (amplitude extraction, normalization, and resampling to the model input), inference, and the predicted activity (Figure~\ref{fig:pipeline}). We built and ran this complete pipeline live on the classic ESP32 (Section~\ref{sec:results-live}, Table~\ref{tab:live}): as a 2.4\,GHz station it captures CSI from received packets through the esp-wifi callback, forms windows, normalizes and int8-quantizes them, and runs the deployed tiny CNN, so the front-end capture and windowing that earlier work leaves offline are exercised on-device here. Two practical considerations follow. First, timing is comfortable: a tiny CNN classifies a window in tens of milliseconds, an isolated-inference rate of 15 to 105 windows per second (one over the inference latency), well above the rate at which non-overlapping activity windows arrive, so inference is not the bottleneck in the loop; the live pipeline's actual window rate is lower and bounded by acquisition (1.57 windows/s in Table~\ref{tab:live}), and even the deep models, at an isolated 3 to 6 windows per second, remain adequate for activity-scale events. Second, and more constraining, sensing and inference must share the chip. The classic ESP32 is dual-core, so CSI acquisition (which lives in the WiFi driver) can run on one core while inference runs on the other, but the radio cannot be disabled in a live deployment as it was for our clean characterization, and an active WiFi stack claims internal SRAM that is then unavailable to the tensor arena. We measured this cost directly: initializing the WiFi stack in station mode (this measures the memory the radio driver claims once brought up, which is distinct from sustained live CSI packet acquisition, characterized separately in the live-pipeline experiment) reduces the largest free internal block from 152\,kB to 108\,kB, so the radio claims about 44\,kB. This 108\,kB is the block immediately after WiFi initialization (driver only); in the live run the largest free block is lower still, about 88 to 92\,kB (Table~\ref{tab:live}), because the application, the CSI ring buffer, and the tensor arena are also resident, so roughly 90\,kB is the realistic runtime budget with the radio active. Every deployable model still fits and runs under this reduced budget. With WiFi active the 16-channel tiny CNN, the deep CNN, and the deep Transformer all allocate their unchanged arenas (8.3, 12, and 54\,kB) within the 108\,kB block, and their latencies are within a millisecond of the radio-off figures (20.1, 244.6, and 322.0\,ms), because inference is CPU-bound and the idle WiFi driver does not contend for the compute (Table~\ref{tab:wifimem}). System-level headroom, not the arena, is the real constraint here: after a 54\,kB Transformer arena the live $\sim$90\,kB block leaves only about 36\,kB for application code and network buffers, so the ``no memory wall'' conclusion holds for fitting the model but the deep models leave little room for a concurrent networking application, whereas the tiny and classical tiers leave ample margin. The one practical caveat is on the flash side rather than RAM: linking the WiFi stack together with a deep model exceeds the default 1\,MB application partition, so the deep-model firmware needs a larger partition, which the 4\,MB flash accommodates. The tiny and classical tiers, which need well under 15\,kB of arena and a small image, therefore leave ample headroom for the stack and the application, while the deep models fit but with less margin. Stability under sustained live sensing is confirmed directly by the live-pipeline run (Section~\ref{sec:results-live}): over 30 minutes of continuous over-the-air operation the device received 180{,}815 CSI packets and classified 2{,}825 windows with no dropped windows, a steady 37.6\,ms post-window latency, and a free internal heap that varied by only about 2.5\,kB end to end with no crash or watchdog reset. This follows from the static tensor arena: TensorFlow Lite for Microcontrollers performs no per-inference dynamic allocation, so the arena itself cannot leak or fragment; the small heap jitter we observe comes from the WiFi driver's packet buffers rather than from inference. Over this 30-minute run the latency did not drift and no window was lost, which is encouraging for runtime stability; multi-hour and multi-day operation and thermal drift remain to be tested and are left as future work.
+\subsection{Practical deployment under a live radio}
+A fielded sensor runs a four-stage real-time pipeline (Figure~\ref{fig:pipeline}), which we built and ran live on the classic ESP32 (Section~\ref{sec:results-live}). Two practical considerations follow. First, timing is comfortable: a tiny CNN classifies a window in tens of milliseconds, well above the rate at which non-overlapping activity windows arrive, and even the deep models (an isolated 3 to 6 windows per second) remain adequate for activity-scale events. Second, sensing and inference must share the chip. The ESP32 is dual-core, so acquisition can run on one core while inference runs on the other, but an active WiFi stack claims internal SRAM: initializing the radio in station mode drops the largest free internal block from 152\,kB to 108\,kB, and in the live run it is about 88 to 92\,kB once the application and CSI ring buffer are resident. Every deployable model still fits and runs under this reduced budget, with latencies within a millisecond of the radio-off figures (Supplementary Material, Table~S7). System-level headroom, not the arena, is the real constraint: after a 54\,kB Transformer arena the live budget leaves only about 36\,kB for application code and network buffers, so the ``no memory wall'' conclusion holds for fitting the model but the deep models leave little room for a concurrent networking application, whereas the tiny and classical tiers leave ample margin. Runtime stability is confirmed by the 30-minute live run (Section~\ref{sec:results-live}): the static tensor arena performs no per-inference dynamic allocation, so it cannot leak or fragment, and the latency did not drift and no window was lost, though multi-hour operation and thermal drift remain untested.
 
 \subsection{Limitations}
 We group the limitations into three kinds so that the scope of the claims is unambiguous.
 
-\emph{Dataset size and diversity.} The generalization results rest on CSI-HAR, which has only three users, so the leave-one-user-out evaluation runs over three folds and the cross-subject numbers, while consistent, are a demonstration of the effect rather than a large-scale study; the three-user size is also why we treat the significance tests as exploratory (Section~\ref{sec:results-perclass}). UT-HAR is larger but saturated and not subject-partitioned, so it cannot show the gap. We add NTU-Fi\_HAR as a third dataset for the frontier (Section~\ref{sec:results-frontier}), which confirms the accuracy-versus-cost ordering but is itself saturated and single-session. To test the cross-subject gap on more than three users we reproduced it on a larger public corpus, CSI-Bench (35 users), where the subject-independent accuracy drops by a graded 32 points but stays above chance (Section~\ref{sec:results-gap}, Table~\ref{tab:gengap-ext}). That check uses a light off-device classifier rather than the on-device tiny models and a different task, so a fully powered on-hardware cross-subject study on a many-subject, multi-room corpus remains the most important extension.
+\emph{Dataset size and diversity.} The generalization results rest on CSI-HAR, which has only three users, so the leave-one-user-out evaluation runs over three folds and the cross-subject numbers, while consistent, are a demonstration of the effect rather than a large-scale study; the three-user size is also why we treat the significance tests as exploratory (Section~\ref{sec:results-perclass}). UT-HAR is larger but saturated and not subject-partitioned, so it cannot show the gap. We add NTU-Fi\_HAR as a third dataset for the frontier (Section~\ref{sec:results-frontier}), which confirms the accuracy-versus-cost ordering but is itself saturated and single-session. To test the cross-subject gap on more than three users we reproduced it on a larger public corpus, CSI-Bench (35 users), where both the deployed tiny CNN (30.8 points) and a light Random Forest reference (32.4 points) show the same graded drop that stays above chance (Section~\ref{sec:results-gap}, Table~\ref{tab:gengap-ext}). That check is off-device and on a different four-class task, so a fully powered on-hardware cross-subject study on a many-subject, multi-room corpus remains the most important extension.
 
 \emph{Hardware constraints.} All device measurements come from a single classic ESP32 board. Energy is measured on that board with an INA219 current sensor (Section~\ref{sec:results-ondevice}); any datasheet-derived figure we quote for context is presented as an estimate over the full 30 to 68\,mA range and not as a single value or bound. We also run the same int8 models on an ESP32-S3 (which adds PSRAM and the esp-nn vector kernels): it is on average 4.8$\times$ faster and uses about 70\% less energy per inference than the classic ESP32, with the convolutional models benefiting most from the SIMD kernels (Section~\ref{sec:results-s3}, Table~\ref{tab:s3}). The classic ESP32 therefore characterizes the weakest and most constrained commodity target, and the S3 figures bound the speedup available on the more capable board rather than being left to speculation. For context, Armenta-Garcia \emph{et~al.}~\cite{hernandez2025tools} report 232\,ms per inference and a 127\,kB footprint (using external PSRAM) for a quantized DenseNet CSI model on the ESP32-S3, whereas our feed-forward deep models run in 170 to 321\,ms on the PSRAM-less classic ESP32 through the export pipeline described here.
 
@@ -763,8 +689,11 @@ Y. Ma, G. Zhou, and S. Wang, ``WiFi sensing with channel state information: a su
 \bibitem{yang2023sensefi}
 J. Yang, X. Chen, H. Zou, D. Wang, Q. Xu, and L. Xie, ``SenseFi: a library and benchmark on deep-learning-empowered WiFi human sensing,'' \emph{Patterns}, vol. 4, no. 3, p. 100703, Mar. 2023, doi: 10.1016/j.patter.2023.100703.
 
-\bibitem{yousefi2017uthar}
-S. Yousefi, H. Narui, S. Dayal, S. Ermon, and S. Valaee, ``A survey on behavior recognition using WiFi channel state information,'' \emph{IEEE Commun. Mag.}, vol. 55, no. 10, pp. 98--104, Oct. 2017, doi: 10.1109/MCOM.2017.1700082.
+\bibitem{hernandez2025tools}
+J. A. Armenta-Garcia, F. F. Gonzalez-Navarro, J. Caro-Gutierrez, and C. I. Garcia-Reyes, ``Tools and methods for achieving Wi-Fi sensing in embedded devices,'' \emph{Sensors}, vol. 25, no. 19, p. 6220, Oct. 2025, doi: 10.3390/s25196220.
+
+\bibitem{espfihar2026}
+Z. Wen, Y. Ruan, X. Wang, and J. Zhou, ``ESP-Fi HAR: a low-power WiFi CSI dataset for ad-hoc IoT human activity recognition,'' \emph{Ad Hoc Netw.}, vol. 186, art. 104192, 2026, doi: 10.1016/j.adhoc.2026.104192.
 
 \bibitem{chen2019ablstm}
 Z. Chen, L. Zhang, C. Jiang, Z. Cao, and W. Cui, ``WiFi CSI based passive human activity recognition using attention based BLSTM,'' \emph{IEEE Trans. Mobile Comput.}, vol. 18, no. 11, pp. 2714--2724, Nov. 2019, doi: 10.1109/TMC.2018.2878233.
@@ -779,43 +708,19 @@ H. Kang, D. Kim, and K.-A. Toh, ``Human activity recognition through augmented W
 T. D. Quy, C.-Y. Lin, and T. K. Shih, ``Enhanced human activity recognition using Wi-Fi sensing: leveraging phase and amplitude with attention mechanisms,'' \emph{Sensors}, vol. 25, no. 4, p. 1038, Feb. 2025, doi: 10.3390/s25041038.
 
 \bibitem{kanorig2024}
-Z. Liu \emph{et al.}, ``KAN: Kolmogorov-Arnold networks,'' \emph{arXiv preprint arXiv:2404.19756}, 2024. [Online]. Available: \url{https://arxiv.org/abs/2404.19756}
+Z. Liu, Y. Wang, S. Vaidya, F. Ruehle, J. Halverson, M. Solja\v{c}i\'c, T. Y. Hou, and M. Tegmark, ``KAN: Kolmogorov-Arnold networks,'' in \emph{Proc. Int. Conf. Learn. Represent. (ICLR)}, Singapore, Apr. 2025. [Online]. Available: \url{https://openreview.net/forum?id=Ozo7qJ5vZi}
 
 \bibitem{neurosym2025}
-X. Xu, J. Yang \emph{et al.}, ``Neurosymbolic AI empowered consumer electronics healthcare for WiFi-based human activity recognition,'' \emph{IEEE Trans. Consum. Electron.}, vol. 71, no. 4, pp. 12056--12067, Nov. 2025.
-
-\bibitem{kanhar2025}
-M. Alikhani, ``KAN-HAR: a human activity recognition based on Kolmogorov-Arnold network,'' \emph{arXiv:2508.11186}, 2025.
+X. Xu, J. Yang, V. Govindarajan, N. Alturki, G. Kumar, L. Y. Por, and A. K. Bashir, ``Neurosymbolic AI empowered consumer electronics healthcare for WiFi-based human activity recognition,'' \emph{IEEE Trans. Consum. Electron.}, vol. 71, no. 4, pp. 12056--12064, Nov. 2025, doi: 10.1109/TCE.2025.3625226.
 
 \bibitem{gu2023mamba}
-A. Gu and T. Dao, ``Mamba: linear-time sequence modeling with selective state spaces,'' \emph{arXiv:2312.00752}, Dec. 2023.
+A. Gu and T. Dao, ``Mamba: Linear-time sequence modeling with selective state spaces,'' in \emph{Proc. 1st Conf. Lang. Model. (COLM)}, Philadelphia, PA, USA, Oct. 2024. [Online]. Available: \url{https://openreview.net/forum?id=tEYskw1VY2}
 
 \bibitem{tfmamba2025}
-J. Liu, Y. Huang, X. Shi, X. Ren, T. Mi, and R. C. Qiu, ``TF-Mamba: a lightweight state-space model for Wi-Fi-based human activity recognition,'' \emph{IEEE Sensors J.}, 2025, IEEE Xplore document 10817504.
+J. Liu, Y. Huang, X. Shi, X. Ren, T. Mi, and R. C. Qiu, ``TF-Mamba: A lightweight state-space model for Wi-Fi-based human activity recognition,'' \emph{IEEE Sensors J.}, vol. 25, no. 13, pp. 23184--23194, Jul. 2025, doi: 10.1109/JSEN.2024.3520857.
 
 \bibitem{bimamba2025}
 H. Tan, Y. Dao, H. Zhang, T. Guo, and W. Wang, ``WiFi signal-based human activity recognition using bidirectional Mamba models,'' in \emph{Proc. IEEE 11th World Forum Internet Things (WF-IoT)}, 2025, doi: 10.1109/WF-IoT64238.2025.11270783.
-
-\bibitem{mambalite2025}
-H. Xu \emph{et al.}, ``MambaLite-Micro: memory-optimized Mamba inference on MCUs,'' \emph{arXiv:2509.05488}, 2025.
-
-\bibitem{hernandez2025tools}
-J. A. Armenta-Garcia, F. F. Gonzalez-Navarro, J. Caro-Gutierrez, and C. I. Garcia-Reyes, ``Tools and methods for achieving Wi-Fi sensing in embedded devices,'' \emph{Sensors}, vol. 25, no. 19, p. 6220, Oct. 2025, doi: 10.3390/s25196220.
-
-\bibitem{star2025}
-K. Liu, ``STAR: a privacy-preserving, energy-efficient edge AI framework for human activity recognition via Wi-Fi CSI in mobile and pervasive computing environments,'' \emph{arXiv preprint arXiv:2510.26148}, 2025. [Online]. Available: \url{https://arxiv.org/abs/2510.26148}
-
-\bibitem{espfihar2026}
-Z. Wen, Y. Ruan, X. Wang, and J. Zhou, ``ESP-Fi HAR: a low-power WiFi CSI dataset for ad-hoc IoT human activity recognition,'' \emph{Ad Hoc Netw.}, vol. 186, art. 104192, 2026, doi: 10.1016/j.adhoc.2026.104192.
-
-\bibitem{greensensing2026}
-R. Koo, X. Liang, D. Mishra, and A. Seneviratne, ``A survey on green wireless sensing: energy-efficient sensing via WiFi CSI and lightweight learning,'' \emph{Energies}, vol. 19, no. 2, p. 573, 2026, doi: 10.3390/en19020573.
-
-\bibitem{suwannaphong2025tinyml}
-T. Suwannaphong \emph{et al.}, ``Optimising TinyML with quantization and distillation of transformer and Mamba models for indoor localisation on edge devices,'' \emph{Sci. Rep.}, 2025, arXiv:2412.09289.
-
-\bibitem{esp32datasheet}
-Espressif Systems, ``ESP32 series datasheet,'' v5.2, 2025. [Online]. Available: \url{https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf}
 
 \bibitem{emlearn}
 J. Nordby \emph{et al.}, ``emlearn: machine learning inference engine for microcontrollers and embedded devices,'' software, 2019, doi: 10.5281/zenodo.2589394.
@@ -824,19 +729,13 @@ J. Nordby \emph{et al.}, ``emlearn: machine learning inference engine for microc
 M. Ali \emph{et al.}, ``A comparison of machine learning algorithms for Wi-Fi sensing using CSI data,'' \emph{Electronics}, vol. 12, no. 18, p. 3935, 2023, doi: 10.3390/electronics12183935.
 
 \bibitem{tinytnas2024}
-B. Saha, R. Samanta, S. K. Ghosh, and R. B. Roy, ``TinyTNAS: GPU-free, time-bound, hardware-aware neural architecture search for TinyML time series classification,'' \emph{arXiv:2408.16535}, 2024.
+B. Saha, R. Samanta, R. B. Roy, and S. K. Ghosh, ``TinyTNAS: Time-bound, GPU-independent hardware-aware neural architecture search for TinyML time-series classification,'' \emph{IEEE Embedded Syst. Lett.}, vol. 18, no. 1, pp. 69--72, Feb. 2026, doi: 10.1109/LES.2025.3561870.
 
 \bibitem{micronas2025}
 T. King, Y. Zhou, T. R\"oddiger, and M. Beigl, ``MicroNAS for memory and latency constrained hardware aware neural architecture search in time series classification on microcontrollers,'' \emph{Sci. Rep.}, vol. 15, 2025, doi: 10.1038/s41598-025-90764-z.
 
-\bibitem{csihardataset}
-P. Fard Moshiri, R. Shahbazian, M. Nabati, and S. A. Ghorashi, ``A CSI-based human activity recognition using deep learning,'' \emph{Sensors}, vol. 21, no. 21, p. 7225, Oct. 2021, doi: 10.3390/s21217225. Dataset: \url{https://github.com/parisafm/CSI-HAR-Dataset} (Kaggle mirror: \url{https://www.kaggle.com/datasets/sayakghorai34/csi-har-dataset}).
-
-\bibitem{tfissue36688}
-TensorFlow project, ``Conversion of RNN/LSTM to TensorFlow Lite requires Select-TF-ops,'' GitHub issue 36688, 2020. [Online]. Available: \url{https://github.com/tensorflow/tensorflow/issues/36688} (accessed Aug. 2026).
-
-\bibitem{tflmissue907}
-TensorFlow Lite Micro project, ``Unsupported dynamic-tensor and TensorList operators in the microcontroller runtime,'' GitHub issues 907 and 1570, 2021. [Online]. Available: \url{https://github.com/tensorflow/tflite-micro/issues/907} (accessed Aug. 2026).
+\bibitem{suwannaphong2025tinyml}
+T. Suwannaphong, F. Jovan, I. Craddock, and R. McConville, ``Optimising TinyML with quantization and distillation of transformer and Mamba models for indoor localisation on edge devices,'' \emph{Sci. Rep.}, vol. 15, Art. no. 10081, Mar. 2025, doi: 10.1038/s41598-025-94205-9.
 
 \bibitem{hernandez2020lightweight}
 S. M. Hernandez and E. Bulut, ``Lightweight and standalone IoT based WiFi sensing for active repositioning and mobility,'' in \emph{Proc. IEEE 21st Int. Symp. World of Wireless, Mobile and Multimedia Networks (WoWMoM)}, 2020, pp. 277--286, doi: 10.1109/WoWMoM49955.2020.00056.
@@ -844,15 +743,38 @@ S. M. Hernandez and E. Bulut, ``Lightweight and standalone IoT based WiFi sensin
 \bibitem{hernandez2023edge}
 S. M. Hernandez and E. Bulut, ``WiFi sensing on the edge: signal processing techniques and challenges for real-world systems,'' \emph{IEEE Commun. Surveys Tuts.}, vol. 25, no. 1, pp. 46--76, 2023, doi: 10.1109/COMST.2022.3209144.
 
-\bibitem{sahoo2023realtime}
-A. K. Sahoo, V. Kompally, and S. K. Udgata, ``Wi-Fi sensing based real-time activity detection in smart home environment,'' in \emph{Proc. IEEE Applied Sensing Conf. (APSCON)}, 2023, doi: 10.1109/APSCON56343.2023.10101249.
-
-
-\bibitem{csibench2025}
-G. Zhu, Y. Hu, W. Gao, W.-H. Wang, B. Wang, and K.~J.~R. Liu, ``CSI-Bench: A large-scale in-the-wild dataset for multi-task WiFi sensing,'' in \emph{Advances in Neural Information Processing Systems (NeurIPS), Datasets and Benchmarks Track}, 2025. [Online]. Available: \url{https://arxiv.org/abs/2505.21866}
-
 \bibitem{lenka2024wisdom}
 M. Lenka and A. Chakraborty, ``On-device deep learning for IoT-based wireless sensing applications,'' in \emph{Proc. IEEE Int. Conf. Pervasive Computing and Communications Workshops (PerCom Workshops), WiSense}, 2024, doi: 10.1109/PerComWorkshops59983.2024.10502448.
+
+\bibitem{sahoo2023realtime}
+A. K. Sahoo, V. Kompally, and S. K. Udgata, ``Wi-Fi sensing based real-time activity detection in smart home environment,'' in \emph{Proc. IEEE Appl. Sens. Conf. (APSCON)}, Bengaluru, India, Jan. 2023, pp. 1--3, doi: 10.1109/APSCON56343.2023.10101249.
+
+\bibitem{mambalite2025}
+H. Xu, J. Xia, W. Yang, Y. Sui, and S. Xia, ``MambaLite-Micro: Memory-optimized Mamba inference on MCUs,'' 2025, \emph{arXiv:2509.05488}. [Online]. Available: \url{https://arxiv.org/abs/2509.05488}
+
+\bibitem{star2025}
+K. Liu, Q. Zhao, R. Wang, Y. Lin, J. Yu, and S. J. Fong, ``STAR: A privacy-preserving, energy-efficient edge AI framework for human activity recognition via Wi-Fi CSI in mobile and pervasive computing environments,'' \emph{Sensors}, vol. 26, no. 12, Art. no. 3692, Jun. 2026, doi: 10.3390/s26123692.
+
+\bibitem{greensensing2026}
+R. Koo, X. Liang, D. Mishra, and A. Seneviratne, ``A survey on green wireless sensing: energy-efficient sensing via WiFi CSI and lightweight learning,'' \emph{Energies}, vol. 19, no. 2, p. 573, 2026, doi: 10.3390/en19020573.
+
+\bibitem{tfissue36688}
+TensorFlow project, ``Conversion of RNN/LSTM to TensorFlow Lite requires Select-TF-ops,'' GitHub issue 36688, 2020. [Online]. Available: \url{https://github.com/tensorflow/tensorflow/issues/36688} (accessed Aug. 2026).
+
+\bibitem{tflmissue907}
+TensorFlow Lite Micro project, ``Unsupported dynamic-tensor and TensorList operators in the microcontroller runtime,'' GitHub issues 907 and 1570, 2021. [Online]. Available: \url{https://github.com/tensorflow/tflite-micro/issues/907} (accessed Aug. 2026).
+
+\bibitem{yousefi2017uthar}
+S. Yousefi, H. Narui, S. Dayal, S. Ermon, and S. Valaee, ``A survey on behavior recognition using WiFi channel state information,'' \emph{IEEE Commun. Mag.}, vol. 55, no. 10, pp. 98--104, Oct. 2017, doi: 10.1109/MCOM.2017.1700082.
+
+\bibitem{csihardataset}
+P. Fard Moshiri, R. Shahbazian, M. Nabati, and S. A. Ghorashi, ``A CSI-based human activity recognition using deep learning,'' \emph{Sensors}, vol. 21, no. 21, p. 7225, Oct. 2021, doi: 10.3390/s21217225. Dataset: \url{https://github.com/parisafm/CSI-HAR-Dataset} (Kaggle mirror: \url{https://www.kaggle.com/datasets/sayakghorai34/csi-har-dataset}).
+
+\bibitem{csibench2025}
+G. Zhu, Y. Hu, W. Gao, W.-H. Wang, B. Wang, and K.~J.~R. Liu, ``CSI-Bench: A large-scale in-the-wild dataset for multi-task WiFi sensing,'' in \emph{Adv. Neural Inf. Process. Syst. (NeurIPS), Datasets and Benchmarks Track}, vol. 38, San Diego, CA, USA, Dec. 2025, pp. 187882--187907, doi: 10.52202/085713-5648.
+
+\bibitem{esp32datasheet}
+Espressif Systems, ``ESP32 series datasheet,'' v5.2, 2025. [Online]. Available: \url{https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf}
 
 \end{thebibliography}
 

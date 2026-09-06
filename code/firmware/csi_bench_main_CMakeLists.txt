@@ -64,3 +64,8 @@ if(DEFINED ENV{LIVE})
         target_compile_definitions(${COMPONENT_LIB} PRIVATE LIVE_MINUTES=$ENV{LIVE_MINUTES})
     endif()
 endif()
+
+# R2-7 in-domain data collection: RECORD_CSI=1 (with LIVE=1) streams CSI windows over serial.
+if(DEFINED ENV{RECORD_CSI})
+    target_compile_definitions(${COMPONENT_LIB} PRIVATE RECORD_CSI=1)
+endif()

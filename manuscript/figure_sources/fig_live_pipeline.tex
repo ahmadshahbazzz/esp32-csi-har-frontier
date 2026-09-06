@@ -5,12 +5,13 @@
 \usepackage{sansmath}
 \usetikzlibrary{positioning,fit,backgrounds,calc,arrows.meta}
 % ---- reference palette: pale fills + matching mid-tone borders, black text ----
+% R2-11a: greyscale for consistency with Figure 1 (colours removed).
 \definecolor{txt}{HTML}{000000}
-\definecolor{gyF}{HTML}{F2F2F2}\definecolor{gyB}{HTML}{808080}   % grey  (AP)
-\definecolor{blF}{HTML}{DAE3F3}\definecolor{blB}{HTML}{4472C4}   % blue  (acquisition, core 0)
-\definecolor{gnF}{HTML}{E2EFDA}\definecolor{gnB}{HTML}{548235}   % green (compute, core 1)
-\definecolor{rdF}{HTML}{FBE3E3}\definecolor{rdB}{HTML}{C00000}   % red   (output)
-\definecolor{socB}{HTML}{404040}
+\definecolor{gyF}{HTML}{F2F2F2}\definecolor{gyB}{HTML}{000000}   % light grey fill (AP)
+\definecolor{blF}{HTML}{FFFFFF}\definecolor{blB}{HTML}{000000}   % white fill (acquisition, core 0)
+\definecolor{gnF}{HTML}{E8E8E8}\definecolor{gnB}{HTML}{000000}   % grey fill (compute, core 1)
+\definecolor{rdF}{HTML}{C8C8C8}\definecolor{rdB}{HTML}{000000}   % darker grey fill (output)
+\definecolor{socB}{HTML}{000000}
 \begin{document}\sansmath
 \begin{tikzpicture}[font=\small,text=txt,>={Triangle[length=2.4mm,width=2mm]},node distance=6mm,
   stg/.style={rounded corners=2pt,line width=0.7pt,align=center,inner sep=4pt,minimum height=15mm,minimum width=27mm},

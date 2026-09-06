@@ -271,7 +271,18 @@ extern "C" void app_main(void) {
             int64_t a=esp_timer_get_time();
             // copy T rows in chronological order
             for (int t=0;t<LIVE_T;t++){ unsigned idx=(processed+t)%LIVE_RING; for(int k=0;k<LIVE_F;k++) win[t][k]=g_rows[idx][k]; }
-            processed += LIVE_T;                       // non-overlapping windows
+            processed += LIVE_T;
+#ifdef RECORD_CSI
+            // R2-7 in-domain data collection: stream each raw amplitude window over serial
+            // (no on-device classification). One line per window: "REC <idx> v0 ... v(T*F-1)".
+            printf("REC %lu", wins);
+            for(int t=0;t<LIVE_T;t++)for(int k=0;k<LIVE_F;k++) printf(" %.3f", win[t][k]);
+            printf("\n"); wins++;
+            { int64_t now=esp_timer_get_time();
+              if (now-t_last > 2000000){ printf("REC_STAT t=%.1f windows=%lu pkts=%lu bad=%lu\n",
+                    (now-t_start)/1e6, wins, g_pkt, g_bad); t_last=now; } }
+            vTaskDelay(1); continue;
+#endif                       // non-overlapping windows
             // per-window z-score (matches training normalization)
             double s=0,s2=0; int n=LIVE_T*LIVE_F;
             for(int t=0;t<LIVE_T;t++)for(int k=0;k<LIVE_F;k++){ float v=win[t][k]; s+=v; s2+=v*v; }
