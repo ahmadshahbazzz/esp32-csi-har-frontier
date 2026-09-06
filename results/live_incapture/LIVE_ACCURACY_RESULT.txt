@@ -1,0 +1,18 @@
+R2-7 LIVE in-domain classification accuracy, measured on the classic ESP32 (2026-09-07).
+Real over-the-air CSI captured + windowed ON the device, one person, two sessions with a
+changed setup between them. Deployed 16-channel tiny CNN, trained/evaluated off-device.
+
+Data captured on-device (int8 deployed representation, overlapping stride-16 windows):
+  Session 1: 7 activities, 881 windows.
+  Session 2: 7 activities (changed position/network), 805 windows.  Total 1,686 windows.
+
+Results (16-ch tiny CNN, 7 activities, chance = 14.3%):
+  Within-session (S1, 80/20)                         : 46.9%  (optimistic: overlapping windows)
+  Cross-session leave-one-session-out, mean of both  : 25.8%
+        train S1 -> test S2 : 26.6%
+        train S2 -> test S1 : 25.0%   (mean over 3 seeds each)
+
+INTERPRETATION: live recognition on the deployed board works (well above chance), but accuracy
+collapses from ~47% within-session to ~26% across a different session/position of the SAME person.
+This session-to-session drop mirrors the cross-subject generalization gap that is the paper's
+central finding: on the classic ESP32, deployment is not the bottleneck, generalization is.
