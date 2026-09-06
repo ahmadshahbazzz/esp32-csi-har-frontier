@@ -14,8 +14,8 @@ echo "using port $PORT"; echo cout098 | sudo -S chmod 666 "$PORT" 2>/dev/null
 export LIVE=1 RECORD_CSI=1
 rm -f csi_bench/sdkconfig
 ( cd csi_bench && . "$ROOT/esp-idf/export.sh" >/dev/null 2>&1 && idf.py fullclean >/dev/null 2>&1 \
-  && idf.py set-target esp32 >/dev/null 2>&1 \
-  && idf.py build \
+  && idf.py -DSDKCONFIG_DEFAULTS="sdkconfig.defaults;sdkconfig.live" set-target esp32 >/dev/null 2>&1 \
+  && idf.py -DSDKCONFIG_DEFAULTS="sdkconfig.defaults;sdkconfig.live" build \
   && idf.py -p "$PORT" -b 115200 flash )
 unset LIVE RECORD_CSI
 rm -f csi_bench/sdkconfig
