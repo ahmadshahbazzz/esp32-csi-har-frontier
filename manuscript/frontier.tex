@@ -417,6 +417,7 @@ Deep Transformer & CSI-HAR & 320.7 & 54.0 & 117.8 \\
 \label{tab:energy}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{llcccc}
 \toprule
 Model & Dataset & Active (mW) & Latency (ms) & Gross (mJ) & Marginal (mJ) \\
@@ -435,7 +436,7 @@ Tiny CNN (32 ch) & CSI-HAR & 377 & 46.4  & 17.5  & 5.7 \\
 Deep CNN         & CSI-HAR & 331 & 243.5 & 80.7  & 18.8 \\
 Deep Transformer & CSI-HAR & 367 & 320.7 & 117.8 & 36.2 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 Three build-time and runtime factors were characterized and are reported in full in the Supplementary Material. First, clock: the classic ESP32 boots at 160\,MHz but can run at 240\,MHz, which reduces latency by about a third (close to the 1.5$\times$ clock ratio for the compute-bound tiny CNNs, less for the deep CNN); all results in this paper use 240\,MHz (Supplementary Material, Table~S4). Second, kernels: the single factor that dominates on-device speed is the optimized kernel library. With Espressif's ESP-NN int8 kernels (enabled by default and used throughout) the 16-channel tiny CNN runs in 20.2\,ms; rebuilt against the portable reference kernels it takes 275.7\,ms, a 13.6$\times$ penalty, and the deep CNN becomes so slow (over 5\,s) that a single inference trips the task watchdog. The optimized kernels are therefore essential rather than optional, and their effect dwarfs both the clock and the compiler flag, which changed latency by under 3\%. Third, arena: an arena-size sweep shows a sharp threshold at each model's true requirement (8488 bytes for the 16-channel tiny CNN), with over-provisioning wasting RAM and buying no speed; a bare-device subtlety is that the arena must be placed in byte-addressable internal RAM (\texttt{MALLOC\_CAP\_8BIT}), or int8 tensor access faults (Supplementary Material, Table~S5). The arena composition confirms the latency story from the memory side: the deep CNN has 16 operators and a small footprint, whereas the Transformer has 55 operators and a head that scales with the square of the sequence length, reaching 36.9\,kB on CSI-HAR (Supplementary Material, Table~S6).
@@ -596,6 +597,7 @@ The gap is large and consistent. Every model loses 25 to 33 percentage points wh
 \label{tab:gengap}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lccc}
 \toprule
 Model & Random split (\%) & LOUO (\%) & Gap (pts) \\
@@ -609,7 +611,7 @@ Flattened MLP   & 87.7 & 56.9 & 30.8 \\
 \midrule
 Mean             & 85.7 & 56.3 & \textbf{29.4} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \begin{figure}[tbp]
