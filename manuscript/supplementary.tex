@@ -2,6 +2,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{url}
@@ -12,6 +13,7 @@
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thesection}{S\arabic{section}}
 
+\raggedbottom
 \begin{document}
 
 \title{Supplementary Material for\\``Feasibility and Deployment Analysis of Tiny Machine Learning for WiFi-Based Human Activity Recognition on a Resource-Constrained Microcontroller''}
@@ -21,7 +23,7 @@
 \noindent This document collects the secondary tables, figures, and ablations that support the main manuscript. It is referenced from the main text (for example, ``Supplementary Material, Table~S1''). All values are measured with the protocol described in the main manuscript; nothing here is required to follow the main argument, but each item is provided for completeness and reproducibility. Table and figure numbers here are prefixed with ``S''.
 
 \section{Third-Dataset Frontier: NTU-Fi\_HAR}
-To check that the accuracy-versus-cost frontier is not an artefact of UT-HAR and CSI-HAR, we ran the same pipeline on a third public dataset, NTU-Fi\_HAR~\cite{yang2023sensefi}, a clean whole-body HAR benchmark of six activities (box, circle, clean, fall, run, and walk) with three transmit-receive antennas over 114 subcarriers (stratified 80/20 split over three seeds). Table~\ref{tab:ntufi} reports the result. NTU-Fi\_HAR is saturated in the same way UT-HAR is: the tiny CNNs reach essentially perfect accuracy (100\% for the 32-channel model), the deep CNN and Transformer match them, and even the classical Random Forest reaches 99.7\%. The accuracy-versus-cost ordering therefore holds on an independent HAR corpus, and the small models remain competitive with the deep ones. As on UT-HAR, a saturated benchmark cannot expose the cross-subject gap; that is the role of the subject-independent CSI-HAR evaluation in the main text.
+To check that the accuracy-versus-cost frontier is not an artefact of UT-HAR and CSI-HAR, we ran the same pipeline on a third public dataset, NTU-Fi\_HAR (from the SenseFi benchmark, Yang \emph{et al.}, \emph{Patterns}, 2023), a clean whole-body HAR benchmark of six activities (box, circle, clean, fall, run, and walk) with three transmit-receive antennas over 114 subcarriers (stratified 80/20 split over three seeds). Table~\ref{tab:ntufi} reports the result. NTU-Fi\_HAR is saturated in the same way UT-HAR is: the tiny CNNs reach essentially perfect accuracy (100\% for the 32-channel model), the deep CNN and Transformer match them, and even the classical Random Forest reaches 99.7\%. The accuracy-versus-cost ordering therefore holds on an independent HAR corpus, and the small models remain competitive with the deep ones. As on UT-HAR, a saturated benchmark cannot expose the cross-subject gap; that is the role of the subject-independent CSI-HAR evaluation in the main text.
 
 \begin{table}[t]
 \caption{Deployability frontier on NTU-Fi\_HAR (six whole-body activities, stratified 80/20 split over three seeds). Like UT-HAR it is saturated: the tiny and classical models match the deep ones, so the accuracy-versus-cost ordering of the main frontier holds on an independent HAR corpus. The int8 sizes are larger than on the other datasets because NTU-Fi\_HAR has more input channels (342 versus 90 or 52). The classical and tiny tiers are the mean $\pm$ standard deviation over three seeds; the two deep rows are a single seed, which is why they carry no interval.}
@@ -183,30 +185,25 @@ Deep Transformer & 54  & 320.7 & 322.0 & $\sim$54\,kB  & $\sim$36\,kB \\
 \section{Supplementary Figures}
 Figures~\ref{fig:accuracy}, \ref{fig:complexity}, and \ref{fig:memory} present the classical and tiny tiers graphically: accuracy across datasets, model complexity on a logarithmic axis, and the measured peak tensor arena of every deployable model against the roughly 150\,kB contiguous block the runtime exposes. The numerical values behind these plots are in the main-text tables.
 
-\begin{figure}[tbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{fig_accuracy.png}
 \caption{Accuracy of the classical and tiny tiers across UT-HAR and CSI-HAR. Accuracy is consistently lower on CSI-HAR, which has fewer samples per class and is evaluated under a subject-independent split.}
 \label{fig:accuracy}
 \end{figure}
 
-\begin{figure}[tbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{fig_complexity.png}
 \caption{Model complexity on a logarithmic axis (tree node count or network parameter count). The classical learners are one to three orders of magnitude smaller than the networks.}
 \label{fig:complexity}
 \end{figure}
 
-\begin{figure}[tbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{fig_memory.png}
 \caption{Measured peak tensor arena of the deployable models on the classic ESP32, against the roughly 150\,kB contiguous block the runtime exposes (dashed line). Every convertible feed-forward model fits with a large margin, including the deep CNN (10 to 12\,kB) and Transformer (24 to 54\,kB). The Chebyshev-KAN converts but fails to allocate, and the recurrent and state-space models do not convert; neither is shown.}
 \label{fig:memory}
 \end{figure}
-
-\begin{thebibliography}{1}
-\bibitem{yang2023sensefi}
-J. Yang, X. Chen, H. Zou, D. Wang, Q. Xu, and L. Xie, ``SenseFi: a library and benchmark on deep-learning-empowered WiFi human sensing,'' \emph{Patterns}, vol. 4, no. 3, p. 100703, Mar. 2023.
-\end{thebibliography}
 
 \end{document}
