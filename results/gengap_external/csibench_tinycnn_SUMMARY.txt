@@ -1,0 +1,8 @@
+CSI-Bench (35 users, 4-class MotionSourceRecognition) cross-subject gap for the DEPLOYED tiny CNN
+(kernel muhammadahmad3/csibench-tinycnn-gengap, completed 2026-09-06):
+  random-overlap 80/20 split : acc 93.33%  macroF1 88.77%  (n=2774)
+  subject-independent split  : acc 62.57%  macroF1 27.98%  (n=4267)
+  cross-subject gap          : 30.76 points
+This confirms the cross-subject gap holds for the ACTUAL deployed tiny-CNN architecture at 35-user
+scale, not only for the light Random Forest proxy (which gave 84.1 -> 51.7, a 32.4-pt gap on the
+same dataset). Addresses reviewer 2's "only three users" concern with a neural model.
