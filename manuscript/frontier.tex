@@ -609,27 +609,30 @@ Mean             & 85.7 & 56.3 & \textbf{29.4} \\
 \label{fig:gengap}
 \end{figure}
 
-To check that this gap is not an artefact of the three-user CSI-HAR set, we reproduced the same random-versus-subject-independent contrast on a much larger public WiFi-CSI corpus, using a light Random Forest on per-subcarrier amplitude statistics (Table~\ref{tab:gengap-ext}, Figure~\ref{fig:gengap-ext}). On CSI-Bench~\cite{csibench2025}, a four-class task on 35 users, accuracy falls from 84.1\% to 51.7\% under a subject-independent split, a graded 32-point drop that remains well above the 25\% chance level, matching the CSI-HAR pattern at more than ten times the subject count. The degradation therefore appears on a many-user dataset and is not specific to the small three-user set. This check uses a light off-device classifier rather than the on-device tiny models and a different task, so it establishes the broader cross-subject phenomenon rather than the on-device deployability result, which rests on CSI-HAR; a fully powered on-hardware cross-subject study on a many-subject, multi-room corpus remains the most important extension.
+To check that this gap is not an artefact of the three-user CSI-HAR set, we reproduced the same random-versus-subject-independent contrast on a much larger public WiFi-CSI corpus, CSI-Bench~\cite{csibench2025}, a four-class task on 35 users (Table~\ref{tab:gengap-ext}, Figure~\ref{fig:gengap-ext}). We ran two classifiers there: the deployed tiny CNN and, as a light off-device reference, a Random Forest on per-subcarrier amplitude statistics. The deployed tiny CNN falls from 93.3\% on a random split to 62.6\% under a subject-independent split, a 30.8-point drop, and the Random Forest from 84.1\% to 51.7\% (32.4 points); both remain well above the 25\% chance level. The gap therefore holds on a many-user dataset for the actual deployed architecture, not only for a proxy, and is not specific to the small three-user set. It is measured off-device on a different four-class task, so it establishes the breadth of the cross-subject phenomenon rather than the on-device deployability result, which rests on CSI-HAR; a fully powered on-hardware cross-subject study on a many-subject, multi-room corpus remains the most important extension.
 
 \begin{table}[t]
-\caption{Cross-subject generalization gap on two WiFi-CSI datasets: CSI-HAR (3 users, the on-device dataset) and CSI-Bench (35 users). Moving from a random (subject-overlapping) split to a subject-independent split lowers accuracy by about 30 points in both cases, and in both the subject-independent accuracy stays well above chance, so the effect is a genuine graded gap rather than a floor effect and is not specific to the small three-user set. The CSI-Bench check uses a light off-device Random Forest on amplitude statistics, not the deployed tiny models.}
+\caption{Cross-subject generalization gap across datasets and classifiers. Moving from a random (subject-overlapping) split to a subject-independent split lowers accuracy by about 30 points in every case, and the subject-independent accuracy stays well above chance throughout, so the effect is a genuine graded gap rather than a floor effect and is not specific to the small three-user set. On the 35-user CSI-Bench corpus the gap holds for the deployed tiny CNN (30.8 points), not only for the light off-device Random Forest reference (32.4 points).}
 \label{tab:gengap-ext}
 \centering
 \footnotesize
-\begin{tabular}{lcccc}
+\setlength{\tabcolsep}{3.5pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llcccc}
 \toprule
-Dataset (subjects) & Random (\%) & Subject-indep. (\%) & Chance (\%) & Cross-subject drop \\
+Dataset (subjects) & Model & Random (\%) & Subject-indep. (\%) & Chance (\%) & Drop \\
 \midrule
-CSI-HAR (3)    & 92.1 & 62.1 & 14.3 & 30.0 pts \\
-CSI-Bench (35) & 84.1 & 51.7 & 25.0 & 32.4 pts \\
+CSI-HAR (3)    & Tiny CNN & 92.1 & 62.1 & 14.3 & 30.0 pts \\
+CSI-Bench (35) & Tiny CNN & 93.3 & 62.6 & 25.0 & 30.8 pts \\
+CSI-Bench (35) & Rand.\ Forest & 84.1 & 51.7 & 25.0 & 32.4 pts \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \begin{figure}[tbp]
 \centering
 \includegraphics[width=\columnwidth]{fig_gengap_external.png}
-\caption{The cross-subject generalization gap reproduces on a many-user dataset: on both CSI-HAR (3 users) and CSI-Bench (35 users) accuracy drops by about 30 points from a random (subject-overlapping) split to a subject-independent split, staying above chance in both.}
+\caption{The cross-subject generalization gap reproduces on a many-user dataset and for the deployed architecture: on CSI-HAR (3 users) and on CSI-Bench (35 users) the tiny CNN drops by about 30 points from a random split to a subject-independent split, and the light Random Forest reference on CSI-Bench drops similarly, all staying above chance (dashed lines).}
 \label{fig:gengap-ext}
 \end{figure}
 
@@ -657,7 +660,7 @@ A fielded sensor runs a four-stage real-time pipeline (Figure~\ref{fig:pipeline}
 \subsection{Limitations}
 We group the limitations into three kinds so that the scope of the claims is unambiguous.
 
-\emph{Dataset size and diversity.} The generalization results rest on CSI-HAR, which has only three users, so the leave-one-user-out evaluation runs over three folds and the cross-subject numbers, while consistent, are a demonstration of the effect rather than a large-scale study; the three-user size is also why we treat the significance tests as exploratory (Section~\ref{sec:results-perclass}). UT-HAR is larger but saturated and not subject-partitioned, so it cannot show the gap. We add NTU-Fi\_HAR as a third dataset for the frontier (Section~\ref{sec:results-frontier}), which confirms the accuracy-versus-cost ordering but is itself saturated and single-session. To test the cross-subject gap on more than three users we reproduced it on a larger public corpus, CSI-Bench (35 users), where the subject-independent accuracy drops by a graded 32 points but stays above chance (Section~\ref{sec:results-gap}, Table~\ref{tab:gengap-ext}). That check uses a light off-device classifier rather than the on-device tiny models and a different task, so a fully powered on-hardware cross-subject study on a many-subject, multi-room corpus remains the most important extension.
+\emph{Dataset size and diversity.} The generalization results rest on CSI-HAR, which has only three users, so the leave-one-user-out evaluation runs over three folds and the cross-subject numbers, while consistent, are a demonstration of the effect rather than a large-scale study; the three-user size is also why we treat the significance tests as exploratory (Section~\ref{sec:results-perclass}). UT-HAR is larger but saturated and not subject-partitioned, so it cannot show the gap. We add NTU-Fi\_HAR as a third dataset for the frontier (Section~\ref{sec:results-frontier}), which confirms the accuracy-versus-cost ordering but is itself saturated and single-session. To test the cross-subject gap on more than three users we reproduced it on a larger public corpus, CSI-Bench (35 users), where both the deployed tiny CNN (30.8 points) and a light Random Forest reference (32.4 points) show the same graded drop that stays above chance (Section~\ref{sec:results-gap}, Table~\ref{tab:gengap-ext}). That check is off-device and on a different four-class task, so a fully powered on-hardware cross-subject study on a many-subject, multi-room corpus remains the most important extension.
 
 \emph{Hardware constraints.} All device measurements come from a single classic ESP32 board. Energy is measured on that board with an INA219 current sensor (Section~\ref{sec:results-ondevice}); any datasheet-derived figure we quote for context is presented as an estimate over the full 30 to 68\,mA range and not as a single value or bound. We also run the same int8 models on an ESP32-S3 (which adds PSRAM and the esp-nn vector kernels): it is on average 4.8$\times$ faster and uses about 70\% less energy per inference than the classic ESP32, with the convolutional models benefiting most from the SIMD kernels (Section~\ref{sec:results-s3}, Table~\ref{tab:s3}). The classic ESP32 therefore characterizes the weakest and most constrained commodity target, and the S3 figures bound the speedup available on the more capable board rather than being left to speculation. For context, Armenta-Garcia \emph{et~al.}~\cite{hernandez2025tools} report 232\,ms per inference and a 127\,kB footprint (using external PSRAM) for a quantized DenseNet CSI model on the ESP32-S3, whereas our feed-forward deep models run in 170 to 321\,ms on the PSRAM-less classic ESP32 through the export pipeline described here.
 
