@@ -342,7 +342,7 @@ Fard Moshiri \emph{et~al.}~\cite{csihardataset} & CSI-HAR (random) & 2D-CNN / AB
 
 \subsection{The deep tier: which families deploy}
 \label{sec:results-walls}
-Table~\ref{tab:deep} reports the five deep architectures on both datasets together with the result of flashing every convertible model to the physical device. The outcome is less clear-cut than a blanket ``deep models do not fit,'' and we report it as we measured it.
+Table~\ref{tab:deep} reports the five deep architectures on both datasets together with the result of flashing every convertible model to the physical device. The outcome is less clear-cut than a blanket ``deep models do not fit.''
 
 One barrier is an \emph{export-pipeline compatibility boundary}. Through the export route we use (Keras, TensorFlow~2.19, post-training int8 conversion to the TFLM builtin operator set), the bidirectional GRU and the lightweight state-space model, despite competitive floating-point accuracy, do not convert on either dataset: the recurrent model compiles to the fused \texttt{CudnnRNNV3} operator and the state-space model to dynamic \texttt{TensorList} operators, neither in the builtin set, and both require the Select-TF-ops path the ESP32 runtime does not provide \cite{tfissue36688,tflmissue907}. This is a property of the traced implementation and export route, not an intrinsic impossibility: we verified on CSI-HAR that the identical GRU exported with time-step unrolling converts cleanly to the int8 builtin set, though at a large cost (unrolling the 64-step recurrence inflates the model to about 568\,kB), so recurrence is deployable in principle but not practically through this pipeline. Because the operators involved are fixed by the architecture, the boundary holds on both datasets.
 

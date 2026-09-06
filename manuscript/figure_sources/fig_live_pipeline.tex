@@ -13,8 +13,8 @@
 \definecolor{rdF}{HTML}{C8C8C8}\definecolor{rdB}{HTML}{000000}   % darker grey fill (output)
 \definecolor{socB}{HTML}{000000}
 \begin{document}\sansmath
-\begin{tikzpicture}[font=\large,text=txt,>={Triangle[length=2.4mm,width=2mm]},node distance=6mm,
-  stg/.style={rounded corners=2pt,line width=0.7pt,align=center,inner sep=5pt,minimum height=20mm,minimum width=30mm},
+\begin{tikzpicture}[font=\footnotesize,text=txt,>={Triangle[length=2.4mm,width=2mm]},node distance=6mm,
+  stg/.style={rounded corners=2pt,line width=0.7pt,align=center,inner sep=3pt,minimum height=13mm,minimum width=26mm},
   ap/.style={stg,fill=gyF,draw=gyB},
   acq/.style={stg,fill=blF,draw=blB},
   cmp/.style={stg,fill=gnF,draw=gnB},
@@ -22,11 +22,11 @@
   fl/.style={font=\footnotesize\itshape,text=txt},
   core/.style={font=\footnotesize\bfseries,text=socB}]
 
-\node[ap] (ap) {\textbf{2.4 GHz AP}\\\normalsize(router / phone)};
-\node[acq,right=34mm of ap] (rx) {\textbf{Wi-Fi RX +}\\\textbf{CSI callback}};
-\node[acq,right=8mm of rx] (buf) {\textbf{ring buffer}\\\normalsize 52 subcarrier\\\normalsize amplitudes};
-\node[cmp,right=8mm of buf] (win) {\textbf{window $T{=}64$}\\\normalsize z-score +\\\normalsize int8 quantize};
-\node[cmp,right=8mm of win] (net) {\textbf{TinyCNN-16}\\\normalsize TFLite Micro};
+\node[ap] (ap) {\textbf{2.4 GHz AP}\\\scriptsize(router / phone)};
+\node[acq,right=30mm of ap] (rx) {\textbf{Wi-Fi RX +}\\\textbf{CSI callback}};
+\node[acq,right=8mm of rx] (buf) {\textbf{ring buffer}\\\scriptsize 52 subcarrier\\\scriptsize amplitudes};
+\node[cmp,right=8mm of buf] (win) {\textbf{window $T{=}64$}\\\scriptsize z-score +\\\scriptsize int8 quantize};
+\node[cmp,right=8mm of win] (net) {\textbf{TinyCNN-16}\\\scriptsize TFLite Micro};
 \node[res,right=8mm of net] (lab) {\textbf{activity}\\\textbf{label}};
 
 \draw[->,line width=0.8pt] (ap) -- (rx);
