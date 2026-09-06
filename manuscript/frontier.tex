@@ -20,6 +20,13 @@
 % The IEEE Access class sets \xfigwd only inside its custom \Figure command; define a
 % default so standard figure environments work with the class caption macro.
 \providecommand{\xfigwd}{0pt}
+% ieeeaccess.cls uses \if@biographyTOCentrynotmade in its biography environments but never
+% declares the flag; declare it here so IEEEbiographynophoto compiles (author bios at the end).
+\makeatletter
+\newif\if@biographyTOCentrynotmade
+\@biographyTOCentrynotmadetrue
+\@ifundefined{c@biography}{\newcounter{biography}}{}
+\makeatother
 \begin{document}
 \history{Date of current version August 2026.}
 \doi{10.1109/ACCESS.2026.DOI}
@@ -777,6 +784,19 @@ G. Zhu, Y. Hu, W. Gao, W.-H. Wang, B. Wang, and K.~J.~R. Liu, ``CSI-Bench: A lar
 Espressif Systems, ``ESP32 series datasheet,'' v5.2, 2025. [Online]. Available: \url{https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf}
 
 \end{thebibliography}
+
+% E4 / checklist: author biographies (text only, as in the submitted manuscript).
+\begin{IEEEbiographynophoto}{Annas W. Malik}
+is a Lecturer and Researcher in the Department of Computer Science at the University of Central Punjab (UCP), Lahore, Pakistan. He received the M.S. degree in Information Security from the University of Management and Technology (UMT), Lahore, Pakistan, and is currently pursuing the Ph.D. degree in Computer Science. His research interests include cybersecurity, intrusion detection, chaotic systems, cryptography, quantum cryptography, and secure communication systems.
+\end{IEEEbiographynophoto}
+
+\begin{IEEEbiographynophoto}{Muhammad Ahmad}
+is a software engineer specializing in full-stack development, machine learning, and cybersecurity. He received his B.S. degree in Computer Science from the University of Central Punjab (UCP). His work focuses on developing practical, reliable software solutions, with an emphasis on system resilience, security, and data protection. He has developed and deployed projects including a browser extension with over 700 downloads.
+\end{IEEEbiographynophoto}
+
+\begin{IEEEbiographynophoto}{Ki-Il Kim}
+received the M.S. and Ph.D. degrees in Computer Science from Chungnam National University, Daejeon, Republic of Korea, in 2002 and 2005, respectively. He is a Professor with the Department of Computer Science and Engineering, Chungnam National University. His research interests include machine learning for networking systems, wireless and mobile networks, fog computing, mobile ad hoc networks, quality of service, wireless sensor networks, and next-generation communication technologies.
+\end{IEEEbiographynophoto}
 
 \EOD
 
