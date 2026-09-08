@@ -340,6 +340,8 @@ Fard Moshiri \emph{et~al.}~\cite{csihardataset} & CSI-HAR (random) & 2D-CNN / AB
 \end{tabular}}
 \end{table}
 
+\emph{Deployment comparison.} The comparison above is on accuracy; on the deployment axis the closest prior on-device works run on more capable boards with larger footprints. Armenta-Garcia \emph{et~al.}~\cite{hernandez2025tools} deploy a quantized DenseNet on the PSRAM-equipped ESP32-S3 (92.43\%, 232\,ms, 127\,kB), and Lenka and Chakraborty \cite{lenka2024wisdom} run a compressed int8 DNN on the ESP32-C3 with a RAM budget of a few hundred kilobytes. On the bare PSRAM-less classic ESP32, the weakest member of the family, our deployable models occupy several-fold to an order of magnitude less RAM at a comparable accuracy level: the 16-channel tiny CNN runs in 8 to 13\,kB at 20 to 30\,ms, and even the deep CNN and Transformer allocate within 10 to 54\,kB (Table~\ref{tab:ondevice}). These are separate studies on different chips, models, and datasets, so the numbers are contextual rather than a controlled head-to-head (as Table~\ref{tab:priorcompare} notes); the point is that the classic ESP32 hosts the same class of models within a substantially smaller memory budget than the boards used in prior on-device work.
+
 \subsection{The deep tier: which families deploy}
 \label{sec:results-walls}
 Table~\ref{tab:deep} reports the five deep architectures on both datasets together with the result of flashing every convertible model to the physical device. The outcome is less clear-cut than a blanket ``deep models do not fit.''
