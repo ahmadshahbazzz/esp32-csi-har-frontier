@@ -4,7 +4,7 @@
 .zenodo.json                                                                 2045  abfc5fc5761664a8
 CITATION.cff                                                                 2129  75f87ffed0241a8e
 LICENSE                                                                      1093  7bb44927712392c1
-README.md                                                                   12028  15f09d287eaa83e7
+README.md                                                                   12729  b228a5d4f8b3da22
 code/README.md                                                               2789  3e59a8eb88d868e2
 code/firmware/capture_esp32.py                                               1114  34107635966ff211
 code/firmware/csi_bench_main.cc                                             20917  fe20a0d671c59c02

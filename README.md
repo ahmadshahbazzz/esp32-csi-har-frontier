@@ -1,6 +1,13 @@
 # Feasibility and Deployment Analysis of Wi-Fi-Based Human Activity Recognition on a Memory-Constrained Microcontroller
 
+[![DOI](https://img.shields.io/badge/DOI-10.1109%2FACCESS.2026.3742666-blue)](https://doi.org/10.1109/ACCESS.2026.3742666)
+[![IEEE Access](https://img.shields.io/badge/IEEE%20Access-2026-00629B)](https://ieeexplore.ieee.org/document/11733748)
+[![Open Access](https://img.shields.io/badge/open%20access-CC%20BY%204.0-orange)](https://creativecommons.org/licenses/by/4.0/)
+[![License: MIT](https://img.shields.io/badge/code-MIT-green)](LICENSE)
+
 Code, firmware, measured results, and trained models for the paper published in **IEEE Access** (2026, open access).
+
+**Keywords:** Wi-Fi sensing, channel state information (CSI), human activity recognition (HAR), TinyML, ESP32, microcontroller, TensorFlow Lite for Microcontrollers, int8 quantization, on-device inference, energy measurement, cross-subject generalization.
 
 **Authors:** Annas W. Malik, Muhammad Ahmad, and Ki-Il Kim
 
