@@ -1,10 +1,29 @@
-# How Far Can a PSRAM-less ESP32 Go? A TinyML Deployment Study for WiFi CSI HAR
+# Feasibility and Deployment Analysis of Wi-Fi-Based Human Activity Recognition on a Memory-Constrained Microcontroller
 
-Submission and reproducibility package.
+Code, firmware, measured results, and trained models for the paper published in **IEEE Access** (2026, open access).
 
-**Authors:** Annas W. Malik and Muhammad Ahmad, Faculty of Information Technology & Computer Science, University of Central Punjab, Lahore 54000, Pakistan.
-**Target venue:** IEEE Access (primary), IEEE Sensors Journal (alternative).
-**Paper type:** systems / TinyML deployment-characterization (not a new-model paper).
+**Authors:** Annas W. Malik, Muhammad Ahmad, and Ki-Il Kim
+
+**Paper:** https://doi.org/10.1109/ACCESS.2026.3742666 · [IEEE Xplore](https://ieeexplore.ieee.org/document/11733748) · CC BY 4.0
+
+**Status:** published. This repository is the final, archived reproducibility package for the paper.
+
+## Citation
+If you use this code, data, or results, please cite the paper:
+
+> A. W. Malik, M. Ahmad, and K.-I. Kim, "Feasibility and Deployment Analysis of Wi-Fi-Based Human Activity
+> Recognition on a Memory-Constrained Microcontroller," *IEEE Access*, 2026, doi: 10.1109/ACCESS.2026.3742666.
+
+```bibtex
+@article{malik2026feasibility,
+  title   = {Feasibility and Deployment Analysis of Wi-Fi-Based Human Activity
+             Recognition on a Memory-Constrained Microcontroller},
+  author  = {Malik, Annas W. and Ahmad, Muhammad and Kim, Ki-Il},
+  journal = {IEEE Access},
+  year    = {2026},
+  doi     = {10.1109/ACCESS.2026.3742666}
+}
+```
 
 ## What this paper shows
 On the cheapest and most constrained commodity WiFi microcontroller, the classic
@@ -65,7 +84,7 @@ Headline findings, all backed by the evidence in `results/`:
 
 ## Folder layout
 ```
-manuscript/   LaTeX source + classes + figures (compiles as-is on Overleaf, pdfLaTeX)
+manuscript/   Authors' LaTeX source + figures (the version of record is on IEEE Xplore)
 code/         Executed Kaggle notebooks + generators; ESP32 firmware + measurement scripts
 results/      All measured evidence: tables, JSON, figures, on-device logs (incl. energy,
               ESP32-S3, live pipeline, RAM breakdown, emlearn parity, external gen-gap)

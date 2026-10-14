@@ -1,28 +1,32 @@
 cff-version: 1.2.0
-message: "If you use this software, data, or results, please cite it as below."
-title: "How Far Can a PSRAM-less ESP32 Go? A TinyML Deployment Study for WiFi CSI HAR"
+message: "If you use this software, data, or results, please cite the paper below."
+title: "Feasibility and Deployment Analysis of Wi-Fi-Based Human Activity Recognition on a Memory-Constrained Microcontroller: code, firmware, and results"
 abstract: >-
-  Code, executed notebook, on-device measurement firmware, results, and trained
-  models for a deployment-characterization study of WiFi CSI human activity
-  recognition on the classic PSRAM-less ESP32. Spans classical learners, tiny
-  neural networks, and five deep architectures across UT-HAR and CSI-HAR, with
-  measured on-device latency and memory on the classic ESP32.
+  Code, executed notebooks, on-device measurement firmware, measured results, and
+  trained models for a deployment study of Wi-Fi CSI human activity recognition on
+  the classic PSRAM-less ESP32: classical learners, tiny neural networks, and five
+  deep architectures, with measured on-device memory, latency, and energy, a live
+  capture-to-prediction pipeline, and a cross-subject generalization analysis.
 type: software
 authors:
   - family-names: Malik
-    given-names: Annas Waseem
-    affiliation: "Faculty of Information Technology, University of Central Punjab, Lahore, Pakistan"
-    # orcid: "https://orcid.org/0000-0000-0000-0000"   # add Malik's ORCID before release
+    given-names: Annas Wasim
+    affiliation: "Faculty of Information Technology and Computer Science, University of Central Punjab, Lahore, Pakistan"
+    orcid: "https://orcid.org/0000-0001-8412-7655"
   - family-names: Ahmad
     given-names: Muhammad
-    affiliation: "Faculty of Information Technology, University of Central Punjab, Lahore, Pakistan"
-    # orcid: "https://orcid.org/0000-0000-0000-0000"   # add your ORCID before release
+    affiliation: "Faculty of Information Technology and Computer Science, University of Central Punjab, Lahore, Pakistan"
+    orcid: "https://orcid.org/0009-0007-7334-8584"
+  - family-names: Kim
+    given-names: Ki-Il
+    affiliation: "Chungnam National University, Daejeon, South Korea"
 license: MIT
-repository-code: "https://github.com/m-ahmad3/esp32-csi-har-frontier"
-version: "1.0.0"
-date-released: "2026-06-07"
+repository-code: "https://github.com/ahmadshahbazzz/esp32-csi-har-frontier"
+url: "https://doi.org/10.1109/ACCESS.2026.3742666"
+version: "2.0.0"
+date-released: "2026-10-15"
 keywords:
-  - WiFi sensing
+  - Wi-Fi sensing
   - channel state information
   - human activity recognition
   - TinyML
@@ -30,5 +34,18 @@ keywords:
   - microcontroller
   - on-device inference
   - int8 quantization
-  - decision tree
-  - random forest
+  - cross-subject generalization
+preferred-citation:
+  type: article
+  title: "Feasibility and Deployment Analysis of Wi-Fi-Based Human Activity Recognition on a Memory-Constrained Microcontroller"
+  authors:
+    - family-names: Malik
+      given-names: Annas Wasim
+    - family-names: Ahmad
+      given-names: Muhammad
+    - family-names: Kim
+      given-names: Ki-Il
+  journal: "IEEE Access"
+  year: 2026
+  doi: "10.1109/ACCESS.2026.3742666"
+  url: "https://ieeexplore.ieee.org/document/11733748"
